@@ -19,5 +19,5 @@ All rights reserved.
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%-- AO --%>
 <%@ taglib prefix="ao" uri="http://aoindustries.com/ao-taglib" %>
-<%@ taglib prefix="aoweb" uri="/WEB-INF/aoweb-struts-aoweb.tld" %>
-<%@ taglib prefix="skin" uri="/WEB-INF/aoweb-struts-skin.tld" %>
+<%@ taglib prefix="aoweb" uri="https://www.aoindustries.com/aoweb-struts/core/aoweb-taglib/" %>
+<%@ taglib prefix="skin" uri="https://www.aoindustries.com/aoweb-struts/core/skin-taglib/" %>
