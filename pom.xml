@@ -59,7 +59,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses />.
 							<configuration>
 								<links>
 									<link>http://docs.oracle.com/javaee/6/api/</link>
-									<link>http://www.ask3.cn/apidocs/struts-1.3.10/</link>
+									<link>http://tool.oschina.net/uploads/apidocs/struts-1.3.10/</link>
 									<link>https://www.aoindustries.com/ao-taglib/apidocs/</link>
 									<link>https://www.aoindustries.com/aoweb-struts/core/apidocs/</link>
 								</links>
