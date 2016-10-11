@@ -32,7 +32,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses />.
 
 	<groupId>com.aoindustries</groupId>
 	<artifactId>aoweb-struts-resources</artifactId>
-	<version>1.0.2-SNAPSHOT</version>
+	<version>1.0.2</version>
 	<packaging>jar</packaging>
 
 	<name>AOWeb Struts Resources</name>
@@ -44,7 +44,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses />.
 		<connection>scm:git:git://github.com/aoindustries/aoweb-struts-resources.git</connection>
 		<developerConnection>scm:git:git@github.com:aoindustries/aoweb-struts-resources.git</developerConnection>
 		<url>http://github.com/aoindustries/aoweb-struts-resources</url>
-		<tag>HEAD</tag>
+		<tag>aoweb-struts-resources-1.0.2</tag>
 	</scm>
 
 	<profiles>
