@@ -122,7 +122,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses />.
 		<dependency>
 			<groupId>com.aoindustries</groupId>
 			<artifactId>aoweb-struts-core</artifactId>
-			<version>1.0.1</version>
+			<version>1.0.2</version>
 		</dependency>
 		<dependency>
 			<groupId>com.semanticcms</groupId>
