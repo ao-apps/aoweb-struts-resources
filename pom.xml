@@ -47,30 +47,6 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses />.
 		<tag>HEAD</tag>
 	</scm>
 
-	<profiles>
-		<profile>
-			<id>release</id>
-			<build>
-				<pluginManagement>
-					<plugins>
-						<plugin>
-							<groupId>org.apache.maven.plugins</groupId>
-							<artifactId>maven-javadoc-plugin</artifactId>
-							<configuration>
-								<links>
-									<link>https://docs.oracle.com/javaee/6/api/</link>
-									<link>http://tool.oschina.net/uploads/apidocs/struts-1.3.10/</link>
-									<link>https://www.aoindustries.com/ao-taglib/apidocs/</link>
-									<link>https://www.aoindustries.com/aoweb-struts/core/apidocs/</link>
-								</links>
-							</configuration>
-						</plugin>
-					</plugins>
-				</pluginManagement>
-			</build>
-		</profile>
-	</profiles>
-
 	<dependencies>
 		<dependency>
 			<groupId>javax.servlet</groupId>
