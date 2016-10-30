@@ -3,6 +3,7 @@ Web resources for legacy Struts-based site framework with [AOServ Platform](http
 
 ## Project Links
 * [Project Home](https://www.aoindustries.com/aoweb-struts/resources/)
+* [Changelog](https://www.aoindustries.com/aoweb-struts/resources/changelog)
 * [Maven Central Repository](https://search.maven.org/#search%7Cgav%7C1%7Cg:%22com.aoindustries%22%20AND%20a:%22aoweb-struts-resources%22)
 * [GitHub](https://github.com/aoindustries/aoweb-struts-resources)
 
