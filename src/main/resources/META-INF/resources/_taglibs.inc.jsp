@@ -18,6 +18,6 @@ All rights reserved.
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%-- AO --%>
-<%@ taglib prefix="ao" uri="http://aoindustries.com/ao-taglib" %>
+<%@ taglib prefix="ao" uri="https://aoindustries.com/ao-taglib/" %>
 <%@ taglib prefix="aoweb" uri="https://aoindustries.com/aoweb-struts/core/aoweb-taglib/" %>
 <%@ taglib prefix="skin" uri="https://aoindustries.com/aoweb-struts/core/skin-taglib/" %>
