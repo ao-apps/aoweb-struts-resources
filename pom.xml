@@ -26,8 +26,9 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses />.
 
 	<parent>
 		<groupId>com.aoindustries</groupId>
-		<artifactId>aoweb-struts</artifactId>
-		<version>1.1.1-SNAPSHOT</version>
+		<artifactId>ao-oss-parent</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+		<relativePath>../../ao-oss-parent/pom.xml</relativePath>
 	</parent>
 
 	<groupId>com.aoindustries</groupId>
@@ -35,12 +36,8 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses />.
 	<version>1.1.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<properties>
-		<shortTitle>Resources</shortTitle>
-	</properties>
-
 	<name>AOWeb Struts Resources</name>
-	<url>https://aoindustries.com/${project.parent.artifactId}/resources/</url>
+	<url>https://aoindustries.com/aoweb-struts/resources/</url>
 	<description>Web resources for legacy Struts-based site framework with AOServ Platform control panels.</description>
 	<inceptionYear>2007</inceptionYear>
 
