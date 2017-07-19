@@ -1,6 +1,6 @@
 <!--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2016  AO Industries, Inc.
+Copyright (C) 2016, 2017  AO Industries, Inc.
     support@aoindustries.com
     7262 Bull Pen Cir
     Mobile, AL 36695
@@ -33,9 +33,18 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses />.
 		shortTitle="@{documented.shortTitle}"
 		description="@{documented.description}"
 		datePublished="2016-10-17T00:09:00-0500"
-		dateModified="2016-10-28T00:11:09-0500"
+		dateModified="2017-07-18T19:41:38-0500"
 	>
 		<core:child page="changelog.jspx" />
+		<ao:include
+			page="/ao-badges/badges.inc.jspx"
+			arg.projectStatus="${currentPage.property.projectStatus}"
+			arg.managementStatus="${currentPage.property.managementStatus}"
+			arg.packagingStatus="${currentPage.property.packagingStatus}"
+			arg.javaeeVersion="${currentPage.property.javaeeVersion}"
+			arg.semanticVersioning="${currentPage.property.semanticVersioning}"
+			arg.license="${currentPage.property.license}"
+		/>
 		<p>
 			Web resources for legacy Struts-based site framework with <core:link book="/" page="/aoserv/index.jspx" /> control panels.
 		</p>
