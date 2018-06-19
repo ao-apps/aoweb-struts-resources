@@ -1,4 +1,4 @@
-# [<img src="ao-logo.png" alt="AO Logo" width="35" height="40">](https://aoindustries.com/) [AOWeb Struts](https://aoindustries.com/aoweb-struts/) / [Resources](https://aoindustries.com/aoweb-struts/resources/)
+# [<img src="ao-logo.png" alt="AO Logo" width="35" height="40">](https://github.com/aoindustries) [AOWeb Struts](https://github.com/aoindustries/aoweb-struts) / [Resources](https://github.com/aoindustries/aoweb-struts-resources)
 <p>
 	<a href="https://aoindustries.com/life-cycle#project-current-stable">
 		<img src="https://aoindustries.com/ao-badges/project-current-stable.svg" alt="project: current stable" />
