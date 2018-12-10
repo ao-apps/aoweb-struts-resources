@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2007-2009, 2016  AO Industries, Inc.
+Copyright (C) 2007-2009, 2016, 2018  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -37,7 +37,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 						<th style='white-space:nowrap'><fmt:message key="makePaymentSelectCard.cardNumber.header" /></th>
 						<th style='white-space:nowrap'><fmt:message key="makePaymentSelectCard.comments.header" /></th>
 					</tr>
-					<logic:iterate scope="request" name="creditCards" id="creditCard" type="com.aoindustries.aoserv.client.CreditCard">
+					<logic:iterate scope="request" name="creditCards" id="creditCard" type="com.aoindustries.aoserv.client.payment.CreditCard">
 						<skin:lightDarkTableRow>
 							<td style="white-space:nowrap">
 								<logic:equal scope="request" name="lastPaymentCreditCard" value="<%= creditCard.getProviderUniqueId() %>">

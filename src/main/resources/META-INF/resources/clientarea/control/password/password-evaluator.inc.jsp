@@ -44,7 +44,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 								<logic:present scope="request" name="results">
 									<br /><br />
 									<table cellspacing="0" cellpadding="4">
-										<logic:iterate scope="request" name="results" id="result" type="com.aoindustries.aoserv.client.PasswordChecker.Result">
+										<logic:iterate scope="request" name="results" id="result" type="com.aoindustries.aoserv.client.password.PasswordChecker.Result">
 											<tr>
 												<td><ao:write name="result" property="category" />:</td>
 												<td><ao:write name="result" property="result" /></td>

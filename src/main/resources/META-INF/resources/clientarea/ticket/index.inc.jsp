@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2000-2009, 2016  AO Industries, Inc.
+Copyright (C) 2000-2009, 2016, 2018  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -21,7 +21,7 @@ You should have received a copy of the GNU Lesser General Public License
 along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 --%>
 <%@ page language="java" pageEncoding="UTF-8" %>
-<%@ page import="com.aoindustries.aoserv.client.Ticket" %>
+<%@ page import="com.aoindustries.aoserv.client.ticket.Ticket" %>
 <%@include file="/_taglibs.inc.jsp" %>
 
 <skin:setContentType />
@@ -60,11 +60,11 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 								</tr>
 							</logic:empty>
 							<logic:notEmpty name="tickets">
-								<logic:iterate name="tickets" id="ticket" type="com.aoindustries.aoserv.client.Ticket">
+								<logic:iterate name="tickets" id="ticket" type="com.aoindustries.aoserv.client.ticket.Ticket">
 									<skin:lightDarkTableRow pageAttributeId="isDark">
 										<td style="white-space:nowrap"><html:link action="/edit" paramId="pkey" paramName="ticket" paramProperty="pkey"><ao:write name="ticket" property="pkey" /></html:link></td>
 										<td style="white-space:nowrap">
-											<logic:equal name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.TicketStatus.CLOSED %>">
+											<logic:equal name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.ticket.Status.CLOSED %>">
 												<logic:equal name="isDark" value="true">
 													<ao:img height="25" width="25" src="p_dark_black.gif" alt="" style="vertical-align:middle;" />&#160;
 												</logic:equal>
@@ -72,8 +72,8 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 													<ao:img height="25" width="25" src="p_light_black.gif" alt=""  style="vertical-align:middle;" />&#160;
 												</logic:equal>
 											</logic:equal>
-											<logic:notEqual name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.TicketStatus.CLOSED %>">
-												<logic:equal name="ticket" property="clientPriority.priority" value="<%= com.aoindustries.aoserv.client.TicketPriority.LOW %>">
+											<logic:notEqual name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.ticket.Status.CLOSED %>">
+												<logic:equal name="ticket" property="clientPriority.priority" value="<%= com.aoindustries.aoserv.client.ticket.Priority.LOW %>">
 													<logic:equal name="isDark" value="true">
 														<ao:img height="25" width="25" src="p_dark_green.gif" alt="" style="vertical-align:middle;" />&#160;
 													</logic:equal>
@@ -81,7 +81,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 														<ao:img height="25" width="25" src="p_light_green.gif" alt="" style="vertical-align:middle;" />&#160;
 													</logic:equal>
 												</logic:equal>
-												<logic:equal name="ticket" property="clientPriority.priority" value="<%= com.aoindustries.aoserv.client.TicketPriority.NORMAL %>">
+												<logic:equal name="ticket" property="clientPriority.priority" value="<%= com.aoindustries.aoserv.client.ticket.Priority.NORMAL %>">
 													<logic:equal name="isDark" value="true">
 														<ao:img height="25" width="25" src="p_dark_yellow.gif" alt="" style="vertical-align:middle;" />&#160;
 													</logic:equal>
@@ -89,7 +89,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 														<ao:img height="25" width="25" src="p_light_yellow.gif" alt="" style="vertical-align:middle;" />&#160;
 													</logic:equal>
 												</logic:equal>
-												<logic:equal name="ticket" property="clientPriority.priority" value="<%= com.aoindustries.aoserv.client.TicketPriority.HIGH %>">
+												<logic:equal name="ticket" property="clientPriority.priority" value="<%= com.aoindustries.aoserv.client.ticket.Priority.HIGH %>">
 													<logic:equal name="isDark" value="true">
 														<ao:img height="25" width="25" src="p_dark_orange.gif" alt="" style="vertical-align:middle;" />&#160;
 													</logic:equal>
@@ -97,7 +97,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 														<ao:img height="25" width="25" src="p_light_orange.gif" alt="" style="vertical-align:middle;" />&#160;
 													</logic:equal>
 												</logic:equal>
-												<logic:equal name="ticket" property="clientPriority.priority" value="<%= com.aoindustries.aoserv.client.TicketPriority.URGENT %>">
+												<logic:equal name="ticket" property="clientPriority.priority" value="<%= com.aoindustries.aoserv.client.ticket.Priority.URGENT %>">
 													<logic:equal name="isDark" value="true">
 														<ao:img height="25" width="25" src="p_dark_red.gif" alt="" style="vertical-align:middle;" />&#160;
 													</logic:equal>

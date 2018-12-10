@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2007-2009, 2015, 2016  AO Industries, Inc.
+Copyright (C) 2007-2009, 2015, 2016, 2018  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -60,7 +60,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 									</fmt:message>
 									<hr />
 								</logic:present>
-								<bean:define scope="request" name="business" id="business" type="com.aoindustries.aoserv.client.Business" />
+								<bean:define scope="request" name="business" id="business" type="com.aoindustries.aoserv.client.account.Account" />
 								<table cellspacing="0" cellpadding="2">
 									<bean:define name="makePaymentNewCardForm" id="creditCardForm" />
 									<%@include file="credit-card-form.inc.jsp" %>

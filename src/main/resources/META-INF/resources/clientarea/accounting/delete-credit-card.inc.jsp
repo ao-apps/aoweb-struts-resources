@@ -47,7 +47,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 						<%@include file="../../_permission-denied.inc.jsp" %>
 					</logic:present>
 					<logic:notPresent scope="request" name="permissionDenied">
-						<bean:define scope="request" name="creditCard" id="creditCard" type="com.aoindustries.aoserv.client.CreditCard" />
+						<bean:define scope="request" name="creditCard" id="creditCard" type="com.aoindustries.aoserv.client.payment.CreditCard" />
 						<form method="post" action="<ao:url>delete-credit-card-completed.do</ao:url>"><div>
 							<input type="hidden" name="pkey" value="<ao:write name="creditCard" property="pkey" />" />
 							<skin:lightArea>

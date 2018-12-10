@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2007-2009, 2016  AO Industries, Inc.
+Copyright (C) 2007-2009, 2016, 2018  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -45,7 +45,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 								<th style='white-space:nowrap'><fmt:message key="makePayment.balance.header" /></th>
 								<th style='white-space:nowrap'><fmt:message key="makePayment.makePayment.header" /></th>
 							</tr>
-							<logic:iterate scope="request" name="businesses" id="business" type="com.aoindustries.aoserv.client.Business">
+							<logic:iterate scope="request" name="businesses" id="business" type="com.aoindustries.aoserv.client.account.Account">
 								<skin:lightDarkTableRow>
 									<td style="white-space:nowrap"><ao:write name="business" property="accounting" /></td>
 									<td style='white-space:nowrap' align='right'><ao:write name="business" property="monthlyRateString" /></td>

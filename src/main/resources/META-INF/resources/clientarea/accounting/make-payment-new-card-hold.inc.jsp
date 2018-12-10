@@ -68,7 +68,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 
 						<fmt:message key="makePaymentStoredCardHold.hold.detailsFollow" />
 
-						<bean:define scope="request" name="business" id="business" type="com.aoindustries.aoserv.client.Business" />
+						<bean:define scope="request" name="business" id="business" type="com.aoindustries.aoserv.client.account.Account" />
 						<bean:define scope="request" name="makePaymentNewCardForm" property="cardNumber" id="cardNumber" type="java.lang.String" />
 						<bean:define scope="request" name="makePaymentNewCardForm" property="maskedCardNumber" id="maskedCardNumber" type="java.lang.String" />
 						<table cellspacing='0' cellpadding='2'>

@@ -61,7 +61,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					<logic:notPresent scope="request" name="permissionDenied">
 						<html:javascript staticJavascript='false' bundle="/clientarea/ticket/ApplicationResources" formName="ticketForm" />
 						<html:form action="/edit-completed" onsubmit="return validateTicketForm(this);">
-							<bean:define scope="request" name="ticket" type="com.aoindustries.aoserv.client.Ticket" id="ticket" />
+							<bean:define scope="request" name="ticket" type="com.aoindustries.aoserv.client.ticket.Ticket" id="ticket" />
 							<div>
 								<skin:lightArea>
 									<table cellspacing="0" cellpadding="4">
@@ -100,7 +100,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 											<td style="white-space:nowrap"><fmt:message key="TicketForm.field.accounting.prompt" /></td>
 											<td>
 												<logic:notEqual name="aoConn" property="businesses.size" value="1">
-													<logic:notEqual name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.TicketStatus.CLOSED %>">
+													<logic:notEqual name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.ticket.Status.CLOSED %>">
 														<html:select property="accounting">
 															<logic:empty scope="request" name="ticketForm" property="accounting">
 																<html:option value="" />
@@ -108,7 +108,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 															<html:optionsCollection name="aoConn" property="businesses.rows" label="accounting" value="accounting" />
 														</html:select>
 													</logic:notEqual>
-													<logic:equal name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.TicketStatus.CLOSED %>">
+													<logic:equal name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.ticket.Status.CLOSED %>">
 														<html:hidden property="accounting" write="true" />
 													</logic:equal>
 												</logic:notEqual>
@@ -121,12 +121,12 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 										<tr>
 											<td style="white-space:nowrap"><fmt:message key="TicketForm.field.contactEmails.prompt" /></td>
 											<td>
-												<logic:notEqual name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.TicketStatus.CLOSED %>">
+												<logic:notEqual name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.ticket.Status.CLOSED %>">
 													<bean:define scope="request" name="ticketForm" property="contactEmails" type="java.lang.String" id="contactEmails" />
 													<% int numContactEmails = com.aoindustries.util.StringUtility.splitLines(contactEmails).size(); %>
 													<html:textarea property="contactEmails" cols="40" rows="<%= Integer.toString(Math.max(numContactEmails, 1)) %>" />
 												</logic:notEqual>
-												<logic:equal name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.TicketStatus.CLOSED %>">
+												<logic:equal name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.ticket.Status.CLOSED %>">
 													<logic:notEmpty name="ticketForm" property="contactEmails">
 														<div style="border:1px inset; padding: 4px"><pre style="display:inline"><html:hidden property="contactEmails" write="true" /></pre></div>
 													</logic:notEmpty>
@@ -140,12 +140,12 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 										<tr>
 											<td style="white-space:nowrap"><fmt:message key="TicketForm.field.contactPhoneNumbers.prompt" /></td>
 											<td>
-												<logic:notEqual name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.TicketStatus.CLOSED %>">
+												<logic:notEqual name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.ticket.Status.CLOSED %>">
 													<bean:define scope="request" name="ticketForm" property="contactPhoneNumbers" type="java.lang.String" id="contactPhoneNumbers" />
 													<% int numContactPhoneNumbers = com.aoindustries.util.StringUtility.splitLines(contactPhoneNumbers).size(); %>
 													<html:textarea property="contactPhoneNumbers" cols="40" rows="<%= Integer.toString(Math.max(numContactPhoneNumbers, 1)) %>" />
 												</logic:notEqual>
-												<logic:equal name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.TicketStatus.CLOSED %>">
+												<logic:equal name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.ticket.Status.CLOSED %>">
 													<logic:notEmpty name="ticketForm" property="contactPhoneNumbers">
 														<div style="border:1px inset; padding: 4px"><pre style="display:inline"><html:hidden property="contactPhoneNumbers" write="true" /></pre></div>
 													</logic:notEmpty>
@@ -159,12 +159,12 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 										<tr>
 											<td style="white-space:nowrap"><fmt:message key="TicketForm.field.clientPriority.prompt" /></td>
 											<td>
-												<logic:notEqual name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.TicketStatus.CLOSED %>">
+												<logic:notEqual name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.ticket.Status.CLOSED %>">
 													<html:select property="clientPriority">
 														<html:optionsCollection name="aoConn" property="ticketPriorities.rows" label="priority" value="priority" />
 													</html:select>
 												</logic:notEqual>
-												<logic:equal name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.TicketStatus.CLOSED %>">
+												<logic:equal name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.ticket.Status.CLOSED %>">
 													<html:hidden property="clientPriority" write="true" />
 												</logic:equal>
 											</td>
@@ -173,16 +173,16 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 										<tr>
 											<td style="white-space:nowrap"><fmt:message key="TicketForm.field.summary.prompt" /></td>
 											<td>
-												<logic:notEqual name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.TicketStatus.CLOSED %>">
+												<logic:notEqual name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.ticket.Status.CLOSED %>">
 													<html:text property="summary" size="60" />
 												</logic:notEqual>
-												<logic:equal name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.TicketStatus.CLOSED %>">
+												<logic:equal name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.ticket.Status.CLOSED %>">
 													<html:hidden property="summary" write="true" />
 												</logic:equal>
 											</td>
 											<td><html:errors bundle="/clientarea/ticket/ApplicationResources" property="summary" /></td>
 										</tr>
-										<logic:notEqual name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.TicketStatus.CLOSED %>">
+										<logic:notEqual name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.ticket.Status.CLOSED %>">
 											<tr>
 												<td colspan="3" align="center">
 													<br />
@@ -218,7 +218,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 												<th><fmt:message key="edit.header.actionType" /></th>
 												<th><fmt:message key="edit.header.summary" /></th>
 											</tr>
-											<logic:iterate name="actions" type="com.aoindustries.aoserv.client.TicketAction" id="action">
+											<logic:iterate name="actions" type="com.aoindustries.aoserv.client.ticket.Action" id="action">
 												<skin:lightDarkTableRow pageAttributeId="isDark">
 													<td style="white-space:nowrap"><aoweb:dateTime><ao:write name="action" property="time.time" /></aoweb:dateTime></td>
 													<td style="white-space:nowrap">
@@ -258,14 +258,14 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 								</logic:notEmpty>
 								<br />
 								<skin:lightArea>
-									<logic:equal name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.TicketStatus.CLOSED %>">
+									<logic:equal name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.ticket.Status.CLOSED %>">
 										<fmt:message key="edit.reopenTicket.header" />
 									</logic:equal>
-									<logic:equal name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.TicketStatus.BOUNCED %>">
+									<logic:equal name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.ticket.Status.BOUNCED %>">
 										<fmt:message key="edit.replyTicket.header" />
 									</logic:equal>
-									<logic:notEqual name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.TicketStatus.CLOSED %>">
-										<logic:notEqual name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.TicketStatus.BOUNCED %>">
+									<logic:notEqual name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.ticket.Status.CLOSED %>">
+										<logic:notEqual name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.ticket.Status.BOUNCED %>">
 											<fmt:message key="edit.addAnnotation.header" />
 										</logic:notEqual>
 									</logic:notEqual>
@@ -289,14 +289,14 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 											<td colspan="3" align="center">
 												<br />
 												<ao:input type="submit">
-													<logic:equal name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.TicketStatus.CLOSED %>">
+													<logic:equal name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.ticket.Status.CLOSED %>">
 														<fmt:message key="edit.field.submitAnnotation.label.reopen" />
 													</logic:equal>
-													<logic:equal name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.TicketStatus.BOUNCED %>">
+													<logic:equal name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.ticket.Status.BOUNCED %>">
 														<fmt:message key="edit.field.submitAnnotation.label.replyTicket" />
 													</logic:equal>
-													<logic:notEqual name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.TicketStatus.CLOSED %>">
-														<logic:notEqual name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.TicketStatus.BOUNCED %>">
+													<logic:notEqual name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.ticket.Status.CLOSED %>">
+														<logic:notEqual name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.ticket.Status.BOUNCED %>">
 															<fmt:message key="edit.field.submitAnnotation.label" />
 														</logic:notEqual>
 													</logic:notEqual>

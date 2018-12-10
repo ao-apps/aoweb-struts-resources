@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2003-2013, 2015, 2016  AO Industries, Inc.
+Copyright (C) 2003-2013, 2015, 2016, 2018  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -58,11 +58,11 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 													<th><fmt:message key="business.cancel.header.canceled" /></th>
 													<th><fmt:message key="business.cancel.header.actions" /></th>
 												</tr>
-												<logic:iterate scope="request" name="businesses" id="bu" type="com.aoindustries.aoserv.client.Business">
+												<logic:iterate scope="request" name="businesses" id="bu" type="com.aoindustries.aoserv.client.account.Account">
 													<skin:lightDarkTableRow>
 														<td>
 															<logic:notEmpty name="bu" property="businessProfile">
-																<bean:define name="bu" property="businessProfile" id="bp" type="com.aoindustries.aoserv.client.BusinessProfile" />
+																<bean:define name="bu" property="businessProfile" id="bp" type="com.aoindustries.aoserv.client.account.Profile" />
 																<fmt:message key="business.cancel.field.businessNameAndAccounting">
 																	<fmt:param><c:out value="${bu.businessProfile.name}" /></fmt:param>
 																	<fmt:param><c:out value="${bu.accounting}" /></fmt:param>
@@ -77,9 +77,9 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 														<td>
 															<logic:empty name="bu" property="parentBusiness">&#160;</logic:empty>
 															<logic:notEmpty name="bu" property="parentBusiness">
-																<bean:define name="bu" property="parentBusiness" id="parent" type="com.aoindustries.aoserv.client.Business" />
+																<bean:define name="bu" property="parentBusiness" id="parent" type="com.aoindustries.aoserv.client.account.Account" />
 																<logic:notEmpty name="parent" property="businessProfile">
-																	<bean:define name="parent" property="businessProfile" id="parentBP" type="com.aoindustries.aoserv.client.BusinessProfile" />
+																	<bean:define name="parent" property="businessProfile" id="parentBP" type="com.aoindustries.aoserv.client.account.Profile" />
 																	<fmt:message key="business.cancel.field.businessNameAndAccounting">
 																		<fmt:param><c:out value="${parentBP.name}" /></fmt:param>
 																		<fmt:param><c:out value="${parent.accounting}" /></fmt:param>

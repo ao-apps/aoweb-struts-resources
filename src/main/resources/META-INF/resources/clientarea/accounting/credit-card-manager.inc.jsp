@@ -57,7 +57,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 										<th><fmt:message key="creditCardManager.header.description" /></th>
 									</tr>
 									<logic:iterate scope="request" name="businessCreditCards" id="businessAndCreditCards" indexId="businessesIndex">
-										<bean:define name="businessAndCreditCards" property="creditCards" id="creditCards" type="java.util.List<com.aoindustries.aoserv.client.CreditCard>" />
+										<bean:define name="businessAndCreditCards" property="creditCards" id="creditCards" type="java.util.List<com.aoindustries.aoserv.client.payment.CreditCard>" />
 										<bean:size name="creditCards" id="creditCardsSize" />
 										<%--tr class="<%= (businessesIndex&1)==0 ? "aoLightRow" : "aoDarkRow" %>">
 											<td colspan="7"><hr /></td>
@@ -67,7 +67,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 												<logic:equal scope="request" name="showAccounting" value="true">
 													<td style='white-space:nowrap' rowspan="<%= creditCardsSize+1 %>"><ao:write name="businessAndCreditCards" property="business.accounting" /></td>
 												</logic:equal>
-												<logic:iterate name="creditCards" id="creditCard" type="com.aoindustries.aoserv.client.CreditCard" indexId="creditCardsIndex">
+												<logic:iterate name="creditCards" id="creditCard" type="com.aoindustries.aoserv.client.payment.CreditCard" indexId="creditCardsIndex">
 													<logic:notEqual name="creditCardsIndex" value="0">
 														</tr>
 														<tr class="<%= ((businessesIndex+creditCardsIndex)&1)==0 ? "aoLightRow" : "aoDarkRow" %>">

@@ -62,7 +62,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 										<th><fmt:message key="configureAutomaticBilling.header.maskedCardNumber" /></th>
 										<th><fmt:message key="configureAutomaticBilling.header.description" /></th>
 									</tr>
-									<logic:iterate scope="request" name="activeCards" id="creditCard" type="com.aoindustries.aoserv.client.CreditCard" indexId="row">
+									<logic:iterate scope="request" name="activeCards" id="creditCard" type="com.aoindustries.aoserv.client.payment.CreditCard" indexId="row">
 										<skin:lightDarkTableRow>
 											<td style="white-space:nowrap">
 												<logic:notPresent scope="request" name="automaticCard">

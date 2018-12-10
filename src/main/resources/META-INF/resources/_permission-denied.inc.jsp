@@ -39,7 +39,7 @@ It only provides the content of the page.
 				<bean:size scope="request" name="permissionDenied" id="permissionDeniedSize" />
 				<logic:equal name="permissionDeniedSize" value="1">
 					<fmt:message key="permissionDenied.theFollowingPermissionRequired" />
-					<logic:iterate scope="request" name="permissionDenied" id="andPermission" type="com.aoindustries.aoserv.client.AOServPermission">
+					<logic:iterate scope="request" name="permissionDenied" id="andPermission" type="com.aoindustries.aoserv.client.master.Permission">
 						<p>
 							<table cellspacing='0' cellpadding='2'>
 								<tr>
@@ -63,8 +63,8 @@ It only provides the content of the page.
 								<th style='white-space:nowrap'><fmt:message key="permissionDenied.andPermissions.header.description" /></th>
 								<th style='white-space:nowrap'><fmt:message key="permissionDenied.andPermissions.header.hasPermission" /></th>
 							</tr>
-							<bean:define scope="request" name="aoConn" property="thisBusinessAdministrator" id="thisBusinessAdministrator" type="com.aoindustries.aoserv.client.BusinessAdministrator" />
-							<logic:iterate scope="request" name="permissionDenied" id="andPermission" type="com.aoindustries.aoserv.client.AOServPermission">
+							<bean:define scope="request" name="aoConn" property="thisBusinessAdministrator" id="thisBusinessAdministrator" type="com.aoindustries.aoserv.client.account.Administrator" />
+							<logic:iterate scope="request" name="permissionDenied" id="andPermission" type="com.aoindustries.aoserv.client.master.Permission">
 								<tr>
 									<td style="white-space:nowrap"><ao:write name="andPermission" /></td>
 									<td style="white-space:nowrap"><ao:write name="andPermission" method="getDescription" /></td>

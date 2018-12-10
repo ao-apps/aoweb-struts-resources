@@ -46,7 +46,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					<logic:notPresent scope="request" name="permissionDenied">
 						<skin:lightArea>
 							<logic:present scope="request" name="creditCard">
-								<bean:define scope="request" name="creditCard" id="creditCard" type="com.aoindustries.aoserv.client.CreditCard" />
+								<bean:define scope="request" name="creditCard" id="creditCard" type="com.aoindustries.aoserv.client.payment.CreditCard" />
 								<fmt:message key="configureAutomaticBillingCompleted.setUseMonthly.title" />
 								<hr />
 								<fmt:message key="configureAutomaticBillingCompleted.setUseMonthly.text">
