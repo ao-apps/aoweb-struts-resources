@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2000-2009, 2016  AO Industries, Inc.
+Copyright (C) 2000-2009, 2016, 2018  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -46,16 +46,16 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 								<skin:lightArea>
 									<table cellspacing='0' cellpadding='2'>
 										<tr>
-											<bean:size scope="request" name="aoConn" property="packages.map" id="packagesSize" />
+											<bean:size scope="request" name="aoConn" property="billing.packages.map" id="packagesSize" />
 											<logic:greaterThan name="packagesSize" value="1">
 												<th><fmt:message key="password.mySQLPasswordSetter.header.package" /></th>
 											</logic:greaterThan>
 											<th><fmt:message key="password.mySQLPasswordSetter.header.username" /></th>
-											<bean:size scope="request" name="aoConn" property="mysqlServers.map" id="mysqlServersSize" />
+											<bean:size scope="request" name="aoConn" property="mysql.mysqlServers.map" id="mysqlServersSize" />
 											<logic:greaterThan name="mysqlServersSize" value="1">
 												<th><fmt:message key="password.mySQLPasswordSetter.header.mySQLServer" /></th>
 											</logic:greaterThan>
-											<bean:size scope="request" name="aoConn" property="aoServers.map" id="aoServersSize" />
+											<bean:size scope="request" name="aoConn" property="linux.aoServers.map" id="aoServersSize" />
 											<logic:greaterThan name="aoServersSize" value="1">
 												<th><fmt:message key="password.mySQLPasswordSetter.header.aoServer" /></th>
 											</logic:greaterThan>

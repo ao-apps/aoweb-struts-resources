@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2000-2009, 2016  AO Industries, Inc.
+Copyright (C) 2000-2009, 2016, 2018  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -45,15 +45,15 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 									<tr>
 										<td style="white-space:nowrap"><fmt:message key="TicketForm.field.accounting.prompt" /></td>
 										<td>
-											<logic:notEqual name="aoConn" property="businesses.size" value="1">
+											<logic:notEqual name="aoConn" property="account.businesses.size" value="1">
 												<html:select property="accounting">
 													<logic:empty scope="request" name="ticketForm" property="accounting">
 														<html:option value="" />
 													</logic:empty>
-													<html:optionsCollection name="aoConn" property="businesses.rows" label="accounting" value="accounting" />
+													<html:optionsCollection name="aoConn" property="account.businesses.rows" label="accounting" value="accounting" />
 												</html:select>
 											</logic:notEqual>
-											<logic:equal name="aoConn" property="businesses.size" value="1">
+											<logic:equal name="aoConn" property="account.businesses.size" value="1">
 												<html:hidden property="accounting" write="true" />
 											</logic:equal>
 										</td>
@@ -73,7 +73,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 										<td style="white-space:nowrap"><fmt:message key="TicketForm.field.clientPriority.prompt" /></td>
 										<td>
 											<html:select property="clientPriority">
-												<html:optionsCollection name="aoConn" property="ticketPriorities.rows" label="priority" value="priority" />
+												<html:optionsCollection name="aoConn" property="ticket.ticketPriorities.rows" label="priority" value="priority" />
 											</html:select>
 										</td>
 										<td><html:errors bundle="/clientarea/ticket/ApplicationResources" property="clientPriority" /></td>
