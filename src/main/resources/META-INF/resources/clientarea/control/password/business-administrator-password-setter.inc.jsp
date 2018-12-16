@@ -42,7 +42,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 							<skin:lightArea>
 								<table cellspacing='0' cellpadding='2'>
 									<tr>
-										<bean:size scope="request" name="aoConn" property="billing.packages.map" id="packagesSize" />
+										<bean:size scope="request" name="aoConn" property="billing.Package.map" id="packagesSize" />
 										<logic:greaterThan name="packagesSize" value="1">
 											<th><fmt:message key="password.businessAdministratorPasswordSetter.header.package" /></th>
 										</logic:greaterThan>

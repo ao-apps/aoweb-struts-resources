@@ -46,16 +46,16 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 								<skin:lightArea>
 									<table cellspacing='0' cellpadding='2'>
 										<tr>
-											<bean:size scope="request" name="aoConn" property="billing.packages.map" id="packagesSize" />
+											<bean:size scope="request" name="aoConn" property="billing.Package.map" id="packagesSize" />
 											<logic:greaterThan name="packagesSize" value="1">
 												<th><fmt:message key="password.postgreSQLPasswordSetter.header.package" /></th>
 											</logic:greaterThan>
 											<th><fmt:message key="password.postgreSQLPasswordSetter.header.username" /></th>
-											<bean:size scope="request" name="aoConn" property="postgresql.postgresServers.map" id="postgresServersSize" />
+											<bean:size scope="request" name="aoConn" property="postgresql.Server.map" id="postgresServersSize" />
 											<logic:greaterThan name="postgresServersSize" value="1">
 												<th><fmt:message key="password.postgreSQLPasswordSetter.header.postgreSQLServer" /></th>
 											</logic:greaterThan>
-											<bean:size scope="request" name="aoConn" property="linux.aoServers.map" id="aoServersSize" />
+											<bean:size scope="request" name="aoConn" property="linux.Server.map" id="aoServersSize" />
 											<logic:greaterThan name="aoServersSize" value="1">
 												<th><fmt:message key="password.postgreSQLPasswordSetter.header.aoServer" /></th>
 											</logic:greaterThan>

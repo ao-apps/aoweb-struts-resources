@@ -47,7 +47,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 								<th><fmt:message key="index.header.status" /></th>
 								<th><fmt:message key="index.header.openDate" /></th>
 								<th><fmt:message key="index.header.createdBy" /></th>
-								<logic:notEqual name="aoConn" property="account.businesses.size" value="1">
+								<logic:notEqual name="aoConn" property="account.Account.size" value="1">
 									<th><fmt:message key="index.header.accounting" /></th>
 								</logic:notEqual>
 								<th><fmt:message key="index.header.summary" /></th>
@@ -115,14 +115,14 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 												<ao:write name="ticket" property="createdBy.name" />
 											</logic:notEmpty>
 											<logic:empty  name="ticket" property="createdBy">
-												<logic:notEmpty name="siteSettings" property='<%= "rootAOServConnector.ticket.tickets.map("+ticket.getPkey()+")" %>'>
-													<logic:notEmpty name="siteSettings" property='<%= "rootAOServConnector.ticket.tickets.map("+ticket.getPkey()+").createdBy" %>'>
-														<ao:write name="siteSettings" property='<%= "rootAOServConnector.ticket.tickets.map("+ticket.getPkey()+").createdBy.name" %>' />
+												<logic:notEmpty name="siteSettings" property='<%= "rootAOServConnector.ticket.Ticket.map("+ticket.getPkey()+")" %>'>
+													<logic:notEmpty name="siteSettings" property='<%= "rootAOServConnector.ticket.Ticket.map("+ticket.getPkey()+").createdBy" %>'>
+														<ao:write name="siteSettings" property='<%= "rootAOServConnector.ticket.Ticket.map("+ticket.getPkey()+").createdBy.name" %>' />
 													</logic:notEmpty>
 												</logic:notEmpty>
 											</logic:empty>
 										</td>
-										<logic:notEqual name="aoConn" property="account.businesses.size" value="1">
+										<logic:notEqual name="aoConn" property="account.Account.size" value="1">
 											<td style="white-space:nowrap"><ao:write name="ticket" property="business" /></td>
 										</logic:notEqual>
 										<td style="white-space:nowrap"><ao:write name="ticket" property="summary" /></td>

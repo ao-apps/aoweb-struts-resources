@@ -25,7 +25,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 
 <c:set var="rootConn" value="${siteSettings.rootAOServConnector}" />
 <c:set var="activePackageDefinitions" value="${rootConn.thisBusinessAdministrator.username['package'].business.activePackageDefinitions}" />
-<c:set var="packageCategories" value="${rootConn.billing.packageCategories.map}" />
+<c:set var="packageCategories" value="${rootConn.billing.PackageCategory.map}" />
 <c:if test="${activePackageDefinitions[packageCategories.application]!=null}">
 	<skin:child><%@include file="application.meta.inc.jsp" %></skin:child>
 </c:if>

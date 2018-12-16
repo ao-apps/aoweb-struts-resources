@@ -87,11 +87,11 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 											</tr>
 										</logic:notEmpty>
 										<logic:empty  name="ticket" property="createdBy">
-											<logic:notEmpty name="siteSettings" property='<%= "rootAOServConnector.ticket.tickets.map("+ticket.getPkey()+")" %>'>
-												<logic:notEmpty name="siteSettings" property='<%= "rootAOServConnector.ticket.tickets.map("+ticket.getPkey()+").createdBy" %>'>
+											<logic:notEmpty name="siteSettings" property='<%= "rootAOServConnector.ticket.Ticket.map("+ticket.getPkey()+")" %>'>
+												<logic:notEmpty name="siteSettings" property='<%= "rootAOServConnector.ticket.Ticket.map("+ticket.getPkey()+").createdBy" %>'>
 													<tr>
 														<td style="white-space:nowrap"><fmt:message key="edit.label.createdBy" /></td>
-														<td><ao:write name="siteSettings" property='<%= "rootAOServConnector.ticket.tickets.map("+ticket.getPkey()+").createdBy.name" %>' /></td>
+														<td><ao:write name="siteSettings" property='<%= "rootAOServConnector.ticket.Ticket.map("+ticket.getPkey()+").createdBy.name" %>' /></td>
 													</tr>
 												</logic:notEmpty>
 											</logic:notEmpty>
@@ -99,20 +99,20 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 										<tr>
 											<td style="white-space:nowrap"><fmt:message key="TicketForm.field.accounting.prompt" /></td>
 											<td>
-												<logic:notEqual name="aoConn" property="account.businesses.size" value="1">
+												<logic:notEqual name="aoConn" property="account.Account.size" value="1">
 													<logic:notEqual name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.ticket.Status.CLOSED %>">
 														<html:select property="accounting">
 															<logic:empty scope="request" name="ticketForm" property="accounting">
 																<html:option value="" />
 															</logic:empty>
-															<html:optionsCollection name="aoConn" property="account.businesses.rows" label="accounting" value="accounting" />
+															<html:optionsCollection name="aoConn" property="account.Account.rows" label="accounting" value="accounting" />
 														</html:select>
 													</logic:notEqual>
 													<logic:equal name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.ticket.Status.CLOSED %>">
 														<html:hidden property="accounting" write="true" />
 													</logic:equal>
 												</logic:notEqual>
-												<logic:equal name="aoConn" property="account.businesses.size" value="1">
+												<logic:equal name="aoConn" property="account.Account.size" value="1">
 													<html:hidden property="accounting" write="true" />
 												</logic:equal>
 											</td>
@@ -161,7 +161,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 											<td>
 												<logic:notEqual name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.ticket.Status.CLOSED %>">
 													<html:select property="clientPriority">
-														<html:optionsCollection name="aoConn" property="ticket.ticketPriorities.rows" label="priority" value="priority" />
+														<html:optionsCollection name="aoConn" property="ticket.Priority.rows" label="priority" value="priority" />
 													</html:select>
 												</logic:notEqual>
 												<logic:equal name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.ticket.Status.CLOSED %>">
@@ -226,9 +226,9 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 															<ao:write name="action" property="administrator.name" />
 														</logic:notEmpty>
 														<logic:empty  name="action" property="administrator">
-															<logic:notEmpty name="siteSettings" property='<%= "rootAOServConnector.ticket.ticketActions.map("+action.getPkey()+")" %>'>
-																<logic:notEmpty name="siteSettings" property='<%= "rootAOServConnector.ticket.ticketActions.map("+action.getPkey()+").administrator" %>'>
-																	<ao:write name="siteSettings" property='<%= "rootAOServConnector.ticket.ticketActions.map("+action.getPkey()+").administrator.name" %>' />
+															<logic:notEmpty name="siteSettings" property='<%= "rootAOServConnector.ticket.Action.map("+action.getPkey()+")" %>'>
+																<logic:notEmpty name="siteSettings" property='<%= "rootAOServConnector.ticket.Action.map("+action.getPkey()+").administrator" %>'>
+																	<ao:write name="siteSettings" property='<%= "rootAOServConnector.ticket.Action.map("+action.getPkey()+").administrator.name" %>' />
 																</logic:notEmpty>
 															</logic:notEmpty>
 														</logic:empty>

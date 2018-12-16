@@ -46,12 +46,12 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 								<skin:lightArea>
 									<table cellspacing='0' cellpadding='2'>
 										<tr>
-											<bean:size scope="request" name="aoConn" property="billing.packages.map" id="packagesSize" />
+											<bean:size scope="request" name="aoConn" property="billing.Package.map" id="packagesSize" />
 											<logic:greaterThan name="packagesSize" value="1">
 												<th><fmt:message key="password.linuxAccountPasswordSetter.header.package" /></th>
 											</logic:greaterThan>
 											<th><fmt:message key="password.linuxAccountPasswordSetter.header.username" /></th>
-											<bean:size scope="request" name="aoConn" property="linux.aoServers.map" id="aoServersSize" />
+											<bean:size scope="request" name="aoConn" property="linux.Server.map" id="aoServersSize" />
 											<logic:greaterThan name="aoServersSize" value="1">
 												<th><fmt:message key="password.linuxAccountPasswordSetter.header.aoServer" /></th>
 											</logic:greaterThan>
