@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2003-2009, 2015, 2016  AO Industries, Inc.
+Copyright (C) 2003-2009, 2015, 2016, 2018  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -28,7 +28,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 <html:html lang="true" xhtml="true">
 	<%@include file="add-parents.inc.jsp" %>
 	<fmt:bundle basename="com.aoindustries.website.clientarea.control.ApplicationResources">
-		<skin:path>/clientarea/control/business/cancel-feedback-completed.do?business=${business.accounting}</skin:path>
+		<skin:path>/clientarea/control/business/cancel-feedback-completed.do?business=${business.name}</skin:path>
 		<logic:equal name="siteSettings" property="brand.aowebStrutsNoindex" value="true"><skin:meta name="ROBOTS">NOINDEX</skin:meta></logic:equal>
 		<skin:title><fmt:message key="business.cancel.title" /></skin:title>
 		<skin:navImageAlt><fmt:message key="business.cancel.navImageAlt" /></skin:navImageAlt>
@@ -45,7 +45,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					<logic:notPresent scope="request" name="permissionDenied">
 						<skin:lightArea>
 							<fmt:message key="business.cancel-feedback-completed.title">
-								<fmt:param><c:out value="${business.accounting}" /></fmt:param>
+								<fmt:param><c:out value="${business.name}" /></fmt:param>
 							</fmt:message>
 						</skin:lightArea>
 					</logic:notPresent>

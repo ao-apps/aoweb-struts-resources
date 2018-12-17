@@ -65,12 +65,12 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 																<bean:define name="bu" property="businessProfile" id="bp" type="com.aoindustries.aoserv.client.account.Profile" />
 																<fmt:message key="business.cancel.field.businessNameAndAccounting">
 																	<fmt:param><c:out value="${bu.businessProfile.name}" /></fmt:param>
-																	<fmt:param><c:out value="${bu.accounting}" /></fmt:param>
+																	<fmt:param><c:out value="${bu.name}" /></fmt:param>
 																</fmt:message>
 															</logic:notEmpty>
 															<logic:empty name="bu" property="businessProfile">
 																<fmt:message key="business.cancel.field.businessAccounting">
-																	<fmt:param><c:out value="${bu.accounting}" /></fmt:param>
+																	<fmt:param><c:out value="${bu.name}" /></fmt:param>
 																</fmt:message>
 															</logic:empty>
 														</td>
@@ -82,12 +82,12 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 																	<bean:define name="parent" property="businessProfile" id="parentBP" type="com.aoindustries.aoserv.client.account.Profile" />
 																	<fmt:message key="business.cancel.field.businessNameAndAccounting">
 																		<fmt:param><c:out value="${parentBP.name}" /></fmt:param>
-																		<fmt:param><c:out value="${parent.accounting}" /></fmt:param>
+																		<fmt:param><c:out value="${parent.name}" /></fmt:param>
 																	</fmt:message>
 																</logic:notEmpty>
 																<logic:empty name="parent" property="businessProfile">
 																	<fmt:message key="business.cancel.field.businessAccounting">
-																		<fmt:param><c:out value="${parent.accounting}" /></fmt:param>
+																		<fmt:param><c:out value="${parent.name}" /></fmt:param>
 																	</fmt:message>
 																</logic:empty>
 															</logic:notEmpty>
@@ -127,7 +127,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 															<% if(!bu.canCancel()) { %>
 																&#160;
 															<% } else { %>
-																<html:link action="/business/cancel-feedback" paramId="business" paramName="bu" paramProperty="accounting">
+																<html:link action="/business/cancel-feedback" paramId="business" paramName="bu" paramProperty="name">
 																	<fmt:message key="business.cancel.field.link.cancel" />
 																</html:link>
 															<% } %>

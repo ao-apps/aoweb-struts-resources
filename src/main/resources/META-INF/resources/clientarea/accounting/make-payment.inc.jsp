@@ -47,7 +47,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 							</tr>
 							<logic:iterate scope="request" name="businesses" id="business" type="com.aoindustries.aoserv.client.account.Account">
 								<skin:lightDarkTableRow>
-									<td style="white-space:nowrap"><ao:write name="business" property="accounting" /></td>
+									<td style="white-space:nowrap"><ao:write name="business" property="name" /></td>
 									<td style='white-space:nowrap' align='right'><ao:write name="business" property="monthlyRateString" /></td>
 									<td style='white-space:nowrap' align='right'>
 										<% BigDecimal balance = business.getAccountBalance(); %>
@@ -64,7 +64,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 										<% } %>
 									</td>
 									<td style="white-space:nowrap">
-										<html:link action="/make-payment-select-card" paramId="accounting" paramName="business" paramProperty="accounting">
+										<html:link action="/make-payment-select-card" paramId="accounting" paramName="business" paramProperty="name">
 											<fmt:message key="makePayment.makePayment.link" />
 										</html:link>
 									</td>

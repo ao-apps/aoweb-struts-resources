@@ -59,7 +59,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 									</tr>
 									<tr>
 										<th style='white-space:nowrap' class="aoLightRow" align="left"><fmt:message key="deleteCreditCard.accounting.header" /></th>
-										<td style="white-space:nowrap"><ao:write name="creditCard" property="business.accounting" /></td>
+										<td style="white-space:nowrap"><ao:write name="creditCard" property="business.name" /></td>
 									</tr>
 									<tr>
 										<th style='white-space:nowrap' class="aoLightRow" align="left"><fmt:message key="deleteCreditCard.firstName.header" /></th>

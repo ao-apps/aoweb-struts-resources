@@ -65,7 +65,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 										<logic:notEqual name="creditCardsSize" value="0">
 											<tr class="<%= (businessesIndex&1)==0 ? "aoLightRow" : "aoDarkRow" %>">
 												<logic:equal scope="request" name="showAccounting" value="true">
-													<td style='white-space:nowrap' rowspan="<%= creditCardsSize+1 %>"><ao:write name="businessAndCreditCards" property="business.accounting" /></td>
+													<td style='white-space:nowrap' rowspan="<%= creditCardsSize+1 %>"><ao:write name="businessAndCreditCards" property="business.name" /></td>
 												</logic:equal>
 												<logic:iterate name="creditCards" id="creditCard" type="com.aoindustries.aoserv.client.payment.CreditCard" indexId="creditCardsIndex">
 													<logic:notEqual name="creditCardsIndex" value="0">
@@ -132,16 +132,16 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 										<tr class="<%= (businessesIndex&1)==0 ? "aoLightRow" : "aoDarkRow" %>">
 											<logic:equal name="creditCardsSize" value="0">
 												<logic:equal scope="request" name="showAccounting" value="true">
-													<td rowspan="<%= creditCardsSize+1 %>"><ao:write name="businessAndCreditCards" property="business.accounting" /></td>
+													<td rowspan="<%= creditCardsSize+1 %>"><ao:write name="businessAndCreditCards" property="business.name" /></td>
 												</logic:equal>
 											</logic:equal>
 											<td style='white-space:nowrap' colspan="7">
-												<html:link action="/add-credit-card" paramId="accounting" paramName="businessAndCreditCards" paramProperty="business.accounting">
+												<html:link action="/add-credit-card" paramId="accounting" paramName="businessAndCreditCards" paramProperty="business.name">
 													<fmt:message key="creditCardManager.addCreditCard.link" />
 												</html:link>
 												<logic:equal name="businessAndCreditCards" property="hasActiveCard" value="true">
 													|
-													<html:link action="/configure-automatic-billing" paramId="accounting" paramName="businessAndCreditCards" paramProperty="business.accounting">
+													<html:link action="/configure-automatic-billing" paramId="accounting" paramName="businessAndCreditCards" paramProperty="business.name">
 														<fmt:message key="creditCardManager.configureAutomaticBilling.link" />
 													</html:link>
 												</logic:equal>

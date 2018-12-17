@@ -53,7 +53,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 								<fmt:message key="configureAutomaticBilling.cardList.title" />
 								<hr />
 								<fmt:message key="configureAutomaticBilling.business.label" />
-								<ao:write scope="request" name="business" property="accounting" /><br />
+								<ao:write scope="request" name="business" property="name" /><br />
 								<br />
 								<table cellspacing="0" cellpadding="2">
 									<tr>
