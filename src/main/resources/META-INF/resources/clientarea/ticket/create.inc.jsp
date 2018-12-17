@@ -50,7 +50,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 													<logic:empty scope="request" name="ticketForm" property="accounting">
 														<html:option value="" />
 													</logic:empty>
-													<html:optionsCollection name="aoConn" property="account.Account.rows" label="accounting" value="name" />
+													<html:optionsCollection name="aoConn" property="account.Account.rows" label="name" value="name" />
 												</html:select>
 											</logic:notEqual>
 											<logic:equal name="aoConn" property="account.Account.size" value="1">
