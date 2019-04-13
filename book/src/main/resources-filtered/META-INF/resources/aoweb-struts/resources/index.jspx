@@ -47,7 +47,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses />.
 			arg.license="${currentPage.property.license}"
 		/>
 		<p>
-			Web resources for legacy Struts-based site framework with <core:link book="/" page="/aoserv/" /> control panels.
+			Web resources for legacy Struts-based site framework with <core:link book="/" page="/aoserv/index.jspx" /> control panels.
 		</p>
 		<section:section label="Project Links">
 			<ul>
