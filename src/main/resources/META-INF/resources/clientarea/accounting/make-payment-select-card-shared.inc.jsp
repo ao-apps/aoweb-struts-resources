@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2007-2009, 2016, 2018  AO Industries, Inc.
+Copyright (C) 2007-2009, 2016, 2018, 2019  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -40,6 +40,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					<logic:iterate scope="request" name="creditCards" id="creditCard" type="com.aoindustries.aoserv.client.payment.CreditCard">
 						<skin:lightDarkTableRow>
 							<td style="white-space:nowrap">
+								<%-- TODO: label for this input --%>
 								<logic:equal scope="request" name="lastPaymentCreditCard" value="<%= creditCard.getProviderUniqueId() %>">
 									<input type="radio" name="pkey" value="<%= creditCard.getPkey() %>" checked="checked" />
 								</logic:equal>
@@ -62,6 +63,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					</logic:iterate>
 					<skin:lightDarkTableRow>
 						<td style="white-space:nowrap">
+							<%-- TODO: label for this input --%>
 							<logic:equal scope="request" name="lastPaymentCreditCard" value="">
 								<input type="radio" name="pkey" value="" checked="checked" />
 							</logic:equal>
