@@ -95,7 +95,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 											</td>
 											<c:set var="cardNumber" value="${creditCard.cardInfo}"/>
 											<td style="white-space:nowrap"><%@include file="_credit-card-image.inc.jsp" %></td>
-											<td style="white-space:nowrap"><c:out value="${fn:replace(cardNumber, 'X', '*')}"/></td>
+											<td style="white-space:nowrap; font-family: monospace"><c:out value="${aoweb:getCardDisplay(cardNumber)}"/></td>
 											<td style="white-space:nowrap">
 												<logic:notEmpty name="creditCard" property="description">
 													<ao:write name="creditCard" property="description" />
