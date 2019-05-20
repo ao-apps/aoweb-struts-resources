@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2007-2009, 2015, 2016, 2018  AO Industries, Inc.
+Copyright (C) 2007-2009, 2015, 2016, 2018, 2019  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -112,7 +112,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 										<tr>
 											<td style="white-space:nowrap"><fmt:message key="editCreditCard.required.no" /></td>
 											<td style="white-space:nowrap"><fmt:message key="editCreditCard.maskedCardNumber.prompt" /></td>
-											<td style="white-space:nowrap"><c:out value="${fn:replace(creditCard.cardInfo, 'X', '*')}"/></td>
+											<td style="white-space:nowrap; font-family: monospace"><c:out value="${aoweb:getCardDisplay(creditCard.cardInfo)}"/></td>
 											<td style="white-space:nowrap"><html:errors bundle="/clientarea/accounting/ApplicationResources" property="maskedCardNumber" /></td>
 										</tr>
 										<tr>
