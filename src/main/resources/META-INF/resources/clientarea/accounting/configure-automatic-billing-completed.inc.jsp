@@ -51,7 +51,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 								<hr />
 								<fmt:message key="configureAutomaticBillingCompleted.setUseMonthly.text">
 									<fmt:param><c:out value="${business.name}" /></fmt:param>
-									<fmt:param><c:out value="${fn:toLowerCase(creditCard.cardInfo)}" /></fmt:param>
+									<fmt:param><c:out value="${aoweb:getCardDisplay(creditCard.cardInfo)}" /></fmt:param>
 								</fmt:message>
 							</logic:present>
 							<logic:notPresent scope="request" name="creditCard">
