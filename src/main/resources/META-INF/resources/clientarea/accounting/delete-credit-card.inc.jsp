@@ -80,7 +80,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 									</tr>
 									<tr>
 										<th style='white-space:nowrap' class="aoLightRow" align="left"><fmt:message key="deleteCreditCard.cardNumber.header" /></th>
-										<td style="white-space:nowrap; font-family: monospace"><c:out value="${aoweb:getCardDisplay(cardNumber)}"/></td>
+										<td style="white-space:nowrap; font-family: monospace"><c:out value="${aoweb:getCardNumberDisplay(cardNumber)}"/></td>
 									</tr>
 									<tr>
 										<th style='white-space:nowrap' class="aoLightRow" align="left"><fmt:message key="deleteCreditCard.description.header" /></th>

@@ -77,7 +77,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 								<th style="text-align:left; white-space:nowrap;"><fmt:message key="makePaymentStoredCard.card.prompt" /></th>
 								<td style="white-space:nowrap; font-family: monospace">
 									<%@include file="_credit-card-image.inc.jsp" %>
-									<c:out value="${aoweb:getCardDisplay(maskedCardNumber)}"/>
+									<c:out value="${aoweb:getCardNumberDisplay(maskedCardNumber)}"/>
 								</td>
 							</tr>
 							<tr>

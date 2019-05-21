@@ -112,7 +112,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 										<tr>
 											<td style="white-space:nowrap"><fmt:message key="editCreditCard.required.no" /></td>
 											<td style="white-space:nowrap"><fmt:message key="editCreditCard.maskedCardNumber.prompt" /></td>
-											<td style="white-space:nowrap; font-family: monospace"><c:out value="${aoweb:getCardDisplay(creditCard.cardInfo)}"/></td>
+											<td style="white-space:nowrap; font-family: monospace"><c:out value="${aoweb:getCardNumberDisplay(creditCard.cardInfo)}"/></td>
 											<td style="white-space:nowrap"><html:errors bundle="/clientarea/accounting/ApplicationResources" property="maskedCardNumber" /></td>
 										</tr>
 										<tr>

@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2007-2009, 2015, 2016, 2018  AO Industries, Inc.
+Copyright (C) 2007-2009, 2015, 2016, 2018, 2019  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -51,7 +51,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 								<hr />
 								<fmt:message key="configureAutomaticBillingCompleted.setUseMonthly.text">
 									<fmt:param><c:out value="${business.name}" /></fmt:param>
-									<fmt:param><c:out value="${aoweb:getCardDisplay(creditCard.cardInfo)}" /></fmt:param>
+									<fmt:param><c:out value="${aoweb:getCardNumberDisplay(creditCard.cardInfo)}" /></fmt:param>
 								</fmt:message>
 							</logic:present>
 							<logic:notPresent scope="request" name="creditCard">

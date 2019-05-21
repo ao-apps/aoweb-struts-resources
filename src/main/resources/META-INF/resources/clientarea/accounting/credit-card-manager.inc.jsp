@@ -74,7 +74,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 													</logic:notEqual>
 													<c:set var="cardNumber" value="${creditCard.cardInfo}"/>
 													<td style="white-space:nowrap"><%@include file="_credit-card-image.inc.jsp" %></td>
-													<td style="white-space:nowrap; font-family: monospace"><c:out value="${aoweb:getCardDisplay(cardNumber)}"/></td>
+													<td style="white-space:nowrap; font-family: monospace"><c:out value="${aoweb:getCardNumberDisplay(cardNumber)}"/></td>
 													<logic:equal name="creditCard" property="isActive" value="true">
 														<logic:notEqual name="creditCard" property="useMonthly" value="true">
 															<td style="white-space:nowrap"><fmt:message key="creditCardManager.header.status.active" /></td>

@@ -59,7 +59,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 								<td style="white-space:nowrap; font-family: monospace">
 									<c:set var="cardNumber" value="${creditCard.cardInfo}"/>
 									<%@include file="_credit-card-image.inc.jsp" %>
-									<c:out value="${aoweb:getCardDisplay(cardNumber)}"/>
+									<c:out value="${aoweb:getCardNumberDisplay(cardNumber)}"/>
 								</td>
 							</tr>
 							<tr>
