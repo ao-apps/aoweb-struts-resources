@@ -55,11 +55,12 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 								<fmt:message key="configureAutomaticBilling.business.label" />
 								<ao:write scope="request" name="business" property="name" /><br />
 								<br />
-								<table cellspacing="0" cellpadding="2">
+								<table cellspacing="0" cellpadding="4">
 									<tr>
 										<th><fmt:message key="configureAutomaticBilling.header.select" /></th>
 										<th><fmt:message key="configureAutomaticBilling.header.cardType" /></th>
 										<th><fmt:message key="configureAutomaticBilling.header.maskedCardNumber" /></th>
+										<th><fmt:message key="configureAutomaticBilling.header.expirationDate" /></th>
 										<th><fmt:message key="configureAutomaticBilling.header.description" /></th>
 									</tr>
 									<logic:iterate scope="request" name="activeCards" id="creditCard" type="com.aoindustries.aoserv.client.payment.CreditCard" indexId="row">
@@ -96,6 +97,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 											<c:set var="cardNumber" value="${creditCard.cardInfo}"/>
 											<td style="white-space:nowrap"><%@include file="_credit-card-image.inc.jsp" %></td>
 											<td style="white-space:nowrap; font-family: monospace"><c:out value="${aoweb:getCardNumberDisplay(cardNumber)}"/></td>
+											<td style="white-space:nowrap; font-family: monospace"><c:out value="${aoweb:getExpirationDisplay(creditCard.expirationMonth, creditCard.expirationYear)}"/></td>
 											<td style="white-space:nowrap">
 												<logic:notEmpty name="creditCard" property="description">
 													<ao:write name="creditCard" property="description" />
@@ -116,10 +118,10 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 												<input type="radio" name="pkey" value="" onchange='this.form.submitButton.disabled=false;' />
 											</logic:present>
 										</td>
-										<td style='white-space:nowrap' colspan="3"><fmt:message key="configureAutomaticBilling.noAutomaticBilling" /></td>
+										<td style='white-space:nowrap' colspan="4"><fmt:message key="configureAutomaticBilling.noAutomaticBilling" /></td>
 									</skin:lightDarkTableRow>
 									<tr>
-										<td style='white-space:nowrap' colspan="4" align="center">
+										<td style='white-space:nowrap' colspan="5" align="center">
 											<ao:input type="submit" name="submitButton"><fmt:message key="configureAutomaticBilling.field.submit.label" /></ao:input>
 											<%-- Disable using JavaScript to avoid dependency on JavaScript --%>
 											<ao:script>document.forms["configurationAutomaticBillingForm"].submitButton.disabled = true;</ao:script>

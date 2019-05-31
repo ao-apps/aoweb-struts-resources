@@ -121,6 +121,15 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 											<td style="white-space:nowrap"><html:text property="cardNumber" size="20" /></td>
 											<td style="white-space:nowrap"><html:errors bundle="/clientarea/accounting/ApplicationResources" property="cardNumber" /></td>
 										</tr>
+										<c:set var="expirationDisplay" value="${aoweb:getExpirationDisplay(creditCard.expirationMonth, creditCard.expirationYear)}" />
+										<c:if test="${!empty expirationDisplay}">
+											<tr>
+												<td style="white-space:nowrap"><fmt:message key="editCreditCard.required.no" /></td>
+												<td style="white-space:nowrap"><fmt:message key="editCreditCard.expirationDate.prompt" /></td>
+												<td style="white-space:nowrap; font-family: monospace"><c:out value="${expirationDisplay}"/></td>
+												<td style="white-space:nowrap"></td>
+											</tr>
+										</c:if>
 										<tr>
 											<td style="white-space:nowrap"><fmt:message key="editCreditCard.required.no" /></td>
 											<td style="white-space:nowrap"><fmt:message key="editCreditCard.newExpirationDate.prompt" /></td>

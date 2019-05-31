@@ -40,13 +40,14 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					<logic:notPresent scope="request" name="permissionDenied">
 						<skin:popupGroup>
 							<skin:lightArea>
-								<table cellspacing="0" cellpadding="2">
+								<table cellspacing="0" cellpadding="4">
 									<tr>
 										<logic:equal scope="request" name="showAccounting" value="true">
 											<th><fmt:message key="creditCardManager.header.accounting" /></th>
 										</logic:equal>
 										<th><fmt:message key="creditCardManager.header.cardType" /></th>
 										<th><fmt:message key="creditCardManager.header.maskedCardNumber" /></th>
+										<th><fmt:message key="creditCardManager.header.expirationDate" /></th>
 										<th style='white-space:nowrap'>
 											<fmt:message key="creditCardManager.header.status" />
 											<skin:popup>
@@ -60,7 +61,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 										<bean:define name="businessAndCreditCards" property="creditCards" id="creditCards" type="java.util.List<com.aoindustries.aoserv.client.payment.CreditCard>" />
 										<bean:size name="creditCards" id="creditCardsSize" />
 										<%--tr class="<%= (businessesIndex&1)==0 ? "aoLightRow" : "aoDarkRow" %>">
-											<td colspan="7"><hr /></td>
+											<td colspan="8"><hr /></td>
 										</tr--%>
 										<logic:notEqual name="creditCardsSize" value="0">
 											<tr class="<%= (businessesIndex&1)==0 ? "aoLightRow" : "aoDarkRow" %>">
@@ -75,6 +76,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 													<c:set var="cardNumber" value="${creditCard.cardInfo}"/>
 													<td style="white-space:nowrap"><%@include file="_credit-card-image.inc.jsp" %></td>
 													<td style="white-space:nowrap; font-family: monospace"><c:out value="${aoweb:getCardNumberDisplay(cardNumber)}"/></td>
+													<td style="white-space:nowrap; font-family: monospace"><c:out value="${aoweb:getExpirationDisplay(creditCard.expirationMonth, creditCard.expirationYear)}"/></td>
 													<logic:equal name="creditCard" property="isActive" value="true">
 														<logic:notEqual name="creditCard" property="useMonthly" value="true">
 															<td style="white-space:nowrap"><fmt:message key="creditCardManager.header.status.active" /></td>
@@ -135,7 +137,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 													<td rowspan="<%= creditCardsSize+1 %>"><ao:write name="businessAndCreditCards" property="business.name" /></td>
 												</logic:equal>
 											</logic:equal>
-											<td style='white-space:nowrap' colspan="7">
+											<td style='white-space:nowrap' colspan="8">
 												<html:link action="/add-credit-card" paramId="accounting" paramName="businessAndCreditCards" paramProperty="business.name">
 													<fmt:message key="creditCardManager.addCreditCard.link" />
 												</html:link>

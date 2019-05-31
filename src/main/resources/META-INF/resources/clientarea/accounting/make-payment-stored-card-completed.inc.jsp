@@ -46,7 +46,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 						<fmt:message key="makePaymentStoredCardCompleted.confirm.followingProcessed" />
 						<bean:define scope="request" name="creditCard" id="creditCard" type="com.aoindustries.aoserv.client.payment.CreditCard" />
 						<bean:define scope="request" name="business" id="business" type="com.aoindustries.aoserv.client.account.Account" />
-						<table cellspacing='0' cellpadding='2'>
+						<table cellspacing='0' cellpadding='4'>
 							<tr>
 								<th style="text-align:left; white-space:nowrap;"><fmt:message key="makePaymentStoredCard.business.prompt" /></th>
 								<td style="white-space:nowrap"><ao:write scope="request" name="business" /></td>
@@ -59,6 +59,13 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 									<c:out value="${aoweb:getCardNumberDisplay(cardNumber)}"/>
 								</td>
 							</tr>
+							<c:set var="expirationDisplay" value="${aoweb:getExpirationDisplay(creditCard.expirationMonth, creditCard.expirationYear)}"/>
+							<c:if test="${!empty expirationDisplay}">
+								<tr>
+									<th style="text-align:left; white-space:nowrap;"><fmt:message key="makePaymentStoredCard.expirationDate.prompt" /></th>
+									<td style="white-space:nowrap; font-family: monospace"><c:out value="${expirationDisplay}"/></td>
+								</tr>
+							</c:if>
 							<tr>
 								<th style='white-space:nowrap' align='left'><fmt:message key="makePaymentStoredCard.cardComment.prompt" /></th>
 								<td style="white-space:nowrap">

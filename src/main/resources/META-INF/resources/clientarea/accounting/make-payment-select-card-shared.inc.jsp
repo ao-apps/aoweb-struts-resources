@@ -30,11 +30,12 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 			<fmt:bundle basename="com.aoindustries.website.clientarea.accounting.ApplicationResources">
 				<fmt:message key="makePaymentSelectCard.selectCard.list.title" />
 				<hr />
-				<table cellspacing="0" cellpadding="2">
+				<table cellspacing="0" cellpadding="4">
 					<tr>
 						<th style='white-space:nowrap'><fmt:message key="makePaymentSelectCard.select.header" /></th>
 						<th style='white-space:nowrap'><fmt:message key="makePaymentSelectCard.cardType.header" /></th>
 						<th style='white-space:nowrap'><fmt:message key="makePaymentSelectCard.cardNumber.header" /></th>
+						<th style='white-space:nowrap'><fmt:message key="makePaymentSelectCard.expirationDate.header" /></th>
 						<th style='white-space:nowrap'><fmt:message key="makePaymentSelectCard.comments.header" /></th>
 					</tr>
 					<logic:iterate scope="request" name="creditCards" id="creditCard" type="com.aoindustries.aoserv.client.payment.CreditCard">
@@ -51,6 +52,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 							<c:set var="cardNumber" value="${creditCard.cardInfo}"/>
 							<td style="white-space:nowrap"><%@include file="_credit-card-image.inc.jsp" %></td>
 							<td style="white-space:nowrap; font-family: monospace"><c:out value="${aoweb:getCardNumberDisplay(cardNumber)}"/></td>
+							<td style="white-space:nowrap; font-family: monospace"><c:out value="${aoweb:getExpirationDisplay(creditCard.expirationMonth, creditCard.expirationYear)}"/></td>
 							<td style="white-space:nowrap">
 								<logic:notEmpty name="creditCard" property="description">
 									<ao:write name="creditCard" property="description" />
@@ -71,10 +73,10 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 								<input type="radio" name="pkey" value="" />
 							</logic:notEqual>
 						</td>
-						<td style='white-space:nowrap' colspan="3"><fmt:message key="makePaymentSelectCard.newCard.link" /></td>
+						<td style='white-space:nowrap' colspan="4"><fmt:message key="makePaymentSelectCard.newCard.link" /></td>
 					</skin:lightDarkTableRow>
 					<tr>
-						<td style='white-space:nowrap' colspan="4" align="center">
+						<td style='white-space:nowrap' colspan="5" align="center">
 							<ao:input type="submit" name="submitButton"><fmt:message key="makePaymentSelectCard.field.submit.label" /></ao:input>
 						</td>
 					</tr>

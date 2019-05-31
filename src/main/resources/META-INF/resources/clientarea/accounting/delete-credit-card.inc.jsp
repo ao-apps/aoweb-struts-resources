@@ -53,7 +53,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 							<skin:lightArea>
 								<fmt:message key="deleteCreditCard.confirmation.title" />
 								<hr />
-								<table cellspacing="0" cellpadding="2">
+								<table cellspacing="0" cellpadding="4">
 									<tr>
 										<td colspan="2"><fmt:message key="deleteCreditCard.confirmation.prompt" /></td>
 									</tr>
@@ -69,6 +69,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 										<th style='white-space:nowrap' class="aoLightRow" align="left"><fmt:message key="deleteCreditCard.lastName.header" /></th>
 										<td style="white-space:nowrap"><ao:write name="creditCard" property="lastName" /></td>
 									</tr>
+									<%-- TODO: Don't show company name field at all when blank - here and other forms. description/comments, too --%>
 									<tr>
 										<th style='white-space:nowrap' class="aoLightRow" align="left"><fmt:message key="deleteCreditCard.companyName.header" /></th>
 										<td style="white-space:nowrap"><ao:write name="creditCard" property="companyName" /></td>
@@ -82,6 +83,13 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 										<th style='white-space:nowrap' class="aoLightRow" align="left"><fmt:message key="deleteCreditCard.cardNumber.header" /></th>
 										<td style="white-space:nowrap; font-family: monospace"><c:out value="${aoweb:getCardNumberDisplay(cardNumber)}"/></td>
 									</tr>
+									<c:set var="expirationDisplay" value="${aoweb:getExpirationDisplay(creditCard.expirationMonth, creditCard.expirationYear)}"/>
+									<c:if test="${!empty expirationDisplay}">
+										<tr>
+											<th style='white-space:nowrap' class="aoLightRow" align="left"><fmt:message key="deleteCreditCard.expirationDate.header" /></th>
+											<td style="white-space:nowrap; font-family: monospace"><c:out value="${expirationDisplay}"/></td>
+										</tr>
+									</c:if>
 									<tr>
 										<th style='white-space:nowrap' class="aoLightRow" align="left"><fmt:message key="deleteCreditCard.description.header" /></th>
 										<td style="white-space:nowrap"><ao:write name="creditCard" property="description" /></td>

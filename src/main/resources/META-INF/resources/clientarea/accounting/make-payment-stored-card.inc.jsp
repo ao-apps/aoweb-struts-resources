@@ -52,14 +52,14 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 								<hr />
 								<bean:define scope="request" name="creditCard" id="creditCard" type="com.aoindustries.aoserv.client.payment.CreditCard" />
 								<bean:define scope="request" name="business" id="business" type="com.aoindustries.aoserv.client.account.Account" />
-								<table cellspacing="0" cellpadding="2">
+								<table cellspacing="0" cellpadding="4">
 									<tr>
-										<th style='white-space:nowrap' align='left'><fmt:message key="makePaymentStoredCard.business.prompt" /></th>
+										<th style="text-align:left; white-space:nowrap"><fmt:message key="makePaymentStoredCard.business.prompt" /></th>
 										<td style="white-space:nowrap"><html:hidden property="accounting" write="true" /></td>
 										<td style="white-space:nowrap"><html:errors bundle="/clientarea/accounting/ApplicationResources" property="accounting" /></td>
 									</tr>
 									<tr>
-										<th style='white-space:nowrap' align='left'><fmt:message key="makePaymentStoredCard.card.prompt" /></th>
+										<th style="text-align:left; white-space:nowrap"><fmt:message key="makePaymentStoredCard.card.prompt" /></th>
 										<td style="white-space:nowrap; font-family: monospace">
 											<c:set var="cardNumber" value="${creditCard.cardInfo}"/>
 											<%@include file="_credit-card-image.inc.jsp" %>
@@ -67,8 +67,15 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 										</td>
 										<td style="white-space:nowrap"><html:errors bundle="/clientarea/accounting/ApplicationResources" property="creditCard" /></td>
 									</tr>
+									<c:set var="expirationDisplay" value="${aoweb:getExpirationDisplay(creditCard.expirationMonth, creditCard.expirationYear)}"/>
+									<c:if test="${!empty expirationDisplay}">
+										<tr>
+											<th style="text-align:left; white-space:nowrap;"><fmt:message key="makePaymentStoredCard.expirationDate.prompt" /></th>
+											<td style="white-space:nowrap; font-family: monospace"><c:out value="${expirationDisplay}"/></td>
+										</tr>
+									</c:if>
 									<tr>
-										<th style='white-space:nowrap' align='left'><fmt:message key="makePaymentStoredCard.cardComment.prompt" /></th>
+										<th style="text-align:left; white-space:nowrap"><fmt:message key="makePaymentStoredCard.cardComment.prompt" /></th>
 										<td style="white-space:nowrap">
 											<logic:notEmpty name="creditCard" property="description">
 												<ao:write name="creditCard" property="description" />
@@ -80,7 +87,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 										<td style="white-space:nowrap"><html:errors bundle="/clientarea/accounting/ApplicationResources" property="cardComment" /></td>
 									</tr>
 									<tr>
-										<th style='white-space:nowrap' align='left'><fmt:message key="makePaymentStoredCard.accountBalance.prompt" /></th>
+										<th style="text-align:left; white-space:nowrap"><fmt:message key="makePaymentStoredCard.accountBalance.prompt" /></th>
 										<td style="white-space:nowrap">
 											<% BigDecimal balance = business.getAccountBalance(); %>
 											<% if(balance.signum()==0) { %>
@@ -98,7 +105,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 										<td style="white-space:nowrap"><html:errors bundle="/clientarea/accounting/ApplicationResources" property="accountBalance" /></td>
 									</tr>
 									<tr>
-										<th style='white-space:nowrap' align='left'><fmt:message key="makePaymentStoredCard.paymentAmount.prompt" /></th>
+										<th style="text-align:left; white-space:nowrap"><fmt:message key="makePaymentStoredCard.paymentAmount.prompt" /></th>
 										<td style="white-space:nowrap">$<html:text property="paymentAmount" size="8" /></td>
 										<td style="white-space:nowrap"><html:errors bundle="/clientarea/accounting/ApplicationResources" property="paymentAmount" /></td>
 									</tr>

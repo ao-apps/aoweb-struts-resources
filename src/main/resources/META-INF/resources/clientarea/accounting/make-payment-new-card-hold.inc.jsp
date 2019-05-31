@@ -71,7 +71,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 						<bean:define scope="request" name="business" id="business" type="com.aoindustries.aoserv.client.account.Account" />
 						<bean:define scope="request" name="makePaymentNewCardForm" property="cardNumber" id="cardNumber" type="java.lang.String" />
 						<bean:define scope="request" name="makePaymentNewCardForm" property="maskedCardNumber" id="maskedCardNumber" type="java.lang.String" />
-						<table cellspacing='0' cellpadding='2'>
+						<table cellspacing='0' cellpadding='4'>
 							<tr>
 								<th style="text-align:left; white-space:nowrap;"><fmt:message key="makePaymentStoredCard.business.prompt" /></th>
 								<td style="white-space:nowrap"><ao:write scope="request" name="business" /></td>
@@ -83,6 +83,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 									<c:out value="${aoweb:getCardNumberDisplay(maskedCardNumber)}"/>
 								</td>
 							</tr>
+							<%-- TODO: aoweb:getExpirationDisplay(...) here, too?  Would need to parse Strings from form --%>
 							<tr>
 								<th style='white-space:nowrap' align='left'><fmt:message key="makePaymentStoredCard.cardComment.prompt" /></th>
 								<td style="white-space:nowrap">
