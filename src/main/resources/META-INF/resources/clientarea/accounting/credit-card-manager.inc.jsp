@@ -105,6 +105,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 															</logic:notEmpty>
 														</td>
 													</logic:notEqual>
+													<%-- TODO: Payment link here, too --%>
 													<td style="white-space:nowrap">
 														<html:link action="/edit-credit-card" paramId="persistenceId" paramName="creditCard" paramProperty="pkey">
 															<logic:equal name="creditCard" property="isActive" value="true">
