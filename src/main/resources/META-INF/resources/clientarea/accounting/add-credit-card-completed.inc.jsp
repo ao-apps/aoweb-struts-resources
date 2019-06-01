@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2007-2009, 2015, 2016  AO Industries, Inc.
+Copyright (C) 2007-2009, 2015, 2016, 2019  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -48,7 +48,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 							<fmt:message key="addCreditCardCompleted.successMessage.title" />
 							<hr />
 							<fmt:message key="addCreditCardCompleted.successMessage.text">
-								<fmt:param><c:out value="${fn:toLowerCase(cardNumber)}" /></fmt:param>
+								<fmt:param value="${aoweb:getCardNumberDisplay(cardNumber)}" />
 							</fmt:message><br />
 							<br />
 							<html:link action="/credit-card-manager"><fmt:message key="addCreditCardCompleted.creditCardManager.link" /></html:link>

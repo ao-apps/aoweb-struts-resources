@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2007-2009, 2015, 2016  AO Industries, Inc.
+Copyright (C) 2007-2009, 2015, 2016, 2019  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -75,12 +75,12 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 							<hr />
 							<logic:notEqual name="editCreditCardForm" property="isActive" value="false">
 								<fmt:message key="editCreditCardCompleted.successMessage.text.edit">
-									<fmt:param><c:out value="${fn:toLowerCase(cardNumber)}" /></fmt:param>
+									<fmt:param value="${aoweb:getCardNumberDisplay(cardNumber)}" />
 								</fmt:message><br />
 							</logic:notEqual>
 							<logic:equal name="editCreditCardForm" property="isActive" value="false">
 								<fmt:message key="editCreditCardCompleted.successMessage.text.reactivate">
-									<fmt:param><c:out value="${fn:toLowerCase(cardNumber)}" /></fmt:param>
+									<fmt:param value="${aoweb:getCardNumberDisplay(cardNumber)}" />
 								</fmt:message><br />
 							</logic:equal>
 							<ul>
