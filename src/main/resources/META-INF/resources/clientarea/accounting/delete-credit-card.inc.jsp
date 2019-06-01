@@ -69,11 +69,12 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 										<th style='white-space:nowrap' class="aoLightRow" align="left"><fmt:message key="deleteCreditCard.lastName.header" /></th>
 										<td style="white-space:nowrap"><ao:write name="creditCard" property="lastName" /></td>
 									</tr>
-									<%-- TODO: Don't show company name field at all when blank - here and other forms. --%>
-									<tr>
-										<th style='white-space:nowrap' class="aoLightRow" align="left"><fmt:message key="deleteCreditCard.companyName.header" /></th>
-										<td style="white-space:nowrap"><ao:write name="creditCard" property="companyName" /></td>
-									</tr>
+									<c:if test="${!empty creditCard.companyName}">
+										<tr>
+											<th style='white-space:nowrap' class="aoLightRow" align="left"><fmt:message key="deleteCreditCard.companyName.header" /></th>
+											<td style="white-space:nowrap"><ao:write name="creditCard" property="companyName" /></td>
+										</tr>
+									</c:if>
 									<c:set var="cardNumber" value="${creditCard.cardInfo}"/>
 									<tr>
 										<th style='white-space:nowrap' class="aoLightRow" align="left"><fmt:message key="deleteCreditCard.cardType.header" /></th>
