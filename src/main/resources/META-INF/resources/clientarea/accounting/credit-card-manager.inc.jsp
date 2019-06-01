@@ -40,6 +40,16 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					<logic:notPresent scope="request" name="permissionDenied">
 						<skin:popupGroup>
 							<skin:lightArea>
+								<c:set var="hasDescription" value="false" />
+								<c:forEach var="businessAndCreditCards" items="${businessCreditCards}">
+									<c:if test="${!hasDescription}">
+										<c:forEach var="creditCard" items="${businessAndCreditCards.creditCards}">
+											<c:if test="${!empty creditCard.description}">
+												<c:set var="hasDescription" value="true" />
+											</c:if>
+										</c:forEach>
+									</c:if>
+								</c:forEach>
 								<table cellspacing="0" cellpadding="4">
 									<tr>
 										<logic:equal scope="request" name="showAccounting" value="true">
@@ -55,13 +65,15 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 											</skin:popup>
 										</th>
 										<th colspan="2"><fmt:message key="creditCardManager.header.actions" /></th>
-										<th><fmt:message key="creditCardManager.header.description" /></th>
+										<c:if test="${hasDescription}">
+											<th><fmt:message key="creditCardManager.header.description" /></th>
+										</c:if>
 									</tr>
 									<logic:iterate scope="request" name="businessCreditCards" id="businessAndCreditCards" indexId="businessesIndex">
 										<bean:define name="businessAndCreditCards" property="creditCards" id="creditCards" type="java.util.List<com.aoindustries.aoserv.client.payment.CreditCard>" />
 										<bean:size name="creditCards" id="creditCardsSize" />
 										<%--tr class="<%= (businessesIndex&1)==0 ? "aoLightRow" : "aoDarkRow" %>">
-											<td colspan="8"><hr /></td>
+											<td colspan="${fn:escapeXml(7 + (hasDescription ? 1 : 0))}"><hr /></td>
 										</tr--%>
 										<logic:notEqual name="creditCardsSize" value="0">
 											<tr class="<%= (businessesIndex&1)==0 ? "aoLightRow" : "aoDarkRow" %>">
@@ -121,14 +133,16 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 															<fmt:message key="creditCardManager.delete.link" />
 														</html:link>
 													</td>
-													<td style="white-space:nowrap">
-														<logic:notEmpty name="creditCard" property="description">
-															<ao:write name="creditCard" property="description" />
-														</logic:notEmpty>
-														<logic:empty name="creditCard" property="description">
-															&#160;
-														</logic:empty>
-													</td>
+													<c:if test="${hasDescription}">
+														<td style="white-space:nowrap">
+															<logic:notEmpty name="creditCard" property="description">
+																<ao:write name="creditCard" property="description" />
+															</logic:notEmpty>
+															<logic:empty name="creditCard" property="description">
+																&#160;
+															</logic:empty>
+														</td>
+													</c:if>
 												</logic:iterate>
 											</tr>
 										</logic:notEqual>
@@ -138,7 +152,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 													<td rowspan="<%= creditCardsSize+1 %>"><ao:write name="businessAndCreditCards" property="business.name" /></td>
 												</logic:equal>
 											</logic:equal>
-											<td style='white-space:nowrap' colspan="8">
+											<td style='white-space:nowrap' colspan="${fn:escapeXml(7 + (hasDescription ? 1 : 0))}">
 												<html:link action="/add-credit-card" paramId="accounting" paramName="businessAndCreditCards" paramProperty="business.name">
 													<fmt:message key="creditCardManager.addCreditCard.link" />
 												</html:link>

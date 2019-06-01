@@ -81,17 +81,14 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 								</td>
 							</tr>
 							<%-- TODO: aoweb:getExpirationDisplay(...) here, too?  Would need to parse Strings from form --%>
-							<tr>
-								<th style='white-space:nowrap' align='left'><fmt:message key="makePaymentStoredCard.cardComment.prompt" /></th>
-								<td style="white-space:nowrap">
-									<logic:notEmpty scope="request" name="makePaymentNewCardForm" property="description">
+							<logic:notEmpty scope="request" name="makePaymentNewCardForm" property="description">
+								<tr>
+									<th style='white-space:nowrap' align='left'><fmt:message key="makePaymentStoredCard.cardComment.prompt" /></th>
+									<td style="white-space:nowrap">
 										<ao:write scope="request" name="makePaymentNewCardForm" property="description" />
-									</logic:notEmpty>
-									<logic:empty scope="request" name="makePaymentNewCardForm" property="description">
-										&#160;
-									</logic:empty>
-								</td>
-							</tr>
+									</td>
+								</tr>
+							</logic:notEmpty>
 							<tr>
 								<th style="text-align:left; white-space:nowrap;"><fmt:message key="makePaymentStoredCard.paymentAmount.prompt" /></th>
 								<td style="white-space:nowrap">$<ao:write scope="request" name="transaction" property="transactionRequest.amount" /></td>

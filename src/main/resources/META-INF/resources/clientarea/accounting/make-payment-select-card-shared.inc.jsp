@@ -30,13 +30,21 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 			<fmt:bundle basename="com.aoindustries.website.clientarea.accounting.ApplicationResources">
 				<fmt:message key="makePaymentSelectCard.selectCard.list.title" />
 				<hr />
+				<c:set var="hasDescription" value="false" />
+				<c:forEach var="creditCard" items="${creditCards}">
+					<c:if test="${!empty creditCard.description}">
+						<c:set var="hasDescription" value="true" />
+					</c:if>
+				</c:forEach>
 				<table cellspacing="0" cellpadding="4">
 					<tr>
 						<th style='white-space:nowrap'><fmt:message key="makePaymentSelectCard.select.header" /></th>
 						<th style='white-space:nowrap'><fmt:message key="makePaymentSelectCard.cardType.header" /></th>
 						<th style='white-space:nowrap'><fmt:message key="makePaymentSelectCard.cardNumber.header" /></th>
 						<th style='white-space:nowrap'><fmt:message key="makePaymentSelectCard.expirationDate.header" /></th>
-						<th style='white-space:nowrap'><fmt:message key="makePaymentSelectCard.comments.header" /></th>
+						<c:if test="${hasDescription}">
+							<th style='white-space:nowrap'><fmt:message key="makePaymentSelectCard.comments.header" /></th>
+						</c:if>
 					</tr>
 					<logic:iterate scope="request" name="creditCards" id="creditCard" type="com.aoindustries.aoserv.client.payment.CreditCard">
 						<skin:lightDarkTableRow>
@@ -53,14 +61,16 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 							<td style="white-space:nowrap"><%@include file="_credit-card-image.inc.jsp" %></td>
 							<td style="white-space:nowrap; font-family: monospace"><c:out value="${aoweb:getCardNumberDisplay(cardNumber)}"/></td>
 							<td style="white-space:nowrap; font-family: monospace"><c:out value="${aoweb:getExpirationDisplay(creditCard.expirationMonth, creditCard.expirationYear)}"/></td>
-							<td style="white-space:nowrap">
-								<logic:notEmpty name="creditCard" property="description">
-									<ao:write name="creditCard" property="description" />
-								</logic:notEmpty>
-								<logic:empty name="creditCard" property="description">
-									&#160;
-								</logic:empty>
-							</td>
+							<c:if test="${hasDescription}">
+								<td style="white-space:nowrap">
+									<logic:notEmpty name="creditCard" property="description">
+										<ao:write name="creditCard" property="description" />
+									</logic:notEmpty>
+									<logic:empty name="creditCard" property="description">
+										&#160;
+									</logic:empty>
+								</td>
+							</c:if>
 						</skin:lightDarkTableRow>
 					</logic:iterate>
 					<skin:lightDarkTableRow>
@@ -73,10 +83,10 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 								<input type="radio" name="pkey" value="" />
 							</logic:notEqual>
 						</td>
-						<td style='white-space:nowrap' colspan="4"><fmt:message key="makePaymentSelectCard.newCard.link" /></td>
+						<td style='white-space:nowrap' colspan="${fn:escapeXml(3 + (hasDescription ? 1 : 0))}"><fmt:message key="makePaymentSelectCard.newCard.link" /></td>
 					</skin:lightDarkTableRow>
 					<tr>
-						<td style='white-space:nowrap' colspan="5" align="center">
+						<td style='white-space:nowrap' colspan="${fn:escapeXml(4 + (hasDescription ? 1 : 0))}" align="center">
 							<ao:input type="submit" name="submitButton"><fmt:message key="makePaymentSelectCard.field.submit.label" /></ao:input>
 						</td>
 					</tr>

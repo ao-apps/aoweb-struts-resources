@@ -74,18 +74,15 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 											<td style="white-space:nowrap; font-family: monospace"><c:out value="${expirationDisplay}"/></td>
 										</tr>
 									</c:if>
-									<tr>
-										<th style="text-align:left; white-space:nowrap"><fmt:message key="makePaymentStoredCard.cardComment.prompt" /></th>
-										<td style="white-space:nowrap">
-											<logic:notEmpty name="creditCard" property="description">
+									<logic:notEmpty name="creditCard" property="description">
+										<tr>
+											<th style="text-align:left; white-space:nowrap"><fmt:message key="makePaymentStoredCard.cardComment.prompt" /></th>
+											<td style="white-space:nowrap">
 												<ao:write name="creditCard" property="description" />
-											</logic:notEmpty>
-											<logic:empty name="creditCard" property="description">
-												&#160;
-											</logic:empty>
-										</td>
-										<td style="white-space:nowrap"><html:errors bundle="/clientarea/accounting/ApplicationResources" property="cardComment" /></td>
-									</tr>
+											</td>
+											<td style="white-space:nowrap"><html:errors bundle="/clientarea/accounting/ApplicationResources" property="cardComment" /></td>
+										</tr>
+									</logic:notEmpty>
 									<tr>
 										<th style="text-align:left; white-space:nowrap"><fmt:message key="makePaymentStoredCard.accountBalance.prompt" /></th>
 										<td style="white-space:nowrap">

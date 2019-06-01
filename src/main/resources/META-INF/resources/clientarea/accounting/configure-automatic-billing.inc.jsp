@@ -55,13 +55,21 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 								<fmt:message key="configureAutomaticBilling.business.label" />
 								<ao:write scope="request" name="business" property="name" /><br />
 								<br />
+								<c:set var="hasDescription" value="false" />
+								<c:forEach var="creditCard" items="${activeCards}">
+									<c:if test="${!empty creditCard.description}">
+										<c:set var="hasDescription" value="true" />
+									</c:if>
+								</c:forEach>
 								<table cellspacing="0" cellpadding="4">
 									<tr>
 										<th><fmt:message key="configureAutomaticBilling.header.select" /></th>
 										<th><fmt:message key="configureAutomaticBilling.header.cardType" /></th>
 										<th><fmt:message key="configureAutomaticBilling.header.maskedCardNumber" /></th>
 										<th><fmt:message key="configureAutomaticBilling.header.expirationDate" /></th>
-										<th><fmt:message key="configureAutomaticBilling.header.description" /></th>
+										<c:if test="${hasDescription}">
+											<th><fmt:message key="configureAutomaticBilling.header.description" /></th>
+										</c:if>
 									</tr>
 									<logic:iterate scope="request" name="activeCards" id="creditCard" type="com.aoindustries.aoserv.client.payment.CreditCard" indexId="row">
 										<skin:lightDarkTableRow>
@@ -98,14 +106,16 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 											<td style="white-space:nowrap"><%@include file="_credit-card-image.inc.jsp" %></td>
 											<td style="white-space:nowrap; font-family: monospace"><c:out value="${aoweb:getCardNumberDisplay(cardNumber)}"/></td>
 											<td style="white-space:nowrap; font-family: monospace"><c:out value="${aoweb:getExpirationDisplay(creditCard.expirationMonth, creditCard.expirationYear)}"/></td>
-											<td style="white-space:nowrap">
-												<logic:notEmpty name="creditCard" property="description">
-													<ao:write name="creditCard" property="description" />
-												</logic:notEmpty>
-												<logic:empty name="creditCard" property="description">
-													&#160;
-												</logic:empty>
-											</td>
+											<c:if test="${hasDescription}">
+												<td style="white-space:nowrap">
+													<logic:notEmpty name="creditCard" property="description">
+														<ao:write name="creditCard" property="description" />
+													</logic:notEmpty>
+													<logic:empty name="creditCard" property="description">
+														&#160;
+													</logic:empty>
+												</td>
+											</c:if>
 										</skin:lightDarkTableRow>
 									</logic:iterate>
 									<skin:lightDarkTableRow>
@@ -118,10 +128,10 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 												<input type="radio" name="pkey" value="" onchange='this.form.submitButton.disabled=false;' />
 											</logic:present>
 										</td>
-										<td style='white-space:nowrap' colspan="4"><fmt:message key="configureAutomaticBilling.noAutomaticBilling" /></td>
+										<td style='white-space:nowrap' colspan="${fn:escapeXml(3 + (hasDescription ? 1 : 0))}"><fmt:message key="configureAutomaticBilling.noAutomaticBilling" /></td>
 									</skin:lightDarkTableRow>
 									<tr>
-										<td style='white-space:nowrap' colspan="5" align="center">
+										<td style='white-space:nowrap' colspan="${fn:escapeXml(4 + (hasDescription ? 1 : 0))}" align="center">
 											<ao:input type="submit" name="submitButton"><fmt:message key="configureAutomaticBilling.field.submit.label" /></ao:input>
 											<%-- Disable using JavaScript to avoid dependency on JavaScript --%>
 											<ao:script>document.forms["configurationAutomaticBillingForm"].submitButton.disabled = true;</ao:script>

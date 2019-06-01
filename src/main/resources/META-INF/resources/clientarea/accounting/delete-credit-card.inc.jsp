@@ -69,7 +69,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 										<th style='white-space:nowrap' class="aoLightRow" align="left"><fmt:message key="deleteCreditCard.lastName.header" /></th>
 										<td style="white-space:nowrap"><ao:write name="creditCard" property="lastName" /></td>
 									</tr>
-									<%-- TODO: Don't show company name field at all when blank - here and other forms. description/comments, too --%>
+									<%-- TODO: Don't show company name field at all when blank - here and other forms. --%>
 									<tr>
 										<th style='white-space:nowrap' class="aoLightRow" align="left"><fmt:message key="deleteCreditCard.companyName.header" /></th>
 										<td style="white-space:nowrap"><ao:write name="creditCard" property="companyName" /></td>
@@ -90,10 +90,12 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 											<td style="white-space:nowrap; font-family: monospace"><c:out value="${expirationDisplay}"/></td>
 										</tr>
 									</c:if>
-									<tr>
-										<th style='white-space:nowrap' class="aoLightRow" align="left"><fmt:message key="deleteCreditCard.description.header" /></th>
-										<td style="white-space:nowrap"><ao:write name="creditCard" property="description" /></td>
-									</tr>
+									<c:if test="${!empty creditCard.description}">
+										<tr>
+											<th style='white-space:nowrap' class="aoLightRow" align="left"><fmt:message key="deleteCreditCard.description.header" /></th>
+											<td style="white-space:nowrap"><ao:write name="creditCard" property="description" /></td>
+										</tr>
+									</c:if>
 									<tr>
 										<td style='white-space:nowrap' colspan="2" align="center">
 											<br />
