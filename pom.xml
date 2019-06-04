@@ -76,10 +76,10 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses />.
 			</dependency>
 			<!-- Direct -->
 			<dependency>
-				<groupId>com.aoindustries</groupId><artifactId>ao-taglib</artifactId><version>3.0.0-validation-SNAPSHOT</version>
+				<groupId>com.aoindustries</groupId><artifactId>ao-taglib</artifactId><version>3.0.1-SNAPSHOT</version>
 			</dependency>
 			<dependency>
-				<groupId>com.aoindustries</groupId><artifactId>ao-taglib</artifactId><version>3.0.0-validation-SNAPSHOT</version>
+				<groupId>com.aoindustries</groupId><artifactId>ao-taglib</artifactId><version>3.0.1-SNAPSHOT</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -92,10 +92,10 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses />.
 				<scope>import</scope>
 			</dependency>
 			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-taglib</artifactId><version>1.10.0-validation-SNAPSHOT</version>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-taglib</artifactId><version>1.10.1-SNAPSHOT</version>
 			</dependency>
 			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-taglib</artifactId><version>1.10.0-validation-SNAPSHOT</version>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-taglib</artifactId><version>1.10.1-SNAPSHOT</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
