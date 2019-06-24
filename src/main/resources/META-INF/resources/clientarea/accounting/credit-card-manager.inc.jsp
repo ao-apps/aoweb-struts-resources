@@ -64,7 +64,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 												<fmt:message key="creditCardManager.header.status.popup" />
 											</skin:popup>
 										</th>
-										<th colspan="2"><fmt:message key="creditCardManager.header.actions" /></th>
+										<th colspan="3"><fmt:message key="creditCardManager.header.actions" /></th>
 										<c:if test="${hasDescription}">
 											<th><fmt:message key="creditCardManager.header.description" /></th>
 										</c:if>
@@ -73,7 +73,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 										<bean:define name="businessAndCreditCards" property="creditCards" id="creditCards" type="java.util.List<com.aoindustries.aoserv.client.payment.CreditCard>" />
 										<bean:size name="creditCards" id="creditCardsSize" />
 										<%--tr class="<%= (businessesIndex&1)==0 ? "aoLightRow" : "aoDarkRow" %>">
-											<td colspan="${fn:escapeXml(7 + (hasDescription ? 1 : 0))}"><hr /></td>
+											<td colspan="${fn:escapeXml(8 + (hasDescription ? 1 : 0))}"><hr /></td>
 										</tr--%>
 										<logic:notEqual name="creditCardsSize" value="0">
 											<tr class="<%= (businessesIndex&1)==0 ? "aoLightRow" : "aoDarkRow" %>">
@@ -117,7 +117,15 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 															</logic:notEmpty>
 														</td>
 													</logic:notEqual>
-													<%-- TODO: Payment link here, too --%>
+													<td style="white-space:nowrap">
+														<ao:a
+															href="make-payment-stored-card.do"
+															param.accounting="${businessAndCreditCards.business.name}"
+															param.pkey="${creditCard.pkey}"
+														>
+															<fmt:message key="creditCardManager.makePayment.link" />
+														</ao:a>
+													</td>
 													<td style="white-space:nowrap">
 														<html:link action="/edit-credit-card" paramId="persistenceId" paramName="creditCard" paramProperty="pkey">
 															<logic:equal name="creditCard" property="isActive" value="true">
@@ -149,7 +157,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 													<td rowspan="<%= creditCardsSize+1 %>"><ao:write name="businessAndCreditCards" property="business.name" /></td>
 												</logic:equal>
 											</logic:equal>
-											<td style='white-space:nowrap' colspan="${fn:escapeXml(7 + (hasDescription ? 1 : 0))}">
+											<td style='white-space:nowrap' colspan="${fn:escapeXml(8 + (hasDescription ? 1 : 0))}">
 												<html:link action="/add-credit-card" paramId="accounting" paramName="businessAndCreditCards" paramProperty="business.name">
 													<fmt:message key="creditCardManager.addCreditCard.link" />
 												</html:link>
