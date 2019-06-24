@@ -138,9 +138,6 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 															<logic:notEmpty name="creditCard" property="description">
 																<ao:write name="creditCard" property="description" />
 															</logic:notEmpty>
-															<logic:empty name="creditCard" property="description">
-																&#160;
-															</logic:empty>
 														</td>
 													</c:if>
 												</logic:iterate>

@@ -77,6 +77,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 												<logic:notPresent scope="request" name="automaticCard">
 													<input
 														type="radio"
+														id="pkey_<%= creditCard.getPkey() %>"
 														name="pkey"
 														value="<%= creditCard.getPkey() %>"
 														onchange='this.form.submitButton.disabled=false;'
@@ -86,6 +87,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 													<logic:equal scope="request" name="automaticCard" property="pkey" value="<%= Integer.toString(creditCard.getPkey()) %>">
 														<input
 															type="radio"
+															id="pkey_<%= creditCard.getPkey() %>"
 															name="pkey"
 															value="<%= creditCard.getPkey() %>"
 															checked="checked"
@@ -95,6 +97,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 													<logic:notEqual scope="request" name="automaticCard" property="pkey" value="<%= Integer.toString(creditCard.getPkey()) %>">
 														<input
 															type="radio"
+															id="pkey_<%= creditCard.getPkey() %>"
 															name="pkey"
 															value="<%= creditCard.getPkey() %>"
 															onchange='this.form.submitButton.disabled=false;'
@@ -103,32 +106,28 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 												</logic:present>
 											</td>
 											<c:set var="cardNumber" value="${creditCard.cardInfo}"/>
-											<td style="white-space:nowrap"><%@include file="_credit-card-image.inc.jsp" %></td>
-											<td style="white-space:nowrap; font-family: monospace"><c:out value="${aoweb:getCardNumberDisplay(cardNumber)}"/></td>
-											<td style="white-space:nowrap; font-family: monospace"><c:out value="${aoweb:getExpirationDisplay(creditCard.expirationMonth, creditCard.expirationYear)}"/></td>
+											<td style="white-space:nowrap"><label for="pkey_<%= creditCard.getPkey() %>"><%@include file="_credit-card-image.inc.jsp" %></label></td>
+											<td style="white-space:nowrap; font-family: monospace"><label for="pkey_<%= creditCard.getPkey() %>"><c:out value="${aoweb:getCardNumberDisplay(cardNumber)}"/></label></td>
+											<td style="white-space:nowrap; font-family: monospace"><label for="pkey_<%= creditCard.getPkey() %>"><c:out value="${aoweb:getExpirationDisplay(creditCard.expirationMonth, creditCard.expirationYear)}"/></label></td>
 											<c:if test="${hasDescription}">
 												<td style="white-space:nowrap">
 													<logic:notEmpty name="creditCard" property="description">
-														<ao:write name="creditCard" property="description" />
+														<label for="pkey_<%= creditCard.getPkey() %>"><ao:write name="creditCard" property="description" /></label>
 													</logic:notEmpty>
-													<logic:empty name="creditCard" property="description">
-														&#160;
-													</logic:empty>
 												</td>
 											</c:if>
 										</skin:lightDarkTableRow>
 									</logic:iterate>
 									<skin:lightDarkTableRow>
 										<td style="white-space:nowrap">
-											<%-- TODO: label for this input --%>
 											<logic:notPresent scope="request" name="automaticCard">
-												<input type="radio" name="pkey" value="" checked="checked" onchange='this.form.submitButton.disabled=true;' />
+												<input type="radio" id="pkey_" name="pkey" value="" checked="checked" onchange='this.form.submitButton.disabled=true;' />
 											</logic:notPresent>
 											<logic:present scope="request" name="automaticCard">
-												<input type="radio" name="pkey" value="" onchange='this.form.submitButton.disabled=false;' />
+												<input type="radio" id="pkey_" name="pkey" value="" onchange='this.form.submitButton.disabled=false;' />
 											</logic:present>
 										</td>
-										<td style='white-space:nowrap' colspan="${fn:escapeXml(3 + (hasDescription ? 1 : 0))}"><fmt:message key="configureAutomaticBilling.noAutomaticBilling" /></td>
+										<td style='white-space:nowrap' colspan="${fn:escapeXml(3 + (hasDescription ? 1 : 0))}"><label for="pkey_"><fmt:message key="configureAutomaticBilling.noAutomaticBilling" /></label></td>
 									</skin:lightDarkTableRow>
 									<tr>
 										<td style='white-space:nowrap' colspan="${fn:escapeXml(4 + (hasDescription ? 1 : 0))}" align="center">
