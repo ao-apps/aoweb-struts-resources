@@ -29,7 +29,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 	<fmt:bundle basename="com.aoindustries.website.clientarea.accounting.ApplicationResources">
 		<skin:path>
 			/clientarea/accounting/delete-credit-card.do
-			<ao:param name="pkey" value="${param['pkey']}"/>
+			<ao:param name="id" value="${param.id}"/>
 		</skin:path>
 		<logic:equal name="siteSettings" property="brand.aowebStrutsNoindex" value="true"><skin:meta name="ROBOTS">NOINDEX</skin:meta></logic:equal>
 		<skin:title><fmt:message key="deleteCreditCard.title" /></skin:title>
@@ -49,7 +49,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					<logic:notPresent scope="request" name="permissionDenied">
 						<bean:define scope="request" name="creditCard" id="creditCard" type="com.aoindustries.aoserv.client.payment.CreditCard" />
 						<form method="post" action="<ao:url>delete-credit-card-completed.do</ao:url>"><div>
-							<input type="hidden" name="pkey" value="<ao:write name="creditCard" property="pkey" />" />
+							<ao:input type="hidden" name="id" value="${creditCard.id}" />
 							<skin:lightArea>
 								<fmt:message key="deleteCreditCard.confirmation.title" />
 								<hr />
@@ -58,8 +58,8 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 										<td colspan="2"><fmt:message key="deleteCreditCard.confirmation.prompt" /></td>
 									</tr>
 									<tr>
-										<th style='white-space:nowrap' class="aoLightRow" align="left"><fmt:message key="deleteCreditCard.accounting.header" /></th>
-										<td style="white-space:nowrap"><ao:write name="creditCard" property="business.name" /></td>
+										<th style='white-space:nowrap' class="aoLightRow" align="left"><fmt:message key="deleteCreditCard.account.header" /></th>
+										<td style="white-space:nowrap"><ao:write name="creditCard" property="account.name" /></td>
 									</tr>
 									<tr>
 										<th style='white-space:nowrap' class="aoLightRow" align="left"><fmt:message key="deleteCreditCard.firstName.header" /></th>

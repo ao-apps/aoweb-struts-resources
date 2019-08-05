@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2000-2009, 2016, 2018  AO Industries, Inc.
+Copyright (C) 2000-2009, 2016, 2018, 2019  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -43,21 +43,21 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 							<skin:lightArea>
 								<table cellspacing="0" cellpadding="4">
 									<tr>
-										<td style="white-space:nowrap"><fmt:message key="TicketForm.field.accounting.prompt" /></td>
+										<td style="white-space:nowrap"><fmt:message key="TicketForm.field.account.prompt" /></td>
 										<td>
 											<logic:notEqual name="aoConn" property="account.Account.size" value="1">
-												<html:select property="accounting">
-													<logic:empty scope="request" name="ticketForm" property="accounting">
+												<html:select property="account">
+													<logic:empty scope="request" name="ticketForm" property="account">
 														<html:option value="" />
 													</logic:empty>
 													<html:optionsCollection name="aoConn" property="account.Account.rows" label="name" value="name" />
 												</html:select>
 											</logic:notEqual>
 											<logic:equal name="aoConn" property="account.Account.size" value="1">
-												<html:hidden property="accounting" write="true" />
+												<html:hidden property="account" write="true" />
 											</logic:equal>
 										</td>
-										<td><html:errors bundle="/clientarea/ticket/ApplicationResources" property="accounting" /></td>
+										<td><html:errors bundle="/clientarea/ticket/ApplicationResources" property="account" /></td>
 									</tr>
 									<tr>
 										<td style="white-space:nowrap"><fmt:message key="TicketForm.field.contactEmails.prompt" /></td>

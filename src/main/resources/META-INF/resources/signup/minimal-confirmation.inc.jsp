@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2009, 2016  AO Industries, Inc.
+Copyright (C) 2009, 2016, 2019  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -46,13 +46,13 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 				<th colspan="3">
 					<table style="width:100%" cellspacing="0" cellpadding="0">
 						<tr>
-							<th><fmt:message key="steps.businessInfo.label" /></th>
+							<th><fmt:message key="steps.organizationInfo.label" /></th>
 							<td align='right'><html:link styleClass="aoLightLink" action='<%= "/" + myActionPrefix +"-2" %>'><fmt:message key="serverConfirmation.edit.link" /></html:link></td>
 						</tr>
 					</table>
 				</th>
 			</tr>
-			<%@include file="signup-business-confirmation.inc.jsp" %>
+			<%@include file="signup-organization-confirmation.inc.jsp" %>
 			<tr><td colspan="3">&#160;</td></tr>
 			<tr>
 				<th colspan="3">

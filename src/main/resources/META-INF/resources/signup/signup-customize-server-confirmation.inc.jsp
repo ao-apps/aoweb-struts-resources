@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2007-2009, 2016  AO Industries, Inc.
+Copyright (C) 2007-2009, 2016, 2019  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -70,13 +70,13 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 				<fmt:message key="signupSelectPackageForm.setup.none" />
 			</logic:notPresent>
 			<logic:present name="setup">
-				$<ao:write name="setup" />
+				<ao:write name="setup" />
 			</logic:present>
 		</td>
 	</tr>
 	<tr>
 		<td><fmt:message key="signup.notRequired" /></td>
 		<td style='white-space:nowrap'><fmt:message key="signupCustomizeServerConfirmation.monthlyRate.prompt" /></td>
-		<td>$<ao:write name="monthlyRate" /></td>
+		<td><ao:write name="monthlyRate" /></td>
 	</tr>
 </fmt:bundle>

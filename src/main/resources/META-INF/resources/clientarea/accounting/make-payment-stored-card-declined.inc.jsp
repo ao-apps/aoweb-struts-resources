@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2007-2009, 2015, 2016  AO Industries, Inc.
+Copyright (C) 2007-2009, 2015, 2016, 2019  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -28,7 +28,11 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 <html:html lang="true" xhtml="true">
 	<%@include file="add-parents.inc.jsp" %>
 	<fmt:bundle basename="com.aoindustries.website.clientarea.accounting.ApplicationResources">
-		<skin:path>/clientarea/accounting/make-payment-select-card.do?accounting=${makePaymentStoredCardForm.accounting}</skin:path>
+		<skin:path>
+			/clientarea/accounting/make-payment-select-card.do
+			<ao:param name="account"><ao:write scope="request" name="makePaymentStoredCardForm" property="account" /></ao:param>
+			<ao:param name="currency"><ao:write scope="request" name="makePaymentStoredCardForm" property="currency" /></ao:param>
+		</skin:path>
 		<logic:equal name="siteSettings" property="brand.aowebStrutsNoindex" value="true"><skin:meta name="ROBOTS">NOINDEX</skin:meta></logic:equal>
 		<skin:title><fmt:message key="makePayment.title" /></skin:title>
 		<skin:navImageAlt><fmt:message key="makePayment.navImageAlt" /></skin:navImageAlt>

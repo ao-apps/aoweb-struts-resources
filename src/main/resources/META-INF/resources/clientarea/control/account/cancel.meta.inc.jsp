@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2007-2009, 2015, 2016  AO Industries, Inc.
+Copyright (C) 2003-2009, 2015, 2016, 2019  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -24,8 +24,10 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 <%@include file="/_taglibs.inc.jsp" %>
 
 <fmt:bundle basename="com.aoindustries.website.clientarea.control.ApplicationResources">
-	<skin:path>/clientarea/control/business/Profiles.ao</skin:path>
-	<skin:title><fmt:message key="business.profiles.title" /></skin:title>
-	<skin:navImageAlt><fmt:message key="business.profiles.navImageAlt" /></skin:navImageAlt>
-	<skin:description><fmt:message key="business.profiles.description" /></skin:description>
+	<skin:path>/clientarea/control/account/cancel.do</skin:path>
+	<logic:equal name="siteSettings" property="brand.aowebStrutsNoindex" value="true"><skin:meta name="ROBOTS">NOINDEX</skin:meta></logic:equal>
+	<skin:title><fmt:message key="account.cancel.title" /></skin:title>
+	<skin:navImageAlt><fmt:message key="account.cancel.navImageAlt" /></skin:navImageAlt>
+	<skin:keywords><fmt:message key="account.cancel.keywords" /></skin:keywords>
+	<skin:description><fmt:message key="account.cancel.description" /></skin:description>
 </fmt:bundle>

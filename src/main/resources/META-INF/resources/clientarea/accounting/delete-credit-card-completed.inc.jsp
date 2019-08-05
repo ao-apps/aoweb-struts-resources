@@ -29,7 +29,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 	<fmt:bundle basename="com.aoindustries.website.clientarea.accounting.ApplicationResources">
 		<skin:path>
 			/clientarea/accounting/delete-credit-card-completed.do
-			<ao:param name="pkey" value="${param['pkey']}"/>
+			<ao:param name="id" value="${param.id}"/>
 		</skin:path>
 		<logic:equal name="siteSettings" property="brand.aowebStrutsNoindex" value="true"><skin:meta name="ROBOTS">NOINDEX</skin:meta></logic:equal>
 		<skin:title><fmt:message key="deleteCreditCardCompleted.title" /></skin:title>

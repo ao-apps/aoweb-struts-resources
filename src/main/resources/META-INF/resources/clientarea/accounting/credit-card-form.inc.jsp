@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2007-2009, 2015, 2016  AO Industries, Inc.
+Copyright (C) 2007-2009, 2015, 2016, 2019  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -29,9 +29,9 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 	</tr>
 	<tr>
 		<td style="white-space:nowrap"><fmt:message key="creditCardForm.required.yes" /></td>
-		<th style='white-space:nowrap' align="left"><fmt:message key="creditCardForm.accounting.prompt" /></th>
-		<td style="white-space:nowrap"><html:hidden property="accounting" write="true" /></td>
-		<td style="white-space:nowrap"><html:errors bundle="/clientarea/accounting/ApplicationResources" property="accounting" /></td>
+		<th style='white-space:nowrap' align="left"><fmt:message key="creditCardForm.account.prompt" /></th>
+		<td style="white-space:nowrap"><html:hidden property="account" write="true" /></td>
+		<td style="white-space:nowrap"><html:errors bundle="/clientarea/accounting/ApplicationResources" property="account" /></td>
 	</tr>
 	<tr>
 		<td style="white-space:nowrap"><fmt:message key="creditCardForm.required.yes" /></td>

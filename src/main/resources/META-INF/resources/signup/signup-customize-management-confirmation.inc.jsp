@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2007-2009, 2016  AO Industries, Inc.
+Copyright (C) 2007-2009, 2016, 2019  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -62,6 +62,6 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 	<tr>
 		<td><fmt:message key="signup.notRequired" /></td>
 		<td><fmt:message key="signupCustomizeManagementConfirmation.totalMonthlyRate.prompt" /></td>
-		<td>$<ao:write name="totalMonthlyRate" /></td>
+		<td><ao:write name="totalMonthlyRate" /></td>
 	</tr>
 </fmt:bundle>

@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2000-2009, 2016, 2018  AO Industries, Inc.
+Copyright (C) 2000-2009, 2016, 2018, 2019  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -48,7 +48,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 								<th><fmt:message key="index.header.openDate" /></th>
 								<th><fmt:message key="index.header.createdBy" /></th>
 								<logic:notEqual name="aoConn" property="account.Account.size" value="1">
-									<th><fmt:message key="index.header.accounting" /></th>
+									<th><fmt:message key="index.header.account" /></th>
 								</logic:notEqual>
 								<th><fmt:message key="index.header.summary" /></th>
 							</tr>
@@ -123,7 +123,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 											</logic:empty>
 										</td>
 										<logic:notEqual name="aoConn" property="account.Account.size" value="1">
-											<td style="white-space:nowrap"><ao:write name="ticket" property="business" /></td>
+											<td style="white-space:nowrap"><ao:write name="ticket" property="account" /></td>
 										</logic:notEqual>
 										<td style="white-space:nowrap"><ao:write name="ticket" property="summary" /></td>
 									</skin:lightDarkTableRow>

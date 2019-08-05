@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2007-2009, 2016, 2018  AO Industries, Inc.
+Copyright (C) 2007-2009, 2016, 2018, 2019  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -21,7 +21,6 @@ You should have received a copy of the GNU Lesser General Public License
 along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 --%>
 <%@ page language="java" pageEncoding="UTF-8" %>
-<%@ page import="java.math.BigDecimal" %>
 <%@include file="/_taglibs.inc.jsp" %>
 
 <skin:setContentType />
@@ -36,40 +35,62 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 				<skin:contentHorizontalDivider />
 				<skin:contentLine>
 					<skin:lightArea>
-						<fmt:message key="makePayment.selectBusiness.list.title" />
+						<fmt:message key="makePayment.selectAccount.list.title" />
 						<hr />
 						<table cellspacing="0" cellpadding="2">
 							<tr>
-								<th style='white-space:nowrap'><fmt:message key="makePayment.business.header" /></th>
+								<th style='white-space:nowrap'><fmt:message key="makePayment.account.header" /></th>
 								<th style='white-space:nowrap'><fmt:message key="makePayment.monthlyRate.header" /></th>
 								<th style='white-space:nowrap'><fmt:message key="makePayment.balance.header" /></th>
 								<th style='white-space:nowrap'><fmt:message key="makePayment.makePayment.header" /></th>
 							</tr>
-							<logic:iterate scope="request" name="businesses" id="business" type="com.aoindustries.aoserv.client.account.Account">
+							<c:forEach var="entry" items="${accountsAndBalances}">
+								<c:set var="account" value="${entry.key}" />
 								<skin:lightDarkTableRow>
-									<td style="white-space:nowrap"><ao:write name="business" property="name" /></td>
-									<td style='white-space:nowrap' align='right'><ao:write name="business" property="monthlyRateString" /></td>
+									<td style="white-space:nowrap"><ao:out value="${account.name}" /></td>
 									<td style='white-space:nowrap' align='right'>
-										<% BigDecimal balance = business.getAccountBalance(); %>
-										<% if(balance.signum()==0) { %>
-											<fmt:message key="makePayment.balance.value.zero" />
-										<% } else if(balance.signum()<0) { %>
-											<fmt:message key="makePayment.balance.value.credit">
-												<fmt:param><c:out value="<%= balance.negate().toPlainString() %>" /></fmt:param>
-											</fmt:message>
-										<% } else { %>
-											<fmt:message key="makePayment.balance.value.debt">
-												<fmt:param><c:out value="<%= balance.toPlainString() %>" /></fmt:param>
-											</fmt:message>
-										<% } %>
+										<c:forEach var="monthlyRate" items="${account.monthlyRate.values}">
+											<div><ao:out value="${monthlyRate}" /></div>
+										</c:forEach>
+									</td>
+									<td style='white-space:nowrap' align='right'>
+										<c:forEach var="balance" items="${entry.value.values}">
+											<ao:choose>
+												<ao:when test="#{balance.unscaledValue < 0}">
+													<div>
+														<fmt:message key="makePayment.balance.value.credit">
+															<fmt:param><c:out value="${balance.negate()}" /></fmt:param>
+														</fmt:message>
+													</div>
+												</ao:when>
+												<ao:when test="#{balance.unscaledValue > 0}">
+													<div style="color:red"><strong>
+														<fmt:message key="makePayment.balance.value.debt">
+															<fmt:param><c:out value="${balance}" /></fmt:param>
+														</fmt:message>
+													</strong></div>
+												</ao:when>
+												<ao:otherwise>
+													<div>
+														<fmt:message key="makePayment.balance.value.zero">
+															<fmt:param><c:out value="${balance}" /></fmt:param>
+														</fmt:message>
+													</div>
+												</ao:otherwise>
+											</ao:choose>
+										</c:forEach>
 									</td>
 									<td style="white-space:nowrap">
-										<html:link action="/make-payment-select-card" paramId="accounting" paramName="business" paramProperty="name">
-											<fmt:message key="makePayment.makePayment.link" />
-										</html:link>
+										<c:forEach var="currency" items="${entry.value.currencies}">
+											<div>
+												<ao:a href="make-payment-select-card.do" param.account="${account.name}" param.currency="${currency.currencyCode}">
+													<fmt:message key="makePayment.makePayment.link" />
+												</ao:a>
+											</div>
+										</c:forEach>
 									</td>
 								</skin:lightDarkTableRow>
-							</logic:iterate>
+							</c:forEach>
 						</table>
 					</skin:lightArea>
 				</skin:contentLine>

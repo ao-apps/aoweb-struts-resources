@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2009, 2016  AO Industries, Inc.
+Copyright (C) 2009, 2016, 2019  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -53,7 +53,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 									</tr>
 									<logic:iterate scope="request" name="vncVirtualServers" id="vncVirtualServer">
 										<skin:lightDarkTableRow>
-											<td><bean:write name="vncVirtualServer" property="server.name" /></td>
+											<td><bean:write name="vncVirtualServer" property="host.name" /></td>
 											<td>
 												<c:choose>
 													<c:when test="${siteSettings.brand.aowebStrutsVncBind.port.port < 5900}">
@@ -68,7 +68,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 											<td><code><c:out value="${vncVirtualServer.vncPassword}" /></code></td>
 											<td style="white-space:nowrap">
 												<html:link action="/vnc/vnc-viewer.do" onclick="window.open(this.href, 'vnc'+(new Date()).getTime(), 'toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=1,width=380,height=200,left='+((screen.availWidth-380)/2-64)+',top='+((screen.availHeight-200)/2-48)); return false;">
-													<html:param name="virtualServer">${vncVirtualServer.server.pkey}</html:param>
+													<html:param name="virtualServer">${vncVirtualServer.host.pkey}</html:param>
 													<fmt:message key="vnc.vncConsole.connectNow.link" />
 												</html:link>
 											</td>

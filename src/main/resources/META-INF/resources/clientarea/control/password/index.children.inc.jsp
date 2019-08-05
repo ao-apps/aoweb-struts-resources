@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2000-2009, 2016  AO Industries, Inc.
+Copyright (C) 2000-2009, 2016, 2019  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -25,7 +25,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 
 <skin:child><%@include file="password-evaluator.meta.inc.jsp" %></skin:child>
 <skin:child><%@include file="password-generator.meta.inc.jsp" %></skin:child>
-<skin:child><%@include file="business-administrator-password-setter.meta.inc.jsp" %></skin:child>
+<skin:child><%@include file="administrator-password-setter.meta.inc.jsp" %></skin:child>
 <skin:child><%@include file="linux-account-password-setter.meta.inc.jsp" %></skin:child>
 <skin:child><%@include file="mysql-password-setter.meta.inc.jsp" %></skin:child>
 <skin:child><%@include file="postgresql-password-setter.meta.inc.jsp" %></skin:child>

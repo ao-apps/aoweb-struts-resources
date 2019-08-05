@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2009, 2016  AO Industries, Inc.
+Copyright (C) 2009, 2016, 2019  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -27,7 +27,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html:html lang="true" xhtml="true">
 	<head>
-		<title><c:out value="${virtualServer.server.name}" /></title>
+		<title><c:out value="${virtualServer.host.name}" /></title>
 		<ao:script>
 			// From http://www.hypergeneric.com/corpus/javascript-inner-viewport-resize/
 			function getInnerSize() {

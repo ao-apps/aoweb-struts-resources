@@ -29,7 +29,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 	<fmt:bundle basename="com.aoindustries.website.clientarea.accounting.ApplicationResources">
 		<skin:path>
 			/clientarea/accounting/configure-automatic-billing.do
-			<ao:param name="accounting" value="${param['accounting']}"/>
+			<ao:param name="account" value="${param.account}"/>
 		</skin:path>
 		<logic:equal name="siteSettings" property="brand.aowebStrutsNoindex" value="true"><skin:meta name="ROBOTS">NOINDEX</skin:meta></logic:equal>
 		<skin:title><fmt:message key="configureAutomaticBilling.title" /></skin:title>
@@ -48,12 +48,12 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					</logic:present>
 					<logic:notPresent scope="request" name="permissionDenied">
 						<form id="configurationAutomaticBillingForm" method="post" action="<ao:url>configure-automatic-billing-completed.do</ao:url>"><div>
-							<input name="accounting" type="hidden" value="<%= request.getParameter("accounting") %>" />
+							<input name="account" type="hidden" value="<%= request.getParameter("account") %>" />
 							<skin:lightArea>
 								<fmt:message key="configureAutomaticBilling.cardList.title" />
 								<hr />
-								<fmt:message key="configureAutomaticBilling.business.label" />
-								<ao:write scope="request" name="business" property="name" /><br />
+								<fmt:message key="configureAutomaticBilling.account.label" />
+								<ao:write scope="request" name="account" property="name" /><br />
 								<br />
 								<c:set var="hasDescription" value="false" />
 								<c:forEach var="creditCard" items="${activeCards}">

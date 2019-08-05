@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2007-2009, 2016  AO Industries, Inc.
+Copyright (C) 2007-2009, 2016, 2019  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -89,6 +89,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					</td>
 					<td style="white-space:nowrap"><html:errors bundle="/signup/ApplicationResources" property="billingExpirationDate" /></td>
 				</tr>
+				<%-- TODO: Add card security code, matching fields and labels used in aoweb --%>
 				<tr><td colspan="4">&#160;</td></tr>
 				<tr><td colspan="4"><fmt:message key="dedicated5.cardAddressHelp" /></td></tr>
 				<tr><td colspan="4">&#160;</td></tr>
@@ -119,12 +120,12 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 				<tr><td colspan="4">&#160;</td></tr>
 				<tr valign='top'>
 					<td style="white-space:nowrap" colspan="2">&#160;</td>
-					<td style="white-space:nowrap"><html:checkbox property="billingUseMonthly" /><fmt:message key="signupBillingInformationForm.billingUseMonthly.value" /><br /><br /></td>
+					<td style="white-space:nowrap"><label><html:checkbox property="billingUseMonthly" /><fmt:message key="signupBillingInformationForm.billingUseMonthly.value" /></label><br /><br /></td>
 					<td style="white-space:nowrap"><html:errors bundle="/signup/ApplicationResources" property="billingUseMonthly" /></td>
 				</tr>
 				<tr valign='top'>
 					<td style="white-space:nowrap" colspan="2">&#160;</td>
-					<td style="white-space:nowrap"><html:checkbox property="billingPayOneYear" /><fmt:message key="signupBillingInformationForm.billingPayOneYear.value" /></td>
+					<td style="white-space:nowrap"><label><html:checkbox property="billingPayOneYear" /><fmt:message key="signupBillingInformationForm.billingPayOneYear.value" /></label></td>
 					<td style="white-space:nowrap"><html:errors bundle="/signup/ApplicationResources" property="billingPayOneYear" /></td>
 				</tr>
 				<tr><td colspan="4" align="center"><br /><ao:input type="submit"><fmt:message key="dedicated5.submit.label" /></ao:input><br /><br /></td></tr>

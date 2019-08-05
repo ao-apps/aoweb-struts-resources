@@ -21,7 +21,9 @@ You should have received a copy of the GNU Lesser General Public License
 along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 --%>
 <%@ page language="java" pageEncoding="UTF-8" %>
-<%@ page import="java.math.BigDecimal" %>
+<%@ page import="com.aoindustries.util.i18n.CurrencyUtil" %>
+<%@ page import="com.aoindustries.util.i18n.Money" %>
+<%@ page import="java.util.Currency" %>
 <%@include file="/_taglibs.inc.jsp" %>
 
 <skin:setContentType />
@@ -30,8 +32,9 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 	<fmt:bundle basename="com.aoindustries.website.clientarea.accounting.ApplicationResources">
 		<skin:path>
 			/clientarea/accounting/make-payment-stored-card.do
-			<ao:param name="accounting"><ao:write scope="request" name="makePaymentStoredCardForm" property="accounting" /></ao:param>
-			<ao:param name="pkey"><ao:write scope="request" name="makePaymentStoredCardForm" property="pkey" /></ao:param>
+			<ao:param name="account"><ao:write scope="request" name="makePaymentStoredCardForm" property="account" /></ao:param>
+			<ao:param name="currency"><ao:write scope="request" name="makePaymentStoredCardForm" property="currency" /></ao:param>
+			<ao:param name="id"><ao:write scope="request" name="makePaymentStoredCardForm" property="id" /></ao:param>
 		</skin:path>
 		<logic:equal name="siteSettings" property="brand.aowebStrutsNoindex" value="true"><skin:meta name="ROBOTS">NOINDEX</skin:meta></logic:equal>
 		<skin:title><fmt:message key="makePayment.title" /></skin:title>
@@ -46,17 +49,16 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 				<skin:contentLine>
 					<html:form action="make-payment-stored-card-completed">
 						<div>
-							<html:hidden property="pkey" />
+							<html:hidden property="id" />
 							<skin:lightArea>
 								<fmt:message key="makePaymentStoredCard.amount.title" />
 								<hr />
 								<bean:define scope="request" name="creditCard" id="creditCard" type="com.aoindustries.aoserv.client.payment.CreditCard" />
-								<bean:define scope="request" name="business" id="business" type="com.aoindustries.aoserv.client.account.Account" />
 								<table cellspacing="0" cellpadding="4">
 									<tr>
-										<th style="text-align:left; white-space:nowrap"><fmt:message key="makePaymentStoredCard.business.prompt" /></th>
-										<td style="white-space:nowrap"><html:hidden property="accounting" write="true" /></td>
-										<td style="white-space:nowrap"><html:errors bundle="/clientarea/accounting/ApplicationResources" property="accounting" /></td>
+										<th style="text-align:left; white-space:nowrap"><fmt:message key="makePaymentStoredCard.account.prompt" /></th>
+										<td style="white-space:nowrap"><html:hidden property="account" write="true" /></td>
+										<td style="white-space:nowrap"><html:errors bundle="/clientarea/accounting/ApplicationResources" property="account" /></td>
 									</tr>
 									<tr>
 										<th style="text-align:left; white-space:nowrap"><fmt:message key="makePaymentStoredCard.card.prompt" /></th>
@@ -83,19 +85,27 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 											<td style="white-space:nowrap"><html:errors bundle="/clientarea/accounting/ApplicationResources" property="cardComment" /></td>
 										</tr>
 									</logic:notEmpty>
+									<bean:define scope="request" name="account" id="account" type="com.aoindustries.aoserv.client.account.Account" />
+									<bean:define name="makePaymentStoredCardForm" id="creditCardForm" type="com.aoindustries.website.clientarea.accounting.MakePaymentStoredCardForm" />
+									<% Currency currency = Currency.getInstance(creditCardForm.getCurrency()); %>
 									<tr>
 										<th style="text-align:left; white-space:nowrap"><fmt:message key="makePaymentStoredCard.accountBalance.prompt" /></th>
 										<td style="white-space:nowrap">
-											<% BigDecimal balance = business.getAccountBalance(); %>
-											<% if(balance.signum()==0) { %>
-												<fmt:message key="makePaymentSelectCard.balance.value.zero" />
-											<% } else if(balance.signum()<0) { %>
+											<%
+												Money balance = account.getAccountBalance().get(currency);
+												if(balance == null) balance = new Money(currency, 0, 0);
+											%>
+											<% if(balance.getUnscaledValue() == 0) { %>
+												<fmt:message key="makePaymentSelectCard.balance.value.zero">
+													<fmt:param><c:out value="<%= balance %>" /></fmt:param>
+												</fmt:message>
+											<% } else if(balance.getUnscaledValue() < 0) { %>
 												<fmt:message key="makePaymentSelectCard.balance.value.credit">
-													<fmt:param><c:out value="<%= balance.negate().toPlainString() %>" /></fmt:param>
+													<fmt:param><c:out value="<%= balance.negate() %>" /></fmt:param>
 												</fmt:message>
 											<% } else { %>
 												<fmt:message key="makePaymentSelectCard.balance.value.debt">
-													<fmt:param><c:out value="<%= balance.toPlainString() %>" /></fmt:param>
+													<fmt:param><c:out value="<%= balance %>" /></fmt:param>
 												</fmt:message>
 											<% } %>
 										</td>
@@ -103,8 +113,15 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 									</tr>
 									<tr>
 										<th style="text-align:left; white-space:nowrap"><fmt:message key="makePaymentStoredCard.paymentAmount.prompt" /></th>
-										<td style="white-space:nowrap">$<html:text property="paymentAmount" size="8" /></td>
-										<td style="white-space:nowrap"><html:errors bundle="/clientarea/accounting/ApplicationResources" property="paymentAmount" /></td>
+										<td style="white-space:nowrap">
+											<html:hidden property="currency" />
+											<bean:define scope="request" name="locale" id="locale" type="java.util.Locale" />
+											<ao:out value="<%= CurrencyUtil.getSymbol(currency, locale) %>" /><html:text property="paymentAmount" size="8" />
+										</td>
+										<td style="white-space:nowrap">
+											<html:errors bundle="/clientarea/accounting/ApplicationResources" property="currency" />
+											<html:errors bundle="/clientarea/accounting/ApplicationResources" property="paymentAmount" />
+										</td>
 									</tr>
 									<tr>
 										<td style="white-space:nowrap">&#160;</td>

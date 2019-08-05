@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2007-2009, 2016  AO Industries, Inc.
+Copyright (C) 2007-2009, 2016, 2019  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -30,7 +30,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 		<bean:define scope="request" name="signupSelectPackageFormComplete" id="signupSelectPackageFormComplete" type="java.lang.String" />
 		<bean:define scope="request" name="signupCustomizeServerFormComplete" id="signupCustomizeServerFormComplete" type="java.lang.String" />
 		<bean:define scope="request" name="signupCustomizeManagementFormComplete" id="signupCustomizeManagementFormComplete" type="java.lang.String" />
-		<bean:define scope="request" name="signupBusinessFormComplete" id="signupBusinessFormComplete" type="java.lang.String" />
+		<bean:define scope="request" name="signupOrganizationFormComplete" id="signupOrganizationFormComplete" type="java.lang.String" />
 		<bean:define scope="request" name="signupTechnicalFormComplete" id="signupTechnicalFormComplete" type="java.lang.String" />
 		<bean:define scope="request" name="signupBillingInformationFormComplete" id="signupBillingInformationFormComplete" type="java.lang.String" />
 		<bean:define name="stepNumber" id="myStepNumber" type="java.lang.String" />
@@ -118,16 +118,16 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 							|| !signupCustomizeServerFormComplete.equals("true")
 							|| !signupCustomizeManagementFormComplete.equals("true")
 					   ) { %>
-						<fmt:message key="steps.businessInfo.label" />
+						<fmt:message key="steps.organizationInfo.label" />
 					<% } else { %>
-						<a class="aoDarkLink" href="javascript:selectStep('<ao:write scope="request" name="actionPrefix" />-4');"><fmt:message key="steps.businessInfo.label" /></a>
+						<a class="aoDarkLink" href="javascript:selectStep('<ao:write scope="request" name="actionPrefix" />-4');"><fmt:message key="steps.organizationInfo.label" /></a>
 					<% } %>
 				</td>
 				<td>
-					<logic:equal scope="request" name="signupBusinessFormComplete" value="true">
+					<logic:equal scope="request" name="signupOrganizationFormComplete" value="true">
 						<fmt:message key="steps.completed" />
 					</logic:equal>
-					<logic:notEqual scope="request" name="signupBusinessFormComplete" value="true">
+					<logic:notEqual scope="request" name="signupOrganizationFormComplete" value="true">
 						<fmt:message key="steps.incomplete" />
 					</logic:notEqual>
 				</td>
@@ -144,7 +144,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 							|| !signupSelectPackageFormComplete.equals("true")
 							|| !signupCustomizeServerFormComplete.equals("true")
 							|| !signupCustomizeManagementFormComplete.equals("true")
-							|| !signupBusinessFormComplete.equals("true")
+							|| !signupOrganizationFormComplete.equals("true")
 					   ) { %>
 						<fmt:message key="steps.technicalInfo.label" />
 					<% } else { %>
@@ -172,7 +172,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 							|| !signupSelectPackageFormComplete.equals("true")
 							|| !signupCustomizeServerFormComplete.equals("true")
 							|| !signupCustomizeManagementFormComplete.equals("true")
-							|| !signupBusinessFormComplete.equals("true")
+							|| !signupOrganizationFormComplete.equals("true")
 							|| !signupTechnicalFormComplete.equals("true")
 					   ) { %>
 						<fmt:message key="steps.billingInformation.label" />
@@ -201,7 +201,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 							|| !signupSelectPackageFormComplete.equals("true")
 							|| !signupCustomizeServerFormComplete.equals("true")
 							|| !signupCustomizeManagementFormComplete.equals("true")
-							|| !signupBusinessFormComplete.equals("true")
+							|| !signupOrganizationFormComplete.equals("true")
 							|| !signupTechnicalFormComplete.equals("true")
 							|| !signupBillingInformationFormComplete.equals("true")
 					   ) { %>

@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2000-2009, 2016, 2018  AO Industries, Inc.
+Copyright (C) 2000-2009, 2016, 2018, 2019  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -55,9 +55,9 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 											<logic:greaterThan name="postgresServersSize" value="1">
 												<th><fmt:message key="password.postgreSQLPasswordSetter.header.postgreSQLServer" /></th>
 											</logic:greaterThan>
-											<bean:size scope="request" name="aoConn" property="linux.Server.map" id="aoServersSize" />
-											<logic:greaterThan name="aoServersSize" value="1">
-												<th><fmt:message key="password.postgreSQLPasswordSetter.header.aoServer" /></th>
+											<bean:size scope="request" name="aoConn" property="linux.Server.map" id="serversSize" />
+											<logic:greaterThan name="serversSize" value="1">
+												<th><fmt:message key="password.postgreSQLPasswordSetter.header.server" /></th>
 											</logic:greaterThan>
 											<th colspan='2'><fmt:message key="password.postgreSQLPasswordSetter.header.newPassword" /></th>
 											<th><fmt:message key="password.postgreSQLPasswordSetter.header.confirmPassword" /></th>
@@ -72,13 +72,13 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 													<html:hidden property='<%= "packages[" + index + "]" %>' />
 													<code><html:hidden property='<%= "usernames[" + index + "]" %>' write="true" /></code>
 													<html:hidden property='<%= "postgreSQLServers[" + index + "]" %>' />
-													<html:hidden property='<%= "aoServers[" + index + "]" %>' />
+													<html:hidden property='<%= "servers[" + index + "]" %>' />
 												</td>
 												<logic:greaterThan name="postgresServersSize" value="1">
 													<td><code><ao:write name="postgreSQLPasswordSetterForm" property='<%= "postgreSQLServers[" + index + "]" %>' /></code></td>
 												</logic:greaterThan>
-												<logic:greaterThan name="aoServersSize" value="1">
-													<td><code><ao:write name="postgreSQLPasswordSetterForm" property='<%= "aoServers[" + index + "]" %>' /></code></td>
+												<logic:greaterThan name="serversSize" value="1">
+													<td><code><ao:write name="postgreSQLPasswordSetterForm" property='<%= "servers[" + index + "]" %>' /></code></td>
 												</logic:greaterThan>
 												<td><html:password size="20" property='<%= "newPasswords[" + index + "]" %>' /></td>
 												<td style="white-space:nowrap">

@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2000-2009, 2016  AO Industries, Inc.
+Copyright (C) 2000-2009, 2016, 2019  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -40,9 +40,9 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 				<logic:iterate scope="request" name="servers" id="server" indexId="serverIndex">
 					<bean:define name="server" property="minimumConfiguration.packageDefinition" id="packageDefinition" type="java.lang.Integer" />
 					<skin:lightDarkTableRow>
-						<td style="white-space:nowrap"><html:radio property="packageDefinition" idName="server" value="minimumConfiguration.packageDefinition" /></td>
+						<td style="white-space:nowrap"><html:radio styleId="packageDefinition_${packageDefinition}" property="packageDefinition" idName="server" value="minimumConfiguration.packageDefinition" /></td>
 						<td style="white-space:nowrap">
-							<b><ao:write name="server" property="minimumConfiguration.name" /></b>
+							<label for="packageDefinition_${fn:escapeXml(packageDefinition)}"><b><ao:write name="server" property="minimumConfiguration.name" /></b></label>
 							<skin:popup>
 								<table cellspacing="0" cellpadding="2" style='font-size:80%;'>
 									<tr>
@@ -86,10 +86,10 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 						</td>
 						<td style="white-space:nowrap; text-align:center">
 							<logic:empty name="server" property="minimumConfiguration.setup"><fmt:message key="signupSelectPackageForm.setup.none" /></logic:empty>
-							<logic:notEmpty name="server" property="minimumConfiguration.setup">$<ao:write name="server" property="minimumConfiguration.setup" /></logic:notEmpty>
+							<logic:notEmpty name="server" property="minimumConfiguration.setup"><ao:write name="server" property="minimumConfiguration.setup" /></logic:notEmpty>
 						</td>
-						<td style="white-space:nowrap; text-align:center">$<ao:write name="server" property="minimumConfiguration.monthly" /></td>
-						<td style="white-space:nowrap; text-align:center">$<ao:write name="server" property="maximumConfiguration.monthly" /></td>
+						<td style="white-space:nowrap; text-align:center"><ao:write name="server" property="minimumConfiguration.monthly" /></td>
+						<td style="white-space:nowrap; text-align:center"><ao:write name="server" property="maximumConfiguration.monthly" /></td>
 						<logic:equal name="serverIndex" value="0">
 							<bean:size scope="request" name="servers" id="serversSize" />
 							<td rowspan="<%= serversSize %>" style="white-space:nowrap">

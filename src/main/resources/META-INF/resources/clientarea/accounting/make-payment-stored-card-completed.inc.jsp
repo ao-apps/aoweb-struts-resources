@@ -21,7 +21,6 @@ You should have received a copy of the GNU Lesser General Public License
 along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 --%>
 <%@ page language="java" pageEncoding="UTF-8" %>
-<%@ page import="java.math.BigDecimal" %>
 <%@include file="/_taglibs.inc.jsp" %>
 
 <skin:setContentType />
@@ -45,11 +44,10 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 						<hr />
 						<fmt:message key="makePaymentStoredCardCompleted.confirm.followingProcessed" />
 						<bean:define scope="request" name="creditCard" id="creditCard" type="com.aoindustries.aoserv.client.payment.CreditCard" />
-						<bean:define scope="request" name="business" id="business" type="com.aoindustries.aoserv.client.account.Account" />
 						<table cellspacing='0' cellpadding='4'>
 							<tr>
-								<th style="text-align:left; white-space:nowrap;"><fmt:message key="makePaymentStoredCard.business.prompt" /></th>
-								<td style="white-space:nowrap"><ao:write scope="request" name="business" /></td>
+								<th style="text-align:left; white-space:nowrap;"><fmt:message key="makePaymentStoredCard.account.prompt" /></th>
+								<td style="white-space:nowrap"><ao:write scope="request" name="account" /></td>
 							</tr>
 							<tr>
 								<th style="text-align:left; white-space:nowrap;"><fmt:message key="makePaymentStoredCard.card.prompt" /></th>
@@ -76,11 +74,11 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 							</logic:notEmpty>
 							<tr>
 								<th style="text-align:left; white-space:nowrap;"><fmt:message key="makePaymentStoredCard.paymentAmount.prompt" /></th>
-								<td style="white-space:nowrap">$<ao:write scope="request" name="transaction" property="transactionRequest.amount" /></td>
+								<td style="white-space:nowrap"><ao:out value="${aoTransaction.amount.negate()}" /></td>
 							</tr>
 							<tr>
 								<th style="text-align:left; white-space:nowrap;"><fmt:message key="makePaymentStoredCardCompleted.transid.prompt" /></th>
-								<td style="white-space:nowrap"><ao:write scope="request" name="aoTransaction" property="transID" /></td>
+								<td style="white-space:nowrap"><ao:write scope="request" name="aoTransaction" property="transid" /></td>
 							</tr>
 							<tr>
 								<th style="text-align:left; white-space:nowrap;"><fmt:message key="makePaymentStoredCardCompleted.approvalCode.prompt" /></th>
@@ -89,18 +87,31 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 							<tr>
 								<th style='white-space:nowrap' align='left'><fmt:message key="makePaymentStoredCardCompleted.newBalance.prompt" /></th>
 								<td style="white-space:nowrap">
-									<% BigDecimal balance = business.getAccountBalance(); %>
-									<% if(balance.signum()==0) { %>
-										<fmt:message key="makePaymentStoredCardCompleted.newBalance.value.zero" />
-									<% } else if(balance.signum()<0) { %>
-										<fmt:message key="makePaymentStoredCardCompleted.newBalance.value.credit">
-											<fmt:param><c:out value="<%= balance.negate().toPlainString() %>" /></fmt:param>
-										</fmt:message>
-									<% } else { %>
-										<fmt:message key="makePaymentStoredCardCompleted.newBalance.value.debt">
-											<fmt:param><c:out value="<%= balance.toPlainString() %>" /></fmt:param>
-										</fmt:message>
-									<% } %>
+									<c:forEach var="balance" items="${account.accountBalance.values}">
+										<ao:choose>
+											<ao:when test="#{balance.unscaledValue < 0}">
+												<div>
+													<fmt:message key="makePaymentStoredCardCompleted.newBalance.value.credit">
+														<fmt:param><c:out value="${balance.negate()}" /></fmt:param>
+													</fmt:message>
+												</div>
+											</ao:when>
+											<ao:when test="#{balance.unscaledValue > 0}">
+												<div style="color:red"><strong>
+													<fmt:message key="makePaymentStoredCardCompleted.newBalance.value.debt">
+														<fmt:param><c:out value="${balance}" /></fmt:param>
+													</fmt:message>
+												</strong></div>
+											</ao:when>
+											<ao:otherwise>
+												<div>
+													<fmt:message key="makePaymentStoredCardCompleted.newBalance.value.zero">
+														<fmt:param><c:out value="${balance}" /></fmt:param>
+													</fmt:message>
+												</div>
+											</ao:otherwise>
+										</ao:choose>
+									</c:forEach>
 								</td>
 							</tr>
 						</table><br />

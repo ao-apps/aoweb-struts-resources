@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2007-2009, 2015, 2016, 2018  AO Industries, Inc.
+Copyright (C) 2007-2009, 2015, 2016, 2018, 2019  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -63,13 +63,13 @@ It only provides the content of the page.
 								<th style='white-space:nowrap'><fmt:message key="permissionDenied.andPermissions.header.description" /></th>
 								<th style='white-space:nowrap'><fmt:message key="permissionDenied.andPermissions.header.hasPermission" /></th>
 							</tr>
-							<bean:define scope="request" name="aoConn" property="thisBusinessAdministrator" id="thisBusinessAdministrator" type="com.aoindustries.aoserv.client.account.Administrator" />
+							<bean:define scope="request" name="aoConn" property="currentAdministrator" id="currentAdministrator" type="com.aoindustries.aoserv.client.account.Administrator" />
 							<logic:iterate scope="request" name="permissionDenied" id="andPermission" type="com.aoindustries.aoserv.client.master.Permission">
 								<tr>
 									<td style="white-space:nowrap"><ao:write name="andPermission" /></td>
 									<td style="white-space:nowrap"><ao:write name="andPermission" method="getDescription" /></td>
 									<td style="white-space:nowrap">
-										<% if(thisBusinessAdministrator.hasPermission(andPermission)) { %>
+										<% if(currentAdministrator.hasPermission(andPermission)) { %>
 											<fmt:message key="permissionDenied.andPermissions.header.hasPermission.yes" />
 										<% } else { %>
 											<fmt:message key="permissionDenied.andPermissions.header.hasPermission.no" />

@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2000-2009, 2015, 2016  AO Industries, Inc.
+Copyright (C) 2000-2009, 2015, 2016, 2019  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -49,8 +49,8 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 							<fmt:message key="edit-completed.ticketChanges" />
 							<hr />
 							<ul>
-								<logic:equal scope="request" name="businessUpdated" value="true">
-									<li><fmt:message key="edit-completed.businessUpdated" /></li>
+								<logic:equal scope="request" name="accountUpdated" value="true">
+									<li><fmt:message key="edit-completed.accountUpdated" /></li>
 								</logic:equal>
 								<logic:equal scope="request" name="contactEmailsUpdated" value="true">
 									<li><fmt:message key="edit-completed.contactEmailsUpdated" /></li>

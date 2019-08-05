@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2000-2009, 2016  AO Industries, Inc.
+Copyright (C) 2000-2009, 2016, 2019  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -38,9 +38,9 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 				</tr>
 				<logic:iterate scope="request" name="packageDefinitions" id="packageDefinition" indexId="packageDefinitionIndex">
 					<skin:lightDarkTableRow>
-						<td style="white-space:nowrap"><html:radio property="packageDefinition" idName="packageDefinition" value="pkey" /></td>
+						<td style="white-space:nowrap"><html:radio styleId="packageDefinition_${packageDefinition.pkey}" property="packageDefinition" idName="packageDefinition" value="pkey" /></td>
 						<td style="white-space:nowrap">
-							<b><ao:write name="packageDefinition" /></b>
+							<label for="packageDefinition_${fn:escapeXml(packageDefinition.pkey)}"><b><ao:write name="packageDefinition" /></b></label>
 							<skin:popup>
 								<table cellspacing="0" cellpadding="2" style='font-size:80%;'>
 									<tr>
@@ -85,9 +85,9 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 						</td>
 						<td style="white-space:nowrap; text-align:center">
 							<logic:empty name="packageDefinition" property="setupFee"><fmt:message key="signupSelectPackageForm.setup.none" /></logic:empty>
-							<logic:notEmpty name="packageDefinition" property="setupFee">$<ao:write name="packageDefinition" property="setupFee" /></logic:notEmpty>
+							<logic:notEmpty name="packageDefinition" property="setupFee"><ao:write name="packageDefinition" property="setupFee" /></logic:notEmpty>
 						</td>
-						<td style="white-space:nowrap; text-align:center">$<ao:write name="packageDefinition" property="monthlyRate" /></td>
+						<td style="white-space:nowrap; text-align:center"><ao:write name="packageDefinition" property="monthlyRate" /></td>
 						<logic:equal name="packageDefinitionLimit" value="0">
 							<bean:size scope="request" name="packageDefinitions" id="packageDefinitionsSize" />
 							<td rowspan="<%= packageDefinitionsSize %>" style="white-space:nowrap">

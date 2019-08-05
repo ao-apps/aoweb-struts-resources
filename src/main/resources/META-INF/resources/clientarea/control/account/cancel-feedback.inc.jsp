@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2003-2009, 2015, 2016, 2018  AO Industries, Inc.
+Copyright (C) 2003-2009, 2015, 2016, 2018, 2019  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -28,15 +28,15 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 <html:html lang="true" xhtml="true">
 	<%@include file="add-parents.inc.jsp" %>
 	<fmt:bundle basename="com.aoindustries.website.clientarea.control.ApplicationResources">
-		<skin:path>/clientarea/control/business/cancel-feedback-completed.do?business=${business.name}</skin:path>
+		<skin:path>/clientarea/control/account/cancel-feedback.do?account=${core:encodeUrlParam(account.name)}</skin:path>
 		<logic:equal name="siteSettings" property="brand.aowebStrutsNoindex" value="true"><skin:meta name="ROBOTS">NOINDEX</skin:meta></logic:equal>
-		<skin:title><fmt:message key="business.cancel.title" /></skin:title>
-		<skin:navImageAlt><fmt:message key="business.cancel.navImageAlt" /></skin:navImageAlt>
-		<skin:keywords><fmt:message key="business.cancel.keywords" /></skin:keywords>
-		<skin:description><fmt:message key="business.cancel.description" /></skin:description>
+		<skin:title><fmt:message key="account.cancel.title" /></skin:title>
+		<skin:navImageAlt><fmt:message key="account.cancel.navImageAlt" /></skin:navImageAlt>
+		<skin:keywords><fmt:message key="account.cancel.keywords" /></skin:keywords>
+		<skin:description><fmt:message key="account.cancel.description" /></skin:description>
 		<skin:skin>
 			<skin:content width="600">
-				<skin:contentTitle><fmt:message key="business.cancel.title" /></skin:contentTitle>
+				<skin:contentTitle><fmt:message key="account.cancel.title" /></skin:contentTitle>
 				<skin:contentHorizontalDivider />
 				<skin:contentLine>
 					<logic:present scope="request" name="permissionDenied">
@@ -44,9 +44,18 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					</logic:present>
 					<logic:notPresent scope="request" name="permissionDenied">
 						<skin:lightArea>
-							<fmt:message key="business.cancel-feedback-completed.title">
-								<fmt:param><c:out value="${business.name}" /></fmt:param>
+							<fmt:message key="account.cancel-feedback.prompt">
+								<fmt:param><c:out value="${account.name}" /></fmt:param>
 							</fmt:message>
+							<html:form action="/account/cancel-feedback-completed">
+								<div>
+									<html:hidden property="account" />
+									<html:textarea property="reason" rows="16" cols="80" />
+								</div>
+								<div style="text-align:center; margin-top:1em;">
+									<ao:input type="submit"><fmt:message key="account.cancel-feedback.submit.label" /></ao:input>
+								</div>
+							</html:form>
 						</skin:lightArea>
 					</logic:notPresent>
 				</skin:contentLine>

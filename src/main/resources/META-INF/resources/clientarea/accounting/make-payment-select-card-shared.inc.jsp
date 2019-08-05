@@ -23,9 +23,11 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@include file="/_taglibs.inc.jsp" %>
 
+<%-- TODO: <ao:form> --%>
 <form method="post" action="<ao:url>make-payment-stored-card.do</ao:url>">
 	<div>
-		<input name="accounting" type="hidden" value="<%= request.getParameter("accounting") %>" />
+		<ao:input name="account" type="hidden" value="${param.account}" />
+		<ao:input name="currency" type="hidden" value="${param.currency}" />
 		<skin:lightArea>
 			<fmt:bundle basename="com.aoindustries.website.clientarea.accounting.ApplicationResources">
 				<fmt:message key="makePaymentSelectCard.selectCard.list.title" />
@@ -52,29 +54,29 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 								<logic:equal scope="request" name="lastPaymentCreditCard" value="<%= creditCard.getProviderUniqueId() %>">
 									<input
 										type="radio"
-										id="pkey_<%= creditCard.getPkey() %>"
-										name="pkey"
-										value="<%= creditCard.getPkey() %>"
+										id="id_<%= creditCard.getId() %>"
+										name="id"
+										value="<%= creditCard.getId() %>"
 										checked="checked"
 									/>
 								</logic:equal>
 								<logic:notEqual scope="request" name="lastPaymentCreditCard" value="<%= creditCard.getProviderUniqueId() %>">
 									<input
 										type="radio"
-										id="pkey_<%= creditCard.getPkey() %>"
-										name="pkey"
-										value="<%= creditCard.getPkey() %>"
+										id="id_<%= creditCard.getId() %>"
+										name="id"
+										value="<%= creditCard.getId() %>"
 									/>
 								</logic:notEqual>
 							</td>
 							<c:set var="cardNumber" value="${creditCard.cardInfo}"/>
-							<td style="white-space:nowrap"><label for="pkey_<%= creditCard.getPkey() %>"><%@include file="_credit-card-image.inc.jsp" %></label></td>
-							<td style="white-space:nowrap; font-family: monospace"><label for="pkey_<%= creditCard.getPkey() %>"><c:out value="${aoweb:getCardNumberDisplay(cardNumber)}"/></label></td>
-							<td style="white-space:nowrap; font-family: monospace"><label for="pkey_<%= creditCard.getPkey() %>"><c:out value="${aoweb:getExpirationDisplay(creditCard.expirationMonth, creditCard.expirationYear)}"/></label></td>
+							<td style="white-space:nowrap"><label for="id_<%= creditCard.getId() %>"><%@include file="_credit-card-image.inc.jsp" %></label></td>
+							<td style="white-space:nowrap; font-family: monospace"><label for="id_<%= creditCard.getId() %>"><c:out value="${aoweb:getCardNumberDisplay(cardNumber)}"/></label></td>
+							<td style="white-space:nowrap; font-family: monospace"><label for="id_<%= creditCard.getId() %>"><c:out value="${aoweb:getExpirationDisplay(creditCard.expirationMonth, creditCard.expirationYear)}"/></label></td>
 							<c:if test="${hasDescription}">
 								<td style="white-space:nowrap">
 									<logic:notEmpty name="creditCard" property="description">
-										<label for="pkey_<%= creditCard.getPkey() %>"><ao:write name="creditCard" property="description" /></label>
+										<label for="id_<%= creditCard.getId() %>"><ao:write name="creditCard" property="description" /></label>
 									</logic:notEmpty>
 								</td>
 							</c:if>
@@ -83,13 +85,13 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					<skin:lightDarkTableRow>
 						<td style="white-space:nowrap">
 							<logic:equal scope="request" name="lastPaymentCreditCard" value="">
-								<input type="radio" id="pkey_" name="pkey" value="" checked="checked" />
+								<input type="radio" id="id_" name="id" value="" checked="checked" />
 							</logic:equal>
 							<logic:notEqual scope="request" name="lastPaymentCreditCard" value="">
-								<input type="radio" id="pkey_" name="pkey" value="" />
+								<input type="radio" id="id_" name="id" value="" />
 							</logic:notEqual>
 						</td>
-						<td style='white-space:nowrap' colspan="${fn:escapeXml(3 + (hasDescription ? 1 : 0))}"><label for="pkey_"><fmt:message key="makePaymentSelectCard.newCard.link" /></label></td>
+						<td style='white-space:nowrap' colspan="${fn:escapeXml(3 + (hasDescription ? 1 : 0))}"><label for="id_"><fmt:message key="makePaymentSelectCard.newCard.link" /></label></td>
 					</skin:lightDarkTableRow>
 					<tr>
 						<td style='white-space:nowrap' colspan="${fn:escapeXml(4 + (hasDescription ? 1 : 0))}" align="center">

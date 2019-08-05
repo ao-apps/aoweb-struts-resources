@@ -87,9 +87,9 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 										</tr>
 										<tr>
 											<td style="white-space:nowrap"><fmt:message key="editCreditCard.required.yes" /></td>
-											<td style="white-space:nowrap"><fmt:message key="creditCardForm.accounting.prompt" /></td>
-											<td style="white-space:nowrap"><html:hidden property="accounting" write="true" /></td>
-											<td style="white-space:nowrap"><html:errors bundle="/clientarea/accounting/ApplicationResources" property="accounting" /></td>
+											<td style="white-space:nowrap"><fmt:message key="creditCardForm.account.prompt" /></td>
+											<td style="white-space:nowrap"><html:hidden property="account" write="true" /></td>
+											<td style="white-space:nowrap"><html:errors bundle="/clientarea/accounting/ApplicationResources" property="account" /></td>
 										</tr>
 										<tr>
 											<td style="white-space:nowrap"><fmt:message key="editCreditCard.required.yes" /></td>

@@ -50,7 +50,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 								<fmt:message key="configureAutomaticBillingCompleted.setUseMonthly.title" />
 								<hr />
 								<fmt:message key="configureAutomaticBillingCompleted.setUseMonthly.text">
-									<fmt:param><c:out value="${business.name}" /></fmt:param>
+									<fmt:param><c:out value="${account.name}" /></fmt:param>
 									<fmt:param><c:out value="${aoweb:getCardNumberDisplay(creditCard.cardInfo)}" /></fmt:param>
 								</fmt:message>
 							</logic:present>
@@ -58,7 +58,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 								<fmt:message key="configureAutomaticBillingCompleted.clearUseMonthly.title" />
 								<hr />
 								<fmt:message key="configureAutomaticBillingCompleted.clearUseMonthly.text">
-									<fmt:param><c:out value="${business.name}" /></fmt:param>
+									<fmt:param><c:out value="${account.name}" /></fmt:param>
 								</fmt:message>
 							</logic:notPresent>
 							<br />
