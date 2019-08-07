@@ -26,28 +26,27 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 This is intended to be used by other JSP pages, not to be used directly.
 It only provides the content of the page.
 --%>
-<bean:define scope="request" name="locale" id="locale" type="java.util.Locale" />
 <skin:lightArea>
-	<fmt:bundle basename="com.aoindustries.website.ApplicationResources">
-		<b><fmt:message key="permissionDenied.permissionDenied" /></b>
+	<ao:bundle basename="com.aoindustries.website.ApplicationResources">
+		<b><ao:message key="permissionDenied.permissionDenied" /></b>
 		<hr />
 		<logic:present scope="request" name="permissionDenied">
 			<logic:empty scope="request" name="permissionDenied">
-				<fmt:message key="permissionDenied.noPermissionInformation" />
+				<ao:message key="permissionDenied.noPermissionInformation" />
 			</logic:empty>
 			<logic:notEmpty scope="request" name="permissionDenied">
 				<bean:size scope="request" name="permissionDenied" id="permissionDeniedSize" />
 				<logic:equal name="permissionDeniedSize" value="1">
-					<fmt:message key="permissionDenied.theFollowingPermissionRequired" />
-					<logic:iterate scope="request" name="permissionDenied" id="andPermission" type="com.aoindustries.aoserv.client.master.Permission">
+					<ao:message key="permissionDenied.theFollowingPermissionRequired" />
+					<logic:iterate scope="request" name="permissionDenied" id="andPermission">
 						<p>
 							<table cellspacing='0' cellpadding='2'>
 								<tr>
-									<td style="white-space:nowrap"><b><fmt:message key="permissionDenied.permission.display" /></b></td>
+									<td style="white-space:nowrap"><b><ao:message key="permissionDenied.permission.display" /></b></td>
 									<td style="white-space:nowrap"><ao:write name="andPermission" /></td>
 								</tr>
 								<tr>
-									<td style="white-space:nowrap"><b><fmt:message key="permissionDenied.permission.description" /></b></td>
+									<td style="white-space:nowrap"><b><ao:message key="permissionDenied.permission.description" /></b></td>
 									<td style="white-space:nowrap"><ao:write name="andPermission" method="getDescription" /></td>
 								</tr>
 							</table>
@@ -55,25 +54,28 @@ It only provides the content of the page.
 					</logic:iterate>
 				</logic:equal>
 				<logic:notEqual name="permissionDeniedSize" value="1">
-					<fmt:message key="permissionDenied.allOfTheFollowingPermissionsRequired" />
+					<ao:message key="permissionDenied.allOfTheFollowingPermissionsRequired" />
 					<p>
 						<table cellspacing='0' cellpadding='2'>
 							<tr>
-								<th style='white-space:nowrap'><fmt:message key="permissionDenied.andPermissions.header.display" /></th>
-								<th style='white-space:nowrap'><fmt:message key="permissionDenied.andPermissions.header.description" /></th>
-								<th style='white-space:nowrap'><fmt:message key="permissionDenied.andPermissions.header.hasPermission" /></th>
+								<th style='white-space:nowrap'><ao:message key="permissionDenied.andPermissions.header.display" /></th>
+								<th style='white-space:nowrap'><ao:message key="permissionDenied.andPermissions.header.description" /></th>
+								<th style='white-space:nowrap'><ao:message key="permissionDenied.andPermissions.header.hasPermission" /></th>
 							</tr>
-							<bean:define scope="request" name="aoConn" property="currentAdministrator" id="currentAdministrator" type="com.aoindustries.aoserv.client.account.Administrator" />
-							<logic:iterate scope="request" name="permissionDenied" id="andPermission" type="com.aoindustries.aoserv.client.master.Permission">
+							<bean:define scope="request" name="aoConn" property="currentAdministrator" id="currentAdministrator" />
+							<logic:iterate scope="request" name="permissionDenied" id="andPermission">
 								<tr>
 									<td style="white-space:nowrap"><ao:write name="andPermission" /></td>
 									<td style="white-space:nowrap"><ao:write name="andPermission" method="getDescription" /></td>
 									<td style="white-space:nowrap">
-										<% if(currentAdministrator.hasPermission(andPermission)) { %>
-											<fmt:message key="permissionDenied.andPermissions.header.hasPermission.yes" />
-										<% } else { %>
-											<fmt:message key="permissionDenied.andPermissions.header.hasPermission.no" />
-										<% } %>
+										<ao:choose>
+											<ao:when test="#{currentAdministrator.hasPermission(andPermission)}">
+												<ao:message key="permissionDenied.andPermissions.header.hasPermission.yes" />
+											</ao:when>
+											<ao:otherwise>
+												<ao:message key="permissionDenied.andPermissions.header.hasPermission.no" />
+											</ao:otherwise>
+										</ao:choose>
 									</td>
 								</tr>
 							</logic:iterate>
@@ -83,7 +85,7 @@ It only provides the content of the page.
 			</logic:notEmpty>
 		</logic:present>
 		<logic:notPresent scope="request" name="permissionDenied">
-			<fmt:message key="permissionDenied.noPermissionInformation" />
+			<ao:message key="permissionDenied.noPermissionInformation" />
 		</logic:notPresent>
-	</fmt:bundle>
+	</ao:bundle>
 </skin:lightArea>
