@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2007-2009, 2016  AO Industries, Inc.
+Copyright (C) 2007-2009, 2016, 2019  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -23,6 +23,8 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@include file="/_taglibs.inc.jsp" %>
 
+<%-- TODO: Multi-currency --%>
+<% pageContext.setAttribute("currency", java.util.Currency.getInstance("USD")); %>
 <div>
 	<ao:script>
 		function formatDecimal(pennies) {
@@ -33,18 +35,32 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 		}
 		function recalcMonthly() {
 			var form = document.forms[signupCustomizeManagementFormName];
-			var totalMonthly = Math.round(Number(form.hardwareRate.value)*100);
+
+			// TODO: Multi-currency
+			var totalMonthly = Math.round(parseFloat(<ao:out value="${requestScope.hardwareRate.map[currency].value}" />)*100);
 
 			// Add the backup onsite options
 			<bean:size scope="request" name="backupOnsiteOptions" id="backupOnsiteOptionsSize" />
 			<logic:equal name="backupOnsiteOptionsSize" value="1">
 				<logic:iterate scope="request" name="backupOnsiteOptions" id="option">
-					if(form.backupOnsiteOption.checked) totalMonthly = totalMonthly + Math.round(parseFloat(<ao:write name="option" property="priceDifference" />)*100);
+					// TODO: Multi-currency
+					if(form.backupOnsiteOption.checked) {
+						<c:set var="priceDifference" value="${option.priceDifference.map[currency].value}" />
+						<c:if test="${!empty priceDifference}">
+							totalMonthly = totalMonthly + Math.round(parseFloat(<ao:out value="${priceDifference}" />)*100);
+						</c:if>
+					}
 				</logic:iterate>
 			</logic:equal>
 			<logic:notEqual name="backupOnsiteOptionsSize" value="1">
 				<logic:iterate scope="request" name="backupOnsiteOptions" id="option" indexId="index">
-					if(form.backupOnsiteOption[parseInt(<ao:write name="index" />)].checked) totalMonthly = totalMonthly + Math.round(parseFloat(<ao:write name="option" property="priceDifference" />)*100);
+					// TODO: Multi-currency
+					if(form.backupOnsiteOption[parseInt(<ao:out value="${index}" />)].checked) {
+						<c:set var="priceDifference" value="${option.priceDifference.map[currency].value}" />
+						<c:if test="${!empty priceDifference}">
+							totalMonthly = totalMonthly + Math.round(parseFloat(<ao:out value="${priceDifference}" />)*100);
+						</c:if>
+					}
 				</logic:iterate>
 			</logic:notEqual>
 
@@ -52,12 +68,24 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 			<bean:size scope="request" name="backupOffsiteOptions" id="backupOffsiteOptionsSize" />
 			<logic:equal name="backupOffsiteOptionsSize" value="1">
 				<logic:iterate scope="request" name="backupOffsiteOptions" id="option">
-					if(form.backupOffsiteOption.checked) totalMonthly = totalMonthly + Math.round(parseFloat(<ao:write name="option" property="priceDifference" />)*100);
+					// TODO: Multi-currency
+					if(form.backupOffsiteOption.checked) {
+						<c:set var="priceDifference" value="${option.priceDifference.map[currency].value}" />
+						<c:if test="${!empty priceDifference}">
+							totalMonthly = totalMonthly + Math.round(parseFloat(<ao:out value="${priceDifference}" />)*100);
+						</c:if>
+					}
 				</logic:iterate>
 			</logic:equal>
 			<logic:notEqual name="backupOffsiteOptionsSize" value="1">
 				<logic:iterate scope="request" name="backupOffsiteOptions" id="option" indexId="index">
-					if(form.backupOffsiteOption[parseInt(<ao:write name="index" />)].checked) totalMonthly = totalMonthly + Math.round(parseFloat(<ao:write name="option" property="priceDifference" />)*100);
+					// TODO: Multi-currency
+					if(form.backupOffsiteOption[parseInt(<ao:out value="${index}" />)].checked) {
+						<c:set var="priceDifference" value="${option.priceDifference.map[currency].value}" />
+						<c:if test="${!empty priceDifference}">
+							totalMonthly = totalMonthly + Math.round(parseFloat(<ao:out value="${priceDifference}" />)*100);
+						</c:if>
+					}
 				</logic:iterate>
 			</logic:notEqual>
 
@@ -65,12 +93,24 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 			<bean:size scope="request" name="distributionScanOptions" id="distributionScanOptionsSize" />
 			<logic:equal name="distributionScanOptionsSize" value="1">
 				<logic:iterate scope="request" name="distributionScanOptions" id="option">
-					if(form.distributionScanOption.checked) totalMonthly = totalMonthly + Math.round(parseFloat(<ao:write name="option" property="priceDifference" />)*100);
+					// TODO: Multi-currency
+					if(form.distributionScanOption.checked) {
+						<c:set var="priceDifference" value="${option.priceDifference.map[currency].value}" />
+						<c:if test="${!empty priceDifference}">
+							totalMonthly = totalMonthly + Math.round(parseFloat(<ao:out value="${priceDifference}" />)*100);
+						</c:if>
+					}
 				</logic:iterate>
 			</logic:equal>
 			<logic:notEqual name="distributionScanOptionsSize" value="1">
 				<logic:iterate scope="request" name="distributionScanOptions" id="option" indexId="index">
-					if(form.distributionScanOption[parseInt(<ao:write name="index" />)].checked) totalMonthly = totalMonthly + Math.round(parseFloat(<ao:write name="option" property="priceDifference" />)*100);
+					// TODO: Multi-currency
+					if(form.distributionScanOption[parseInt(<ao:out value="${index}" />)].checked) {
+						<c:set var="priceDifference" value="${option.priceDifference.map[currency].value}" />
+						<c:if test="${!empty priceDifference}">
+							totalMonthly = totalMonthly + Math.round(parseFloat(<ao:out value="${priceDifference}" />)*100);
+						</c:if>
+					}
 				</logic:iterate>
 			</logic:notEqual>
 
@@ -78,21 +118,34 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 			<bean:size scope="request" name="failoverOptions" id="failoverOptionsSize" />
 			<logic:equal name="failoverOptionsSize" value="1">
 				<logic:iterate scope="request" name="failoverOptions" id="option">
-					if(form.failoverOption.checked) totalMonthly = totalMonthly + Math.round(parseFloat(<ao:write name="option" property="priceDifference" />)*100);
+					// TODO: Multi-currency
+					if(form.failoverOption.checked) {
+						<c:set var="priceDifference" value="${option.priceDifference.map[currency].value}" />
+						<c:if test="${!empty priceDifference}">
+							totalMonthly = totalMonthly + Math.round(parseFloat(<ao:out value="${priceDifference}" />)*100);
+						</c:if>
+					}
 				</logic:iterate>
 			</logic:equal>
 			<logic:notEqual name="failoverOptionsSize" value="1">
 				<logic:iterate scope="request" name="failoverOptions" id="option" indexId="index">
-					if(form.failoverOption[parseInt(<ao:write name="index" />)].checked) totalMonthly = totalMonthly + Math.round(parseFloat(<ao:write name="option" property="priceDifference" />)*100);
+					// TODO: Multi-currency
+					if(form.failoverOption[parseInt(<ao:out value="${index}" />)].checked) {
+						<c:set var="priceDifference" value="${option.priceDifference.map[currency].value}" />
+						<c:if test="${!empty priceDifference}">
+							totalMonthly = totalMonthly + Math.round(parseFloat(<ao:out value="${priceDifference}" />)*100);
+						</c:if>
+					}
 				</logic:iterate>
 			</logic:notEqual>
 
+			// TODO: Multi-currency
 			form.totalMonthly.value="$"+formatDecimal(totalMonthly);
 		}
 	</ao:script>
 	<input type="hidden" name="selectedStep" value="" />
 	<skin:lightArea>
-		<fmt:bundle basename="com.aoindustries.website.signup.ApplicationResources">
+		<ao:bundle basename="com.aoindustries.website.signup.ApplicationResources">
 			<table cellspacing="0" cellpadding="2">
 				<tr><th colspan="2" class='aoLightRow'>
 					<span style="font-size:large;"><ao:write scope="request" name="packageDefinition" property="display" /></span>
@@ -100,91 +153,88 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 				<logic:notEmpty scope="request" name="backupOnsiteOptions">
 					<tr>
 						<th>
-							<fmt:message key="signupCustomizeManagementForm.selectBackupOnsite" /><br />
+							<ao:message key="signupCustomizeManagementForm.selectBackupOnsite" /><br />
 							<html:errors bundle="/signup/ApplicationResources" property="backupOnsiteOption" />
 						</th>
-						<th><fmt:message key="signupCustomizeManagementForm.backupOnsiteMonthly" /></th>
+						<th><ao:message key="signupCustomizeManagementForm.backupOnsiteMonthly" /></th>
 					</tr>
 					<logic:iterate scope="request" name="backupOnsiteOptions" id="option">
 						<tr>
 							<td style="white-space:nowrap">
-								<html:radio onclick="recalcMonthly();" property="backupOnsiteOption" idName="option" value="packageDefinitionLimit" />
-								<ao:write name="option" property="display" />
+								<label><html:radio onclick="recalcMonthly();" property="backupOnsiteOption" idName="option" value="packageDefinitionLimit" />
+								<ao:write name="option" property="display" /></label>
 							</td>
-							<td>$<ao:write name="option" property="priceDifference" /></td>
+							<td><ao:write name="option" property="priceDifference" /></td>
 						</tr>
 					</logic:iterate>
 				</logic:notEmpty>
 				<logic:notEmpty scope="request" name="backupOffsiteOptions">
 					<tr>
 						<th>
-							<fmt:message key="signupCustomizeManagementForm.selectBackupOffsite" /><br />
+							<ao:message key="signupCustomizeManagementForm.selectBackupOffsite" /><br />
 							<html:errors bundle="/signup/ApplicationResources" property="backupOffsiteOption" />
 						</th>
-						<th><fmt:message key="signupCustomizeManagementForm.backupOffsiteMonthly" /></th>
+						<th><ao:message key="signupCustomizeManagementForm.backupOffsiteMonthly" /></th>
 					</tr>
 					<logic:iterate scope="request" name="backupOffsiteOptions" id="option">
 						<tr>
 							<td style="white-space:nowrap">
-								<html:radio onclick="recalcMonthly();" property="backupOffsiteOption" idName="option" value="packageDefinitionLimit" />
-								<ao:write name="option" property="display" />
+								<label><html:radio onclick="recalcMonthly();" property="backupOffsiteOption" idName="option" value="packageDefinitionLimit" />
+								<ao:write name="option" property="display" /></label>
 							</td>
-							<td>$<ao:write name="option" property="priceDifference" /></td>
+							<td><ao:write name="option" property="priceDifference" /></td>
 						</tr>
 					</logic:iterate>
 				</logic:notEmpty>
 				<logic:notEmpty scope="request" name="distributionScanOptions">
 					<tr>
 						<th>
-							<fmt:message key="signupCustomizeManagementForm.selectDistributionScan" /><br />
+							<ao:message key="signupCustomizeManagementForm.selectDistributionScan" /><br />
 							<html:errors bundle="/signup/ApplicationResources" property="distributionScanOption" />
 						</th>
-						<th><fmt:message key="signupCustomizeManagementForm.distributionScanMonthly" /></th>
+						<th><ao:message key="signupCustomizeManagementForm.distributionScanMonthly" /></th>
 					</tr>
 					<logic:iterate scope="request" name="distributionScanOptions" id="option">
 						<tr>
 							<td style="white-space:nowrap">
-								<html:radio onclick="recalcMonthly();" property="distributionScanOption" idName="option" value="packageDefinitionLimit" />
-								<ao:write name="option" property="display" />
+								<label><html:radio onclick="recalcMonthly();" property="distributionScanOption" idName="option" value="packageDefinitionLimit" />
+								<ao:write name="option" property="display" /></label>
 							</td>
-							<td>$<ao:write name="option" property="priceDifference" /></td>
+							<td><ao:write name="option" property="priceDifference" /></td>
 						</tr>
 					</logic:iterate>
 				</logic:notEmpty>
 				<logic:notEmpty scope="request" name="failoverOptions">
 					<tr>
 						<th>
-							<fmt:message key="signupCustomizeManagementForm.selectFailover" /><br />
+							<ao:message key="signupCustomizeManagementForm.selectFailover" /><br />
 							<html:errors bundle="/signup/ApplicationResources" property="failoverOption" />
 						</th>
-						<th><fmt:message key="signupCustomizeManagementForm.failoverMonthly" /></th>
+						<th><ao:message key="signupCustomizeManagementForm.failoverMonthly" /></th>
 					</tr>
 					<logic:iterate scope="request" name="failoverOptions" id="option">
 						<tr>
 							<td style="white-space:nowrap">
-								<html:radio onclick="recalcMonthly();" property="failoverOption" idName="option" value="packageDefinitionLimit" />
-								<ao:write name="option" property="display" />
+								<label><html:radio onclick="recalcMonthly();" property="failoverOption" idName="option" value="packageDefinitionLimit" />
+								<ao:write name="option" property="display" /></label>
 							</td>
-							<td>$<ao:write name="option" property="priceDifference" /></td>
+							<td><ao:write name="option" property="priceDifference" /></td>
 						</tr>
 					</logic:iterate>
 				</logic:notEmpty>
 				<tr>
-					<th><fmt:message key="signupCustomizeManagementForm.hardwareRate.title" /></th>
+					<th><ao:message key="signupCustomizeManagementForm.hardwareRate.title" /></th>
 					<th align='left'>
 						<input type="hidden" name="formCompleted" value="true" />
-						<input type="hidden" name="hardwareRate" value='<ao:write scope="request" name="hardwareRate" />' />
-						<input type="text" name="hardwareRateDisplay" readonly='readonly' size="10" value='$<ao:write scope="request" name="hardwareRate" />' />
+						<ao:input type="text" name="hardwareRateDisplay" readonly="true" size="10" value="${requestScope.hardwareRate}" />
 					</th>
 				</tr>
 				<tr>
-					<th><fmt:message key="signupCustomizeManagementForm.total" /></th>
-					<th align='left'>
-						<input type="text" name="totalMonthly" readonly='readonly' size="10" value='$<ao:write scope="request" name="hardwareRate" />' />
-					</th>
+					<th><ao:message key="signupCustomizeManagementForm.total" /></th>
+					<th align='left'><ao:input type="text" name="totalMonthly" readonly='readonly' size="10" value="${requestScope.hardwareRate}" /></th>
 				</tr>
-				<tr><td colspan="2" align="center"><br /><ao:input type="submit"><fmt:message key="signupCustomizeManagementForm.submit.label" /></ao:input><br /><br /></td></tr>
+				<tr><td colspan="2" align="center"><br /><ao:input type="submit"><ao:message key="signupCustomizeManagementForm.submit.label" /></ao:input><br /><br /></td></tr>
 			</table>
-		</fmt:bundle>
+		</ao:bundle>
 	</skin:lightArea>
 </div>
