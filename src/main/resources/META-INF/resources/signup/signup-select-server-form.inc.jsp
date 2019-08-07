@@ -77,7 +77,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 											<td style="white-space:nowrap">
 												<logic:empty name="server" property="minimumConfiguration.disk">&#160;</logic:empty>
 												<logic:notEmpty name="server" property="minimumConfiguration.disk"><ao:write name="server" property="minimumConfiguration.disk" /></logic:notEmpty>
-												</td>
+											</td>
 											<td style="white-space:nowrap"><ao:write name="server" property="maximumConfiguration.disk" /></td>
 										</tr>
 									</logic:notEmpty>
