@@ -51,6 +51,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 								<fmt:param value="${aoweb:getCardNumberDisplay(cardNumber)}" />
 							</fmt:message><br />
 							<br />
+							<%-- TODO: Link to make payment here --%>
 							<html:link action="/credit-card-manager"><fmt:message key="addCreditCardCompleted.creditCardManager.link" /></html:link>
 						</skin:lightArea>
 					</logic:notPresent>
