@@ -24,7 +24,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 <%@include file="/_taglibs.inc.jsp" %>
 
 <%-- The card number string should be provided in an attribute named "cardNumber" --%>
-<fmt:bundle basename="com.aoindustries.website.clientarea.accounting.ApplicationResources">
+<ao:bundle basename="com.aoindustries.website.clientarea.accounting.ApplicationResources">
 	<%-- TODO: Move to a card-type microproject API and shared with ao-credit-cards/ao-payments implementation --%>
 	<c:choose>
 		<%-- TODO: 3? will be unnecessary on ao-credit-cards/ao-payments 2.0 that will store card type directly --%>
@@ -33,14 +33,10 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 			|| fn:startsWith(cardNumber, '37')
 			|| fn:startsWith(cardNumber, '3?')
 		}">
-			<ao:img src="amex.gif" style="border:1px solid; vertical-align:middle" width="64" height="40">
-				<ao:alt><fmt:message key="creditCardManager.image.amex.alt"/></ao:alt>
-			</ao:img>
+			<ao:img src="amex.gif" style="border:1px solid; vertical-align:middle" width="64" height="40" alt="${ao:message('creditCardManager.image.amex.alt')}" />
 		</c:when>
 		<c:when test="${fn:startsWith(cardNumber, '60')}">
-			<ao:img src="discv.gif" style="border:1px solid; vertical-align:middle" width="63" height="40">
-				<ao:alt><fmt:message key="creditCardManager.image.discv.alt"/></ao:alt>
-			</ao:img>
+			<ao:img src="discv.gif" style="border:1px solid; vertical-align:middle" width="63" height="40" alt="${ao:message('creditCardManager.image.discv.alt')}" />
 		</c:when>
 		<%-- TODO: 5? will be unnecessary on ao-credit-cards/ao-payments 2.0 that will store card type directly --%>
 		<c:when test="${
@@ -51,17 +47,13 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 			|| fn:startsWith(cardNumber, '55')
 			|| fn:startsWith(cardNumber, '5?')
 		}">
-			<ao:img src="mcard.gif" style="border:1px solid; vertical-align:middle" width="64" height="40">
-				<ao:alt><fmt:message key="creditCardManager.image.mcard.alt"/></ao:alt>
-			</ao:img>
+			<ao:img src="mcard.gif" style="border:1px solid; vertical-align:middle" width="64" height="40" alt="${ao:message('creditCardManager.image.mcard.alt')}" />
 		</c:when>
 		<c:when test="${fn:startsWith(cardNumber, '4')}">
-			<ao:img src="visa.gif" style="border:1px solid; vertical-align:middle" width="64" height="40">
-				<ao:alt><fmt:message key="creditCardManager.image.visa.alt"/></ao:alt>
-			</ao:img>
+			<ao:img src="visa.gif" style="border:1px solid; vertical-align:middle" width="64" height="40" alt="${ao:message('creditCardManager.image.visa.alt')}" />
 		</c:when>
 		<c:otherwise>
-			<fmt:message key="creditCardManager.creditCard.cardType.unknown" />
+			<ao:message key="creditCardManager.creditCard.cardType.unknown" />
 		</c:otherwise>
 	</c:choose>
-</fmt:bundle>
+</ao:bundle>
