@@ -30,19 +30,19 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 	<%@include file="make-payment.meta.inc.jsp" %>
 	<skin:skin>
 		<skin:content width="600">
-			<fmt:bundle basename="com.aoindustries.website.clientarea.accounting.ApplicationResources">
-				<skin:contentTitle><fmt:message key="makePayment.title" /></skin:contentTitle>
+			<ao:bundle basename="com.aoindustries.website.clientarea.accounting.ApplicationResources">
+				<skin:contentTitle><ao:message key="makePayment.title" /></skin:contentTitle>
 				<skin:contentHorizontalDivider />
 				<skin:contentLine>
 					<skin:lightArea>
-						<fmt:message key="makePayment.selectAccount.list.title" />
+						<b><ao:message key="makePayment.selectAccount.list.title" /></b>
 						<hr />
 						<table cellspacing="0" cellpadding="2">
 							<tr>
-								<th style='white-space:nowrap'><fmt:message key="makePayment.account.header" /></th>
-								<th style='white-space:nowrap'><fmt:message key="makePayment.monthlyRate.header" /></th>
-								<th style='white-space:nowrap'><fmt:message key="makePayment.balance.header" /></th>
-								<th style='white-space:nowrap'><fmt:message key="makePayment.makePayment.header" /></th>
+								<th style='white-space:nowrap'><ao:message key="makePayment.account.header" /></th>
+								<th style='white-space:nowrap'><ao:message key="makePayment.monthlyRate.header" /></th>
+								<th style='white-space:nowrap'><ao:message key="makePayment.balance.header" /></th>
+								<th style='white-space:nowrap'><ao:message key="makePayment.makePayment.header" /></th>
 							</tr>
 							<c:forEach var="entry" items="${accountsAndBalances}">
 								<c:set var="account" value="${entry.key}" />
@@ -57,44 +57,44 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 										<c:forEach var="balance" items="${entry.value.values}">
 											<ao:choose>
 												<ao:when test="#{balance.unscaledValue < 0}">
-													<div>
-														<fmt:message key="makePayment.balance.value.credit">
-															<fmt:param><c:out value="${balance.negate()}" /></fmt:param>
-														</fmt:message>
-													</div>
+													<div><ao:message key="makePayment.balance.value.credit" arg0="${balance.negate()}" /></div>
 												</ao:when>
 												<ao:when test="#{balance.unscaledValue > 0}">
-													<div style="color:red"><strong>
-														<fmt:message key="makePayment.balance.value.debt">
-															<fmt:param><c:out value="${balance}" /></fmt:param>
-														</fmt:message>
-													</strong></div>
+													<div style="color:red"><strong><ao:message key="makePayment.balance.value.debt" arg0="${balance}" /></strong></div>
 												</ao:when>
 												<ao:otherwise>
-													<div>
-														<fmt:message key="makePayment.balance.value.zero">
-															<fmt:param><c:out value="${balance}" /></fmt:param>
-														</fmt:message>
-													</div>
+													<div><ao:message key="makePayment.balance.value.zero" arg0="${balance}" /></div>
 												</ao:otherwise>
 											</ao:choose>
 										</c:forEach>
 									</td>
 									<td style="white-space:nowrap">
-										<c:forEach var="currency" items="${entry.value.currencies}">
-											<div>
-												<ao:a href="make-payment-select-card.do" param.account="${account.name}" param.currency="${currency.currencyCode}">
-													<fmt:message key="makePayment.makePayment.link" />
-												</ao:a>
-											</div>
-										</c:forEach>
+										<ao:choose>
+											<ao:when test="#{fn:length(entry.value.currencies) == 0}">
+												<%-- Handle the no-currencies case --%>
+												<div>
+													<ao:a href="make-payment-select-card.do" param.account="${account.name}">
+														<ao:message key="makePayment.makePayment.link" />
+													</ao:a>
+												</div>
+											</ao:when>
+											<ao:otherwise>
+												<c:forEach var="currency" items="${entry.value.currencies}">
+													<div>
+														<ao:a href="make-payment-select-card.do" param.account="${account.name}" param.currency="${currency.currencyCode}">
+															<ao:message key="makePayment.makePayment.link" />
+														</ao:a>
+													</div>
+												</c:forEach>
+											</ao:otherwise>
+										</ao:choose>
 									</td>
 								</skin:lightDarkTableRow>
 							</c:forEach>
 						</table>
 					</skin:lightArea>
 				</skin:contentLine>
-			</fmt:bundle>
+			</ao:bundle>
 		</skin:content>
 	</skin:skin>
 </html:html>

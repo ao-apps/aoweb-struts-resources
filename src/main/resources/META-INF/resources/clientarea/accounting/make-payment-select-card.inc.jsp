@@ -26,26 +26,29 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 <skin:setContentType />
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html:html lang="true" xhtml="true">
-	<fmt:bundle basename="com.aoindustries.website.clientarea.accounting.ApplicationResources">
+	<ao:bundle basename="com.aoindustries.website.clientarea.accounting.ApplicationResources">
+		<c:set var="currency" value="${aoConn.billing.Currency.map[param.currency]}" />
 		<skin:path>
 			/clientarea/accounting/make-payment-select-card.do
-			<ao:param name="account"><ao:write scope="request" name="account" property="name" /></ao:param>
-			<ao:param name="currency"><ao:write scope="request" name="currency" property="currencyCode" /></ao:param>
+			<ao:param name="account" value="${account.name}" />
+			<c:if test="${!empty currency}">
+				<ao:param name="currency" value="${currency.currencyCode}" />
+			</c:if>
 		</skin:path>
 		<logic:equal name="siteSettings" property="brand.aowebStrutsNoindex" value="true"><skin:meta name="ROBOTS">NOINDEX</skin:meta></logic:equal>
-		<skin:title><fmt:message key="makePayment.title" /></skin:title>
-		<skin:navImageAlt><fmt:message key="makePayment.navImageAlt" /></skin:navImageAlt>
-		<skin:keywords><fmt:message key="makePayment.keywords" /></skin:keywords>
-		<skin:description><fmt:message key="makePayment.description" /></skin:description>
+		<skin:title><ao:message key="makePayment.title" /></skin:title>
+		<skin:navImageAlt><ao:message key="makePayment.navImageAlt" /></skin:navImageAlt>
+		<skin:keywords><ao:message key="makePayment.keywords" /></skin:keywords>
+		<skin:description><ao:message key="makePayment.description" /></skin:description>
 		<%@include file="add-parents.inc.jsp" %>
 		<skin:skin>
 			<skin:content width="600">
-				<skin:contentTitle><fmt:message key="makePayment.title" /></skin:contentTitle>
+				<skin:contentTitle><ao:message key="makePayment.title" /></skin:contentTitle>
 				<skin:contentHorizontalDivider />
 				<skin:contentLine>
 					<%@include file="make-payment-select-card-shared.inc.jsp" %>
 				</skin:contentLine>
 			</skin:content>
 		</skin:skin>
-	</fmt:bundle>
+	</ao:bundle>
 </html:html>
