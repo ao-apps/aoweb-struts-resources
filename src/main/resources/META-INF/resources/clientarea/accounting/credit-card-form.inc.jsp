@@ -119,20 +119,13 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 		<th style='white-space:nowrap' align="left"><fmt:message key="creditCardForm.countryCode.prompt" /></th>
 		<td style="white-space:nowrap">
 			<html:select property="countryCode">
-				<bean:define id="didOne" type="java.lang.String" value="false" />
-				<bean:define name="creditCardForm" property="countryCode" id="country" type="java.lang.String" />
+				<c:set var="didSelected" value="false" />
 				<logic:iterate scope="request" name="countryOptions" id="countryOption">
-					<logic:equal name="countryOption" property="code" value="<%= country %>">
-						<% if(!didOne.equals("true")) { %>
-							<option value='<ao:write name="countryOption" property="code" />' selected="selected"><ao:write name="countryOption" property="name" /></option>
-							<% didOne = "true"; %>
-						<% } else { %>
-							<option value='<ao:write name="countryOption" property="code" />'><ao:write name="countryOption" property="name" /></option>
-						<% } %>
-					</logic:equal>
-					<logic:notEqual name="countryOption" property="code" value="<%= country %>">
-						<option value='<ao:write name="countryOption" property="code" />'><ao:write name="countryOption" property="name" /></option>
-					</logic:notEqual>
+					<c:set var="selected" value="${countryOption.code == creditCardForm.countryCode}" />
+					<ao:option value="${countryOption.code}" selected="${selected && !didOne}"><ao:out value="${countryOption.name}" /></ao:option>
+					<c:if test="${selected}">
+						<c:set var="didOne" value="true" />
+					</c:if>
 				</logic:iterate>
 			</html:select>
 		</td>
