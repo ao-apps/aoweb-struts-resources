@@ -94,7 +94,6 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 																</logic:empty>
 															</td>
 															<td>
-																<logic:empty name="account" property="parent">&#160;</logic:empty>
 																<logic:notEmpty name="account" property="parent">
 																	<bean:define name="account" property="parent" id="parent" type="com.aoindustries.aoserv.client.account.Account" />
 																	<logic:notEmpty name="parent" property="profile">
@@ -161,16 +160,12 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 															<td><aoweb:date><ao:write name="account" property="created.time" /></aoweb:date></td>
 															<td>
 																<% java.sql.Timestamp canceled = account.getCanceled(); %>
-																<% if(canceled == null) { %>
-																	&#160;
-																<% } else { %>
+																<% if(canceled != null) { %>
 																	<aoweb:date><%= canceled.getTime() %></aoweb:date>
 																<% } %>
 															</td>
 															<td>
-																<% if(!account.canCancel()) { %>
-																	&#160;
-																<% } else { %>
+																<% if(account.canCancel()) { %>
 																	<html:link action="/account/cancel-feedback" paramId="account" paramName="account" paramProperty="name">
 																		<fmt:message key="account.cancel.field.link.cancel" />
 																	</html:link>
