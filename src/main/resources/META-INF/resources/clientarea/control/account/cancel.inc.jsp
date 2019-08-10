@@ -44,6 +44,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 						<aoweb:scriptGroup>
 							<table cellpadding='0' cellspacing='0'>
 								<tr>
+									<%-- TODO: cancel screen "Customer Support line (800) 519-9541 or email support@aoindustries.com" instead link to contact form --%>
 									<td><%@include file="cancel-message.inc.jsp" %></td>
 								</tr>
 								<tr>
@@ -141,6 +142,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 															</td>
 															<td style="text-align:right; white-space:nowrap">
 																<% for(Money balance : account.getAccountBalance()) { %>
+																	<%-- TODO: Link from cancel / account balance to make-payment --%>
 																	<% if(balance.getUnscaledValue() < 0) { %>
 																		<div>
 																			<fmt:message key="account.cancel.field.balance.credit">
