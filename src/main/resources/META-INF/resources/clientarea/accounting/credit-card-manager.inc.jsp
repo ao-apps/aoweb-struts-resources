@@ -121,25 +121,41 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 													</logic:notEqual>
 													<td style="white-space:nowrap">
 														<c:set var="currencies" value="${accountAndCreditCards.account.accountBalance.currencies}" />
-														<c:forEach var="currency" items="${currencies}">
-															<div>
-																<ao:a
-																	href="make-payment-stored-card.do"
-																	param.account="${accountAndCreditCards.account.name}"
-																	param.currency="${currency.currencyCode}"
-																	param.id="${creditCard.id}"
-																>
-																	<ao:choose>
-																		<ao:when test="#{fn:length(currencies) == 1}">
-																			<ao:message key="creditCardManager.makePayment.link" />
-																		</ao:when>
-																		<ao:otherwise>
-																			<ao:message key="creditCardManager.makePayment.linkInCurrency" arg0="${currency.currencyCode}"/>
-																		</ao:otherwise>
-																	</ao:choose>
-																</ao:a>
-															</div>
-														</c:forEach>
+														<ao:choose>
+															<ao:when test="#{fn:length(currencies) == 0}">
+																<%-- Handle the no-currencies case --%>
+																<div>
+																	<ao:a
+																		href="make-payment-stored-card.do"
+																		param.account="${accountAndCreditCards.account.name}"
+																		param.id="${creditCard.id}"
+																	>
+																		<ao:message key="creditCardManager.makePayment.link" />
+																	</ao:a>
+																</div>
+															</ao:when>
+															<ao:otherwise>
+																<c:forEach var="currency" items="${currencies}">
+																	<div>
+																		<ao:a
+																			href="make-payment-stored-card.do"
+																			param.account="${accountAndCreditCards.account.name}"
+																			param.currency="${currency.currencyCode}"
+																			param.id="${creditCard.id}"
+																		>
+																			<ao:choose>
+																				<ao:when test="#{fn:length(currencies) == 1}">
+																					<ao:message key="creditCardManager.makePayment.link" />
+																				</ao:when>
+																				<ao:otherwise>
+																					<ao:message key="creditCardManager.makePayment.linkInCurrency" arg0="${currency.currencyCode}"/>
+																				</ao:otherwise>
+																			</ao:choose>
+																		</ao:a>
+																	</div>
+																</c:forEach>
+															</ao:otherwise>
+														</ao:choose>
 													</td>
 													<td style="white-space:nowrap">
 														<html:link action="/edit-credit-card" paramId="persistenceId" paramName="creditCard" paramProperty="pkey">
