@@ -30,7 +30,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 	<fmt:bundle basename="com.aoindustries.website.clientarea.ticket.ApplicationResources">
 		<skin:path>
 			/clientarea/ticket/edit.do
-			<ao:param name="pkey"><ao:write scope="request" name="ticket" property="pkey" /></ao:param>
+			<ao:param name="pkey" value="${ticket.pkey}" />
 		</skin:path>
 		<skin:title><fmt:message key="edit.title" /></skin:title>
 		<skin:navImageAlt><fmt:message key="edit.navImageAlt" /></skin:navImageAlt>

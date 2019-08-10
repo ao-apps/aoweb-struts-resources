@@ -29,7 +29,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 	<fmt:bundle basename="com.aoindustries.website.clientarea.accounting.ApplicationResources">
 		<skin:path>
 			/clientarea/accounting/add-credit-card.do
-			<ao:param name="account"><ao:write scope="request" name="addCreditCardForm" property="account" /></ao:param>
+			<ao:param name="account" value="${addCreditCardForm.account}" />
 		</skin:path>
 		<logic:equal name="siteSettings" property="brand.aowebStrutsNoindex" value="true"><skin:meta name="ROBOTS">NOINDEX</skin:meta></logic:equal>
 		<skin:title><fmt:message key="addCreditCard.title" /></skin:title>
@@ -50,10 +50,10 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 						<skin:popupGroup>
 							<html:form action="/add-credit-card-completed">
 								<skin:lightArea>
-									<fmt:message key="addCreditCard.form.title" />
+									<b><fmt:message key="addCreditCard.form.title" /></b>
 									<hr />
 									<table cellspacing="0" cellpadding="2">
-										<bean:define name="addCreditCardForm" id="creditCardForm" />
+										<c:set scope="request" var="creditCardForm" value="${addCreditCardForm}" />
 										<%@include file="credit-card-form.inc.jsp" %>
 										<tr><td style='white-space:nowrap' colspan="4" align="center"><ao:input type="submit"><fmt:message key="addCreditCard.field.submit.label" /></ao:input></td></tr>
 									</table>

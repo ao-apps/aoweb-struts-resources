@@ -40,7 +40,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 				<skin:contentHorizontalDivider />
 				<skin:contentLine>
 					<skin:lightArea>
-						<fmt:message key="makePaymentStoredCardCompleted.confirm.title" />
+						<b><fmt:message key="makePaymentStoredCardCompleted.confirm.title" /></b>
 						<hr />
 						<fmt:message key="makePaymentStoredCardCompleted.confirm.followingProcessed" />
 						<bean:define scope="request" name="creditCard" id="creditCard" type="com.aoindustries.aoserv.client.payment.CreditCard" />

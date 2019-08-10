@@ -51,7 +51,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 						<form method="post" action="<ao:url>delete-credit-card-completed.do</ao:url>"><div>
 							<ao:input type="hidden" name="id" value="${creditCard.id}" />
 							<skin:lightArea>
-								<fmt:message key="deleteCreditCard.confirmation.title" />
+								<b><fmt:message key="deleteCreditCard.confirmation.title" /></b>
 								<hr />
 								<table cellspacing="0" cellpadding="4">
 									<tr>

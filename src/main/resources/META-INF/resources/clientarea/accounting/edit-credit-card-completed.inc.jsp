@@ -66,12 +66,14 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					</logic:present>
 					<logic:notPresent scope="request" name="permissionDenied">
 						<skin:lightArea>
-							<logic:notEqual name="editCreditCardForm" property="isActive" value="false">
-								<fmt:message key="editCreditCardCompleted.successMessage.title.edit" />
-							</logic:notEqual>
-							<logic:equal name="editCreditCardForm" property="isActive" value="false">
-								<fmt:message key="editCreditCardCompleted.successMessage.title.reactivate" />
-							</logic:equal>
+							<b>
+								<logic:notEqual name="editCreditCardForm" property="isActive" value="false">
+									<fmt:message key="editCreditCardCompleted.successMessage.title.edit" />
+								</logic:notEqual>
+								<logic:equal name="editCreditCardForm" property="isActive" value="false">
+									<fmt:message key="editCreditCardCompleted.successMessage.title.reactivate" />
+								</logic:equal>
+							</b>
 							<hr />
 							<logic:notEqual name="editCreditCardForm" property="isActive" value="false">
 								<fmt:message key="editCreditCardCompleted.successMessage.text.edit">

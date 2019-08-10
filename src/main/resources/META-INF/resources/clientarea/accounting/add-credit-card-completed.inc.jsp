@@ -45,7 +45,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					</logic:present>
 					<logic:notPresent scope="request" name="permissionDenied">
 						<skin:lightArea>
-							<fmt:message key="addCreditCardCompleted.successMessage.title" />
+							<b><fmt:message key="addCreditCardCompleted.successMessage.title" /></b>
 							<hr />
 							<fmt:message key="addCreditCardCompleted.successMessage.text">
 								<fmt:param value="${aoweb:getCardNumberDisplay(cardNumber)}" />

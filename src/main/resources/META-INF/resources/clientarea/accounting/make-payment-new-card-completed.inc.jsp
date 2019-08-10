@@ -41,7 +41,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 				<skin:contentHorizontalDivider />
 				<skin:contentLine>
 					<skin:lightArea>
-						<fmt:message key="makePaymentStoredCardCompleted.confirm.title" />
+						<b><fmt:message key="makePaymentStoredCardCompleted.confirm.title" /></b>
 						<hr />
 						<fmt:message key="makePaymentNewCardCompleted.confirm.successful" />
 

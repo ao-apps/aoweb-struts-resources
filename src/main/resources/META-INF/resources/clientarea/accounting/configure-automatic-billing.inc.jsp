@@ -50,7 +50,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 						<form id="configurationAutomaticBillingForm" method="post" action="<ao:url>configure-automatic-billing-completed.do</ao:url>"><div>
 							<input name="account" type="hidden" value="<%= request.getParameter("account") %>" />
 							<skin:lightArea>
-								<fmt:message key="configureAutomaticBilling.cardList.title" />
+								<b><fmt:message key="configureAutomaticBilling.cardList.title" /></b>
 								<hr />
 								<fmt:message key="configureAutomaticBilling.account.label" />
 								<ao:write scope="request" name="account" property="name" /><br />

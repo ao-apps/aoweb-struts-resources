@@ -47,7 +47,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 						<skin:lightArea>
 							<logic:present scope="request" name="creditCard">
 								<bean:define scope="request" name="creditCard" id="creditCard" type="com.aoindustries.aoserv.client.payment.CreditCard" />
-								<fmt:message key="configureAutomaticBillingCompleted.setUseMonthly.title" />
+								<b><fmt:message key="configureAutomaticBillingCompleted.setUseMonthly.title" /></b>
 								<hr />
 								<fmt:message key="configureAutomaticBillingCompleted.setUseMonthly.text">
 									<fmt:param><c:out value="${account.name}" /></fmt:param>
@@ -55,7 +55,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 								</fmt:message>
 							</logic:present>
 							<logic:notPresent scope="request" name="creditCard">
-								<fmt:message key="configureAutomaticBillingCompleted.clearUseMonthly.title" />
+								<b><fmt:message key="configureAutomaticBillingCompleted.clearUseMonthly.title" /></b>
 								<hr />
 								<fmt:message key="configureAutomaticBillingCompleted.clearUseMonthly.text">
 									<fmt:param><c:out value="${account.name}" /></fmt:param>

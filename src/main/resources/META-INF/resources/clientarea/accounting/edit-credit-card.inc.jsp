@@ -29,7 +29,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 	<fmt:bundle basename="com.aoindustries.website.clientarea.accounting.ApplicationResources">
 		<skin:path>
 			/clientarea/accounting/edit-credit-card.do
-			<ao:param name="persistenceId"><ao:write scope="request" name="editCreditCardForm" property="persistenceId" /></ao:param>
+			<ao:param name="persistenceId" value="${editCreditCardForm.persistenceId}" />
 		</skin:path>
 		<logic:equal name="siteSettings" property="brand.aowebStrutsNoindex" value="true"><skin:meta name="ROBOTS">NOINDEX</skin:meta></logic:equal>
 		<skin:title>
@@ -74,12 +74,14 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 								<html:hidden property="persistenceId" />
 								<html:hidden property="isActive" />
 								<skin:lightArea>
-									<logic:notEqual name="editCreditCardForm" property="isActive" value="false">
-										<fmt:message key="editCreditCard.form.title.edit" />
-									</logic:notEqual>
-									<logic:equal name="editCreditCardForm" property="isActive" value="false">
-										<fmt:message key="editCreditCard.form.title.reactivate" />
-									</logic:equal>
+									<b>
+										<logic:notEqual name="editCreditCardForm" property="isActive" value="false">
+											<fmt:message key="editCreditCard.form.title.edit" />
+										</logic:notEqual>
+										<logic:equal name="editCreditCardForm" property="isActive" value="false">
+											<fmt:message key="editCreditCard.form.title.reactivate" />
+										</logic:equal>
+									</b>
 									<hr />
 									<table cellspacing="0" cellpadding="2">
 										<tr>

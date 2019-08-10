@@ -29,8 +29,8 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 	<fmt:bundle basename="com.aoindustries.website.clientarea.accounting.ApplicationResources">
 		<skin:path>
 			/clientarea/accounting/make-payment-select-card.do
-			<ao:param name="account"><ao:write scope="request" name="makePaymentStoredCardForm" property="account" /></ao:param>
-			<ao:param name="currency"><ao:write scope="request" name="makePaymentStoredCardForm" property="currency" /></ao:param>
+			<ao:param name="account" value="${makePaymentStoredCardForm.account}" />
+			<ao:param name="currency" value="${makePaymentStoredCardForm.currency}" />
 		</skin:path>
 		<logic:equal name="siteSettings" property="brand.aowebStrutsNoindex" value="true"><skin:meta name="ROBOTS">NOINDEX</skin:meta></logic:equal>
 		<skin:title><fmt:message key="makePayment.title" /></skin:title>
@@ -44,7 +44,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 				<skin:contentHorizontalDivider />
 				<skin:contentLine>
 					<skin:lightArea>
-						<fmt:message key="makePaymentStoredCardError.error.header" />
+						<b><fmt:message key="makePaymentStoredCardError.error.header" /></b>
 						<hr />
 						<fmt:message key="makePaymentStoredCardError.error.description">
 							<fmt:param><c:out value="${errorReason}" /></fmt:param>

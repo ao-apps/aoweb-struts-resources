@@ -41,7 +41,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 				<skin:contentHorizontalDivider />
 				<skin:contentLine>
 					<skin:lightArea>
-						<fmt:message key="makePaymentStoredCardHold.hold.title" />
+						<b><fmt:message key="makePaymentStoredCardHold.hold.title" /></b>
 						<hr />
 						<fmt:message key="makePaymentStoredCardHold.hold.followingProcessed">
 							<fmt:param><c:out value="${reviewReason}" /></fmt:param>
