@@ -28,7 +28,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 <html:html lang="true" xhtml="true">
 	<%@include file="add-parents.inc.jsp" %>
 	<fmt:bundle basename="com.aoindustries.website.clientarea.control.ApplicationResources">
-		<skin:path>/clientarea/control/account/cancel-feedback-completed.do?account=${core:encodeUrlParam(account.name)}</skin:path>
+		<skin:path>/clientarea/control/account/cancel-feedback-completed.do?account=${ao:encodeQuery(account.name)}</skin:path>
 		<logic:equal name="siteSettings" property="brand.aowebStrutsNoindex" value="true"><skin:meta name="ROBOTS">NOINDEX</skin:meta></logic:equal>
 		<skin:title><fmt:message key="account.cancel.title" /></skin:title>
 		<skin:navImageAlt><fmt:message key="account.cancel.navImageAlt" /></skin:navImageAlt>
