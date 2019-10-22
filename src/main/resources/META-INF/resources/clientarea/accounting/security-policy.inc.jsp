@@ -27,7 +27,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 	<jsp:include page="/clientarea/accounting/security-policy.override.inc.jsp" />
 </aoweb:exists>
 <aoweb:notExists path="/clientarea/accounting/security-policy.override.inc.jsp">
-	<br />
+	<ao:br />
 	<skin:lightArea width="500">
 		<fmt:bundle basename="com.aoindustries.website.clientarea.accounting.ApplicationResources">
 			<b><fmt:message key="securityPolicy.securityNotice.title" /></b>

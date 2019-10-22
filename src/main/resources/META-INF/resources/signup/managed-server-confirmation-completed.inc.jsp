@@ -29,20 +29,20 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 			<tr><td style='white-space:nowrap' colspan="3">
 				<fmt:message key="${statusKey}">
 					<fmt:param><c:out value="${pkey}" /></fmt:param>
-				</fmt:message><br />
-				<br />
+				</fmt:message><ao:br />
+				<ao:br />
 				<logic:iterate scope="request" name="successAddresses" id="successAddress">
 					<fmt:message key="serverConfirmationCompleted.successAddress">
 					<fmt:param><c:out value="${successAddress}" /></fmt:param>
-				</fmt:message><br />
+				</fmt:message><ao:br />
 				</logic:iterate>
 				<logic:iterate scope="request" name="failureAddresses" id="failureAddress">
 					<fmt:message key="serverConfirmationCompleted.failureAddress">
 					<fmt:param><c:out value="${failureAddress}" /></fmt:param>
-				</fmt:message><br />
+				</fmt:message><ao:br />
 				</logic:iterate>
-				<br />
-				<fmt:message key="serverConfirmationCompleted.belowIsSummary" /><br />
+				<ao:br />
+				<fmt:message key="serverConfirmationCompleted.belowIsSummary" /><ao:br />
 				<hr />
 			</td></tr>
 			<tr><th colspan="3"><fmt:message key="steps.selectServer.label" /></th></tr>

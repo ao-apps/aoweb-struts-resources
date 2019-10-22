@@ -80,7 +80,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 						<td style='white-space:nowrap' colspan="${fn:escapeXml(3 + (hasDescription ? 1 : 0))}"><label for="id_"><ao:message key="makePaymentSelectCard.newCard.link" /></label></td>
 					</skin:lightDarkTableRow>
 					<tr>
-						<td style='white-space:nowrap' colspan="${fn:escapeXml(4 + (hasDescription ? 1 : 0))}" align="center">
+						<td style="white-space:nowrap;text-align:center" colspan="${fn:escapeXml(4 + (hasDescription ? 1 : 0))}">
 							<ao:input type="submit" name="submitButton"><ao:message key="makePaymentSelectCard.field.submit.label" /></ao:input>
 						</td>
 					</tr>

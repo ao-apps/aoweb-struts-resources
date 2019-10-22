@@ -27,7 +27,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 	<fmt:bundle basename="com.aoindustries.website.signup.ApplicationResources">
 		<bean:define name="actionPrefix" id="myActionPrefix" type="java.lang.String" />
 		<table cellpadding="0" cellspacing="0">
-			<tr><td colspan="3"><b><fmt:message key="serverConfirmation.stepLabel" /></b><br /><hr /></td></tr>
+			<tr><td colspan="3"><b><fmt:message key="serverConfirmation.stepLabel" /></b><ao:br /><hr /></td></tr>
 			<tr><td colspan="3"><fmt:message key="serverConfirmation.stepHelp" /></td></tr>
 			<tr><td colspan="3">&#160;</td></tr>
 			<tr>
@@ -35,7 +35,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					<table style="width:100%" cellspacing="0" cellpadding="0">
 						<tr>
 							<th><fmt:message key="steps.selectServer.label" /></th>
-							<td align='right'><html:link styleClass="aoLightLink" action='<%= "/" + myActionPrefix %>'><fmt:message key="serverConfirmation.edit.link" /></html:link></td>
+							<td style="text-align:right"><html:link styleClass="aoLightLink" action='<%= "/" + myActionPrefix %>'><fmt:message key="serverConfirmation.edit.link" /></html:link></td>
 						</tr>
 					</table>
 				</th>
@@ -47,7 +47,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					<table style="width:100%" cellspacing="0" cellpadding="0">
 						<tr>
 							<th><fmt:message key="steps.customizeServer.label" /></th>
-							<td align='right'><html:link styleClass="aoLightLink" action='<%= "/" + myActionPrefix +"-2" %>'><fmt:message key="serverConfirmation.edit.link" /></html:link></td>
+							<td style="text-align:right"><html:link styleClass="aoLightLink" action='<%= "/" + myActionPrefix +"-2" %>'><fmt:message key="serverConfirmation.edit.link" /></html:link></td>
 						</tr>
 					</table>
 				</th>
@@ -59,7 +59,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					<table style="width:100%" cellspacing="0" cellpadding="0">
 						<tr>
 							<th><fmt:message key="steps.organizationInfo.label" /></th>
-							<td align='right'><html:link styleClass="aoLightLink" action='<%= "/" + myActionPrefix +"-3" %>'><fmt:message key="serverConfirmation.edit.link" /></html:link></td>
+							<td style="text-align:right"><html:link styleClass="aoLightLink" action='<%= "/" + myActionPrefix +"-3" %>'><fmt:message key="serverConfirmation.edit.link" /></html:link></td>
 						</tr>
 					</table>
 				</th>
@@ -71,7 +71,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					<table style="width:100%" cellspacing="0" cellpadding="0">
 						<tr>
 							<th><fmt:message key="steps.technicalInfo.label" /></th>
-							<td align='right'><html:link styleClass="aoLightLink" action='<%= "/" + myActionPrefix +"-4" %>'><fmt:message key="serverConfirmation.edit.link" /></html:link></td>
+							<td style="text-align:right"><html:link styleClass="aoLightLink" action='<%= "/" + myActionPrefix +"-4" %>'><fmt:message key="serverConfirmation.edit.link" /></html:link></td>
 						</tr>
 					</table>
 				</th>
@@ -83,13 +83,13 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					<table style="width:100%" cellspacing="0" cellpadding="0">
 						<tr>
 							<th><fmt:message key="steps.billingInformation.label" /></th>
-							<td align='right'><html:link styleClass="aoLightLink" action='<%= "/" + myActionPrefix +"-5" %>'><fmt:message key="serverConfirmation.edit.link" /></html:link></td>
+							<td style="text-align:right"><html:link styleClass="aoLightLink" action='<%= "/" + myActionPrefix +"-5" %>'><fmt:message key="serverConfirmation.edit.link" /></html:link></td>
 						</tr>
 					</table>
 				</th>
 			</tr>
 			<%@include file="signup-billing-information-confirmation.inc.jsp" %>
-			<tr><td colspan="3" align="center"><br /><ao:input type="submit"><fmt:message key="serverConfirmation.submit.label" /></ao:input><br /><br /></td></tr>
+			<tr><td colspan="3" style="text-align:center"><ao:br /><ao:input type="submit"><fmt:message key="serverConfirmation.submit.label" /></ao:input><ao:br /><ao:br /></td></tr>
 		</table>
 	</fmt:bundle>
 </skin:lightArea>

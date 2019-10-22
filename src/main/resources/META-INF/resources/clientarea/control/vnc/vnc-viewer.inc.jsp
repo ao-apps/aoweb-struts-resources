@@ -23,9 +23,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@include file="/_taglibs.inc.jsp" %>
 
-<skin:setContentType />
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html:html lang="true" xhtml="true">
+<ao:html serialization="SGML" doctype="TRANSITIONAL">
 	<head>
 		<title><c:out value="${virtualServer.host.name}" /></title>
 		<ao:script>
@@ -123,7 +121,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 				document.getElementById('container').style.height=h+"px";
 			}
 		</ao:script>
-		<style type='text/css'>
+		<style type="text/css">
 		  html, body {
 			margin:0px;
 			padding:0px;
@@ -154,15 +152,15 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 				vspace="0"
 				style="padding:0px; margin:0px; border:0px; display:block;"
 			>
-				<param name="HOST" value="<c:out value="${siteSettings.brand.aowebStrutsHttpsURL.host}" />" />
-				<param name="PORT" value="<c:out value="${siteSettings.brand.aowebStrutsVncBind.port.port}" />" />
-				<param name="PASSWORD" value="<c:out value="${virtualServer.vncPassword}" />" />
-				<param name="trustUrlVncCert" value="yes" />
-				<param name="showDotCursor" value="yes" />
-				<param name="resizeApplet" value="no" />
-				<param name="resizeAppletWindow" value="yes" />
-				<param name="centerControls" value="yes" />
+				<param name="HOST" value="<c:out value="${siteSettings.brand.aowebStrutsHttpsURL.host}" />">
+				<param name="PORT" value="<c:out value="${siteSettings.brand.aowebStrutsVncBind.port.port}" />">
+				<param name="PASSWORD" value="<c:out value="${virtualServer.vncPassword}" />">
+				<param name="trustUrlVncCert" value="yes">
+				<param name="showDotCursor" value="yes">
+				<param name="resizeApplet" value="no">
+				<param name="resizeAppletWindow" value="yes">
+				<param name="centerControls" value="yes">
 			</applet>
 		</div>
 	</body>
-</html:html>
+</ao:html>

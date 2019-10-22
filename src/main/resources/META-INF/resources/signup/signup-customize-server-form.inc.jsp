@@ -214,7 +214,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 				<logic:notEmpty scope="request" name="powerOptions">
 					<tr>
 						<th>
-							<ao:message key="signupCustomizeServerForm.selectPower" /><br />
+							<ao:message key="signupCustomizeServerForm.selectPower" /><ao:br />
 							<html:errors bundle="/signup/ApplicationResources" property="powerOption" />
 						</th>
 						<th><ao:message key="signupCustomizeServerForm.powerMonthly" /></th>
@@ -231,7 +231,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 				</logic:notEmpty>
 				<tr>
 					<th>
-						<ao:message key="signupCustomizeServerForm.selectCPU" /><br />
+						<ao:message key="signupCustomizeServerForm.selectCPU" /><ao:br />
 						<html:errors bundle="/signup/ApplicationResources" property="cpuOption" />
 					</th>
 					<th><ao:message key="signupCustomizeServerForm.cpuMonthly" /></th>
@@ -247,7 +247,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 				</logic:iterate>
 				<tr>
 					<th>
-						<ao:message key="signupCustomizeServerForm.selectRAM" /><br />
+						<ao:message key="signupCustomizeServerForm.selectRAM" /><ao:br />
 						<html:errors bundle="/signup/ApplicationResources" property="ramOption" />
 					</th>
 					<th><ao:message key="signupCustomizeServerForm.ramMonthly" /></th>
@@ -264,7 +264,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 				<logic:notEmpty scope="request" name="sataControllerOptions">
 					<tr>
 						<th>
-							<ao:message key="signupCustomizeServerForm.selectSataController" /><br />
+							<ao:message key="signupCustomizeServerForm.selectSataController" /><ao:br />
 							<html:errors bundle="/signup/ApplicationResources" property="sataControllerOption" />
 						</th>
 						<th><ao:message key="signupCustomizeServerForm.sataControllerMonthly" /></th>
@@ -282,7 +282,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 				<logic:notEmpty scope="request" name="scsiControllerOptions">
 					<tr>
 						<th>
-							<ao:message key="signupCustomizeServerForm.selectScsiController" /><br />
+							<ao:message key="signupCustomizeServerForm.selectScsiController" /><ao:br />
 							<html:errors bundle="/signup/ApplicationResources" property="scsiControllerOption" />
 						</th>
 						<th><ao:message key="signupCustomizeServerForm.scsiControllerMonthly" /></th>
@@ -300,7 +300,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 				<logic:iterate name="diskOptions" id="diskOptionList" indexId="index">
 					<tr>
 						<th>
-							<ao:message key="signupCustomizeServerForm.selectDisk" arg0="${index+1}" /><br />
+							<ao:message key="signupCustomizeServerForm.selectDisk" arg0="${index+1}" /><ao:br />
 							<c:if test="${index == 0}"><html:errors bundle="/signup/ApplicationResources" property="diskOptions" /></c:if>
 						</th>
 						<th><ao:message key="signupCustomizeServerForm.diskMonthly" /></th>
@@ -317,13 +317,13 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 				</logic:iterate>
 				<tr>
 					<th><ao:message key="signupCustomizeServerForm.basePrice.title" /></th>
-					<th align='left'><ao:input type="text" name="basePriceDisplay" readonly="true" size="10" value="${requestScope.basePrice}" /></th>
+					<th style="text-align:left"><ao:input type="text" name="basePriceDisplay" readonly="true" size="10" value="${requestScope.basePrice}" /></th>
 				</tr>
 				<tr>
 					<th><ao:message key="signupCustomizeServerForm.total" /></th>
-					<th align='left'><ao:input type="text" name="totalMonthly" readonly='readonly' size="10" value="${requestScope.basePrice}" /></th>
+					<th style="text-align:left"><ao:input type="text" name="totalMonthly" readonly='readonly' size="10" value="${requestScope.basePrice}" /></th>
 				</tr>
-				<tr><td colspan="2" align="center"><br /><ao:input type="submit"><ao:message key="signupCustomizeServerForm.submit.label" /></ao:input><br /><br /></td></tr>
+				<tr><td colspan="2" style="text-align:center"><ao:br /><ao:input type="submit"><ao:message key="signupCustomizeServerForm.submit.label" /></ao:input><ao:br /><ao:br /></td></tr>
 			</table>
 		</ao:bundle>
 	</skin:lightArea>

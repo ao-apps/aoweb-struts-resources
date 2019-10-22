@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2009, 2015, 2016  AO Industries, Inc.
+Copyright (C) 2009, 2015, 2016, 2019  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -23,30 +23,26 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@include file="/_taglibs.inc.jsp" %>
 
-<skin:setContentType />
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html:html lang="true" xhtml="true">
-	<fmt:bundle basename="com.aoindustries.website.signup.ApplicationResources">
-		<skin:path>/signup/colocation-4.do</skin:path>
-		<skin:title><fmt:message key="colocation.title" /></skin:title>
-		<skin:navImageAlt><fmt:message key="colocation.navImageAlt" /></skin:navImageAlt>
-		<skin:keywords><fmt:message key="colocation.keywords" /></skin:keywords>
-		<skin:description><fmt:message key="colocation.description" /></skin:description>
-		<%@include file="add-parents.inc.jsp" %>
-		<skin:skin>
-			<skin:content width="600">
-				<skin:contentTitle><fmt:message key="colocation.title" /></skin:contentTitle>
-				<skin:contentHorizontalDivider />
-				<skin:contentLine>
-					<bean:define toScope="request" type="java.lang.String" id="stepNumber" value="4" />
-					<bean:define type="java.lang.String" id="actionPrefix" toScope="request" value="colocation" />
-					<%@include file="minimal-steps.inc.jsp" %>
-					<br />
-					<html:form action="/colocation-4-completed.do">
-						<%@include file="signup-billing-information-form.inc.jsp" %>
-					</html:form>
-				</skin:contentLine>
-			</skin:content>
-		</skin:skin>
-	</fmt:bundle>
-</html:html>
+<fmt:bundle basename="com.aoindustries.website.signup.ApplicationResources">
+	<skin:path>/signup/colocation-4.do</skin:path>
+	<skin:title><fmt:message key="colocation.title" /></skin:title>
+	<skin:navImageAlt><fmt:message key="colocation.navImageAlt" /></skin:navImageAlt>
+	<skin:keywords><fmt:message key="colocation.keywords" /></skin:keywords>
+	<skin:description><fmt:message key="colocation.description" /></skin:description>
+	<%@include file="add-parents.inc.jsp" %>
+	<skin:skin>
+		<skin:content width="600">
+			<skin:contentTitle><fmt:message key="colocation.title" /></skin:contentTitle>
+			<skin:contentHorizontalDivider />
+			<skin:contentLine>
+				<bean:define toScope="request" type="java.lang.String" id="stepNumber" value="4" />
+				<bean:define type="java.lang.String" id="actionPrefix" toScope="request" value="colocation" />
+				<%@include file="minimal-steps.inc.jsp" %>
+				<ao:br />
+				<html:form action="/colocation-4-completed.do">
+					<%@include file="signup-billing-information-form.inc.jsp" %>
+				</html:form>
+			</skin:contentLine>
+		</skin:content>
+	</skin:skin>
+</fmt:bundle>

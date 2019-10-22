@@ -35,8 +35,8 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 	<skin:lightArea>
 		<fmt:bundle basename="com.aoindustries.website.signup.ApplicationResources">
 			 <table cellpadding="0" cellspacing="0">
-				<tr><td colspan="4"><b><fmt:message key="dedicated5.stepLabel" /></b><br /><hr /></td></tr>
-				<tr><td colspan="4"><fmt:message key="dedicated5.stepHelp" /><br /><br /></td></tr>
+				<tr><td colspan="4"><b><fmt:message key="dedicated5.stepLabel" /></b><ao:br /><hr /></td></tr>
+				<tr><td colspan="4"><fmt:message key="dedicated5.stepHelp" /><ao:br /><ao:br /></td></tr>
 				<tr>
 					<td style="white-space:nowrap"><fmt:message key="signup.required" /></td>
 					<td style="white-space:nowrap"><fmt:message key="signupBillingInformationForm.billingContact.prompt" /></td>
@@ -50,7 +50,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					<td style="white-space:nowrap"><html:errors bundle="/signup/ApplicationResources" property="billingEmail" /></td>
 				</tr>
 				<tr><td colspan="4">&#160;</td></tr>
-				<tr><td colspan="4" align='center'><%@include file="/clientarea/accounting/_credit-card-images.inc.jsp" %></td></tr>
+				<tr><td colspan="4" style="text-align:center"><%@include file="/clientarea/accounting/_credit-card-images.inc.jsp" %></td></tr>
 				<tr><td colspan="4">&#160;</td></tr>
 				<tr>
 					<td style="white-space:nowrap"><fmt:message key="signup.required" /></td>
@@ -120,7 +120,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 				<tr><td colspan="4">&#160;</td></tr>
 				<tr valign='top'>
 					<td style="white-space:nowrap" colspan="2">&#160;</td>
-					<td style="white-space:nowrap"><label><html:checkbox property="billingUseMonthly" /><fmt:message key="signupBillingInformationForm.billingUseMonthly.value" /></label><br /><br /></td>
+					<td style="white-space:nowrap"><label><html:checkbox property="billingUseMonthly" /><fmt:message key="signupBillingInformationForm.billingUseMonthly.value" /></label><ao:br /><ao:br /></td>
 					<td style="white-space:nowrap"><html:errors bundle="/signup/ApplicationResources" property="billingUseMonthly" /></td>
 				</tr>
 				<tr valign='top'>
@@ -128,7 +128,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					<td style="white-space:nowrap"><label><html:checkbox property="billingPayOneYear" /><fmt:message key="signupBillingInformationForm.billingPayOneYear.value" /></label></td>
 					<td style="white-space:nowrap"><html:errors bundle="/signup/ApplicationResources" property="billingPayOneYear" /></td>
 				</tr>
-				<tr><td colspan="4" align="center"><br /><ao:input type="submit"><fmt:message key="dedicated5.submit.label" /></ao:input><br /><br /></td></tr>
+				<tr><td colspan="4" style="text-align:center"><ao:br /><ao:input type="submit"><fmt:message key="dedicated5.submit.label" /></ao:input><ao:br /><ao:br /></td></tr>
 			</table>
 		</fmt:bundle>
 	</skin:lightArea>

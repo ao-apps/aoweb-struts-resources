@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2007-2009, 2016  AO Industries, Inc.
+Copyright (C) 2007-2009, 2016, 2019  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -35,8 +35,8 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 	<skin:lightArea>
 		<fmt:bundle basename="com.aoindustries.website.signup.ApplicationResources">
 			<table cellpadding="0" cellspacing="0">
-				<tr><td colspan="4"><b><fmt:message key="signupTechnicalForm.stepLabel" /></b><br /><hr /></td></tr>
-				<tr><td colspan="4"><fmt:message key="signupTechnicalForm.stepHelp" /><br /><br /></td></tr>
+				<tr><td colspan="4"><b><fmt:message key="signupTechnicalForm.stepLabel" /></b><ao:br /><hr /></td></tr>
+				<tr><td colspan="4"><fmt:message key="signupTechnicalForm.stepHelp" /><ao:br /><ao:br /></td></tr>
 				<tr>
 					<td style="white-space:nowrap"><fmt:message key="signup.required" /></td>
 					<td style="white-space:nowrap"><fmt:message key="signupTechnicalForm.baName.prompt" /></td>
@@ -79,7 +79,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					<td style="white-space:nowrap"><html:text size="20" property="baEmail" maxlength="255" /></td>
 					<td style="white-space:nowrap"><html:errors bundle="/signup/ApplicationResources" property="baEmail" /></td>
 				</tr>
-				<tr><td colspan="4"><br /><fmt:message key="signupTechnicalForm.addressHelp" /><br /><br /></td></tr>
+				<tr><td colspan="4"><ao:br /><fmt:message key="signupTechnicalForm.addressHelp" /><ao:br /><ao:br /></td></tr>
 				<tr>
 					<td style="white-space:nowrap"><fmt:message key="signup.notRequired" /></td>
 					<td style="white-space:nowrap"><fmt:message key="signupTechnicalForm.baAddress1.prompt" /></td>
@@ -151,7 +151,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					</td>
 					<td style="white-space:nowrap"><html:errors bundle="/signup/ApplicationResources" property="baPassword" /></td>
 				</tr>
-				<tr><td colspan="4" align="center"><br /><ao:input type="submit"><fmt:message key="signupTechnicalForm.submit.label" /></ao:input><br /><br /></td></tr>
+				<tr><td colspan="4" style="text-align:center"><ao:br /><ao:input type="submit"><fmt:message key="signupTechnicalForm.submit.label" /></ao:input><ao:br /><ao:br /></td></tr>
 			</table>
 		</fmt:bundle>
 	</skin:lightArea>

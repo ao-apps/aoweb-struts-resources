@@ -153,7 +153,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 				<logic:notEmpty scope="request" name="backupOnsiteOptions">
 					<tr>
 						<th>
-							<ao:message key="signupCustomizeManagementForm.selectBackupOnsite" /><br />
+							<ao:message key="signupCustomizeManagementForm.selectBackupOnsite" /><ao:br />
 							<html:errors bundle="/signup/ApplicationResources" property="backupOnsiteOption" />
 						</th>
 						<th><ao:message key="signupCustomizeManagementForm.backupOnsiteMonthly" /></th>
@@ -171,7 +171,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 				<logic:notEmpty scope="request" name="backupOffsiteOptions">
 					<tr>
 						<th>
-							<ao:message key="signupCustomizeManagementForm.selectBackupOffsite" /><br />
+							<ao:message key="signupCustomizeManagementForm.selectBackupOffsite" /><ao:br />
 							<html:errors bundle="/signup/ApplicationResources" property="backupOffsiteOption" />
 						</th>
 						<th><ao:message key="signupCustomizeManagementForm.backupOffsiteMonthly" /></th>
@@ -189,7 +189,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 				<logic:notEmpty scope="request" name="distributionScanOptions">
 					<tr>
 						<th>
-							<ao:message key="signupCustomizeManagementForm.selectDistributionScan" /><br />
+							<ao:message key="signupCustomizeManagementForm.selectDistributionScan" /><ao:br />
 							<html:errors bundle="/signup/ApplicationResources" property="distributionScanOption" />
 						</th>
 						<th><ao:message key="signupCustomizeManagementForm.distributionScanMonthly" /></th>
@@ -207,7 +207,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 				<logic:notEmpty scope="request" name="failoverOptions">
 					<tr>
 						<th>
-							<ao:message key="signupCustomizeManagementForm.selectFailover" /><br />
+							<ao:message key="signupCustomizeManagementForm.selectFailover" /><ao:br />
 							<html:errors bundle="/signup/ApplicationResources" property="failoverOption" />
 						</th>
 						<th><ao:message key="signupCustomizeManagementForm.failoverMonthly" /></th>
@@ -224,16 +224,16 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 				</logic:notEmpty>
 				<tr>
 					<th><ao:message key="signupCustomizeManagementForm.hardwareRate.title" /></th>
-					<th align='left'>
+					<th style="text-align:left">
 						<input type="hidden" name="formCompleted" value="true" />
 						<ao:input type="text" name="hardwareRateDisplay" readonly="true" size="10" value="${requestScope.hardwareRate}" />
 					</th>
 				</tr>
 				<tr>
 					<th><ao:message key="signupCustomizeManagementForm.total" /></th>
-					<th align='left'><ao:input type="text" name="totalMonthly" readonly='readonly' size="10" value="${requestScope.hardwareRate}" /></th>
+					<th style="text-align:left"><ao:input type="text" name="totalMonthly" readonly='readonly' size="10" value="${requestScope.hardwareRate}" /></th>
 				</tr>
-				<tr><td colspan="2" align="center"><br /><ao:input type="submit"><ao:message key="signupCustomizeManagementForm.submit.label" /></ao:input><br /><br /></td></tr>
+				<tr><td colspan="2" style="text-align:center"><ao:br /><ao:input type="submit"><ao:message key="signupCustomizeManagementForm.submit.label" /></ao:input><ao:br /><ao:br /></td></tr>
 			</table>
 		</ao:bundle>
 	</skin:lightArea>

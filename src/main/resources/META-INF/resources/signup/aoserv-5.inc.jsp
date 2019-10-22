@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2009, 2015, 2016  AO Industries, Inc.
+Copyright (C) 2009, 2015, 2016, 2019  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -23,38 +23,34 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@include file="/_taglibs.inc.jsp" %>
 
-<skin:setContentType />
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html:html lang="true" xhtml="true">
-	<fmt:bundle basename="com.aoindustries.website.signup.ApplicationResources">
-		<skin:path>/signup/aoserv-5.do</skin:path>
-		<skin:title><fmt:message key="aoserv.title" /></skin:title>
-		<skin:navImageAlt><fmt:message key="aoserv.navImageAlt" /></skin:navImageAlt>
-		<skin:keywords><fmt:message key="aoserv.keywords" /></skin:keywords>
-		<skin:description><fmt:message key="aoserv.description" /></skin:description>
-		<%@include file="add-parents.inc.jsp" %>
-		<skin:skin>
-			<skin:content width="600">
-				<skin:contentTitle><fmt:message key="aoserv.title" /></skin:contentTitle>
-				<skin:contentHorizontalDivider />
-				<skin:contentLine>
-					<ao:script>
-						function selectStep(step) {
-								 if(step=="aoserv")   window.location.href=<ao:url>aoserv.do</ao:url>;
-							else if(step=="aoserv-2") window.location.href=<ao:url>aoserv-2.do</ao:url>;
-							else if(step=="aoserv-3") window.location.href=<ao:url>aoserv-3.do</ao:url>;
-							else if(step=="aoserv-4") window.location.href=<ao:url>aoserv-4.do</ao:url>;
-						}
-					</ao:script>
-					<bean:define toScope="request" type="java.lang.String" id="stepNumber" value="5" />
-					<bean:define type="java.lang.String" id="actionPrefix" toScope="request" value="aoserv" />
-					<%@include file="minimal-steps.inc.jsp" %>
-					<br />
-					<form action="<ao:url>aoserv-5-completed.do</ao:url>" method="post">
-						<%@include file="minimal-confirmation.inc.jsp" %>
-					</form>
-				</skin:contentLine>
-			</skin:content>
-		</skin:skin>
-	</fmt:bundle>
-</html:html>
+<fmt:bundle basename="com.aoindustries.website.signup.ApplicationResources">
+	<skin:path>/signup/aoserv-5.do</skin:path>
+	<skin:title><fmt:message key="aoserv.title" /></skin:title>
+	<skin:navImageAlt><fmt:message key="aoserv.navImageAlt" /></skin:navImageAlt>
+	<skin:keywords><fmt:message key="aoserv.keywords" /></skin:keywords>
+	<skin:description><fmt:message key="aoserv.description" /></skin:description>
+	<%@include file="add-parents.inc.jsp" %>
+	<skin:skin>
+		<skin:content width="600">
+			<skin:contentTitle><fmt:message key="aoserv.title" /></skin:contentTitle>
+			<skin:contentHorizontalDivider />
+			<skin:contentLine>
+				<ao:script>
+					function selectStep(step) {
+							 if(step=="aoserv")   window.location.href=<ao:url>aoserv.do</ao:url>;
+						else if(step=="aoserv-2") window.location.href=<ao:url>aoserv-2.do</ao:url>;
+						else if(step=="aoserv-3") window.location.href=<ao:url>aoserv-3.do</ao:url>;
+						else if(step=="aoserv-4") window.location.href=<ao:url>aoserv-4.do</ao:url>;
+					}
+				</ao:script>
+				<bean:define toScope="request" type="java.lang.String" id="stepNumber" value="5" />
+				<bean:define type="java.lang.String" id="actionPrefix" toScope="request" value="aoserv" />
+				<%@include file="minimal-steps.inc.jsp" %>
+				<ao:br />
+				<form action="<ao:url>aoserv-5-completed.do</ao:url>" method="post">
+					<%@include file="minimal-confirmation.inc.jsp" %>
+				</form>
+			</skin:contentLine>
+		</skin:content>
+	</skin:skin>
+</fmt:bundle>

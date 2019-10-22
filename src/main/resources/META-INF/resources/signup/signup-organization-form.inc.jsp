@@ -35,8 +35,8 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 	<skin:lightArea>
 		<fmt:bundle basename="com.aoindustries.website.signup.ApplicationResources">
 			 <table cellpadding="0" cellspacing="0">
-				<tr><td colspan="4"><b><fmt:message key="signupOrganizationForm.stepLabel" /></b><br /><hr /></td></tr>
-				<tr><td colspan="4"><fmt:message key="signupOrganizationForm.stepHelp" /><br /><br /></td></tr>
+				<tr><td colspan="4"><b><fmt:message key="signupOrganizationForm.stepLabel" /></b><ao:br /><hr /></td></tr>
+				<tr><td colspan="4"><fmt:message key="signupOrganizationForm.stepHelp" /><ao:br /><ao:br /></td></tr>
 				<tr>
 					<td style="white-space:nowrap"><fmt:message key="signup.required" /></td>
 					<td style="white-space:nowrap"><fmt:message key="signupOrganizationForm.organizationName.prompt" /></td>
@@ -110,7 +110,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					<td style="white-space:nowrap"><html:text size="10" property="organizationZip" maxlength="255" /></td>
 					<td style="white-space:nowrap"><html:errors bundle="/signup/ApplicationResources" property="organizationZip" /></td>
 				</tr>
-				<tr><td colspan="4" align="center"><br /><ao:input type="submit"><fmt:message key="signupOrganizationForm.submit.label" /></ao:input><br /><br /></td></tr>
+				<tr><td colspan="4" style="text-align:center"><ao:br /><ao:input type="submit"><fmt:message key="signupOrganizationForm.submit.label" /></ao:input><ao:br /><ao:br /></td></tr>
 			 </table>
 		 </fmt:bundle>
 	</skin:lightArea>

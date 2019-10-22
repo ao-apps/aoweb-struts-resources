@@ -27,8 +27,8 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 	<skin:popupGroup>
 		<fmt:bundle basename="com.aoindustries.website.signup.ApplicationResources">
 			<table cellspacing="0" cellpadding="2">
-				<tr><td colspan="5"><b><fmt:message key="signupSelectPackageForm.stepLabel" /></b><br /><hr /></td></tr>
-				<tr><td colspan="5"><fmt:message key="signupSelectPackageForm.stepHelp" /><br /><br /></td></tr>
+				<tr><td colspan="5"><b><fmt:message key="signupSelectPackageForm.stepLabel" /></b><ao:br /><hr /></td></tr>
+				<tr><td colspan="5"><fmt:message key="signupSelectPackageForm.stepHelp" /><ao:br /><ao:br /></td></tr>
 				<tr>
 					<th style='white-space:nowrap'><fmt:message key="signupSelectPackageForm.select.header" /></th>
 					<th style='white-space:nowrap'><fmt:message key="signupSelectPackageForm.packageDefinition.header" /></th>
@@ -48,7 +48,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 											<table style="width:100%" cellspacing="0" cellpadding="0">
 												<tr>
 													<th class='aoPopupLightRow'><ao:write name="packageDefinition" /></th>
-													<td class='aoPopupLightRow' align="right"><skin:popupClose /></td>
+													<td class='aoPopupLightRow' style="text-align:right"><skin:popupClose /></td>
 												</tr>
 											</table>
 										</td>
@@ -96,7 +96,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 						</logic:equal>
 					</skin:lightDarkTableRow>
 				</logic:iterate>
-				<tr><td colspan="5" align="center"><br /><ao:input type="submit"><fmt:message key="signupSelectPackageForm.submit.label" /></ao:input><br /><br /></td></tr>
+				<tr><td colspan="5" style="text-align:center"><ao:br /><ao:input type="submit"><fmt:message key="signupSelectPackageForm.submit.label" /></ao:input><ao:br /><ao:br /></td></tr>
 			</table>
 		</fmt:bundle>
 	</skin:popupGroup>

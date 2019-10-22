@@ -25,41 +25,41 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 
 <fmt:bundle basename="com.aoindustries.website.clientarea.accounting.ApplicationResources">
 	<tr>
-		<td style='white-space:nowrap' colspan="4" align="center"><%@include file="_credit-card-images.inc.jsp" %></td>
+		<td style="white-space:nowrap;text-align:center" colspan="4"><%@include file="_credit-card-images.inc.jsp" %></td>
 	</tr>
 	<tr>
 		<td style="white-space:nowrap"><fmt:message key="creditCardForm.required.yes" /></td>
-		<th style='white-space:nowrap' align="left"><fmt:message key="creditCardForm.account.prompt" /></th>
+		<th style="white-space:nowrap;text-align:left"><fmt:message key="creditCardForm.account.prompt" /></th>
 		<td style="white-space:nowrap"><html:hidden property="account" write="true" /></td>
 		<td style="white-space:nowrap"><html:errors bundle="/clientarea/accounting/ApplicationResources" property="account" /></td>
 	</tr>
 	<tr>
 		<td style="white-space:nowrap"><fmt:message key="creditCardForm.required.yes" /></td>
-		<th style='white-space:nowrap' align="left"><fmt:message key="creditCardForm.firstName.prompt" /></th>
+		<th style="white-space:nowrap;text-align:left"><fmt:message key="creditCardForm.firstName.prompt" /></th>
 		<td style="white-space:nowrap"><html:text property="firstName" size="16" /></td>
 		<td style="white-space:nowrap"><html:errors bundle="/clientarea/accounting/ApplicationResources" property="firstName" /></td>
 	</tr>
 	<tr>
 		<td style="white-space:nowrap"><fmt:message key="creditCardForm.required.yes" /></td>
-		<th style='white-space:nowrap' align="left"><fmt:message key="creditCardForm.lastName.prompt" /></th>
+		<th style="white-space:nowrap;text-align:left"><fmt:message key="creditCardForm.lastName.prompt" /></th>
 		<td style="white-space:nowrap"><html:text property="lastName" size="16" /></td>
 		<td style="white-space:nowrap"><html:errors bundle="/clientarea/accounting/ApplicationResources" property="lastName" /></td>
 	</tr>
 	<tr>
 		<td style="white-space:nowrap"><fmt:message key="creditCardForm.required.no" /></td>
-		<th style='white-space:nowrap' align="left"><fmt:message key="creditCardForm.companyName.prompt" /></th>
+		<th style="white-space:nowrap;text-align:left"><fmt:message key="creditCardForm.companyName.prompt" /></th>
 		<td style="white-space:nowrap"><html:text property="companyName" size="32" /></td>
 		<td style="white-space:nowrap"><html:errors bundle="/clientarea/accounting/ApplicationResources" property="companyName" /></td>
 	</tr>
 	<tr>
 		<td style="white-space:nowrap"><fmt:message key="creditCardForm.required.yes" /></td>
-		<th style='white-space:nowrap' align="left"><fmt:message key="creditCardForm.cardNumber.prompt" /></th>
+		<th style="white-space:nowrap;text-align:left"><fmt:message key="creditCardForm.cardNumber.prompt" /></th>
 		<td style="white-space:nowrap"><html:text property="cardNumber" size="20" /></td>
 		<td style="white-space:nowrap"><html:errors bundle="/clientarea/accounting/ApplicationResources" property="cardNumber" /></td>
 	</tr>
 	<tr>
 		<td style="white-space:nowrap"><fmt:message key="creditCardForm.required.yes" /></td>
-		<th style='white-space:nowrap' align="left"><fmt:message key="creditCardForm.expirationDate.prompt" /></th>
+		<th style="white-space:nowrap;text-align:left"><fmt:message key="creditCardForm.expirationDate.prompt" /></th>
 		<td style="white-space:nowrap">
 			<fmt:bundle basename="com.aoindustries.website.signup.ApplicationResources">
 				<html:select property="expirationMonth">
@@ -86,37 +86,37 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 	</tr>
 	<tr>
 		<td style="white-space:nowrap"><fmt:message key="creditCardForm.required.yes" /></td>
-		<th style='white-space:nowrap' align="left"><fmt:message key="creditCardForm.cardCode.prompt" /></th>
+		<th style="white-space:nowrap;text-align:left"><fmt:message key="creditCardForm.cardCode.prompt" /></th>
 		<td style="white-space:nowrap"><html:text property="cardCode" size="5" /></td>
 		<td style="white-space:nowrap"><html:errors bundle="/clientarea/accounting/ApplicationResources" property="cardCode" /></td>
 	</tr>
 	<tr>
 		<td style="white-space:nowrap"><fmt:message key="creditCardForm.required.yes" /></td>
-		<th style='white-space:nowrap' align="left"><fmt:message key="creditCardForm.streetAddress1.prompt" /></th>
+		<th style="white-space:nowrap;text-align:left"><fmt:message key="creditCardForm.streetAddress1.prompt" /></th>
 		<td style="white-space:nowrap"><html:text property="streetAddress1" size="32" /></td>
 		<td style="white-space:nowrap"><html:errors bundle="/clientarea/accounting/ApplicationResources" property="streetAddress1" /></td>
 	</tr>
 	<tr>
 		<td style="white-space:nowrap"><fmt:message key="creditCardForm.required.no" /></td>
-		<th style='white-space:nowrap' align="left"><fmt:message key="creditCardForm.streetAddress2.prompt" /></th>
+		<th style="white-space:nowrap;text-align:left"><fmt:message key="creditCardForm.streetAddress2.prompt" /></th>
 		<td style="white-space:nowrap"><html:text property="streetAddress2" size="32" /></td>
 		<td style="white-space:nowrap"><html:errors bundle="/clientarea/accounting/ApplicationResources" property="streetAddress2" /></td>
 	</tr>
 	<tr>
 		<td style="white-space:nowrap"><fmt:message key="creditCardForm.required.yes" /></td>
-		<th style='white-space:nowrap' align="left"><fmt:message key="creditCardForm.city.prompt" /></th>
+		<th style="white-space:nowrap;text-align:left"><fmt:message key="creditCardForm.city.prompt" /></th>
 		<td style="white-space:nowrap"><html:text property="city" size="16" /></td>
 		<td style="white-space:nowrap"><html:errors bundle="/clientarea/accounting/ApplicationResources" property="city" /></td>
 	</tr>
 	<tr>
 		<td style="white-space:nowrap"><fmt:message key="creditCardForm.required.yes" /></td>
-		<th style='white-space:nowrap' align="left"><fmt:message key="creditCardForm.state.prompt" /></th>
+		<th style="white-space:nowrap;text-align:left"><fmt:message key="creditCardForm.state.prompt" /></th>
 		<td style="white-space:nowrap"><html:text property="state" size="5" /></td>
 		<td style="white-space:nowrap"><html:errors bundle="/clientarea/accounting/ApplicationResources" property="state" /></td>
 	</tr>
 	<tr>
 		<td style="white-space:nowrap"><fmt:message key="creditCardForm.required.yes" /></td>
-		<th style='white-space:nowrap' align="left"><fmt:message key="creditCardForm.countryCode.prompt" /></th>
+		<th style="white-space:nowrap;text-align:left"><fmt:message key="creditCardForm.countryCode.prompt" /></th>
 		<td style="white-space:nowrap">
 			<html:select property="countryCode">
 				<c:set var="didSelected" value="false" />
@@ -133,13 +133,13 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 	</tr>
 	<tr>
 		<td style="white-space:nowrap"><fmt:message key="creditCardForm.required.yes" /></td>
-		<th style='white-space:nowrap' align="left"><fmt:message key="creditCardForm.postalCode.prompt" /></th>
+		<th style="white-space:nowrap;text-align:left"><fmt:message key="creditCardForm.postalCode.prompt" /></th>
 		<td style="white-space:nowrap"><html:text property="postalCode" size="10" /></td>
 		<td style="white-space:nowrap"><html:errors bundle="/clientarea/accounting/ApplicationResources" property="postalCode" /></td>
 	</tr>
 	<tr>
 		<td style="white-space:nowrap"><fmt:message key="creditCardForm.required.no" /></td>
-		<th style='white-space:nowrap' align="left"><fmt:message key="creditCardForm.description.prompt" /></th>
+		<th style="white-space:nowrap;text-align:left"><fmt:message key="creditCardForm.description.prompt" /></th>
 		<td style="white-space:nowrap"><html:text property="description" size="32" /></td>
 		<td style="white-space:nowrap"><html:errors bundle="/clientarea/accounting/ApplicationResources" property="description" /></td>
 	</tr>
