@@ -48,7 +48,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 						<input name="account" type="hidden" value="<%= request.getParameter("account") %>" />
 						<skin:lightArea>
 							<b><fmt:message key="configureAutomaticBilling.cardList.title" /></b>
-							<hr />
+							<ao:hr />
 							<fmt:message key="configureAutomaticBilling.account.label" />
 							<ao:write scope="request" name="account" property="name" /><ao:br />
 							<ao:br />

@@ -31,7 +31,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 	<skin:lightArea width="500">
 		<fmt:bundle basename="com.aoindustries.website.clientarea.accounting.ApplicationResources">
 			<b><fmt:message key="securityPolicy.securityNotice.title" /></b>
-			<hr />
+			<ao:hr />
 			<%-- TODO: Should make a per-provider notice based on root-level account --%>
 			<fmt:message key="securityPolicy.securityNotice.body" />
 		</fmt:bundle>

@@ -42,7 +42,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 						<logic:present scope="request" name="authenticationMessage"><ao:write scope="request" name="authenticationMessage" type="application/xhtml+xml" /></logic:present>
 						<logic:notPresent scope="request" name="authenticationMessage"><fmt:message key="login.pleaseLogin" /></logic:notPresent>
 					</b>
-					<hr />
+					<ao:hr />
 					<html:form action="/login-completed" onsubmit="return validateLoginForm(this);" style="display:inline;"><div><%-- display:inline for IE6 only --%>
 						<%-- Add the authenticationTarget to the form because the new session could expire before they login and lost their target --%>
 						<logic:present scope="session" name="authenticationTarget">

@@ -44,7 +44,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 				<logic:notPresent scope="request" name="permissionDenied">
 					<skin:lightArea>
 						<fmt:message key="edit-completed.ticketChanges" />
-						<hr />
+						<ao:hr />
 						<ul>
 							<logic:equal scope="request" name="accountUpdated" value="true">
 								<li><fmt:message key="edit-completed.accountUpdated" /></li>

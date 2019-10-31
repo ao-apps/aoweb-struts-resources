@@ -27,7 +27,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 	<fmt:bundle basename="com.aoindustries.website.signup.ApplicationResources">
 		<bean:define name="actionPrefix" id="myActionPrefix" type="java.lang.String" />
 		<table cellpadding="0" cellspacing="0">
-			<tr><td colspan="3"><b><fmt:message key="serverConfirmation.stepLabel" /></b><ao:br /><hr /></td></tr>
+			<tr><td colspan="3"><b><fmt:message key="serverConfirmation.stepLabel" /></b><ao:br /><ao:hr /></td></tr>
 			<tr><td colspan="3"><fmt:message key="serverConfirmation.stepHelp" /></td></tr>
 			<tr><td colspan="3">&#160;</td></tr>
 			<tr>

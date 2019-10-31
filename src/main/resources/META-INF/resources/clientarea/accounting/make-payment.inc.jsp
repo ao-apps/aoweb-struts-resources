@@ -33,7 +33,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 			<skin:contentLine>
 				<skin:lightArea>
 					<b><ao:message key="makePayment.selectAccount.list.title" /></b>
-					<hr />
+					<ao:hr />
 					<table cellspacing="0" cellpadding="2">
 						<tr>
 							<th style='white-space:nowrap'><ao:message key="makePayment.account.header" /></th>

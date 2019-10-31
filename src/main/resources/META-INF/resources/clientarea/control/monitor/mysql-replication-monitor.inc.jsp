@@ -37,7 +37,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 				<logic:notPresent scope="request" name="permissionDenied">
 					<skin:lightArea>
 						<b><fmt:message key="monitor.mysqlReplicationMonitor.main.label" /></b>
-						<hr />
+						<ao:hr />
 						<table style='border:1px' cellspacing='0' cellpadding='2'>
 							<tr>
 								<th style='white-space:nowrap'><fmt:message key="monitor.mysqlReplicationMonitor.header.version" /></th>

@@ -43,7 +43,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 				</logic:iterate>
 				<ao:br />
 				<fmt:message key="serverConfirmationCompleted.belowIsSummary" /><ao:br />
-				<hr />
+				<ao:hr />
 			</td></tr>
 			<tr><th colspan="3"><fmt:message key="steps.selectPackage.label" /></th></tr>
 			<%@include file="signup-select-package-confirmation.inc.jsp" %>

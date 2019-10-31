@@ -38,7 +38,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 			<skin:contentLine>
 				<skin:lightArea>
 					<b><fmt:message key="setResourceBundleValue.header" /></b>
-					<hr />
+					<ao:hr />
 					<table border="0" cellspacing="0" cellpadding="2">
 						<tr><th style="text-align:left"><fmt:message key="setResourceBundleValue.baseName.label" /></th><td><ao:write scope="request" name="baseName" /></td></tr>
 						<tr><th style="text-align:left"><fmt:message key="setResourceBundleValue.locale.label" /></th><td><ao:write scope="request" name="locale" /></td></tr>

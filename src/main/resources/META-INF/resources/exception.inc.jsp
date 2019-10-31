@@ -63,7 +63,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					<logic:present name="javax.servlet.jsp.jspPageContext" property="errorData">
 						<skin:lightArea>
 							<fmt:message key="exception.jspException.title" />
-							<hr />
+							<ao:hr />
 							<table style='border:1px' cellspacing="0" cellpadding="2">
 								<tr>
 									<th style='white-space:nowrap; text-align:left'><fmt:message key="exception.servletName.header" /></th>
@@ -96,7 +96,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					<logic:present scope="request" name="exception">
 						<skin:lightArea>
 							<fmt:message key="exception.strutsException.title" />
-							<hr />
+							<ao:hr />
 							<pre><ao:text><ao:getStackTraces scope="request" name="exception" /></ao:text></pre>
 						</skin:lightArea><ao:br />
 						<ao:br />
@@ -104,7 +104,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					<logic:present scope="request" name="org.apache.struts.action.EXCEPTION">
 						<skin:lightArea>
 							<fmt:message key="exception.strutsException.title" />
-							<hr />
+							<ao:hr />
 							<pre><ao:text><ao:getStackTraces scope="request" name="org.apache.struts.action.EXCEPTION" /></ao:text></pre>
 						</skin:lightArea><ao:br />
 						<ao:br />
@@ -113,7 +113,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					<logic:notEmpty name="javax.servlet.jsp.jspPageContext" property="exception">
 						<skin:lightArea>
 							<fmt:message key="exception.servletException.title" />
-							<hr />
+							<ao:hr />
 							<pre><ao:text><ao:getStackTraces name="javax.servlet.jsp.jspPageContext" property="exception" /></ao:text></pre>
 						</skin:lightArea>
 					</logic:notEmpty>

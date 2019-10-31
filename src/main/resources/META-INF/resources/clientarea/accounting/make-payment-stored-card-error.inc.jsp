@@ -42,7 +42,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 			<skin:contentLine>
 				<skin:lightArea>
 					<b><fmt:message key="makePaymentStoredCardError.error.header" /></b>
-					<hr />
+					<ao:hr />
 					<fmt:message key="makePaymentStoredCardError.error.description">
 						<fmt:param><c:out value="${errorReason}" /></fmt:param>
 					</fmt:message>

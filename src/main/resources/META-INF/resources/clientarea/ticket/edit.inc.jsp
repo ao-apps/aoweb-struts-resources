@@ -193,7 +193,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 								<ao:br />
 								<skin:lightArea>
 									<fmt:message key="TicketForm.field.details.header" />
-									<hr />
+									<ao:hr />
 									<div style="border:1px inset; padding:4px; white-space:pre-wrap">
 										<html:hidden property="details" />
 										<code><ao:write name="ticketForm" property="details" /></code>
@@ -207,7 +207,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 								<ao:br />
 								<skin:lightArea>
 									<fmt:message key="edit.actions.header" />
-									<hr />
+									<ao:hr />
 									<table cellspacing="0" cellpadding="4">
 										<tr>
 											<th><fmt:message key="edit.header.time" /></th>
@@ -266,7 +266,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 										<fmt:message key="edit.addAnnotation.header" />
 									</logic:notEqual>
 								</logic:notEqual>
-								<hr />
+								<ao:hr />
 								<table cellspacing="0" cellpadding="4">
 									<tr>
 										<td style="white-space:nowrap"><fmt:message key="TicketForm.field.annotationSummary.prompt" /></td>

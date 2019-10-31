@@ -29,7 +29,7 @@ It only provides the content of the page.
 <skin:lightArea>
 	<ao:bundle basename="com.aoindustries.website.ApplicationResources">
 		<b><ao:message key="permissionDenied.permissionDenied" /></b>
-		<hr />
+		<ao:hr />
 		<logic:present scope="request" name="permissionDenied">
 			<logic:empty scope="request" name="permissionDenied">
 				<ao:message key="permissionDenied.noPermissionInformation" />

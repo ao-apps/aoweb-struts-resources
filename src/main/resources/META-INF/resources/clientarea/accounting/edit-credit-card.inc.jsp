@@ -79,7 +79,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 										<fmt:message key="editCreditCard.form.title.reactivate" />
 									</logic:equal>
 								</b>
-								<hr />
+								<ao:hr />
 								<table cellspacing="0" cellpadding="2">
 									<tr>
 										<td style="white-space:nowrap;text-align:center" colspan="4"><%@include file="_credit-card-images.inc.jsp" %></td>

@@ -39,7 +39,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 			<skin:contentLine>
 				<skin:lightArea>
 					<b><fmt:message key="makePaymentStoredCardCompleted.confirm.title" /></b>
-					<hr />
+					<ao:hr />
 					<fmt:message key="makePaymentNewCardCompleted.confirm.successful" />
 
 					<%-- Card stored --%>

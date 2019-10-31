@@ -42,7 +42,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 			<skin:contentLine>
 				<skin:lightArea>
 					<b><fmt:message key="makePaymentStoredCardDeclined.declined.header" /></b>
-					<hr />
+					<ao:hr />
 					<fmt:message key="makePaymentStoredCardDeclined.declined.description">
 						<fmt:param><c:out value="${declineReason}" /></fmt:param>
 					</fmt:message>

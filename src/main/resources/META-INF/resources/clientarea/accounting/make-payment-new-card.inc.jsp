@@ -47,14 +47,14 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					<html:form action="/make-payment-new-card-completed">
 						<skin:lightArea>
 							<b><ao:message key="makePaymentNewCard.form.title" /></b>
-							<hr />
+							<ao:hr />
 							<logic:present scope="request" name="errorReason">
 								<ao:message key="makePaymentStoredCardError.error.description" arg0="${errorReason}" />
-								<hr />
+								<ao:hr />
 							</logic:present>
 							<logic:present scope="request" name="declineReason">
 								<ao:message key="makePaymentStoredCardDeclined.declined.description" arg0="${declineReason}" />
-								<hr />
+								<ao:hr />
 							</logic:present>
 							<table cellspacing="0" cellpadding="2">
 								<c:set scope="request" var="creditCardForm" value="${makePaymentNewCardForm}" />

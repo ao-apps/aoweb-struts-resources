@@ -37,7 +37,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 						<div>
 							<b><fmt:message key="password.passwordEvaluator.prompt" /></b>
 							<%-- TODO: ao:hr tag --%>
-							<hr />
+							<ao:hr />
 							<fmt:message key="password.passwordEvaluator.field.password.prompt" /><html:password size="16" property="password" /> <html:errors bundle="/clientarea/control/ApplicationResources" property="password" />
 							<logic:present scope="request" name="results">
 								<ao:br /><ao:br />

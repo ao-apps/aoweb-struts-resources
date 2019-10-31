@@ -49,7 +49,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 						<html:form action="/add-credit-card-completed">
 							<skin:lightArea>
 								<b><fmt:message key="addCreditCard.form.title" /></b>
-								<hr />
+								<ao:hr />
 								<table cellspacing="0" cellpadding="2">
 									<c:set scope="request" var="creditCardForm" value="${addCreditCardForm}" />
 									<%@include file="credit-card-form.inc.jsp" %>

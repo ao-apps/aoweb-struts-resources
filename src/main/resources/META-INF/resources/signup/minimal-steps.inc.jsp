@@ -26,7 +26,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 <skin:lightArea>
 	<fmt:bundle basename="com.aoindustries.website.signup.ApplicationResources">
 		<b><fmt:message key="steps.title" /></b>
-		<hr />
+		<ao:hr />
 		<bean:define scope="request" name="signupSelectPackageFormComplete" id="signupSelectPackageFormComplete" type="java.lang.String" />
 		<bean:define scope="request" name="signupOrganizationFormComplete" id="signupOrganizationFormComplete" type="java.lang.String" />
 		<bean:define scope="request" name="signupTechnicalFormComplete" id="signupTechnicalFormComplete" type="java.lang.String" />

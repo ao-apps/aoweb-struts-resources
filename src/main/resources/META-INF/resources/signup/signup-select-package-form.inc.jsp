@@ -27,7 +27,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 	<skin:popupGroup>
 		<fmt:bundle basename="com.aoindustries.website.signup.ApplicationResources">
 			<table cellspacing="0" cellpadding="2">
-				<tr><td colspan="5"><b><fmt:message key="signupSelectPackageForm.stepLabel" /></b><ao:br /><hr /></td></tr>
+				<tr><td colspan="5"><b><fmt:message key="signupSelectPackageForm.stepLabel" /></b><ao:br /><ao:hr /></td></tr>
 				<tr><td colspan="5"><fmt:message key="signupSelectPackageForm.stepHelp" /><ao:br /><ao:br /></td></tr>
 				<tr>
 					<th style='white-space:nowrap'><fmt:message key="signupSelectPackageForm.select.header" /></th>

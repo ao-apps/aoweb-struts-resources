@@ -71,7 +71,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 								<fmt:message key="editCreditCardCompleted.successMessage.title.reactivate" />
 							</logic:equal>
 						</b>
-						<hr />
+						<ao:hr />
 						<logic:notEqual name="editCreditCardForm" property="isActive" value="false">
 							<fmt:message key="editCreditCardCompleted.successMessage.text.edit">
 								<fmt:param value="${aoweb:getCardNumberDisplay(cardNumber)}" />

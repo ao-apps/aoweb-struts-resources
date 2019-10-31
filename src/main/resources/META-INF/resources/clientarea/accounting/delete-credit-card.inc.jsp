@@ -49,7 +49,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 						<ao:input type="hidden" name="id" value="${creditCard.id}" />
 						<skin:lightArea>
 							<b><fmt:message key="deleteCreditCard.confirmation.title" /></b>
-							<hr />
+							<ao:hr />
 							<table cellspacing="0" cellpadding="4">
 								<tr>
 									<td colspan="2"><fmt:message key="deleteCreditCard.confirmation.prompt" /></td>

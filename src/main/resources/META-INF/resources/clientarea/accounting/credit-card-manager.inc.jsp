@@ -70,7 +70,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 									<bean:define name="accountAndCreditCards" property="creditCards" id="creditCards" type="java.util.List<com.aoindustries.aoserv.client.payment.CreditCard>" />
 									<bean:size name="creditCards" id="creditCardsSize" />
 									<%--tr class="<ao:out value="${(accountsIndex%2)==0 ? 'aoLightRow' : 'aoDarkRow'}" />">
-										<td colspan="${fn:escapeXml(8 + (hasDescription ? 1 : 0))}"><hr /></td>
+										<td colspan="${fn:escapeXml(8 + (hasDescription ? 1 : 0))}"><ao:hr /></td>
 									</tr--%>
 									<logic:notEqual name="creditCardsSize" value="0">
 										<tr class="<ao:out value="${(accountsIndex%2)==0 ? 'aoLightRow' : 'aoDarkRow'}" />">

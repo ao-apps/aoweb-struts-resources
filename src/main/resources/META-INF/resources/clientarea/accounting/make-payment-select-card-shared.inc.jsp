@@ -32,7 +32,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 		<skin:lightArea>
 			<ao:bundle basename="com.aoindustries.website.clientarea.accounting.ApplicationResources">
 				<b><ao:message key="makePaymentSelectCard.selectCard.list.title" /></b>
-				<hr />
+				<ao:hr />
 				<c:set var="hasDescription" value="false" />
 				<c:forEach var="creditCard" items="${creditCards}">
 					<c:if test="${!empty creditCard.description}">
