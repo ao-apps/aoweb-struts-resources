@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2007-2009, 2015, 2016, 2019  AO Industries, Inc.
+Copyright (C) 2007-2009, 2015, 2016, 2019, 2020  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -64,30 +64,32 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 						<skin:lightArea>
 							<fmt:message key="exception.jspException.title" />
 							<ao:hr />
-							<table style='border:1px' cellspacing="0" cellpadding="2">
-								<tr>
-									<th style='white-space:nowrap; text-align:left'><fmt:message key="exception.servletName.header" /></th>
-									<td style="white-space:nowrap"><ao:write name="javax.servlet.jsp.jspPageContext" property="errorData.servletName" /></td>
-								</tr>
-								<tr>
-									<th style='white-space:nowrap; text-align:left'><fmt:message key="exception.requestURI.header" /></th>
-									<td style="white-space:nowrap"><ao:write name="javax.servlet.jsp.jspPageContext" property="errorData.requestURI" /></td>
-								</tr>
-								<tr>
-									<th style='white-space:nowrap; text-align:left'><fmt:message key="exception.statusCode.header" /></th>
-									<td style="white-space:nowrap"><ao:write name="javax.servlet.jsp.jspPageContext" property="errorData.statusCode" /></td>
-								</tr>
-								<tr>
-									<th style='white-space:nowrap; text-align:left'><fmt:message key="exception.throwable.header" /></th>
-									<td style="white-space:nowrap">
-										<logic:notEmpty name="javax.servlet.jsp.jspPageContext" property="errorData.throwable">
-											<pre><ao:text><ao:getStackTraces name="javax.servlet.jsp.jspPageContext" property="errorData.throwable" /></ao:text></pre>
-										</logic:notEmpty>
-										<logic:empty name="javax.servlet.jsp.jspPageContext" property="errorData.throwable">
-											&#160;
-										</logic:empty>
-									</td>
-								</tr>
+							<table class="thinTable">
+								<tbody>
+									<tr>
+										<th style='white-space:nowrap; text-align:left'><fmt:message key="exception.servletName.header" /></th>
+										<td style="white-space:nowrap"><ao:write name="javax.servlet.jsp.jspPageContext" property="errorData.servletName" /></td>
+									</tr>
+									<tr>
+										<th style='white-space:nowrap; text-align:left'><fmt:message key="exception.requestURI.header" /></th>
+										<td style="white-space:nowrap"><ao:write name="javax.servlet.jsp.jspPageContext" property="errorData.requestURI" /></td>
+									</tr>
+									<tr>
+										<th style='white-space:nowrap; text-align:left'><fmt:message key="exception.statusCode.header" /></th>
+										<td style="white-space:nowrap"><ao:write name="javax.servlet.jsp.jspPageContext" property="errorData.statusCode" /></td>
+									</tr>
+									<tr>
+										<th style='white-space:nowrap; text-align:left'><fmt:message key="exception.throwable.header" /></th>
+										<td style="white-space:nowrap">
+											<logic:notEmpty name="javax.servlet.jsp.jspPageContext" property="errorData.throwable">
+												<pre><ao:text><ao:getStackTraces name="javax.servlet.jsp.jspPageContext" property="errorData.throwable" /></ao:text></pre>
+											</logic:notEmpty>
+											<logic:empty name="javax.servlet.jsp.jspPageContext" property="errorData.throwable">
+												&#160;
+											</logic:empty>
+										</td>
+									</tr>
+								</tbody>
 							</table>
 						</skin:lightArea><ao:br />
 						<ao:br />

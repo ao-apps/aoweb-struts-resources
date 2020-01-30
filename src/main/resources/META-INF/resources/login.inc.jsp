@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2007-2009, 2015, 2016, 2019  AO Industries, Inc.
+Copyright (C) 2007-2009, 2015, 2016, 2019, 2020  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -48,20 +48,24 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 						<logic:present scope="session" name="authenticationTarget">
 							<ao:input type="hidden" name="authenticationTarget"><ao:write type="text/url" scope="session" name="authenticationTarget" /></ao:input>
 						</logic:present>
-						<table cellspacing='2' cellpadding='0'>
-							<tr>
-								<td><fmt:message key="login.field.username.prompt" /></td>
-								<td><html:text size="16" property="username" /></td>
-								<td><html:errors bundle="/ApplicationResources" property="username" /></td>
-							</tr>
-							<tr>
-								<td><fmt:message key="login.field.password.prompt" /></td>
-								<td><html:password size="16" property="password" /></td>
-								<td><html:errors bundle="/ApplicationResources" property="password" /></td>
-							</tr>
-							<tr>
-								<td colspan="3" style="text-align:center"><ao:input type="submit"><fmt:message key="login.field.submit.label" /></ao:input></td>
-							</tr>
+						<table class="noborder">
+							<tbody>
+								<tr>
+									<td><fmt:message key="login.field.username.prompt" /></td>
+									<td><html:text size="16" property="username" /></td>
+									<td><html:errors bundle="/ApplicationResources" property="username" /></td>
+								</tr>
+								<tr>
+									<td><fmt:message key="login.field.password.prompt" /></td>
+									<td><html:password size="16" property="password" /></td>
+									<td><html:errors bundle="/ApplicationResources" property="password" /></td>
+								</tr>
+							</tbody>
+							<tfoot>
+								<tr>
+									<td colspan="3" style="text-align:center"><ao:input type="submit"><fmt:message key="login.field.submit.label" /></ao:input></td>
+								</tr>
+							</tfoot>
 						</table>
 					</div></html:form>
 				</skin:lightArea>

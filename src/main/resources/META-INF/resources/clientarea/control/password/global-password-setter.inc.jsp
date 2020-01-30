@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2000-2009, 2016, 2018, 2019  AO Industries, Inc.
+Copyright (C) 2000-2009, 2016, 2018, 2019, 2020  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -41,43 +41,49 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					<logic:notEmpty scope="request" name="globalPasswordSetterForm" property="packages">
 						<html:form action="/password/global-password-setter-completed">
 							<skin:lightArea>
-								<table cellspacing='0' cellpadding='2'>
-									<tr>
-										<bean:size scope="request" name="aoConn" property="billing.Package.map" id="packagesSize" />
-										<logic:greaterThan name="packagesSize" value="1">
-											<th><fmt:message key="password.globalPasswordSetter.header.package" /></th>
-										</logic:greaterThan>
-										<th><fmt:message key="password.globalPasswordSetter.header.username" /></th>
-										<th colspan='2'><fmt:message key="password.globalPasswordSetter.header.newPassword" /></th>
-										<th><fmt:message key="password.globalPasswordSetter.header.confirmPassword" /></th>
-										<th>&#160;</th>
-									</tr>
-									<logic:iterate scope="request" name="globalPasswordSetterForm" property="packages" id="pack" indexId="index">
+								<table class="noborder">
+									<thead>
 										<tr>
+											<bean:size scope="request" name="aoConn" property="billing.Package.map" id="packagesSize" />
 											<logic:greaterThan name="packagesSize" value="1">
-												<td><ao:write name="pack" /></td>
+												<th><fmt:message key="password.globalPasswordSetter.header.package" /></th>
 											</logic:greaterThan>
-											<td>
-												<html:hidden property='<%= "packages[" + index + "]" %>' />
-												<code><html:hidden property='<%= "usernames[" + index + "]" %>' write="true" /></code>
-											</td>
-											<td><html:password size="20" property='<%= "newPasswords[" + index + "]" %>' /></td>
-											<td style="white-space:nowrap">
-												<html:errors bundle="/clientarea/control/ApplicationResources" property='<%= "newPasswords[" + index + "].newPasswords" %>' />
-												<html:messages id="message" message="true" bundle="/clientarea/control/ApplicationResources" property='<%= "newPasswords[" + index + "].newPasswords" %>'>
-													<ao:write name="message" /><ao:br />
-												</html:messages>
-											</td>
-											<td><html:password size="20" property='<%= "confirmPasswords[" + index + "]" %>' /></td>
-											<td style="white-space:nowrap">
-												<html:errors bundle="/clientarea/control/ApplicationResources" property='<%= "confirmPasswords[" + index + "].confirmPasswords" %>' />
-												<html:messages id="message" message="true" bundle="/clientarea/control/ApplicationResources" property='<%= "confirmPasswords[" + index + "].confirmPasswords" %>'>
-													<ao:write name="message" /><ao:br />
-												</html:messages>
-											</td>
+											<th><fmt:message key="password.globalPasswordSetter.header.username" /></th>
+											<th colspan='2'><fmt:message key="password.globalPasswordSetter.header.newPassword" /></th>
+											<th><fmt:message key="password.globalPasswordSetter.header.confirmPassword" /></th>
+											<th>&#160;</th>
 										</tr>
-									</logic:iterate>
-									<tr><td colspan="6" style="text-align:center"><ao:input type="submit"><fmt:message key="password.globalPasswordSetter.field.submit.label" /></ao:input></td></tr>
+									</thead>
+									<tbody>
+										<logic:iterate scope="request" name="globalPasswordSetterForm" property="packages" id="pack" indexId="index">
+											<tr>
+												<logic:greaterThan name="packagesSize" value="1">
+													<td><ao:write name="pack" /></td>
+												</logic:greaterThan>
+												<td>
+													<html:hidden property='<%= "packages[" + index + "]" %>' />
+													<code><html:hidden property='<%= "usernames[" + index + "]" %>' write="true" /></code>
+												</td>
+												<td><html:password size="20" property='<%= "newPasswords[" + index + "]" %>' /></td>
+												<td style="white-space:nowrap">
+													<html:errors bundle="/clientarea/control/ApplicationResources" property='<%= "newPasswords[" + index + "].newPasswords" %>' />
+													<html:messages id="message" message="true" bundle="/clientarea/control/ApplicationResources" property='<%= "newPasswords[" + index + "].newPasswords" %>'>
+														<ao:write name="message" /><ao:br />
+													</html:messages>
+												</td>
+												<td><html:password size="20" property='<%= "confirmPasswords[" + index + "]" %>' /></td>
+												<td style="white-space:nowrap">
+													<html:errors bundle="/clientarea/control/ApplicationResources" property='<%= "confirmPasswords[" + index + "].confirmPasswords" %>' />
+													<html:messages id="message" message="true" bundle="/clientarea/control/ApplicationResources" property='<%= "confirmPasswords[" + index + "].confirmPasswords" %>'>
+														<ao:write name="message" /><ao:br />
+													</html:messages>
+												</td>
+											</tr>
+										</logic:iterate>
+									</tbody>
+									<tfoot>
+										<tr><td colspan="6" style="text-align:center"><ao:input type="submit"><fmt:message key="password.globalPasswordSetter.field.submit.label" /></ao:input></td></tr>
+									</tfoot>
 								</table>
 							</skin:lightArea>
 						</html:form>

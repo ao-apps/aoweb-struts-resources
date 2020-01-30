@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2009, 2015, 2016, 2019  AO Industries, Inc.
+Copyright (C) 2009, 2015, 2016, 2019, 2020  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -39,12 +39,14 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 				<skin:lightArea>
 					<b><fmt:message key="setResourceBundleValue.header" /></b>
 					<ao:hr />
-					<table border="0" cellspacing="0" cellpadding="2">
-						<tr><th style="text-align:left"><fmt:message key="setResourceBundleValue.baseName.label" /></th><td><ao:write scope="request" name="baseName" /></td></tr>
-						<tr><th style="text-align:left"><fmt:message key="setResourceBundleValue.locale.label" /></th><td><ao:write scope="request" name="locale" /></td></tr>
-						<tr><th style="text-align:left"><fmt:message key="setResourceBundleValue.key.label" /></th><td><ao:write scope="request" name="key" /></td></tr>
-						<tr><th style="text-align:left"><fmt:message key="setResourceBundleValue.value.label" /></th><td><ao:write scope="request" name="value" /></td></tr>
-						<tr><th style="text-align:left"><fmt:message key="setResourceBundleValue.modified.label" /></th><td><ao:write scope="request" name="modified" /></td></tr>
+					<table class="noborder">
+						<tbody>
+							<tr><th style="text-align:left"><fmt:message key="setResourceBundleValue.baseName.label" /></th><td><ao:write scope="request" name="baseName" /></td></tr>
+							<tr><th style="text-align:left"><fmt:message key="setResourceBundleValue.locale.label" /></th><td><ao:write scope="request" name="locale" /></td></tr>
+							<tr><th style="text-align:left"><fmt:message key="setResourceBundleValue.key.label" /></th><td><ao:write scope="request" name="key" /></td></tr>
+							<tr><th style="text-align:left"><fmt:message key="setResourceBundleValue.value.label" /></th><td><ao:write scope="request" name="value" /></td></tr>
+							<tr><th style="text-align:left"><fmt:message key="setResourceBundleValue.modified.label" /></th><td><ao:write scope="request" name="modified" /></td></tr>
+						</tbody>
 					</table>
 				</skin:lightArea>
 			</skin:contentLine>

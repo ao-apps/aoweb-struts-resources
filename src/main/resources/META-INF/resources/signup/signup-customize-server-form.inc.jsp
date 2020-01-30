@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2007-2009, 2016, 2019  AO Industries, Inc.
+Copyright (C) 2007-2009, 2016, 2019, 2020  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -207,123 +207,129 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 	</logic:empty>
 	<skin:lightArea>
 		<ao:bundle basename="com.aoindustries.website.signup.ApplicationResources">
-			<table cellspacing="0" cellpadding="2">
-				<tr><th colspan="2" class='aoLightRow'>
-					<span style="font-size:large;"><ao:write scope="request" name="packageDefinition" property="display" /></span>
-				</th></tr>
-				<logic:notEmpty scope="request" name="powerOptions">
+			<table class="noborder">
+				<thead>
+					<tr><th colspan="2" class='aoLightRow'>
+						<span style="font-size:large;"><ao:write scope="request" name="packageDefinition" property="display" /></span>
+					</th></tr>
+				</thead>
+				<tbody>
+					<logic:notEmpty scope="request" name="powerOptions">
+						<tr>
+							<th>
+								<ao:message key="signupCustomizeServerForm.selectPower" /><ao:br />
+								<html:errors bundle="/signup/ApplicationResources" property="powerOption" />
+							</th>
+							<th><ao:message key="signupCustomizeServerForm.powerMonthly" /></th>
+						</tr>
+						<logic:iterate scope="request" name="powerOptions" id="option">
+							<tr>
+								<td style="white-space:nowrap">
+									<label><html:radio onclick="recalcMonthly();" property="powerOption" idName="option" value="packageDefinitionLimit" />
+									<ao:write name="option" property="display" /></label>
+								</td>
+								<td><ao:write name="option" property="priceDifference" /></td>
+							</tr>
+						</logic:iterate>
+					</logic:notEmpty>
 					<tr>
 						<th>
-							<ao:message key="signupCustomizeServerForm.selectPower" /><ao:br />
-							<html:errors bundle="/signup/ApplicationResources" property="powerOption" />
+							<ao:message key="signupCustomizeServerForm.selectCPU" /><ao:br />
+							<html:errors bundle="/signup/ApplicationResources" property="cpuOption" />
 						</th>
-						<th><ao:message key="signupCustomizeServerForm.powerMonthly" /></th>
+						<th><ao:message key="signupCustomizeServerForm.cpuMonthly" /></th>
 					</tr>
-					<logic:iterate scope="request" name="powerOptions" id="option">
+					<logic:iterate scope="request" name="cpuOptions" id="option">
 						<tr>
 							<td style="white-space:nowrap">
-								<label><html:radio onclick="recalcMonthly();" property="powerOption" idName="option" value="packageDefinitionLimit" />
+								<label><html:radio onclick="recalcMonthly();" property="cpuOption" idName="option" value="packageDefinitionLimit" />
 								<ao:write name="option" property="display" /></label>
 							</td>
 							<td><ao:write name="option" property="priceDifference" /></td>
 						</tr>
 					</logic:iterate>
-				</logic:notEmpty>
-				<tr>
-					<th>
-						<ao:message key="signupCustomizeServerForm.selectCPU" /><ao:br />
-						<html:errors bundle="/signup/ApplicationResources" property="cpuOption" />
-					</th>
-					<th><ao:message key="signupCustomizeServerForm.cpuMonthly" /></th>
-				</tr>
-				<logic:iterate scope="request" name="cpuOptions" id="option">
-					<tr>
-						<td style="white-space:nowrap">
-							<label><html:radio onclick="recalcMonthly();" property="cpuOption" idName="option" value="packageDefinitionLimit" />
-							<ao:write name="option" property="display" /></label>
-						</td>
-						<td><ao:write name="option" property="priceDifference" /></td>
-					</tr>
-				</logic:iterate>
-				<tr>
-					<th>
-						<ao:message key="signupCustomizeServerForm.selectRAM" /><ao:br />
-						<html:errors bundle="/signup/ApplicationResources" property="ramOption" />
-					</th>
-					<th><ao:message key="signupCustomizeServerForm.ramMonthly" /></th>
-				</tr>
-				<logic:iterate scope="request" name="ramOptions" id="option">
-					<tr>
-						<td style="white-space:nowrap">
-							<label><html:radio onclick="recalcMonthly();" property="ramOption" idName="option" value="packageDefinitionLimit" />
-							<ao:write name="option" property="display" /></label>
-						</td>
-						<td><ao:write name="option" property="priceDifference" /></td>
-					</tr>
-				</logic:iterate>
-				<logic:notEmpty scope="request" name="sataControllerOptions">
 					<tr>
 						<th>
-							<ao:message key="signupCustomizeServerForm.selectSataController" /><ao:br />
-							<html:errors bundle="/signup/ApplicationResources" property="sataControllerOption" />
+							<ao:message key="signupCustomizeServerForm.selectRAM" /><ao:br />
+							<html:errors bundle="/signup/ApplicationResources" property="ramOption" />
 						</th>
-						<th><ao:message key="signupCustomizeServerForm.sataControllerMonthly" /></th>
+						<th><ao:message key="signupCustomizeServerForm.ramMonthly" /></th>
 					</tr>
-					<logic:iterate scope="request" name="sataControllerOptions" id="option">
+					<logic:iterate scope="request" name="ramOptions" id="option">
 						<tr>
 							<td style="white-space:nowrap">
-								<label><html:radio onclick="recalcMonthly();" property="sataControllerOption" idName="option" value="packageDefinitionLimit" />
+								<label><html:radio onclick="recalcMonthly();" property="ramOption" idName="option" value="packageDefinitionLimit" />
 								<ao:write name="option" property="display" /></label>
 							</td>
 							<td><ao:write name="option" property="priceDifference" /></td>
 						</tr>
 					</logic:iterate>
-				</logic:notEmpty>
-				<logic:notEmpty scope="request" name="scsiControllerOptions">
-					<tr>
-						<th>
-							<ao:message key="signupCustomizeServerForm.selectScsiController" /><ao:br />
-							<html:errors bundle="/signup/ApplicationResources" property="scsiControllerOption" />
-						</th>
-						<th><ao:message key="signupCustomizeServerForm.scsiControllerMonthly" /></th>
-					</tr>
-					<logic:iterate scope="request" name="scsiControllerOptions" id="option">
+					<logic:notEmpty scope="request" name="sataControllerOptions">
 						<tr>
-							<td style="white-space:nowrap">
-								<label><html:radio onclick="recalcMonthly();" property="scsiControllerOption" idName="option" value="packageDefinitionLimit" />
-								<ao:write name="option" property="display" /></label>
-							</td>
-							<td><ao:write name="option" property="priceDifference" /></td>
+							<th>
+								<ao:message key="signupCustomizeServerForm.selectSataController" /><ao:br />
+								<html:errors bundle="/signup/ApplicationResources" property="sataControllerOption" />
+							</th>
+							<th><ao:message key="signupCustomizeServerForm.sataControllerMonthly" /></th>
 						</tr>
-					</logic:iterate>
-				</logic:notEmpty>
-				<logic:iterate name="diskOptions" id="diskOptionList" indexId="index">
-					<tr>
-						<th>
-							<ao:message key="signupCustomizeServerForm.selectDisk" arg0="${index+1}" /><ao:br />
-							<c:if test="${index == 0}"><html:errors bundle="/signup/ApplicationResources" property="diskOptions" /></c:if>
-						</th>
-						<th><ao:message key="signupCustomizeServerForm.diskMonthly" /></th>
-					</tr>
-					<logic:iterate name="diskOptionList" id="option">
+						<logic:iterate scope="request" name="sataControllerOptions" id="option">
+							<tr>
+								<td style="white-space:nowrap">
+									<label><html:radio onclick="recalcMonthly();" property="sataControllerOption" idName="option" value="packageDefinitionLimit" />
+									<ao:write name="option" property="display" /></label>
+								</td>
+								<td><ao:write name="option" property="priceDifference" /></td>
+							</tr>
+						</logic:iterate>
+					</logic:notEmpty>
+					<logic:notEmpty scope="request" name="scsiControllerOptions">
 						<tr>
-							<td style="white-space:nowrap">
-								<label><html:radio onclick="recalcMonthly();" property="diskOptions[${index}]" idName="option" value="packageDefinitionLimit" />
-								<ao:write name="option" property="display" /></label>
-							</td>
-							<td><ao:write name="option" property="priceDifference" /></td>
+							<th>
+								<ao:message key="signupCustomizeServerForm.selectScsiController" /><ao:br />
+								<html:errors bundle="/signup/ApplicationResources" property="scsiControllerOption" />
+							</th>
+							<th><ao:message key="signupCustomizeServerForm.scsiControllerMonthly" /></th>
 						</tr>
+						<logic:iterate scope="request" name="scsiControllerOptions" id="option">
+							<tr>
+								<td style="white-space:nowrap">
+									<label><html:radio onclick="recalcMonthly();" property="scsiControllerOption" idName="option" value="packageDefinitionLimit" />
+									<ao:write name="option" property="display" /></label>
+								</td>
+								<td><ao:write name="option" property="priceDifference" /></td>
+							</tr>
+						</logic:iterate>
+					</logic:notEmpty>
+					<logic:iterate name="diskOptions" id="diskOptionList" indexId="index">
+						<tr>
+							<th>
+								<ao:message key="signupCustomizeServerForm.selectDisk" arg0="${index+1}" /><ao:br />
+								<c:if test="${index == 0}"><html:errors bundle="/signup/ApplicationResources" property="diskOptions" /></c:if>
+							</th>
+							<th><ao:message key="signupCustomizeServerForm.diskMonthly" /></th>
+						</tr>
+						<logic:iterate name="diskOptionList" id="option">
+							<tr>
+								<td style="white-space:nowrap">
+									<label><html:radio onclick="recalcMonthly();" property="diskOptions[${index}]" idName="option" value="packageDefinitionLimit" />
+									<ao:write name="option" property="display" /></label>
+								</td>
+								<td><ao:write name="option" property="priceDifference" /></td>
+							</tr>
+						</logic:iterate>
 					</logic:iterate>
-				</logic:iterate>
-				<tr>
-					<th><ao:message key="signupCustomizeServerForm.basePrice.title" /></th>
-					<th style="text-align:left"><ao:input type="text" name="basePriceDisplay" readonly="true" size="10" value="${requestScope.basePrice}" /></th>
-				</tr>
-				<tr>
-					<th><ao:message key="signupCustomizeServerForm.total" /></th>
-					<th style="text-align:left"><ao:input type="text" name="totalMonthly" readonly='readonly' size="10" value="${requestScope.basePrice}" /></th>
-				</tr>
-				<tr><td colspan="2" style="text-align:center"><ao:br /><ao:input type="submit"><ao:message key="signupCustomizeServerForm.submit.label" /></ao:input><ao:br /><ao:br /></td></tr>
+					<tr>
+						<th><ao:message key="signupCustomizeServerForm.basePrice.title" /></th>
+						<th style="text-align:left"><ao:input type="text" name="basePriceDisplay" readonly="true" size="10" value="${requestScope.basePrice}" /></th>
+					</tr>
+					<tr>
+						<th><ao:message key="signupCustomizeServerForm.total" /></th>
+						<th style="text-align:left"><ao:input type="text" name="totalMonthly" readonly='readonly' size="10" value="${requestScope.basePrice}" /></th>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr><td colspan="2" style="text-align:center"><ao:br /><ao:input type="submit"><ao:message key="signupCustomizeServerForm.submit.label" /></ao:input><ao:br /><ao:br /></td></tr>
+				</tfoot>
 			</table>
 		</ao:bundle>
 	</skin:lightArea>

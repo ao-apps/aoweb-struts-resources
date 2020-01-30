@@ -1,6 +1,6 @@
 /*
  * aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
- * Copyright (C) 2009, 2016  AO Industries, Inc.
+ * Copyright (C) 2009, 2016, 2020  AO Industries, Inc.
  *     support@aoindustries.com
  *     7262 Bull Pen Cir
  *     Mobile, AL 36695
@@ -16,7 +16,7 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU Lesser General Public License for more details.
- *
+ *54
  * You should have received a copy of the GNU Lesser General Public License
  * along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
  */
@@ -141,4 +141,113 @@ img {
 .aoPopupBR img {
 	vertical-align: top;
 	display:block;
+}
+
+/*
+	A table with a thin border around the table and all cells.
+	Has a moderate cell padding.
+ */
+/* TODO: thinTable should have a name within appropriate prefix namespace,
+         also should belong somewhere more specific? */
+table.thinTable {
+	border-collapse: collapse;
+}
+table.thinTable,
+.thinTable > thead > tr > th,
+.thinTable > thead > tr > td,
+.thinTable > tbody > tr > th,
+.thinTable > tbody > tr > td,
+.thinTable > tfoot > tr > th,
+.thinTable > tfoot > tr > td,
+.thinTable > tr > th,
+.thinTable > tr > td {
+	border: 1px solid #606060;
+	padding: 2px;
+	margin: 0px;
+}
+
+/*
+	A table with a thin border around the table only (but not any cells).
+	Has a moderate cell padding.
+ */
+table.outsideBorder {
+	border-collapse: collapse;
+	border: 1px solid #606060;
+	padding: 2px;
+	margin: 0px;
+}
+.outsideBorder > thead > tr > th,
+.outsideBorder > thead > tr > td,
+.outsideBorder > tbody > tr > th,
+.outsideBorder > tbody > tr > td,
+.outsideBorder > tfoot > tr > th,
+.outsideBorder > tfoot > tr > td,
+.outsideBorder > tr > th,
+.outsideBorder > tr > td {
+	border: 0px;
+	padding: 2px;
+	margin: 0px;
+}
+
+/*
+	A table with no borders.
+	Has a moderate cell padding.
+ */
+table.noborder {
+	border-collapse: collapse;
+}
+table.noborder,
+.noborder > thead > tr > th,
+.noborder > thead > tr > td,
+.noborder > tbody > tr > th,
+.noborder > tbody > tr > td,
+.noborder > tfoot > tr > th,
+.noborder > tfoot > tr > td,
+.noborder > tr > th,
+.noborder > tr > td {
+	border: 0px;
+	padding: 2px;
+	margin: 0px;
+}
+
+/*
+	A table with no borders.
+	Has a no cell padding.
+ */
+table.packed {
+	border-collapse: collapse;
+}
+table.packed,
+.packed > thead > tr > th,
+.packed > thead > tr > td,
+.packed > tbody > tr > th,
+.packed > tbody > tr > td,
+.packed > tfoot > tr > th,
+.packed > tfoot > tr > td,
+.packed > tr > th,
+.packed > tr > td {
+	border: 0px;
+	padding: 0px;
+	margin: 0px;
+}
+
+/*
+	A table with no borders.
+	Has a larger cell padding.
+ */
+table.spread {
+	border-collapse: collapse;
+}
+table.spread,
+.spread > thead > tr > th,
+.spread > thead > tr > td,
+.spread > tbody > tr > th,
+.spread > tbody > tr > td,
+.spread > tfoot > tr > th,
+.spread > tfoot > tr > td,
+.spread > tr > th,
+.spread > tr > td {
+	border: 0px;
+	padding: 4px;
+	margin: 0px;
 }

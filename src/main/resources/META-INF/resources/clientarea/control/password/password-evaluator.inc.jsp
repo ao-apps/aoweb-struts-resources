@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2000-2009, 2016, 2018, 2019  AO Industries, Inc.
+Copyright (C) 2000-2009, 2016, 2018, 2019, 2020  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -41,13 +41,15 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 							<fmt:message key="password.passwordEvaluator.field.password.prompt" /><html:password size="16" property="password" /> <html:errors bundle="/clientarea/control/ApplicationResources" property="password" />
 							<logic:present scope="request" name="results">
 								<ao:br /><ao:br />
-								<table cellspacing="0" cellpadding="4">
-									<logic:iterate scope="request" name="results" id="result" type="com.aoindustries.aoserv.client.password.PasswordChecker.Result">
-										<tr>
-											<td><ao:write name="result" property="category" />:</td>
-											<td><ao:write name="result" property="result" /></td>
-										</tr>
-									</logic:iterate>
+								<table class="spread">
+									<tbody>
+										<logic:iterate scope="request" name="results" id="result" type="com.aoindustries.aoserv.client.password.PasswordChecker.Result">
+											<tr>
+												<td><ao:write name="result" property="category" />:</td>
+												<td><ao:write name="result" property="result" /></td>
+											</tr>
+										</logic:iterate>
+									</tbody>
 								</table>
 							</logic:present><ao:br />
 							<ao:br />

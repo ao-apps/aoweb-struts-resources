@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2007-2009, 2015, 2016, 2019  AO Industries, Inc.
+Copyright (C) 2007-2009, 2015, 2016, 2019, 2020  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -50,10 +50,12 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 							<skin:lightArea>
 								<b><fmt:message key="addCreditCard.form.title" /></b>
 								<ao:hr />
-								<table cellspacing="0" cellpadding="2">
-									<c:set scope="request" var="creditCardForm" value="${addCreditCardForm}" />
-									<%@include file="credit-card-form.inc.jsp" %>
-									<tr><td style="white-space:nowrap;text-align:center" colspan="4"><ao:input type="submit"><fmt:message key="addCreditCard.field.submit.label" /></ao:input></td></tr>
+								<table class="noborder">
+									<tbody>
+										<c:set scope="request" var="creditCardForm" value="${addCreditCardForm}" />
+										<%@include file="credit-card-form.inc.jsp" %>
+										<tr><td style="white-space:nowrap;text-align:center" colspan="4"><ao:input type="submit"><fmt:message key="addCreditCard.field.submit.label" /></ao:input></td></tr>
+									</tbody>
 								</table>
 							</skin:lightArea>
 						</html:form>

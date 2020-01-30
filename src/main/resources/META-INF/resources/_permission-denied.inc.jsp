@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2007-2009, 2015, 2016, 2018, 2019  AO Industries, Inc.
+Copyright (C) 2007-2009, 2015, 2016, 2018, 2019, 2020  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -40,15 +40,17 @@ It only provides the content of the page.
 					<ao:message key="permissionDenied.theFollowingPermissionRequired" />
 					<logic:iterate scope="request" name="permissionDenied" id="andPermission">
 						<p>
-							<table cellspacing='0' cellpadding='2'>
-								<tr>
-									<td style="white-space:nowrap"><b><ao:message key="permissionDenied.permission.display" /></b></td>
-									<td style="white-space:nowrap"><ao:write name="andPermission" /></td>
-								</tr>
-								<tr>
-									<td style="white-space:nowrap"><b><ao:message key="permissionDenied.permission.description" /></b></td>
-									<td style="white-space:nowrap"><ao:write name="andPermission" method="getDescription" /></td>
-								</tr>
+							<table class="noborder">
+								<tbody>
+									<tr>
+										<td style="white-space:nowrap"><b><ao:message key="permissionDenied.permission.display" /></b></td>
+										<td style="white-space:nowrap"><ao:write name="andPermission" /></td>
+									</tr>
+									<tr>
+										<td style="white-space:nowrap"><b><ao:message key="permissionDenied.permission.description" /></b></td>
+										<td style="white-space:nowrap"><ao:write name="andPermission" method="getDescription" /></td>
+									</tr>
+								</tbody>
 							</table>
 						</p>
 					</logic:iterate>
@@ -56,29 +58,33 @@ It only provides the content of the page.
 				<logic:notEqual name="permissionDeniedSize" value="1">
 					<ao:message key="permissionDenied.allOfTheFollowingPermissionsRequired" />
 					<p>
-						<table cellspacing='0' cellpadding='2'>
-							<tr>
-								<th style='white-space:nowrap'><ao:message key="permissionDenied.andPermissions.header.display" /></th>
-								<th style='white-space:nowrap'><ao:message key="permissionDenied.andPermissions.header.description" /></th>
-								<th style='white-space:nowrap'><ao:message key="permissionDenied.andPermissions.header.hasPermission" /></th>
-							</tr>
-							<bean:define scope="request" name="aoConn" property="currentAdministrator" id="currentAdministrator" />
-							<logic:iterate scope="request" name="permissionDenied" id="andPermission">
+						<table class="noborder">
+							<thead>
 								<tr>
-									<td style="white-space:nowrap"><ao:write name="andPermission" /></td>
-									<td style="white-space:nowrap"><ao:write name="andPermission" method="getDescription" /></td>
-									<td style="white-space:nowrap">
-										<ao:choose>
-											<ao:when test="#{currentAdministrator.hasPermission(andPermission)}">
-												<ao:message key="permissionDenied.andPermissions.header.hasPermission.yes" />
-											</ao:when>
-											<ao:otherwise>
-												<ao:message key="permissionDenied.andPermissions.header.hasPermission.no" />
-											</ao:otherwise>
-										</ao:choose>
-									</td>
+									<th style='white-space:nowrap'><ao:message key="permissionDenied.andPermissions.header.display" /></th>
+									<th style='white-space:nowrap'><ao:message key="permissionDenied.andPermissions.header.description" /></th>
+									<th style='white-space:nowrap'><ao:message key="permissionDenied.andPermissions.header.hasPermission" /></th>
 								</tr>
-							</logic:iterate>
+							</thead>
+							<tbody>
+								<bean:define scope="request" name="aoConn" property="currentAdministrator" id="currentAdministrator" />
+								<logic:iterate scope="request" name="permissionDenied" id="andPermission">
+									<tr>
+										<td style="white-space:nowrap"><ao:write name="andPermission" /></td>
+										<td style="white-space:nowrap"><ao:write name="andPermission" method="getDescription" /></td>
+										<td style="white-space:nowrap">
+											<ao:choose>
+												<ao:when test="#{currentAdministrator.hasPermission(andPermission)}">
+													<ao:message key="permissionDenied.andPermissions.header.hasPermission.yes" />
+												</ao:when>
+												<ao:otherwise>
+													<ao:message key="permissionDenied.andPermissions.header.hasPermission.no" />
+												</ao:otherwise>
+											</ao:choose>
+										</td>
+									</tr>
+								</logic:iterate>
+							</tbody>
 						</table>
 					</p>
 				</logic:notEqual>

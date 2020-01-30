@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2007-2009, 2015, 2016, 2018, 2019  AO Industries, Inc.
+Copyright (C) 2007-2009, 2015, 2016, 2018, 2019, 2020  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -50,91 +50,95 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 						<skin:lightArea>
 							<b><ao:message key="makePaymentStoredCard.amount.title" /></b>
 							<ao:hr />
-							<table cellspacing="0" cellpadding="4">
-								<tr>
-									<th style="text-align:left; white-space:nowrap"><ao:message key="makePaymentStoredCard.account.prompt" /></th>
-									<td style="white-space:nowrap"><html:hidden property="account" write="true" /></td>
-									<td style="white-space:nowrap"><html:errors bundle="/clientarea/accounting/ApplicationResources" property="account" /></td>
-								</tr>
-								<tr>
-									<th style="text-align:left; white-space:nowrap"><ao:message key="makePaymentStoredCard.card.prompt" /></th>
-									<td style="white-space:nowrap; font-family: monospace">
-										<c:set var="cardNumber" value="${creditCard.cardInfo}"/>
-										<%@include file="_credit-card-image.inc.jsp" %>
-										<c:out value="${aoweb:getCardNumberDisplay(cardNumber)}"/>
-									</td>
-									<td style="white-space:nowrap"><html:errors bundle="/clientarea/accounting/ApplicationResources" property="creditCard" /></td>
-								</tr>
-								<c:set var="expirationDisplay" value="${aoweb:getExpirationDisplay(creditCard.expirationMonth, creditCard.expirationYear)}"/>
-								<c:if test="${!empty expirationDisplay}">
+							<table class="spread">
+								<tbody>
 									<tr>
-										<th style="text-align:left; white-space:nowrap;"><ao:message key="makePaymentStoredCard.expirationDate.prompt" /></th>
-										<td style="white-space:nowrap; font-family: monospace"><c:out value="${expirationDisplay}"/></td>
+										<th style="text-align:left; white-space:nowrap"><ao:message key="makePaymentStoredCard.account.prompt" /></th>
+										<td style="white-space:nowrap"><html:hidden property="account" write="true" /></td>
+										<td style="white-space:nowrap"><html:errors bundle="/clientarea/accounting/ApplicationResources" property="account" /></td>
 									</tr>
-								</c:if>
-								<logic:notEmpty name="creditCard" property="description">
 									<tr>
-										<th style="text-align:left; white-space:nowrap"><ao:message key="makePaymentStoredCard.cardComment.prompt" /></th>
-										<td style="white-space:nowrap">
-											<ao:write name="creditCard" property="description" />
+										<th style="text-align:left; white-space:nowrap"><ao:message key="makePaymentStoredCard.card.prompt" /></th>
+										<td style="white-space:nowrap; font-family: monospace">
+											<c:set var="cardNumber" value="${creditCard.cardInfo}"/>
+											<%@include file="_credit-card-image.inc.jsp" %>
+											<c:out value="${aoweb:getCardNumberDisplay(cardNumber)}"/>
 										</td>
-										<td style="white-space:nowrap"><html:errors bundle="/clientarea/accounting/ApplicationResources" property="cardComment" /></td>
+										<td style="white-space:nowrap"><html:errors bundle="/clientarea/accounting/ApplicationResources" property="creditCard" /></td>
 									</tr>
-								</logic:notEmpty>
-								<c:if test="${!empty currency}">
-									<c:set var="balance" value="${account.accountBalance.map[currency.currency]}" />
-									<c:if test="${!empty balance}">
+									<c:set var="expirationDisplay" value="${aoweb:getExpirationDisplay(creditCard.expirationMonth, creditCard.expirationYear)}"/>
+									<c:if test="${!empty expirationDisplay}">
 										<tr>
-											<th style="text-align:left; white-space:nowrap"><ao:message key="makePaymentStoredCard.accountBalance.prompt" /></th>
-											<td style="white-space:nowrap">
-												<ao:choose>
-													<ao:when test="#{balance.unscaledValue < 0}">
-														<ao:message key="makePaymentSelectCard.balance.value.credit" arg0="${balance.negate()}" />
-													</ao:when>
-													<ao:when test="#{balance.unscaledValue > 0}">
-														<ao:message key="makePaymentSelectCard.balance.value.debt" arg0="${balance}" />
-													</ao:when>
-													<ao:otherwise>
-														<ao:message key="makePaymentSelectCard.balance.value.zero" arg0="${balance}" />
-													</ao:otherwise>
-												</ao:choose>
-											</td>
-											<td style="white-space:nowrap"><html:errors bundle="/clientarea/accounting/ApplicationResources" property="accountBalance" /></td>
+											<th style="text-align:left; white-space:nowrap;"><ao:message key="makePaymentStoredCard.expirationDate.prompt" /></th>
+											<td style="white-space:nowrap; font-family: monospace"><c:out value="${expirationDisplay}"/></td>
 										</tr>
 									</c:if>
-								</c:if>
-								<tr>
-									<th style="text-align:left; white-space:nowrap"><ao:message key="makePaymentStoredCard.paymentAmount.prompt" /></th>
-									<td style="white-space:nowrap">
-										<ao:choose>
-											<ao:when test="#{empty currency}">
-												<ao:select name="currency">
-													<ao:option value="">---</ao:option>
-													<c:forEach var="c" items="${aoConn.billing.Currency.rows}">
-														<ao:option value="${c.currencyCode}"><ao:out value="${c.currencyCode}" /></ao:option>
-													</c:forEach>
-												</ao:select><html:text property="paymentAmount" size="8" />
-											</ao:when>
-											<ao:otherwise>
-												<ao:input type="hidden" name="currency" value="${currency.currencyCode}" />
-												<ao:out value="${aoweb:getCurrencySymbol(currency.currency)}" /><html:text property="paymentAmount" size="8" />
-											</ao:otherwise>
-										</ao:choose>
-									</td>
-									<td style="white-space:nowrap"><html:errors bundle="/clientarea/accounting/ApplicationResources" property="paymentAmount" /></td>
-								</tr>
-								<tr>
-									<td style="white-space:nowrap"></td>
-									<td style='white-space:nowrap' colspan="2">
-										<ao:input type="submit" value="${ao:message('makePaymentStoredCard.submit.label')}">
-											<ao:onclick>
-												this.disabled='true';
-												this.form.submit();
-												return false;
-											</ao:onclick>
-										</ao:input>
-									</td>
-								</tr>
+									<logic:notEmpty name="creditCard" property="description">
+										<tr>
+											<th style="text-align:left; white-space:nowrap"><ao:message key="makePaymentStoredCard.cardComment.prompt" /></th>
+											<td style="white-space:nowrap">
+												<ao:write name="creditCard" property="description" />
+											</td>
+											<td style="white-space:nowrap"><html:errors bundle="/clientarea/accounting/ApplicationResources" property="cardComment" /></td>
+										</tr>
+									</logic:notEmpty>
+									<c:if test="${!empty currency}">
+										<c:set var="balance" value="${account.accountBalance.map[currency.currency]}" />
+										<c:if test="${!empty balance}">
+											<tr>
+												<th style="text-align:left; white-space:nowrap"><ao:message key="makePaymentStoredCard.accountBalance.prompt" /></th>
+												<td style="white-space:nowrap">
+													<ao:choose>
+														<ao:when test="#{balance.unscaledValue < 0}">
+															<ao:message key="makePaymentSelectCard.balance.value.credit" arg0="${balance.negate()}" />
+														</ao:when>
+														<ao:when test="#{balance.unscaledValue > 0}">
+															<ao:message key="makePaymentSelectCard.balance.value.debt" arg0="${balance}" />
+														</ao:when>
+														<ao:otherwise>
+															<ao:message key="makePaymentSelectCard.balance.value.zero" arg0="${balance}" />
+														</ao:otherwise>
+													</ao:choose>
+												</td>
+												<td style="white-space:nowrap"><html:errors bundle="/clientarea/accounting/ApplicationResources" property="accountBalance" /></td>
+											</tr>
+										</c:if>
+									</c:if>
+									<tr>
+										<th style="text-align:left; white-space:nowrap"><ao:message key="makePaymentStoredCard.paymentAmount.prompt" /></th>
+										<td style="white-space:nowrap">
+											<ao:choose>
+												<ao:when test="#{empty currency}">
+													<ao:select name="currency">
+														<ao:option value="">---</ao:option>
+														<c:forEach var="c" items="${aoConn.billing.Currency.rows}">
+															<ao:option value="${c.currencyCode}"><ao:out value="${c.currencyCode}" /></ao:option>
+														</c:forEach>
+													</ao:select><html:text property="paymentAmount" size="8" />
+												</ao:when>
+												<ao:otherwise>
+													<ao:input type="hidden" name="currency" value="${currency.currencyCode}" />
+													<ao:out value="${aoweb:getCurrencySymbol(currency.currency)}" /><html:text property="paymentAmount" size="8" />
+												</ao:otherwise>
+											</ao:choose>
+										</td>
+										<td style="white-space:nowrap"><html:errors bundle="/clientarea/accounting/ApplicationResources" property="paymentAmount" /></td>
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<td style="white-space:nowrap"></td>
+										<td style='white-space:nowrap' colspan="2">
+											<ao:input type="submit" value="${ao:message('makePaymentStoredCard.submit.label')}">
+												<ao:onclick>
+													this.disabled='true';
+													this.form.submit();
+													return false;
+												</ao:onclick>
+											</ao:input>
+										</td>
+									</tr>
+								</tfoot>
 							</table>
 						</skin:lightArea>
 					</div>

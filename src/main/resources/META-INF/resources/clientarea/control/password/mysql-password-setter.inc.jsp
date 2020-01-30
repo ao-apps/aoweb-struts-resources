@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2000-2009, 2016, 2018, 2019  AO Industries, Inc.
+Copyright (C) 2000-2009, 2016, 2018, 2019, 2020  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -41,59 +41,65 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					<logic:notEmpty scope="request" name="mySQLPasswordSetterForm" property="packages">
 						<html:form action="/password/mysql-password-setter-completed">
 							<skin:lightArea>
-								<table cellspacing='0' cellpadding='2'>
-									<tr>
-										<bean:size scope="request" name="aoConn" property="billing.Package.map" id="packagesSize" />
-										<logic:greaterThan name="packagesSize" value="1">
-											<th><fmt:message key="password.mySQLPasswordSetter.header.package" /></th>
-										</logic:greaterThan>
-										<th><fmt:message key="password.mySQLPasswordSetter.header.username" /></th>
-										<bean:size scope="request" name="aoConn" property="mysql.Server.map" id="mysqlServersSize" />
-										<logic:greaterThan name="mysqlServersSize" value="1">
-											<th><fmt:message key="password.mySQLPasswordSetter.header.mySQLServer" /></th>
-										</logic:greaterThan>
-										<bean:size scope="request" name="aoConn" property="linux.Server.map" id="serversSize" />
-										<logic:greaterThan name="serversSize" value="1">
-											<th><fmt:message key="password.mySQLPasswordSetter.header.server" /></th>
-										</logic:greaterThan>
-										<th colspan='2'><fmt:message key="password.mySQLPasswordSetter.header.newPassword" /></th>
-										<th><fmt:message key="password.mySQLPasswordSetter.header.confirmPassword" /></th>
-										<th>&#160;</th>
-									</tr>
-									<logic:iterate scope="request" name="mySQLPasswordSetterForm" property="packages" id="pack" indexId="index">
+								<table class="noborder">
+									<thead>
 										<tr>
+											<bean:size scope="request" name="aoConn" property="billing.Package.map" id="packagesSize" />
 											<logic:greaterThan name="packagesSize" value="1">
-												<td><ao:write name="pack" /></td>
+												<th><fmt:message key="password.mySQLPasswordSetter.header.package" /></th>
 											</logic:greaterThan>
-											<td>
-												<html:hidden property='<%= "packages[" + index + "]" %>' />
-												<code><html:hidden property='<%= "usernames[" + index + "]" %>' write="true" /></code>
-												<html:hidden property='<%= "mySQLServers[" + index + "]" %>' />
-												<html:hidden property='<%= "servers[" + index + "]" %>' />
-											</td>
+											<th><fmt:message key="password.mySQLPasswordSetter.header.username" /></th>
+											<bean:size scope="request" name="aoConn" property="mysql.Server.map" id="mysqlServersSize" />
 											<logic:greaterThan name="mysqlServersSize" value="1">
-												<td><code><ao:write name="mySQLPasswordSetterForm" property='<%= "mySQLServers[" + index + "]" %>' /></code></td>
+												<th><fmt:message key="password.mySQLPasswordSetter.header.mySQLServer" /></th>
 											</logic:greaterThan>
+											<bean:size scope="request" name="aoConn" property="linux.Server.map" id="serversSize" />
 											<logic:greaterThan name="serversSize" value="1">
-												<td><code><ao:write name="mySQLPasswordSetterForm" property='<%= "servers[" + index + "]" %>' /></code></td>
+												<th><fmt:message key="password.mySQLPasswordSetter.header.server" /></th>
 											</logic:greaterThan>
-											<td><html:password size="20" property='<%= "newPasswords[" + index + "]" %>' /></td>
-											<td style="white-space:nowrap">
-												<html:errors bundle="/clientarea/control/ApplicationResources" property='<%= "newPasswords[" + index + "].newPasswords" %>' />
-												<html:messages id="message" message="true" bundle="/clientarea/control/ApplicationResources" property='<%= "newPasswords[" + index + "].newPasswords" %>'>
-													<ao:write name="message" /><ao:br />
-												</html:messages>
-											</td>
-											<td><html:password size="20" property='<%= "confirmPasswords[" + index + "]" %>' /></td>
-											<td style="white-space:nowrap">
-												<html:errors bundle="/clientarea/control/ApplicationResources" property='<%= "confirmPasswords[" + index + "].confirmPasswords" %>' />
-												<html:messages id="message" message="true" bundle="/clientarea/control/ApplicationResources" property='<%= "confirmPasswords[" + index + "].confirmPasswords" %>'>
-													<ao:write name="message" /><ao:br />
-												</html:messages>
-											</td>
+											<th colspan='2'><fmt:message key="password.mySQLPasswordSetter.header.newPassword" /></th>
+											<th><fmt:message key="password.mySQLPasswordSetter.header.confirmPassword" /></th>
+											<th>&#160;</th>
 										</tr>
-									</logic:iterate>
-									<tr><td colspan="8" style="text-align:center"><ao:input type="submit"><fmt:message key="password.mySQLPasswordSetter.field.submit.label" /></ao:input></td></tr>
+									</thead>
+									<tbody>
+										<logic:iterate scope="request" name="mySQLPasswordSetterForm" property="packages" id="pack" indexId="index">
+											<tr>
+												<logic:greaterThan name="packagesSize" value="1">
+													<td><ao:write name="pack" /></td>
+												</logic:greaterThan>
+												<td>
+													<html:hidden property='<%= "packages[" + index + "]" %>' />
+													<code><html:hidden property='<%= "usernames[" + index + "]" %>' write="true" /></code>
+													<html:hidden property='<%= "mySQLServers[" + index + "]" %>' />
+													<html:hidden property='<%= "servers[" + index + "]" %>' />
+												</td>
+												<logic:greaterThan name="mysqlServersSize" value="1">
+													<td><code><ao:write name="mySQLPasswordSetterForm" property='<%= "mySQLServers[" + index + "]" %>' /></code></td>
+												</logic:greaterThan>
+												<logic:greaterThan name="serversSize" value="1">
+													<td><code><ao:write name="mySQLPasswordSetterForm" property='<%= "servers[" + index + "]" %>' /></code></td>
+												</logic:greaterThan>
+												<td><html:password size="20" property='<%= "newPasswords[" + index + "]" %>' /></td>
+												<td style="white-space:nowrap">
+													<html:errors bundle="/clientarea/control/ApplicationResources" property='<%= "newPasswords[" + index + "].newPasswords" %>' />
+													<html:messages id="message" message="true" bundle="/clientarea/control/ApplicationResources" property='<%= "newPasswords[" + index + "].newPasswords" %>'>
+														<ao:write name="message" /><ao:br />
+													</html:messages>
+												</td>
+												<td><html:password size="20" property='<%= "confirmPasswords[" + index + "]" %>' /></td>
+												<td style="white-space:nowrap">
+													<html:errors bundle="/clientarea/control/ApplicationResources" property='<%= "confirmPasswords[" + index + "].confirmPasswords" %>' />
+													<html:messages id="message" message="true" bundle="/clientarea/control/ApplicationResources" property='<%= "confirmPasswords[" + index + "].confirmPasswords" %>'>
+														<ao:write name="message" /><ao:br />
+													</html:messages>
+												</td>
+											</tr>
+										</logic:iterate>
+									</tbody>
+									<tfoot>
+										<tr><td colspan="8" style="text-align:center"><ao:input type="submit"><fmt:message key="password.mySQLPasswordSetter.field.submit.label" /></ao:input></td></tr>
+									</tfoot>
 								</table>
 							</skin:lightArea>
 						</html:form>

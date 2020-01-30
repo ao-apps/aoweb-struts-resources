@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2007-2009, 2015, 2016, 2018, 2019  AO Industries, Inc.
+Copyright (C) 2007-2009, 2015, 2016, 2018, 2019, 2020  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -67,68 +67,70 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 
 					<bean:define scope="request" name="makePaymentNewCardForm" property="cardNumber" id="cardNumber" type="java.lang.String" />
 					<bean:define scope="request" name="makePaymentNewCardForm" property="maskedCardNumber" id="maskedCardNumber" type="java.lang.String" />
-					<table cellspacing='0' cellpadding='4'>
-						<tr>
-							<th style="text-align:left; white-space:nowrap;"><fmt:message key="makePaymentStoredCard.account.prompt" /></th>
-							<td style="white-space:nowrap"><ao:out value="${account.name}" /></td>
-						</tr>
-						<tr>
-							<th style="text-align:left; white-space:nowrap;"><fmt:message key="makePaymentStoredCard.card.prompt" /></th>
-							<td style="white-space:nowrap; font-family: monospace">
-								<%@include file="_credit-card-image.inc.jsp" %>
-								<c:out value="${aoweb:getCardNumberDisplay(maskedCardNumber)}"/>
-							</td>
-						</tr>
-						<logic:notEmpty scope="request" name="makePaymentNewCardForm" property="description">
+					<table class="spread">
+						<tbody>
 							<tr>
-								<th style="white-space:nowrap;text-align:left"><fmt:message key="makePaymentStoredCard.cardComment.prompt" /></th>
-								<td style="white-space:nowrap">
-									<ao:write scope="request" name="makePaymentNewCardForm" property="description" />
+								<th style="text-align:left; white-space:nowrap;"><fmt:message key="makePaymentStoredCard.account.prompt" /></th>
+								<td style="white-space:nowrap"><ao:out value="${account.name}" /></td>
+							</tr>
+							<tr>
+								<th style="text-align:left; white-space:nowrap;"><fmt:message key="makePaymentStoredCard.card.prompt" /></th>
+								<td style="white-space:nowrap; font-family: monospace">
+									<%@include file="_credit-card-image.inc.jsp" %>
+									<c:out value="${aoweb:getCardNumberDisplay(maskedCardNumber)}"/>
 								</td>
 							</tr>
-						</logic:notEmpty>
-						<tr>
-							<th style="text-align:left; white-space:nowrap;"><fmt:message key="makePaymentStoredCard.paymentAmount.prompt" /></th>
-							<td style="white-space:nowrap"><ao:out value="${aoTransaction.amount.negate()}" /></td>
-						</tr>
-						<tr>
-							<th style="text-align:left; white-space:nowrap;"><fmt:message key="makePaymentStoredCardCompleted.transid.prompt" /></th>
-							<td style="white-space:nowrap"><ao:write scope="request" name="aoTransaction" property="transid" /></td>
-						</tr>
-						<tr>
-							<th style="text-align:left; white-space:nowrap;"><fmt:message key="makePaymentStoredCardCompleted.approvalCode.prompt" /></th>
-							<td style="white-space:nowrap"><ao:write scope="request" name="transaction" property="authorizationResult.approvalCode" /></td>
-						</tr>
-						<tr>
-							<th style="white-space:nowrap;text-align:left"><fmt:message key="makePaymentStoredCardCompleted.newBalance.prompt" /></th>
-							<td style="white-space:nowrap">
-								<c:forEach var="balance" items="${account.accountBalance.values}">
-									<ao:choose>
-										<ao:when test="#{balance.unscaledValue < 0}">
-											<div>
-												<fmt:message key="makePaymentStoredCardCompleted.newBalance.value.credit">
-													<fmt:param><c:out value="${balance.negate()}" /></fmt:param>
-												</fmt:message>
-											</div>
-										</ao:when>
-										<ao:when test="#{balance.unscaledValue > 0}">
-											<div style="color:red"><strong>
-												<fmt:message key="makePaymentStoredCardCompleted.newBalance.value.debt">
-													<fmt:param><c:out value="${balance}" /></fmt:param>
-												</fmt:message>
-											</strong></div>
-										</ao:when>
-										<ao:otherwise>
-											<div>
-												<fmt:message key="makePaymentStoredCardCompleted.newBalance.value.zero">
-													<fmt:param><c:out value="${balance}" /></fmt:param>
-												</fmt:message>
-											</div>
-										</ao:otherwise>
-									</ao:choose>
-								</c:forEach>
-							</td>
-						</tr>
+							<logic:notEmpty scope="request" name="makePaymentNewCardForm" property="description">
+								<tr>
+									<th style="white-space:nowrap;text-align:left"><fmt:message key="makePaymentStoredCard.cardComment.prompt" /></th>
+									<td style="white-space:nowrap">
+										<ao:write scope="request" name="makePaymentNewCardForm" property="description" />
+									</td>
+								</tr>
+							</logic:notEmpty>
+							<tr>
+								<th style="text-align:left; white-space:nowrap;"><fmt:message key="makePaymentStoredCard.paymentAmount.prompt" /></th>
+								<td style="white-space:nowrap"><ao:out value="${aoTransaction.amount.negate()}" /></td>
+							</tr>
+							<tr>
+								<th style="text-align:left; white-space:nowrap;"><fmt:message key="makePaymentStoredCardCompleted.transid.prompt" /></th>
+								<td style="white-space:nowrap"><ao:write scope="request" name="aoTransaction" property="transid" /></td>
+							</tr>
+							<tr>
+								<th style="text-align:left; white-space:nowrap;"><fmt:message key="makePaymentStoredCardCompleted.approvalCode.prompt" /></th>
+								<td style="white-space:nowrap"><ao:write scope="request" name="transaction" property="authorizationResult.approvalCode" /></td>
+							</tr>
+							<tr>
+								<th style="white-space:nowrap;text-align:left"><fmt:message key="makePaymentStoredCardCompleted.newBalance.prompt" /></th>
+								<td style="white-space:nowrap">
+									<c:forEach var="balance" items="${account.accountBalance.values}">
+										<ao:choose>
+											<ao:when test="#{balance.unscaledValue < 0}">
+												<div>
+													<fmt:message key="makePaymentStoredCardCompleted.newBalance.value.credit">
+														<fmt:param><c:out value="${balance.negate()}" /></fmt:param>
+													</fmt:message>
+												</div>
+											</ao:when>
+											<ao:when test="#{balance.unscaledValue > 0}">
+												<div style="color:red"><strong>
+													<fmt:message key="makePaymentStoredCardCompleted.newBalance.value.debt">
+														<fmt:param><c:out value="${balance}" /></fmt:param>
+													</fmt:message>
+												</strong></div>
+											</ao:when>
+											<ao:otherwise>
+												<div>
+													<fmt:message key="makePaymentStoredCardCompleted.newBalance.value.zero">
+														<fmt:param><c:out value="${balance}" /></fmt:param>
+													</fmt:message>
+												</div>
+											</ao:otherwise>
+										</ao:choose>
+									</c:forEach>
+								</td>
+							</tr>
+						</tbody>
 					</table><ao:br />
 					<fmt:message key="makePaymentStoredCardCompleted.contactAndThankYou" />
 				</skin:lightArea><ao:br />

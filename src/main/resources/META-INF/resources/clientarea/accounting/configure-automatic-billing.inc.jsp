@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2007-2009, 2015, 2016, 2018, 2019  AO Industries, Inc.
+Copyright (C) 2007-2009, 2015, 2016, 2018, 2019, 2020  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -45,7 +45,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 				</logic:present>
 				<logic:notPresent scope="request" name="permissionDenied">
 					<form id="configurationAutomaticBillingForm" method="post" action="<ao:url>configure-automatic-billing-completed.do</ao:url>"><div>
-						<input name="account" type="hidden" value="<%= request.getParameter("account") %>" />
+						<ao:input name="account" type="hidden" value="${param.account}" />
 						<skin:lightArea>
 							<b><fmt:message key="configureAutomaticBilling.cardList.title" /></b>
 							<ao:hr />
@@ -58,81 +58,87 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 									<c:set var="hasDescription" value="true" />
 								</c:if>
 							</c:forEach>
-							<table cellspacing="0" cellpadding="4">
-								<tr>
-									<th><fmt:message key="configureAutomaticBilling.header.select" /></th>
-									<th><fmt:message key="configureAutomaticBilling.header.cardType" /></th>
-									<th><fmt:message key="configureAutomaticBilling.header.maskedCardNumber" /></th>
-									<th><fmt:message key="configureAutomaticBilling.header.expirationDate" /></th>
-									<c:if test="${hasDescription}">
-										<th><fmt:message key="configureAutomaticBilling.header.description" /></th>
-									</c:if>
-								</tr>
-								<logic:iterate scope="request" name="activeCards" id="creditCard" type="com.aoindustries.aoserv.client.payment.CreditCard" indexId="row">
+							<table class="spread">
+								<thead>
+									<tr>
+										<th><fmt:message key="configureAutomaticBilling.header.select" /></th>
+										<th><fmt:message key="configureAutomaticBilling.header.cardType" /></th>
+										<th><fmt:message key="configureAutomaticBilling.header.maskedCardNumber" /></th>
+										<th><fmt:message key="configureAutomaticBilling.header.expirationDate" /></th>
+										<c:if test="${hasDescription}">
+											<th><fmt:message key="configureAutomaticBilling.header.description" /></th>
+										</c:if>
+									</tr>
+								</thead>
+								<tbody>
+									<logic:iterate scope="request" name="activeCards" id="creditCard" type="com.aoindustries.aoserv.client.payment.CreditCard" indexId="row">
+										<skin:lightDarkTableRow>
+											<td style="white-space:nowrap">
+												<logic:notPresent scope="request" name="automaticCard">
+													<ao:input
+														type="radio"
+														id="pkey_${creditCard.pkey}"
+														name="pkey"
+														value="${creditCard.pkey}"
+														onchange="this.form.submitButton.disabled=false;"
+													/>
+												</logic:notPresent>
+												<logic:present scope="request" name="automaticCard">
+													<logic:equal scope="request" name="automaticCard" property="pkey" value="<%= Integer.toString(creditCard.getPkey()) %>">
+														<ao:input
+															type="radio"
+															id="pkey_${creditCard.pkey}"
+															name="pkey"
+															value="${creditCard.pkey}"
+															checked="true"
+															onchange="this.form.submitButton.disabled=true;"
+														/>
+													</logic:equal>
+													<logic:notEqual scope="request" name="automaticCard" property="pkey" value="<%= Integer.toString(creditCard.getPkey()) %>">
+														<ao:input
+															type="radio"
+															id="pkey_${creditCard.pkey}"
+															name="pkey"
+															value="${creditCard.pkey}"
+															onchange="this.form.submitButton.disabled=false;"
+														/>
+													</logic:notEqual>
+												</logic:present>
+											</td>
+											<c:set var="cardNumber" value="${creditCard.cardInfo}"/>
+											<td style="white-space:nowrap"><label for="pkey_${fn:escapeXml(creditCard.pkey)}"><%@include file="_credit-card-image.inc.jsp" %></label></td>
+											<td style="white-space:nowrap; font-family: monospace"><label for="pkey_${fn:escapeXml(creditCard.pkey)}"><c:out value="${aoweb:getCardNumberDisplay(cardNumber)}"/></label></td>
+											<td style="white-space:nowrap; font-family: monospace"><label for="pkey_${fn:escapeXml(creditCard.pkey)}"><c:out value="${aoweb:getExpirationDisplay(creditCard.expirationMonth, creditCard.expirationYear)}"/></label></td>
+											<c:if test="${hasDescription}">
+												<td style="white-space:nowrap">
+													<logic:notEmpty name="creditCard" property="description">
+														<label for="pkey_${fn:escapeXml(creditCard.pkey)}"><ao:write name="creditCard" property="description" /></label>
+													</logic:notEmpty>
+												</td>
+											</c:if>
+										</skin:lightDarkTableRow>
+									</logic:iterate>
 									<skin:lightDarkTableRow>
 										<td style="white-space:nowrap">
 											<logic:notPresent scope="request" name="automaticCard">
-												<ao:input
-													type="radio"
-													id="pkey_<%= creditCard.getPkey() %>"
-													name="pkey"
-													value="<%= creditCard.getPkey() %>"
-													onchange="this.form.submitButton.disabled=false;"
-												/>
+												<ao:input type="radio" id="pkey_" name="pkey" checked="true" onchange="this.form.submitButton.disabled=true;" />
 											</logic:notPresent>
 											<logic:present scope="request" name="automaticCard">
-												<logic:equal scope="request" name="automaticCard" property="pkey" value="<%= Integer.toString(creditCard.getPkey()) %>">
-													<ao:input
-														type="radio"
-														id="pkey_<%= creditCard.getPkey() %>"
-														name="pkey"
-														value="<%= creditCard.getPkey() %>"
-														checked="true"
-														onchange="this.form.submitButton.disabled=true;"
-													/>
-												</logic:equal>
-												<logic:notEqual scope="request" name="automaticCard" property="pkey" value="<%= Integer.toString(creditCard.getPkey()) %>">
-													<ao:input
-														type="radio"
-														id="pkey_<%= creditCard.getPkey() %>"
-														name="pkey"
-														value="<%= creditCard.getPkey() %>"
-														onchange="this.form.submitButton.disabled=false;"
-													/>
-												</logic:notEqual>
+												<ao:input type="radio" id="pkey_" name="pkey" onchange="this.form.submitButton.disabled=false;" />
 											</logic:present>
 										</td>
-										<c:set var="cardNumber" value="${creditCard.cardInfo}"/>
-										<td style="white-space:nowrap"><label for="pkey_<%= creditCard.getPkey() %>"><%@include file="_credit-card-image.inc.jsp" %></label></td>
-										<td style="white-space:nowrap; font-family: monospace"><label for="pkey_<%= creditCard.getPkey() %>"><c:out value="${aoweb:getCardNumberDisplay(cardNumber)}"/></label></td>
-										<td style="white-space:nowrap; font-family: monospace"><label for="pkey_<%= creditCard.getPkey() %>"><c:out value="${aoweb:getExpirationDisplay(creditCard.expirationMonth, creditCard.expirationYear)}"/></label></td>
-										<c:if test="${hasDescription}">
-											<td style="white-space:nowrap">
-												<logic:notEmpty name="creditCard" property="description">
-													<label for="pkey_<%= creditCard.getPkey() %>"><ao:write name="creditCard" property="description" /></label>
-												</logic:notEmpty>
-											</td>
-										</c:if>
+										<td style='white-space:nowrap' colspan="${fn:escapeXml(3 + (hasDescription ? 1 : 0))}"><label for="pkey_"><fmt:message key="configureAutomaticBilling.noAutomaticBilling" /></label></td>
 									</skin:lightDarkTableRow>
-								</logic:iterate>
-								<skin:lightDarkTableRow>
-									<td style="white-space:nowrap">
-										<logic:notPresent scope="request" name="automaticCard">
-											<ao:input type="radio" id="pkey_" name="pkey" checked="true" onchange="this.form.submitButton.disabled=true;" />
-										</logic:notPresent>
-										<logic:present scope="request" name="automaticCard">
-											<ao:input type="radio" id="pkey_" name="pkey" onchange="this.form.submitButton.disabled=false;" />
-										</logic:present>
-									</td>
-									<td style='white-space:nowrap' colspan="${fn:escapeXml(3 + (hasDescription ? 1 : 0))}"><label for="pkey_"><fmt:message key="configureAutomaticBilling.noAutomaticBilling" /></label></td>
-								</skin:lightDarkTableRow>
-								<tr>
-									<td style="white-space:nowrap;text-align:center" colspan="${fn:escapeXml(4 + (hasDescription ? 1 : 0))}">
-										<ao:input type="submit" name="submitButton"><fmt:message key="configureAutomaticBilling.field.submit.label" /></ao:input>
-										<%-- Disable using JavaScript to avoid dependency on JavaScript --%>
-										<ao:script>document.forms["configurationAutomaticBillingForm"].submitButton.disabled = true;</ao:script>
-									</td>
-								</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<td style="white-space:nowrap;text-align:center" colspan="${fn:escapeXml(4 + (hasDescription ? 1 : 0))}">
+											<ao:input type="submit" name="submitButton"><fmt:message key="configureAutomaticBilling.field.submit.label" /></ao:input>
+											<%-- Disable using JavaScript to avoid dependency on JavaScript --%>
+											<ao:script>document.forms["configurationAutomaticBillingForm"].submitButton.disabled = true;</ao:script>
+										</td>
+									</tr>
+								</tfoot>
 							</table>
 						</skin:lightArea>
 					</div></form>

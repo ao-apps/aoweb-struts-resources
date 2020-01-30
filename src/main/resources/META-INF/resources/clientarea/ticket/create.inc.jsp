@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2000-2009, 2016, 2018, 2019  AO Industries, Inc.
+Copyright (C) 2000-2009, 2016, 2018, 2019, 2020  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -38,63 +38,67 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					<html:javascript staticJavascript='false' bundle="/clientarea/ticket/ApplicationResources" formName="ticketForm" />
 					<html:form action="/create-completed" onsubmit="return validateTicketForm(this);">
 						<skin:lightArea>
-							<table cellspacing="0" cellpadding="4">
-								<tr>
-									<td style="white-space:nowrap"><fmt:message key="TicketForm.field.account.prompt" /></td>
-									<td>
-										<logic:notEqual name="aoConn" property="account.Account.size" value="1">
-											<html:select property="account">
-												<logic:empty scope="request" name="ticketForm" property="account">
-													<html:option value="" />
-												</logic:empty>
-												<html:optionsCollection name="aoConn" property="account.Account.rows" label="name" value="name" />
+							<table class="spread">
+								<tbody>
+									<tr>
+										<td style="white-space:nowrap"><fmt:message key="TicketForm.field.account.prompt" /></td>
+										<td>
+											<logic:notEqual name="aoConn" property="account.Account.size" value="1">
+												<html:select property="account">
+													<logic:empty scope="request" name="ticketForm" property="account">
+														<html:option value="" />
+													</logic:empty>
+													<html:optionsCollection name="aoConn" property="account.Account.rows" label="name" value="name" />
+												</html:select>
+											</logic:notEqual>
+											<logic:equal name="aoConn" property="account.Account.size" value="1">
+												<html:hidden property="account" write="true" />
+											</logic:equal>
+										</td>
+										<td><html:errors bundle="/clientarea/ticket/ApplicationResources" property="account" /></td>
+									</tr>
+									<tr>
+										<td style="white-space:nowrap"><fmt:message key="TicketForm.field.contactEmails.prompt" /></td>
+										<td><html:textarea property="contactEmails" cols="40" rows="3" /></td>
+										<td><html:errors bundle="/clientarea/ticket/ApplicationResources" property="contactEmails" /></td>
+									</tr>
+									<tr>
+										<td style="white-space:nowrap"><fmt:message key="TicketForm.field.contactPhoneNumbers.prompt" /></td>
+										<td><html:textarea property="contactPhoneNumbers" cols="40" rows="3" /></td>
+										<td><html:errors bundle="/clientarea/ticket/ApplicationResources" property="contactPhoneNumbers" /></td>
+									</tr>
+									<tr>
+										<td style="white-space:nowrap"><fmt:message key="TicketForm.field.clientPriority.prompt" /></td>
+										<td>
+											<html:select property="clientPriority">
+												<html:optionsCollection name="aoConn" property="ticket.Priority.rows" label="priority" value="priority" />
 											</html:select>
-										</logic:notEqual>
-										<logic:equal name="aoConn" property="account.Account.size" value="1">
-											<html:hidden property="account" write="true" />
-										</logic:equal>
-									</td>
-									<td><html:errors bundle="/clientarea/ticket/ApplicationResources" property="account" /></td>
-								</tr>
-								<tr>
-									<td style="white-space:nowrap"><fmt:message key="TicketForm.field.contactEmails.prompt" /></td>
-									<td><html:textarea property="contactEmails" cols="40" rows="3" /></td>
-									<td><html:errors bundle="/clientarea/ticket/ApplicationResources" property="contactEmails" /></td>
-								</tr>
-								<tr>
-									<td style="white-space:nowrap"><fmt:message key="TicketForm.field.contactPhoneNumbers.prompt" /></td>
-									<td><html:textarea property="contactPhoneNumbers" cols="40" rows="3" /></td>
-									<td><html:errors bundle="/clientarea/ticket/ApplicationResources" property="contactPhoneNumbers" /></td>
-								</tr>
-								<tr>
-									<td style="white-space:nowrap"><fmt:message key="TicketForm.field.clientPriority.prompt" /></td>
-									<td>
-										<html:select property="clientPriority">
-											<html:optionsCollection name="aoConn" property="ticket.Priority.rows" label="priority" value="priority" />
-										</html:select>
-									</td>
-									<td><html:errors bundle="/clientarea/ticket/ApplicationResources" property="clientPriority" /></td>
-								</tr>
-								<tr>
-									<td style="white-space:nowrap"><fmt:message key="TicketForm.field.summary.prompt" /></td>
-									<td><html:text property="summary" size="60" /></td>
-									<td><html:errors bundle="/clientarea/ticket/ApplicationResources" property="summary" /></td>
-								</tr>
-								<tr>
-									<td style='white-space:nowrap' colspan="3">
-										<ao:br />
-										<fmt:message key="TicketForm.field.details.prompt" /><ao:br />
-										<html:textarea property="details" cols="80" rows="20" /><ao:br />
-										<%--<textarea name="details" cols="80" rows="20" wrap="hard"><bean:write scope="request" name="ticketForm" property="details"/></textarea><ao:br />--%>
-										<html:errors bundle="/clientarea/ticket/ApplicationResources" property="details" />
-									</td>
-								</tr>
-								<tr>
-									<td colspan="3" style="text-align:center">
-										<ao:br />
-										<ao:input type="submit"><fmt:message key="create.field.submit.label" /></ao:input>
-									</td>
-								</tr>
+										</td>
+										<td><html:errors bundle="/clientarea/ticket/ApplicationResources" property="clientPriority" /></td>
+									</tr>
+									<tr>
+										<td style="white-space:nowrap"><fmt:message key="TicketForm.field.summary.prompt" /></td>
+										<td><html:text property="summary" size="60" /></td>
+										<td><html:errors bundle="/clientarea/ticket/ApplicationResources" property="summary" /></td>
+									</tr>
+									<tr>
+										<td style='white-space:nowrap' colspan="3">
+											<ao:br />
+											<fmt:message key="TicketForm.field.details.prompt" /><ao:br />
+											<html:textarea property="details" cols="80" rows="20" /><ao:br />
+											<%--<textarea name="details" cols="80" rows="20" wrap="hard"><bean:write scope="request" name="ticketForm" property="details"/></textarea><ao:br />--%>
+											<html:errors bundle="/clientarea/ticket/ApplicationResources" property="details" />
+										</td>
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<td colspan="3" style="text-align:center">
+											<ao:br />
+											<ao:input type="submit"><fmt:message key="create.field.submit.label" /></ao:input>
+										</td>
+									</tr>
+								</tfoot>
 							</table>
 						</skin:lightArea>
 					</html:form>
