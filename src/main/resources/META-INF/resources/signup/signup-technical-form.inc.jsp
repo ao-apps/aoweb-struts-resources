@@ -112,20 +112,18 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 						<td style="white-space:nowrap"><fmt:message key="signupTechnicalForm.baCountry.prompt" /></td>
 						<td style="white-space:nowrap">
 							<html:select property="baCountry">
-								<bean:define id="didOne" type="java.lang.String" value="false" />
-								<bean:define name="signupTechnicalForm" property="baCountry" id="baCountry" type="java.lang.String" />
+								<c:set var="selectedOne" value="false" />
+								<c:set var="baCountry" value="${signupTechnicalForm.baCountry}" />
 								<logic:iterate scope="request" name="countryOptions" id="countryOption">
-									<logic:equal name="countryOption" property="code" value="<%= baCountry %>">
-										<% if(!didOne.equals("true")) { %>
-											<option value='<ao:write name="countryOption" property="code" />' selected="selected"><ao:write name="countryOption" property="name" /></option>
-											<% didOne = "true"; %>
-										<% } else { %>
-											<option value='<ao:write name="countryOption" property="code" />'><ao:write name="countryOption" property="name" /></option>
-										<% } %>
-									</logic:equal>
-									<logic:notEqual name="countryOption" property="code" value="<%= baCountry %>">
-										<option value='<ao:write name="countryOption" property="code" />'><ao:write name="countryOption" property="name" /></option>
-									</logic:notEqual>
+									<c:choose>
+										<c:when test="${!selectedOne && countryOption.code == baCountry}">
+											<ao:option value="${countryOption.code}" selected="true"><ao:out value="${countryOption.name}" /></ao:option>
+											<c:set var="selectedOne" value="true" />
+										</c:when>
+										<c:otherwise>
+											<ao:option value="${countryOption.code}"><ao:out value="${countryOption.name}" /></ao:option>
+										</c:otherwise>
+									</c:choose>
 								</logic:iterate>
 							</html:select>
 						</td>

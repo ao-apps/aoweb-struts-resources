@@ -194,20 +194,18 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 											<td style="white-space:nowrap"><fmt:message key="creditCardForm.countryCode.prompt" /></td>
 											<td style="white-space:nowrap">
 												<html:select property="countryCode">
-													<bean:define id="didOne" type="java.lang.String" value="false" />
-													<bean:define name="editCreditCardForm" property="countryCode" id="country" type="java.lang.String" />
+													<c:set var="selectedOne" value="false" />
+													<c:set var="country" value="${editCreditCardForm.countryCode}" />
 													<logic:iterate scope="request" name="countryOptions" id="countryOption">
-														<logic:equal name="countryOption" property="code" value="<%= country %>">
-															<% if(!didOne.equals("true")) { %>
-																<option value='<ao:write name="countryOption" property="code" />' selected="selected"><ao:write name="countryOption" property="name" /></option>
-																<% didOne = "true"; %>
-															<% } else { %>
-																<option value='<ao:write name="countryOption" property="code" />'><ao:write name="countryOption" property="name" /></option>
-															<% } %>
-														</logic:equal>
-														<logic:notEqual name="countryOption" property="code" value="<%= country %>">
-															<option value='<ao:write name="countryOption" property="code" />'><ao:write name="countryOption" property="name" /></option>
-														</logic:notEqual>
+														<c:choose>
+															<c:when test="${!selectedOne && countryOption.code == country}">
+																<ao:option value="${countryOption.code}" selected="true"><ao:out value="${countryOption.name}" /></ao:option>
+																<c:set var="selectedOne" value="true" />
+															</c:when>
+															<c:otherwise>
+																<ao:option value="${countryOption.code}"><ao:out value="${countryOption.name}" /></ao:option>
+															</c:otherwise>
+														</c:choose>
 													</logic:iterate>
 												</html:select>
 											</td>
