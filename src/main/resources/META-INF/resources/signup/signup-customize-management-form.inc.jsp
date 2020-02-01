@@ -143,7 +143,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 			form.totalMonthly.value="$"+formatDecimal(totalMonthly);
 		}
 	</ao:script>
-	<input type="hidden" name="selectedStep" value="" />
+	<ao:input type="hidden" name="selectedStep" />
 	<skin:lightArea>
 		<ao:bundle basename="com.aoindustries.website.signup.ApplicationResources">
 			<table class="noborder">
@@ -228,7 +228,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					<tr>
 						<th><ao:message key="signupCustomizeManagementForm.hardwareRate.title" /></th>
 						<th style="text-align:left">
-							<input type="hidden" name="formCompleted" value="true" />
+							<ao:input type="hidden" name="formCompleted" value="true" />
 							<ao:input type="text" name="hardwareRateDisplay" readonly="true" size="10" value="${requestScope.hardwareRate}" />
 						</th>
 					</tr>

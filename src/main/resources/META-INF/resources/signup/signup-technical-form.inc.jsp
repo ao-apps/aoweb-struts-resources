@@ -24,7 +24,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 <%@include file="/_taglibs.inc.jsp" %>
 
 <div>
-	<input type="hidden" name="selectedStep" value="" />
+	<ao:input type="hidden" name="selectedStep" />
 	<ao:script>
 		function selectStep(step) {
 			var form = document.forms['signupTechnicalForm'];

@@ -195,15 +195,15 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 			form.totalMonthly.value="$"+formatDecimal(totalMonthly);
 		}
 	</ao:script>
-	<input type="hidden" name="selectedStep" value="" />
+	<ao:input type="hidden" name="selectedStep" />
 	<logic:empty scope="request" name="sataControllerOptions">
-		<input type="hidden" name="sataControllerOption" value="-1" />
+		<ao:input type="hidden" name="sataControllerOption" value="-1" />
 	</logic:empty>
 	<logic:empty scope="request" name="powerOptions">
-		<input type="hidden" name="powerOption" value="-1" />
+		<ao:input type="hidden" name="powerOption" value="-1" />
 	</logic:empty>
 	<logic:empty scope="request" name="scsiControllerOptions">
-		<input type="hidden" name="scsiControllerOption" value="-1" />
+		<ao:input type="hidden" name="scsiControllerOption" value="-1" />
 	</logic:empty>
 	<skin:lightArea>
 		<ao:bundle basename="com.aoindustries.website.signup.ApplicationResources">
