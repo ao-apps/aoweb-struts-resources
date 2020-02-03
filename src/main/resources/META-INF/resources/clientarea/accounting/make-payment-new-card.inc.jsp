@@ -32,7 +32,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 			<ao:param name="currency" value="${currency.currencyCode}" />
 		</c:if>
 	</skin:path>
-	<logic:equal name="siteSettings" property="brand.aowebStrutsNoindex" value="true"><skin:meta name="ROBOTS">NOINDEX</skin:meta></logic:equal>
+	<logic:equal name="siteSettings" property="brand.aowebStrutsNoindex" value="true"><skin:meta name="robots">noindex</skin:meta></logic:equal>
 	<skin:title><ao:message key="makePayment.title" /></skin:title>
 	<skin:navImageAlt><ao:message key="makePayment.navImageAlt" /></skin:navImageAlt>
 	<skin:keywords><ao:message key="makePayment.keywords" /></skin:keywords>

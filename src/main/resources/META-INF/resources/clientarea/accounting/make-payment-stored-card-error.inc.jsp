@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2007-2009, 2015, 2016, 2019  AO Industries, Inc.
+Copyright (C) 2007-2009, 2015, 2016, 2019, 2020  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -29,7 +29,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 		<ao:param name="account" value="${makePaymentStoredCardForm.account}" />
 		<ao:param name="currency" value="${makePaymentStoredCardForm.currency}" />
 	</skin:path>
-	<logic:equal name="siteSettings" property="brand.aowebStrutsNoindex" value="true"><skin:meta name="ROBOTS">NOINDEX</skin:meta></logic:equal>
+	<logic:equal name="siteSettings" property="brand.aowebStrutsNoindex" value="true"><skin:meta name="robots">noindex</skin:meta></logic:equal>
 	<skin:title><fmt:message key="makePayment.title" /></skin:title>
 	<skin:navImageAlt><fmt:message key="makePayment.navImageAlt" /></skin:navImageAlt>
 	<skin:keywords><fmt:message key="makePayment.keywords" /></skin:keywords>

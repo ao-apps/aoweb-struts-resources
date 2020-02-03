@@ -28,7 +28,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 		/clientarea/accounting/configure-automatic-billing.do
 		<ao:param name="account" value="${param.account}"/>
 	</skin:path>
-	<logic:equal name="siteSettings" property="brand.aowebStrutsNoindex" value="true"><skin:meta name="ROBOTS">NOINDEX</skin:meta></logic:equal>
+	<logic:equal name="siteSettings" property="brand.aowebStrutsNoindex" value="true"><skin:meta name="robots">noindex</skin:meta></logic:equal>
 	<skin:title><fmt:message key="configureAutomaticBilling.title" /></skin:title>
 	<skin:navImageAlt><fmt:message key="configureAutomaticBilling.navImageAlt" /></skin:navImageAlt>
 	<skin:keywords><fmt:message key="configureAutomaticBilling.keywords" /></skin:keywords>

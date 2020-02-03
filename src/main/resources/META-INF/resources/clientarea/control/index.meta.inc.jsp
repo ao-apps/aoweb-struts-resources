@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2000-2009, 2015, 2016  AO Industries, Inc.
+Copyright (C) 2000-2009, 2015, 2016, 2020  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -25,7 +25,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 
 <fmt:bundle basename="com.aoindustries.website.clientarea.control.ApplicationResources">
 	<skin:path>/clientarea/control/index.do</skin:path>
-	<logic:equal name="siteSettings" property="brand.aowebStrutsNoindex" value="true"><skin:meta name="ROBOTS">NOINDEX</skin:meta></logic:equal>
+	<logic:equal name="siteSettings" property="brand.aowebStrutsNoindex" value="true"><skin:meta name="robots">noindex</skin:meta></logic:equal>
 	<skin:title><fmt:message key="index.title" /></skin:title>
 	<skin:navImageAlt><fmt:message key="index.navImageAlt" /></skin:navImageAlt>
 	<skin:keywords><fmt:message key="index.keywords" /></skin:keywords>

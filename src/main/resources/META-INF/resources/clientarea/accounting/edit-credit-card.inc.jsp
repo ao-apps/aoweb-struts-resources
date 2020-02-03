@@ -28,7 +28,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 		/clientarea/accounting/edit-credit-card.do
 		<ao:param name="persistenceId" value="${editCreditCardForm.persistenceId}" />
 	</skin:path>
-	<logic:equal name="siteSettings" property="brand.aowebStrutsNoindex" value="true"><skin:meta name="ROBOTS">NOINDEX</skin:meta></logic:equal>
+	<logic:equal name="siteSettings" property="brand.aowebStrutsNoindex" value="true"><skin:meta name="robots">noindex</skin:meta></logic:equal>
 	<skin:title>
 		<logic:notEqual name="editCreditCardForm" property="isActive" value="false">
 			<fmt:message key="editCreditCard.title.edit" />

@@ -25,7 +25,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 
 <fmt:bundle basename="com.aoindustries.website.ApplicationResources">
 	<skin:path>/login.do</skin:path>
-	<skin:meta name="ROBOTS">NOINDEX</skin:meta>
+	<skin:meta name="robots">noindex</skin:meta>
 	<skin:title><fmt:message key="login.title" /></skin:title>
 	<skin:navImageAlt><fmt:message key="login.navImageAlt" /></skin:navImageAlt>
 	<skin:keywords><fmt:message key="login.keywords" /></skin:keywords>
