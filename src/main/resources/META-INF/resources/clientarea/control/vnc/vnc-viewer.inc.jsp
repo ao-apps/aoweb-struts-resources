@@ -121,7 +121,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 				document.getElementById('container').style.height=h+"px";
 			}
 		</ao:script>
-		<%-- TODO: ao:style --%>
+		<%-- TODO: ao:style tag, then change to auto-serialization --%>
 		<style type="text/css">
 		  html, body {
 			margin:0px;
@@ -153,6 +153,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 				vspace="0"
 				style="padding:0px; margin:0px; border:0px; display:block;"
 			>
+				<%-- TODO: ao:param tag, then change to auto-serialization --%>
 				<param name="HOST" value="<c:out value="${siteSettings.brand.aowebStrutsHttpsURL.host}" />">
 				<param name="PORT" value="<c:out value="${siteSettings.brand.aowebStrutsVncBind.port.port}" />">
 				<param name="PASSWORD" value="<c:out value="${virtualServer.vncPassword}" />">
