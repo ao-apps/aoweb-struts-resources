@@ -24,42 +24,47 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 <%@ page import="java.math.BigDecimal" %>
 <%@include file="/_taglibs.inc.jsp" %>
 
-<fmt:bundle basename="com.aoindustries.website.clientarea.accounting.ApplicationResources">
+<ao:bundle basename="com.aoindustries.website.clientarea.accounting.ApplicationResources">
 	<skin:path>/clientarea/accounting/make-payment.do</skin:path>
 	<logic:equal name="siteSettings" property="brand.aowebStrutsNoindex" value="true"><skin:meta name="robots">noindex</skin:meta></logic:equal>
-	<skin:title><fmt:message key="makePayment.title" /></skin:title>
-	<skin:navImageAlt><fmt:message key="makePayment.navImageAlt" /></skin:navImageAlt>
-	<skin:keywords><fmt:message key="makePayment.keywords" /></skin:keywords>
-	<skin:description><fmt:message key="makePayment.description" /></skin:description>
+	<skin:title><ao:message key="makePayment.title" /></skin:title>
+	<skin:navImageAlt><ao:message key="makePayment.navImageAlt" /></skin:navImageAlt>
+	<skin:keywords><ao:message key="makePayment.keywords" /></skin:keywords>
+	<skin:description><ao:message key="makePayment.description" /></skin:description>
 	<%@include file="add-parents.inc.jsp" %>
 	<skin:skin>
 		<skin:content width="600">
-			<skin:contentTitle><fmt:message key="makePayment.title" /></skin:contentTitle>
+			<skin:contentTitle><ao:message key="makePayment.title" /></skin:contentTitle>
 			<skin:contentHorizontalDivider />
 			<skin:contentLine>
 				<skin:lightArea>
-					<b><fmt:message key="makePaymentStoredCardCompleted.confirm.title" /></b>
+					<b><ao:message key="makePaymentStoredCardCompleted.confirm.title" /></b>
 					<ao:hr />
-					<fmt:message key="makePaymentNewCardCompleted.confirm.successful" />
+					<ao:message key="makePaymentNewCardCompleted.confirm.successful" /><ao:br />
+					<ao:br />
 
 					<%-- Card stored --%>
 					<logic:equal scope="request" name="cardStored" value="true">
-						<fmt:message key="makePaymentNewCardCompleted.cardStored" />
+						<ao:message key="makePaymentNewCardCompleted.cardStored" /><ao:br />
+						<ao:br />
 					</logic:equal>
 
 					<%-- Card store error --%>
 					<logic:present scope="request" name="storeError">
-						<fmt:message key="makePaymentNewCardCompleted.storeError" />
+						<ao:message key="makePaymentNewCardCompleted.storeError" /><ao:br />
+						<ao:br />
 					</logic:present>
 
 					<%-- Card set automatic --%>
 					<logic:equal scope="request" name="cardSetAutomatic" value="true">
-						<fmt:message key="makePaymentNewCardCompleted.cardSetAutomatic" />
+						<ao:message key="makePaymentNewCardCompleted.cardSetAutomatic" /><ao:br />
+						<ao:br />
 					</logic:equal>
 
 					<%-- Cart set automatic error --%>
 					<logic:present scope="request" name="setAutomaticError">
-						<fmt:message key="makePaymentNewCardCompleted.setAutomaticError" />
+						<ao:message key="makePaymentNewCardCompleted.setAutomaticError" /><ao:br />
+						<ao:br />
 					</logic:present>
 
 					<bean:define scope="request" name="makePaymentNewCardForm" property="cardNumber" id="cardNumber" type="java.lang.String" />
@@ -67,11 +72,11 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					<table class="spread">
 						<tbody>
 							<tr>
-								<th style="text-align:left; white-space:nowrap;"><fmt:message key="makePaymentStoredCard.account.prompt" /></th>
+								<th style="text-align:left; white-space:nowrap;"><ao:message key="makePaymentStoredCard.account.prompt" /></th>
 								<td style="white-space:nowrap"><ao:out value="${account.name}" /></td>
 							</tr>
 							<tr>
-								<th style="text-align:left; white-space:nowrap;"><fmt:message key="makePaymentStoredCard.card.prompt" /></th>
+								<th style="text-align:left; white-space:nowrap;"><ao:message key="makePaymentStoredCard.card.prompt" /></th>
 								<td style="white-space:nowrap; font-family: monospace">
 									<%@include file="_credit-card-image.inc.jsp" %>
 									<c:out value="${aoweb:getCardNumberDisplay(maskedCardNumber)}"/>
@@ -79,48 +84,42 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 							</tr>
 							<logic:notEmpty scope="request" name="makePaymentNewCardForm" property="description">
 								<tr>
-									<th style="white-space:nowrap;text-align:left"><fmt:message key="makePaymentStoredCard.cardComment.prompt" /></th>
+									<th style="white-space:nowrap;text-align:left"><ao:message key="makePaymentStoredCard.cardComment.prompt" /></th>
 									<td style="white-space:nowrap">
 										<ao:write scope="request" name="makePaymentNewCardForm" property="description" />
 									</td>
 								</tr>
 							</logic:notEmpty>
 							<tr>
-								<th style="text-align:left; white-space:nowrap;"><fmt:message key="makePaymentStoredCard.paymentAmount.prompt" /></th>
+								<th style="text-align:left; white-space:nowrap;"><ao:message key="makePaymentStoredCard.paymentAmount.prompt" /></th>
 								<td style="white-space:nowrap"><ao:out value="${aoTransaction.amount.negate()}" /></td>
 							</tr>
 							<tr>
-								<th style="text-align:left; white-space:nowrap;"><fmt:message key="makePaymentStoredCardCompleted.transid.prompt" /></th>
+								<th style="text-align:left; white-space:nowrap;"><ao:message key="makePaymentStoredCardCompleted.transid.prompt" /></th>
 								<td style="white-space:nowrap"><ao:write scope="request" name="aoTransaction" property="transid" /></td>
 							</tr>
 							<tr>
-								<th style="text-align:left; white-space:nowrap;"><fmt:message key="makePaymentStoredCardCompleted.approvalCode.prompt" /></th>
+								<th style="text-align:left; white-space:nowrap;"><ao:message key="makePaymentStoredCardCompleted.approvalCode.prompt" /></th>
 								<td style="white-space:nowrap"><ao:write scope="request" name="transaction" property="authorizationResult.approvalCode" /></td>
 							</tr>
 							<tr>
-								<th style="white-space:nowrap;text-align:left"><fmt:message key="makePaymentStoredCardCompleted.newBalance.prompt" /></th>
+								<th style="white-space:nowrap;text-align:left"><ao:message key="makePaymentStoredCardCompleted.newBalance.prompt" /></th>
 								<td style="white-space:nowrap">
 									<c:forEach var="balance" items="${account.accountBalance.values}">
 										<ao:choose>
 											<ao:when test="#{balance.unscaledValue < 0}">
 												<div>
-													<fmt:message key="makePaymentStoredCardCompleted.newBalance.value.credit">
-														<fmt:param><c:out value="${balance.negate()}" /></fmt:param>
-													</fmt:message>
+													<ao:message key="makePaymentStoredCardCompleted.newBalance.value.credit" arg0="${balance.negate()}" />
 												</div>
 											</ao:when>
 											<ao:when test="#{balance.unscaledValue > 0}">
 												<div style="color:red"><strong>
-													<fmt:message key="makePaymentStoredCardCompleted.newBalance.value.debt">
-														<fmt:param><c:out value="${balance}" /></fmt:param>
-													</fmt:message>
+													<ao:message key="makePaymentStoredCardCompleted.newBalance.value.debt" arg0="${balance}" />
 												</strong></div>
 											</ao:when>
 											<ao:otherwise>
 												<div>
-													<fmt:message key="makePaymentStoredCardCompleted.newBalance.value.zero">
-														<fmt:param><c:out value="${balance}" /></fmt:param>
-													</fmt:message>
+													<ao:message key="makePaymentStoredCardCompleted.newBalance.value.zero" arg0="${balance}" />
 												</div>
 											</ao:otherwise>
 										</ao:choose>
@@ -129,11 +128,10 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 							</tr>
 						</tbody>
 					</table><ao:br />
-
-					<fmt:message key="makePaymentStoredCardCompleted.contactAndThankYou" />
+					<ao:message type="xhtml" key="makePaymentStoredCardCompleted.contactAndThankYou" />
 				</skin:lightArea>
 				<%@include file="security-policy.inc.jsp" %>
 			</skin:contentLine>
 		</skin:content>
 	</skin:skin>
-</fmt:bundle>
+</ao:bundle>

@@ -27,12 +27,12 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 <%@include file="administrator-password-setter.meta.inc.jsp" %>
 <skin:skin>
 	<skin:content width="600">
-		<fmt:bundle basename="com.aoindustries.website.clientarea.control.ApplicationResources">
-			<skin:contentTitle><fmt:message key="password.administratorPasswordSetter.title" /></skin:contentTitle>
+		<ao:bundle basename="com.aoindustries.website.clientarea.control.ApplicationResources">
+			<skin:contentTitle><ao:message key="password.administratorPasswordSetter.title" /></skin:contentTitle>
 			<skin:contentHorizontalDivider />
 			<skin:contentLine>
 				<logic:empty scope="request" name="administratorPasswordSetterForm" property="packages">
-					<b><fmt:message key="password.administratorPasswordSetter.noAccounts" /></b>
+					<b><ao:message key="password.administratorPasswordSetter.noAccounts" /></b>
 				</logic:empty>
 				<logic:notEmpty scope="request" name="administratorPasswordSetterForm" property="packages">
 					<html:form action="/password/administrator-password-setter-completed">
@@ -42,11 +42,11 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 									<tr>
 										<bean:size scope="request" name="aoConn" property="billing.Package.map" id="packagesSize" />
 										<logic:greaterThan name="packagesSize" value="1">
-											<th><fmt:message key="password.administratorPasswordSetter.header.package" /></th>
+											<th><ao:message key="password.administratorPasswordSetter.header.package" /></th>
 										</logic:greaterThan>
-										<th><fmt:message key="password.administratorPasswordSetter.header.username" /></th>
-										<th colspan='2'><fmt:message key="password.administratorPasswordSetter.header.newPassword" /></th>
-										<th><fmt:message key="password.administratorPasswordSetter.header.confirmPassword" /></th>
+										<th><ao:message key="password.administratorPasswordSetter.header.username" /></th>
+										<th colspan='2'><ao:message key="password.administratorPasswordSetter.header.newPassword" /></th>
+										<th><ao:message key="password.administratorPasswordSetter.header.confirmPassword" /></th>
 										<th>&#160;</th>
 									</tr>
 								</thead>
@@ -78,13 +78,13 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 									</logic:iterate>
 								</tbody>
 								<tfoot>
-									<tr><td colspan="6" style="text-align:center"><ao:input type="submit"><fmt:message key="password.administratorPasswordSetter.field.submit.label" /></ao:input></td></tr>
+									<tr><td colspan="6" style="text-align:center"><ao:input type="submit" value="${ao:message('password.administratorPasswordSetter.field.submit.label')}" /></td></tr>
 								</tfoot>
 							</table>
 						</skin:lightArea>
 					</html:form>
 				</logic:notEmpty>
 			</skin:contentLine>
-		</fmt:bundle>
+		</ao:bundle>
 	</skin:content>
 </skin:skin>

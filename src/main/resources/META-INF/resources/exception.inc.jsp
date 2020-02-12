@@ -44,42 +44,42 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 		request.setAttribute(com.aoindustries.website.Constants.SKIN, skin);
 	}
 %>
-<fmt:bundle basename="com.aoindustries.website.ApplicationResources">
+<ao:bundle basename="com.aoindustries.website.ApplicationResources">
 	<skin:path>/exception.do</skin:path>
-	<skin:title><fmt:message key="exception.title" /></skin:title>
-	<skin:navImageAlt><fmt:message key="exception.navImageAlt" /></skin:navImageAlt>
-	<skin:keywords><fmt:message key="exception.keywords" /></skin:keywords>
-	<skin:description><fmt:message key="exception.description" /></skin:description>
+	<skin:title><ao:message key="exception.title" /></skin:title>
+	<skin:navImageAlt><ao:message key="exception.navImageAlt" /></skin:navImageAlt>
+	<skin:keywords><ao:message key="exception.keywords" /></skin:keywords>
+	<skin:description><ao:message key="exception.description" /></skin:description>
 	<aoweb:exists path="/add-parents.inc.jsp"><jsp:include page="/add-parents.inc.jsp" /></aoweb:exists>
 	<skin:skin>
 		<skin:content width="600">
-			<skin:contentTitle><fmt:message key="exception.title" /></skin:contentTitle>
+			<skin:contentTitle><ao:message key="exception.title" /></skin:contentTitle>
 			<skin:contentHorizontalDivider />
 			<skin:contentLine>
-				<fmt:message key="exception.message" /><ao:br />
+				<ao:message key="exception.message" /><ao:br />
 				<ao:br />
 				<logic:equal scope="request" name="siteSettings" property="exceptionShowError" value="true">
 					<%-- Error Data --%>
 					<logic:present name="javax.servlet.jsp.jspPageContext" property="errorData">
 						<skin:lightArea>
-							<fmt:message key="exception.jspException.title" />
+							<b><ao:message key="exception.jspException.title" /></b>
 							<ao:hr />
 							<table class="thinTable">
 								<tbody>
 									<tr>
-										<th style='white-space:nowrap; text-align:left'><fmt:message key="exception.servletName.header" /></th>
+										<th style='white-space:nowrap; text-align:left'><ao:message key="exception.servletName.header" /></th>
 										<td style="white-space:nowrap"><ao:write name="javax.servlet.jsp.jspPageContext" property="errorData.servletName" /></td>
 									</tr>
 									<tr>
-										<th style='white-space:nowrap; text-align:left'><fmt:message key="exception.requestURI.header" /></th>
+										<th style='white-space:nowrap; text-align:left'><ao:message key="exception.requestURI.header" /></th>
 										<td style="white-space:nowrap"><ao:write name="javax.servlet.jsp.jspPageContext" property="errorData.requestURI" /></td>
 									</tr>
 									<tr>
-										<th style='white-space:nowrap; text-align:left'><fmt:message key="exception.statusCode.header" /></th>
+										<th style='white-space:nowrap; text-align:left'><ao:message key="exception.statusCode.header" /></th>
 										<td style="white-space:nowrap"><ao:write name="javax.servlet.jsp.jspPageContext" property="errorData.statusCode" /></td>
 									</tr>
 									<tr>
-										<th style='white-space:nowrap; text-align:left'><fmt:message key="exception.throwable.header" /></th>
+										<th style='white-space:nowrap; text-align:left'><ao:message key="exception.throwable.header" /></th>
 										<td style="white-space:nowrap">
 											<logic:notEmpty name="javax.servlet.jsp.jspPageContext" property="errorData.throwable">
 												<pre><ao:text><ao:getStackTraces name="javax.servlet.jsp.jspPageContext" property="errorData.throwable" /></ao:text></pre>
@@ -97,7 +97,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					<%-- Struts Exceptions --%>
 					<logic:present scope="request" name="exception">
 						<skin:lightArea>
-							<fmt:message key="exception.strutsException.title" />
+							<b><ao:message key="exception.strutsException.title" /></b>
 							<ao:hr />
 							<pre><ao:text><ao:getStackTraces scope="request" name="exception" /></ao:text></pre>
 						</skin:lightArea><ao:br />
@@ -105,7 +105,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					</logic:present>
 					<logic:present scope="request" name="org.apache.struts.action.EXCEPTION">
 						<skin:lightArea>
-							<fmt:message key="exception.strutsException.title" />
+							<b><ao:message key="exception.strutsException.title" /></b>
 							<ao:hr />
 							<pre><ao:text><ao:getStackTraces scope="request" name="org.apache.struts.action.EXCEPTION" /></ao:text></pre>
 						</skin:lightArea><ao:br />
@@ -114,7 +114,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					<%-- Servlet Exception --%>
 					<logic:notEmpty name="javax.servlet.jsp.jspPageContext" property="exception">
 						<skin:lightArea>
-							<fmt:message key="exception.servletException.title" />
+							<b><ao:message key="exception.servletException.title" /></b>
 							<ao:hr />
 							<pre><ao:text><ao:getStackTraces name="javax.servlet.jsp.jspPageContext" property="exception" /></ao:text></pre>
 						</skin:lightArea>
@@ -123,4 +123,4 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 			</skin:contentLine>
 		</skin:content>
 	</skin:skin>
-</fmt:bundle>
+</ao:bundle>

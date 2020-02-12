@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2000-2009, 2016, 2019  AO Industries, Inc.
+Copyright (C) 2000-2009, 2016, 2019, 2020  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -28,12 +28,12 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 <%@include file="index.children.inc.jsp" %>
 <skin:skin>
 	<skin:content width="600">
-		<fmt:bundle basename="com.aoindustries.website.clientarea.accounting.ApplicationResources">
-			<skin:contentTitle><fmt:message key="index.title" /></skin:contentTitle>
+		<ao:bundle basename="com.aoindustries.website.clientarea.accounting.ApplicationResources">
+			<skin:contentTitle><ao:message key="index.title" /></skin:contentTitle>
 			<skin:contentHorizontalDivider />
 			<skin:contentLine>
 				<skin:autoIndex />
 			</skin:contentLine>
-		</fmt:bundle>
+		</ao:bundle>
 	</skin:content>
 </skin:skin>

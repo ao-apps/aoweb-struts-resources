@@ -86,7 +86,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					<tfoot>
 						<tr>
 							<td style="white-space:nowrap;text-align:center" colspan="${fn:escapeXml(4 + (hasDescription ? 1 : 0))}">
-								<ao:input type="submit" name="submitButton"><ao:message key="makePaymentSelectCard.field.submit.label" /></ao:input>
+								<ao:input type="submit" name="submitButton" value="${ao:message('makePaymentSelectCard.field.submit.label')}" />
 							</td>
 						</tr>
 					</tfoot>

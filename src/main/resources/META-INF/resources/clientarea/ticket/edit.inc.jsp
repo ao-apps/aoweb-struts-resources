@@ -23,16 +23,16 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@include file="/_taglibs.inc.jsp" %>
 
-<fmt:bundle basename="com.aoindustries.website.clientarea.ticket.ApplicationResources">
+<ao:bundle basename="com.aoindustries.website.clientarea.ticket.ApplicationResources">
 	<%@include file="add-parents.inc.jsp" %>
 	<skin:path>
 		/clientarea/ticket/edit.do
 		<ao:param name="pkey" value="${ticket.pkey}" />
 	</skin:path>
-	<skin:title><fmt:message key="edit.title" /></skin:title>
-	<skin:navImageAlt><fmt:message key="edit.navImageAlt" /></skin:navImageAlt>
-	<skin:keywords><fmt:message key="edit.keywords" /></skin:keywords>
-	<skin:description><fmt:message key="edit.description" /></skin:description>
+	<skin:title><ao:message key="edit.title" /></skin:title>
+	<skin:navImageAlt><ao:message key="edit.navImageAlt" /></skin:navImageAlt>
+	<skin:keywords><ao:message key="edit.keywords" /></skin:keywords>
+	<skin:description><ao:message key="edit.description" /></skin:description>
 
 	<%
 		org.apache.struts.action.ActionMessages errors = (org.apache.struts.action.ActionMessages)request.getAttribute(org.apache.struts.Globals.ERROR_KEY);
@@ -49,7 +49,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 	%>
 	<skin:skin onload="<%= onload %>">
 		<skin:content>
-			<skin:contentTitle><fmt:message key="edit.title" /></skin:contentTitle>
+			<skin:contentTitle><ao:message key="edit.title" /></skin:contentTitle>
 			<skin:contentHorizontalDivider />
 			<skin:contentLine>
 				<logic:present scope="request" name="permissionDenied">
@@ -64,23 +64,23 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 								<table class="spread">
 									<tbody>
 										<tr>
-											<td style="white-space:nowrap"><fmt:message key="edit.label.pkey" /></td>
+											<td style="white-space:nowrap"><ao:message key="edit.label.pkey" /></td>
 											<td><html:hidden name="ticket" property="pkey" write="true" /></td>
 										</tr>
 										<tr>
-											<td style="white-space:nowrap"><fmt:message key="edit.label.status" /></td>
+											<td style="white-space:nowrap"><ao:message key="edit.label.status" /></td>
 											<td>
 												<%--<bean:define scope="request" name="locale" type="java.util.Locale" id="locale" />--%>
 												<ao:write name="ticket" property="status" method="getDescription" type="application/xhtml+xml" />
 											</td>
 										</tr>
 										<tr>
-											<td style="white-space:nowrap"><fmt:message key="edit.label.openDate" /></td>
+											<td style="white-space:nowrap"><ao:message key="edit.label.openDate" /></td>
 											<td><aoweb:dateTime><ao:write scope="request" name="ticket" property="openDate.time" /></aoweb:dateTime></td>
 										</tr>
 										<logic:notEmpty scope="request" name="ticket" property="createdBy">
 											<tr>
-												<td style="white-space:nowrap"><fmt:message key="edit.label.createdBy" /></td>
+												<td style="white-space:nowrap"><ao:message key="edit.label.createdBy" /></td>
 												<td><ao:write scope="request" name="ticket" property="createdBy.name" /></td>
 											</tr>
 										</logic:notEmpty>
@@ -88,14 +88,14 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 											<logic:notEmpty name="siteSettings" property='<%= "rootAOServConnector.ticket.Ticket.map("+ticket.getPkey()+")" %>'>
 												<logic:notEmpty name="siteSettings" property='<%= "rootAOServConnector.ticket.Ticket.map("+ticket.getPkey()+").createdBy" %>'>
 													<tr>
-														<td style="white-space:nowrap"><fmt:message key="edit.label.createdBy" /></td>
+														<td style="white-space:nowrap"><ao:message key="edit.label.createdBy" /></td>
 														<td><ao:write name="siteSettings" property='<%= "rootAOServConnector.ticket.Ticket.map("+ticket.getPkey()+").createdBy.name" %>' /></td>
 													</tr>
 												</logic:notEmpty>
 											</logic:notEmpty>
 										</logic:empty>
 										<tr>
-											<td style="white-space:nowrap"><fmt:message key="TicketForm.field.account.prompt" /></td>
+											<td style="white-space:nowrap"><ao:message key="TicketForm.field.account.prompt" /></td>
 											<td>
 												<logic:notEqual name="aoConn" property="account.Account.size" value="1">
 													<logic:notEqual name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.ticket.Status.CLOSED %>">
@@ -117,7 +117,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 											<td><html:errors bundle="/clientarea/ticket/ApplicationResources" property="account" /></td>
 										</tr>
 										<tr>
-											<td style="white-space:nowrap"><fmt:message key="TicketForm.field.contactEmails.prompt" /></td>
+											<td style="white-space:nowrap"><ao:message key="TicketForm.field.contactEmails.prompt" /></td>
 											<td>
 												<logic:notEqual name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.ticket.Status.CLOSED %>">
 													<bean:define scope="request" name="ticketForm" property="contactEmails" type="java.lang.String" id="contactEmails" />
@@ -136,7 +136,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 											<td><html:errors bundle="/clientarea/ticket/ApplicationResources" property="contactEmails" /></td>
 										</tr>
 										<tr>
-											<td style="white-space:nowrap"><fmt:message key="TicketForm.field.contactPhoneNumbers.prompt" /></td>
+											<td style="white-space:nowrap"><ao:message key="TicketForm.field.contactPhoneNumbers.prompt" /></td>
 											<td>
 												<logic:notEqual name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.ticket.Status.CLOSED %>">
 													<bean:define scope="request" name="ticketForm" property="contactPhoneNumbers" type="java.lang.String" id="contactPhoneNumbers" />
@@ -155,7 +155,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 											<td><html:errors bundle="/clientarea/ticket/ApplicationResources" property="contactPhoneNumbers" /></td>
 										</tr>
 										<tr>
-											<td style="white-space:nowrap"><fmt:message key="TicketForm.field.clientPriority.prompt" /></td>
+											<td style="white-space:nowrap"><ao:message key="TicketForm.field.clientPriority.prompt" /></td>
 											<td>
 												<logic:notEqual name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.ticket.Status.CLOSED %>">
 													<html:select property="clientPriority">
@@ -169,7 +169,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 											<td><html:errors bundle="/clientarea/ticket/ApplicationResources" property="clientPriority" /></td>
 										</tr>
 										<tr>
-											<td style="white-space:nowrap"><fmt:message key="TicketForm.field.summary.prompt" /></td>
+											<td style="white-space:nowrap"><ao:message key="TicketForm.field.summary.prompt" /></td>
 											<td>
 												<logic:notEqual name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.ticket.Status.CLOSED %>">
 													<html:text property="summary" size="60" />
@@ -186,7 +186,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 											<tr>
 												<td colspan="3" style="text-align:center">
 													<ao:br />
-													<ao:input type="submit"><fmt:message key="edit.field.submit.label" /></ao:input>
+													<ao:input type="submit" value="${ao:message('edit.field.submit.label')}" />
 												</td>
 											</tr>
 										</tfoot>
@@ -196,7 +196,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 							<logic:notEmpty scope="request" name="ticketForm" property="details">
 								<ao:br />
 								<skin:lightArea>
-									<fmt:message key="TicketForm.field.details.header" />
+									<ao:message type="xhtml" key="TicketForm.field.details.header" />
 									<ao:hr />
 									<div style="border:1px inset; padding:4px; white-space:pre-wrap">
 										<html:hidden property="details" />
@@ -210,15 +210,15 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 							<logic:notEmpty name="actions">
 								<ao:br />
 								<skin:lightArea>
-									<fmt:message key="edit.actions.header" />
+									<b><ao:message key="edit.actions.header" /></b>
 									<ao:hr />
 									<table class="spread">
 										<thead>
 											<tr>
-												<th><fmt:message key="edit.header.time" /></th>
-												<th><fmt:message key="edit.header.administrator" /></th>
-												<th><fmt:message key="edit.header.actionType" /></th>
-												<th><fmt:message key="edit.header.summary" /></th>
+												<th><ao:message key="edit.header.time" /></th>
+												<th><ao:message key="edit.header.administrator" /></th>
+												<th><ao:message key="edit.header.actionType" /></th>
+												<th><ao:message key="edit.header.summary" /></th>
 											</tr>
 										</thead>
 										<tbody>
@@ -264,28 +264,28 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 							<ao:br />
 							<skin:lightArea>
 								<logic:equal name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.ticket.Status.CLOSED %>">
-									<fmt:message key="edit.reopenTicket.header" />
+									<b><ao:message key="edit.reopenTicket.header" /></b>
 								</logic:equal>
 								<logic:equal name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.ticket.Status.BOUNCED %>">
-									<fmt:message key="edit.replyTicket.header" />
+									<b><ao:message key="edit.replyTicket.header" /></b>
 								</logic:equal>
 								<logic:notEqual name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.ticket.Status.CLOSED %>">
 									<logic:notEqual name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.ticket.Status.BOUNCED %>">
-										<fmt:message key="edit.addAnnotation.header" />
+										<b><ao:message key="edit.addAnnotation.header" /></b>
 									</logic:notEqual>
 								</logic:notEqual>
 								<ao:hr />
 								<table class="spread">
 									<tbody>
 										<tr>
-											<td style="white-space:nowrap"><fmt:message key="TicketForm.field.annotationSummary.prompt" /></td>
+											<td style="white-space:nowrap"><ao:message key="TicketForm.field.annotationSummary.prompt" /></td>
 											<td><html:text property="annotationSummary" size="60" /></td>
 											<td><html:errors bundle="/clientarea/ticket/ApplicationResources" property="annotationSummary" /></td>
 										</tr>
 										<tr>
 											<td style='white-space:nowrap' colspan="3">
 												<ao:br />
-												<fmt:message key="TicketForm.field.annotationDetails.prompt" /><ao:br />
+												<ao:message key="TicketForm.field.annotationDetails.prompt" /><ao:br />
 												<html:textarea property="annotationDetails" cols="80" rows="20" /><ao:br />
 												<%--<textarea name="annotationDetails" cols="80" rows="20" wrap="hard"><bean:write scope="request" name="ticketForm" property="annotationDetails"/></textarea><ao:br />--%>
 												<html:errors bundle="/clientarea/ticket/ApplicationResources" property="annotationDetails" />
@@ -296,19 +296,17 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 										<tr>
 											<td colspan="3" style="text-align:center">
 												<ao:br />
-												<ao:input type="submit">
-													<logic:equal name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.ticket.Status.CLOSED %>">
-														<fmt:message key="edit.field.submitAnnotation.label.reopen" />
-													</logic:equal>
-													<logic:equal name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.ticket.Status.BOUNCED %>">
-														<fmt:message key="edit.field.submitAnnotation.label.replyTicket" />
-													</logic:equal>
-													<logic:notEqual name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.ticket.Status.CLOSED %>">
-														<logic:notEqual name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.ticket.Status.BOUNCED %>">
-															<fmt:message key="edit.field.submitAnnotation.label" />
-														</logic:notEqual>
+												<logic:equal name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.ticket.Status.CLOSED %>">
+													<ao:input type="submit" value="${ao:message('edit.field.submitAnnotation.label.reopen')}" />
+												</logic:equal>
+												<logic:equal name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.ticket.Status.BOUNCED %>">
+													<ao:input type="submit" value="${ao:message('edit.field.submitAnnotation.label.replyTicket')}" />
+												</logic:equal>
+												<logic:notEqual name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.ticket.Status.CLOSED %>">
+													<logic:notEqual name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.ticket.Status.BOUNCED %>">
+														<ao:input type="submit" value="${ao:message('edit.field.submitAnnotation.label')}" />
 													</logic:notEqual>
-												</ao:input>
+												</logic:notEqual>
 											</td>
 										</tr>
 									</tfoot>
@@ -320,4 +318,4 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 			</skin:contentLine>
 		</skin:content>
 	</skin:skin>
-</fmt:bundle>
+</ao:bundle>

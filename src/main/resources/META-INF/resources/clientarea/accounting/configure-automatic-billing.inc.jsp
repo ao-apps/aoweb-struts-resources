@@ -23,21 +23,21 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@include file="/_taglibs.inc.jsp" %>
 
-<fmt:bundle basename="com.aoindustries.website.clientarea.accounting.ApplicationResources">
+<ao:bundle basename="com.aoindustries.website.clientarea.accounting.ApplicationResources">
 	<skin:path>
 		/clientarea/accounting/configure-automatic-billing.do
 		<ao:param name="account" value="${param.account}"/>
 	</skin:path>
 	<logic:equal name="siteSettings" property="brand.aowebStrutsNoindex" value="true"><skin:meta name="robots">noindex</skin:meta></logic:equal>
-	<skin:title><fmt:message key="configureAutomaticBilling.title" /></skin:title>
-	<skin:navImageAlt><fmt:message key="configureAutomaticBilling.navImageAlt" /></skin:navImageAlt>
-	<skin:keywords><fmt:message key="configureAutomaticBilling.keywords" /></skin:keywords>
-	<skin:description><fmt:message key="configureAutomaticBilling.description" /></skin:description>
+	<skin:title><ao:message key="configureAutomaticBilling.title" /></skin:title>
+	<skin:navImageAlt><ao:message key="configureAutomaticBilling.navImageAlt" /></skin:navImageAlt>
+	<skin:keywords><ao:message key="configureAutomaticBilling.keywords" /></skin:keywords>
+	<skin:description><ao:message key="configureAutomaticBilling.description" /></skin:description>
 	<%@include file="add-parents.inc.jsp" %>
 	<skin:parent><%@include file="credit-card-manager.meta.inc.jsp" %></skin:parent>
 	<skin:skin>
 		<skin:content width="600">
-			<skin:contentTitle><fmt:message key="configureAutomaticBilling.title" /></skin:contentTitle>
+			<skin:contentTitle><ao:message key="configureAutomaticBilling.title" /></skin:contentTitle>
 			<skin:contentHorizontalDivider />
 			<skin:contentLine>
 				<logic:present scope="request" name="permissionDenied">
@@ -47,9 +47,9 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					<form id="configurationAutomaticBillingForm" method="post" action="<ao:url>configure-automatic-billing-completed.do</ao:url>"><div>
 						<ao:input name="account" type="hidden" value="${param.account}" />
 						<skin:lightArea>
-							<b><fmt:message key="configureAutomaticBilling.cardList.title" /></b>
+							<b><ao:message key="configureAutomaticBilling.cardList.title" /></b>
 							<ao:hr />
-							<fmt:message key="configureAutomaticBilling.account.label" />
+							<ao:message key="configureAutomaticBilling.account.label" />
 							<ao:write scope="request" name="account" property="name" /><ao:br />
 							<ao:br />
 							<c:set var="hasDescription" value="false" />
@@ -61,12 +61,12 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 							<table class="spread">
 								<thead>
 									<tr>
-										<th><fmt:message key="configureAutomaticBilling.header.select" /></th>
-										<th><fmt:message key="configureAutomaticBilling.header.cardType" /></th>
-										<th><fmt:message key="configureAutomaticBilling.header.maskedCardNumber" /></th>
-										<th><fmt:message key="configureAutomaticBilling.header.expirationDate" /></th>
+										<th><ao:message key="configureAutomaticBilling.header.select" /></th>
+										<th><ao:message key="configureAutomaticBilling.header.cardType" /></th>
+										<th><ao:message key="configureAutomaticBilling.header.maskedCardNumber" /></th>
+										<th><ao:message key="configureAutomaticBilling.header.expirationDate" /></th>
 										<c:if test="${hasDescription}">
-											<th><fmt:message key="configureAutomaticBilling.header.description" /></th>
+											<th><ao:message key="configureAutomaticBilling.header.description" /></th>
 										</c:if>
 									</tr>
 								</thead>
@@ -127,13 +127,13 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 												<ao:input type="radio" id="pkey_" name="pkey" onchange="this.form.submitButton.disabled=false;" />
 											</logic:present>
 										</td>
-										<td style='white-space:nowrap' colspan="${fn:escapeXml(3 + (hasDescription ? 1 : 0))}"><label for="pkey_"><fmt:message key="configureAutomaticBilling.noAutomaticBilling" /></label></td>
+										<td style='white-space:nowrap' colspan="${fn:escapeXml(3 + (hasDescription ? 1 : 0))}"><label for="pkey_"><ao:message key="configureAutomaticBilling.noAutomaticBilling" /></label></td>
 									</skin:lightDarkTableRow>
 								</tbody>
 								<tfoot>
 									<tr>
 										<td style="white-space:nowrap;text-align:center" colspan="${fn:escapeXml(4 + (hasDescription ? 1 : 0))}">
-											<ao:input type="submit" name="submitButton"><fmt:message key="configureAutomaticBilling.field.submit.label" /></ao:input>
+											<ao:input type="submit" name="submitButton" value="${ao:message('configureAutomaticBilling.field.submit.label')}" />
 											<%-- Disable using JavaScript to avoid dependency on JavaScript --%>
 											<ao:script>document.forms["configurationAutomaticBillingForm"].submitButton.disabled = true;</ao:script>
 										</td>
@@ -146,4 +146,4 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 			</skin:contentLine>
 		</skin:content>
 	</skin:skin>
-</fmt:bundle>
+</ao:bundle>

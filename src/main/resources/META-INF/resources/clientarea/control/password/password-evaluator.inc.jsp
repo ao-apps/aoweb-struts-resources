@@ -27,18 +27,17 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 <%@include file="password-evaluator.meta.inc.jsp" %>
 <skin:skin onload="document.forms.passwordEvaluatorForm.password.select(); document.forms.passwordEvaluatorForm.password.focus();">
 	<skin:content width="600">
-		<fmt:bundle basename="com.aoindustries.website.clientarea.control.ApplicationResources">
-			<skin:contentTitle><fmt:message key="password.passwordEvaluator.title" /></skin:contentTitle>
+		<ao:bundle basename="com.aoindustries.website.clientarea.control.ApplicationResources">
+			<skin:contentTitle><ao:message key="password.passwordEvaluator.title" /></skin:contentTitle>
 			<skin:contentHorizontalDivider />
 			<skin:contentLine align="center">
 				<html:javascript staticJavascript='false' bundle="/clientarea/control/ApplicationResources" formName="passwordEvaluatorForm" />
 				<skin:lightArea align="left">
 					<html:form action="/password/password-evaluator-completed" onsubmit="return validatePasswordEvaluatorForm(this);">
 						<div>
-							<b><fmt:message key="password.passwordEvaluator.prompt" /></b>
-							<%-- TODO: ao:hr tag --%>
+							<b><ao:message key="password.passwordEvaluator.prompt" /></b>
 							<ao:hr />
-							<fmt:message key="password.passwordEvaluator.field.password.prompt" /><html:password size="16" property="password" /> <html:errors bundle="/clientarea/control/ApplicationResources" property="password" />
+							<ao:message key="password.passwordEvaluator.field.password.prompt" /><html:password size="16" property="password" /> <html:errors bundle="/clientarea/control/ApplicationResources" property="password" />
 							<logic:present scope="request" name="results">
 								<ao:br /><ao:br />
 								<table class="spread">
@@ -53,11 +52,11 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 								</table>
 							</logic:present><ao:br />
 							<ao:br />
-							<div style="text-align:center"><ao:input type="submit"><fmt:message key="password.passwordEvaluator.field.submit.label" /></ao:input></div>
+							<div style="text-align:center"><ao:input type="submit" value="${ao:message('password.passwordEvaluator.field.submit.label')}" /></div>
 						</div>
 					</html:form>
 				</skin:lightArea>
 			</skin:contentLine>
-		</fmt:bundle>
+		</ao:bundle>
 	</skin:content>
 </skin:skin>

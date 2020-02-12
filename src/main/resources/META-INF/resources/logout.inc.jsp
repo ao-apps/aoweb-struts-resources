@@ -23,21 +23,21 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@include file="/_taglibs.inc.jsp" %>
 
-<fmt:bundle basename="com.aoindustries.website.ApplicationResources">
+<ao:bundle basename="com.aoindustries.website.ApplicationResources">
 	<skin:path>/logout.do</skin:path>
 	<skin:meta name="robots">noindex</skin:meta>
-	<skin:title><fmt:message key="logout.title" /></skin:title>
-	<skin:navImageAlt><fmt:message key="logout.navImageAlt" /></skin:navImageAlt>
-	<skin:keywords><fmt:message key="logout.keywords" /></skin:keywords>
-	<skin:description><fmt:message key="logout.description" /></skin:description>
+	<skin:title><ao:message key="logout.title" /></skin:title>
+	<skin:navImageAlt><ao:message key="logout.navImageAlt" /></skin:navImageAlt>
+	<skin:keywords><ao:message key="logout.keywords" /></skin:keywords>
+	<skin:description><ao:message key="logout.description" /></skin:description>
 	<aoweb:exists path="/add-parents.inc.jsp"><jsp:include page="/add-parents.inc.jsp" /></aoweb:exists>
 	<skin:skin>
 		<skin:content width="600">
-			<skin:contentTitle><fmt:message key="logout.title" /></skin:contentTitle>
+			<skin:contentTitle><ao:message key="logout.title" /></skin:contentTitle>
 			<skin:contentHorizontalDivider />
 			<skin:contentLine>
-				<fmt:message key="logout.text" />
+				<ao:message key="logout.text" />
 			</skin:contentLine>
 		</skin:content>
 	</skin:skin>
-</fmt:bundle>
+</ao:bundle>

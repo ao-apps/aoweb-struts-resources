@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2000-2009, 2015, 2016, 2019  AO Industries, Inc.
+Copyright (C) 2000-2009, 2015, 2016, 2019, 2020  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -24,18 +24,18 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 <%@include file="/_taglibs.inc.jsp" %>
 
 <%@include file="add-parents.inc.jsp" %>
-<fmt:bundle basename="com.aoindustries.website.clientarea.ticket.ApplicationResources">
+<ao:bundle basename="com.aoindustries.website.clientarea.ticket.ApplicationResources">
 	<skin:path>
 		/clientarea/ticket/edit.do
 		<ao:param name="pkey" value="${ticket.pkey}" />
 	</skin:path>
-	<skin:title><fmt:message key="edit.title" /></skin:title>
-	<skin:navImageAlt><fmt:message key="edit.navImageAlt" /></skin:navImageAlt>
-	<skin:keywords><fmt:message key="edit.keywords" /></skin:keywords>
-	<skin:description><fmt:message key="edit.description" /></skin:description>
+	<skin:title><ao:message key="edit.title" /></skin:title>
+	<skin:navImageAlt><ao:message key="edit.navImageAlt" /></skin:navImageAlt>
+	<skin:keywords><ao:message key="edit.keywords" /></skin:keywords>
+	<skin:description><ao:message key="edit.description" /></skin:description>
 	<skin:skin>
 		<skin:content>
-			<skin:contentTitle><fmt:message key="edit.title" /></skin:contentTitle>
+			<skin:contentTitle><ao:message key="edit.title" /></skin:contentTitle>
 			<skin:contentHorizontalDivider />
 			<skin:contentLine>
 				<logic:present scope="request" name="permissionDenied">
@@ -43,35 +43,35 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 				</logic:present>
 				<logic:notPresent scope="request" name="permissionDenied">
 					<skin:lightArea>
-						<fmt:message key="edit-completed.ticketChanges" />
+						<b><ao:message key="edit-completed.ticketChanges" /></b>
 						<ao:hr />
 						<ul>
 							<logic:equal scope="request" name="accountUpdated" value="true">
-								<li><fmt:message key="edit-completed.accountUpdated" /></li>
+								<li><ao:message key="edit-completed.accountUpdated" /></li>
 							</logic:equal>
 							<logic:equal scope="request" name="contactEmailsUpdated" value="true">
-								<li><fmt:message key="edit-completed.contactEmailsUpdated" /></li>
+								<li><ao:message key="edit-completed.contactEmailsUpdated" /></li>
 							</logic:equal>
 							<logic:equal scope="request" name="contactPhoneNumbersUpdated" value="true">
-								<li><fmt:message key="edit-completed.contactPhoneNumbersUpdated" /></li>
+								<li><ao:message key="edit-completed.contactPhoneNumbersUpdated" /></li>
 							</logic:equal>
 							<logic:equal scope="request" name="clientPriorityUpdated" value="true">
-								<li><fmt:message key="edit-completed.clientPriorityUpdated" /></li>
+								<li><ao:message key="edit-completed.clientPriorityUpdated" /></li>
 							</logic:equal>
 							<logic:equal scope="request" name="summaryUpdated" value="true">
-								<li><fmt:message key="edit-completed.summaryUpdated" /></li>
+								<li><ao:message key="edit-completed.summaryUpdated" /></li>
 							</logic:equal>
 							<logic:equal scope="request" name="annotationAdded" value="true">
-								<li><fmt:message key="edit-completed.annotationAdded" /></li>
+								<li><ao:message key="edit-completed.annotationAdded" /></li>
 							</logic:equal>
 							<logic:equal scope="request" name="nothingChanged" value="true">
-								<li><fmt:message key="edit-completed.nothingChanged" /></li>
+								<li><ao:message key="edit-completed.nothingChanged" /></li>
 							</logic:equal>
 						</ul>
-						<fmt:message key="edit-completed.index.backTo" /><html:link action="/index"><fmt:message key="edit-completed.index.link" /></html:link>
+						<ao:message key="edit-completed.index.backTo" /><ao:a href="index.do"><ao:message key="edit-completed.index.link" /></ao:a>
 					</skin:lightArea>
 				</logic:notPresent>
 			</skin:contentLine>
 		</skin:content>
 	</skin:skin>
-</fmt:bundle>
+</ao:bundle>

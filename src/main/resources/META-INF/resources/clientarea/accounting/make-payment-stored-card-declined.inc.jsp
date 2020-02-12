@@ -24,31 +24,29 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 <%@include file="/_taglibs.inc.jsp" %>
 
 <%@include file="add-parents.inc.jsp" %>
-<fmt:bundle basename="com.aoindustries.website.clientarea.accounting.ApplicationResources">
+<ao:bundle basename="com.aoindustries.website.clientarea.accounting.ApplicationResources">
 	<skin:path>
 		/clientarea/accounting/make-payment-select-card.do
 		<ao:param name="account" value="${makePaymentStoredCardForm.account}" />
 		<ao:param name="currency" value="${makePaymentStoredCardForm.currency}" />
 	</skin:path>
 	<logic:equal name="siteSettings" property="brand.aowebStrutsNoindex" value="true"><skin:meta name="robots">noindex</skin:meta></logic:equal>
-	<skin:title><fmt:message key="makePayment.title" /></skin:title>
-	<skin:navImageAlt><fmt:message key="makePayment.navImageAlt" /></skin:navImageAlt>
-	<skin:keywords><fmt:message key="makePayment.keywords" /></skin:keywords>
-	<skin:description><fmt:message key="makePayment.description" /></skin:description>
+	<skin:title><ao:message key="makePayment.title" /></skin:title>
+	<skin:navImageAlt><ao:message key="makePayment.navImageAlt" /></skin:navImageAlt>
+	<skin:keywords><ao:message key="makePayment.keywords" /></skin:keywords>
+	<skin:description><ao:message key="makePayment.description" /></skin:description>
 	<skin:skin>
 		<skin:content width="600">
-			<skin:contentTitle><fmt:message key="makePayment.title" /></skin:contentTitle>
+			<skin:contentTitle><ao:message key="makePayment.title" /></skin:contentTitle>
 			<skin:contentHorizontalDivider />
 			<skin:contentLine>
 				<skin:lightArea>
-					<b><fmt:message key="makePaymentStoredCardDeclined.declined.header" /></b>
+					<b><ao:message key="makePaymentStoredCardDeclined.declined.header" /></b>
 					<ao:hr />
-					<fmt:message key="makePaymentStoredCardDeclined.declined.description">
-						<fmt:param><c:out value="${declineReason}" /></fmt:param>
-					</fmt:message>
+					<ao:message key="makePaymentStoredCardDeclined.declined.description" arg0="${fn:escapeXml(declineReason)}" />
 				</skin:lightArea><ao:br />
 				<%@include file="make-payment-select-card-shared.inc.jsp" %>
 			</skin:contentLine>
 		</skin:content>
 	</skin:skin>
-</fmt:bundle>
+</ao:bundle>

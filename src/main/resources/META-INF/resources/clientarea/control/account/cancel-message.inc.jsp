@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2003-2009, 2016, 2019  AO Industries, Inc.
+Copyright (C) 2003-2009, 2016, 2019, 2020  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -27,7 +27,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 	<jsp:include page="/clientarea/control/account/cancel-message.override.inc.jsp" />
 </aoweb:exists>
 <aoweb:notExists path="/clientarea/control/account/cancel-message.override.inc.jsp">
-	<fmt:bundle basename="com.aoindustries.website.clientarea.control.ApplicationResources">
-		<fmt:message key="account.cancel.message" />
-	</fmt:bundle>
+	<ao:bundle basename="com.aoindustries.website.clientarea.control.ApplicationResources">
+		<ao:message type="xhtml" key="account.cancel.message" />
+	</ao:bundle>
 </aoweb:notExists>

@@ -27,47 +27,47 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 <%@include file="contact.meta.inc.jsp" %>
 <skin:skin onload="document.forms['contactForm'].from.select(); document.forms['contactForm'].from.focus();">
 	<skin:content colspans="3" width="600">
-		<fmt:bundle basename="com.aoindustries.website.ApplicationResources">
-			<skin:contentTitle><fmt:message key="contact.title" /></skin:contentTitle>
+		<ao:bundle basename="com.aoindustries.website.ApplicationResources">
+			<skin:contentTitle><ao:message key="contact.title" /></skin:contentTitle>
 			<skin:contentHorizontalDivider colspansAndDirections="1,down,1" />
 			<skin:contentLine>
-				<fmt:message key="contact.text.mainDescription" />
+				<ao:message key="contact.text.mainDescription" />
 				<skin:contentVerticalDivider />
 				<skin:lightArea>
 					<table class="noborder">
 						<tbody>
 							<tr>
-								<th style='white-space:nowrap' colspan='2'><fmt:message key="contact.header.dayPhone" /></th>
+								<th style='white-space:nowrap' colspan='2'><ao:message key="contact.header.dayPhone" /></th>
 							</tr>
 							<logic:notEmpty name="siteSettings" property="brand.supportTollFree">
 								<tr>
-									<td style="white-space:nowrap"><fmt:message key="contact.label.tollfree" /></td>
+									<td style="white-space:nowrap"><ao:message key="contact.label.tollfree" /></td>
 									<td style="white-space:nowrap;text-align:right"><code><ao:write name="siteSettings" property="brand.supportTollFree" /></code></td>
 								</tr>
 							</logic:notEmpty>
 							<logic:notEmpty name="siteSettings" property="brand.supportDayPhone">
 								<tr>
-									<td style="white-space:nowrap"><fmt:message key="contact.label.direct" /></td>
+									<td style="white-space:nowrap"><ao:message key="contact.label.direct" /></td>
 									<td style="white-space:nowrap;text-align:right"><code><ao:write name="siteSettings" property="brand.supportDayPhone" /></code></td>
 								</tr>
 							</logic:notEmpty>
 							<tr>
-								<th style='white-space:nowrap' colspan='2'><fmt:message key="contact.header.emergencyPhone" /></th>
+								<th style='white-space:nowrap' colspan='2'><ao:message key="contact.header.emergencyPhone" /></th>
 							</tr>
 							<logic:notEmpty name="siteSettings" property="brand.supportEmergencyPhone1">
 								<tr>
-									<td style="white-space:nowrap"><fmt:message key="contact.label.primary" /></td>
+									<td style="white-space:nowrap"><ao:message key="contact.label.primary" /></td>
 									<td style="white-space:nowrap;text-align:right"><code><ao:write name="siteSettings" property="brand.supportEmergencyPhone1" /></code></td>
 								</tr>
 							</logic:notEmpty>
 							<logic:notEmpty name="siteSettings" property="brand.supportEmergencyPhone2">
 								<tr>
-									<td style="white-space:nowrap"><fmt:message key="contact.label.secondary" /></td>
+									<td style="white-space:nowrap"><ao:message key="contact.label.secondary" /></td>
 									<td style="white-space:nowrap;text-align:right"><code><ao:write name="siteSettings" property="brand.supportEmergencyPhone2" /></code></td>
 								</tr>
 							</logic:notEmpty>
 							<tr>
-								<th style='white-space:nowrap' colspan='2'><fmt:message key="contact.header.email" /></th>
+								<th style='white-space:nowrap' colspan='2'><ao:message key="contact.header.email" /></th>
 							</tr>
 							<tr>
 								<td style='white-space:nowrap' colspan='2'>
@@ -78,14 +78,14 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 							</tr>
 							<logic:notEmpty name="siteSettings" property="brand.supportFax">
 								<tr>
-									<th style='white-space:nowrap' colspan='2'><fmt:message key="contact.header.fax" /></th>
+									<th style='white-space:nowrap' colspan='2'><ao:message key="contact.header.fax" /></th>
 								</tr>
 								<tr>
 									<td style='white-space:nowrap' colspan='2'><code><ao:write name="siteSettings" property="brand.supportFax" /></code></td>
 								</tr>
 							</logic:notEmpty>
 							<tr>
-								<th style='white-space:nowrap' colspan='2'><fmt:message key="contact.header.mailingAddress" /></th>
+								<th style='white-space:nowrap' colspan='2'><ao:message key="contact.header.mailingAddress" /></th>
 							</tr>
 							<logic:notEmpty name="siteSettings" property="brand.supportMailingAddress1">
 								<tr>
@@ -113,31 +113,32 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 			</skin:contentLine>
 			<skin:contentHorizontalDivider colspansAndDirections="1,up,1" />
 			<skin:contentLine colspan="3">
-				<fmt:message key="contact.text.formWelcome" />
+				<ao:message key="contact.text.formWelcome" /><ao:br />
+				<ao:br />
 				<skin:lightArea>
 					<html:javascript staticJavascript='false' bundle="/ApplicationResources" formName="contactForm" />
 					<html:form action="/contact-completed" onsubmit="return validateContactForm(this);">
 						<table class="packed">
 							<tbody>
 								<tr>
-									<td style="white-space:nowrap"><fmt:message key="contact.field.from.prompt" /></td>
+									<td style="white-space:nowrap"><ao:message key="contact.field.from.prompt" /></td>
 									<td><html:text size="30" property="from" /></td>
 									<td><html:errors bundle="/ApplicationResources" property="from" /></td>
 								</tr>
 								<tr>
-									<td style="white-space:nowrap"><fmt:message key="contact.field.subject.prompt" /></td>
+									<td style="white-space:nowrap"><ao:message key="contact.field.subject.prompt" /></td>
 									<td><html:text size="45" property="subject" /></td>
 									<td><html:errors bundle="/ApplicationResources" property="subject" /></td>
 								</tr>
 								<tr><td colspan='2'>&#160;</td></tr>
-								<tr><td colspan='2'><fmt:message key="contact.field.message.prompt" /></td></tr>
+								<tr><td colspan='2'><ao:message key="contact.field.message.prompt" /></td></tr>
 								<tr><td colspan='2'><html:textarea property="message" cols="60" rows="12" /></td></tr>
 							</tbody>
 							<tfoot>
 								<tr>
 									<td colspan="2" style="text-align:center">
 										<ao:br />
-										<ao:input type="submit"><fmt:message key="contact.field.submit.label" /></ao:input>
+										<ao:input type="submit" value="${ao:message('contact.field.submit.label')}" />
 									</td>
 								</tr>
 							</tfoot>
@@ -145,6 +146,6 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					</html:form>
 				</skin:lightArea>
 			</skin:contentLine>
-		</fmt:bundle>
+		</ao:bundle>
 	</skin:content>
 </skin:skin>

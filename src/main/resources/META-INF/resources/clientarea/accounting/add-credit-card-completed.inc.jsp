@@ -23,18 +23,18 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@include file="/_taglibs.inc.jsp" %>
 
-<fmt:bundle basename="com.aoindustries.website.clientarea.accounting.ApplicationResources">
+<ao:bundle basename="com.aoindustries.website.clientarea.accounting.ApplicationResources">
 	<skin:path>/clientarea/accounting/add-credit-card-completed.do</skin:path>
 	<logic:equal name="siteSettings" property="brand.aowebStrutsNoindex" value="true"><skin:meta name="robots">noindex</skin:meta></logic:equal>
-	<skin:title><fmt:message key="addCreditCardCompleted.title" /></skin:title>
-	<skin:navImageAlt><fmt:message key="addCreditCardCompleted.navImageAlt" /></skin:navImageAlt>
-	<skin:keywords><fmt:message key="addCreditCardCompleted.keywords" /></skin:keywords>
-	<skin:description><fmt:message key="addCreditCardCompleted.description" /></skin:description>
+	<skin:title><ao:message key="addCreditCardCompleted.title" /></skin:title>
+	<skin:navImageAlt><ao:message key="addCreditCardCompleted.navImageAlt" /></skin:navImageAlt>
+	<skin:keywords><ao:message key="addCreditCardCompleted.keywords" /></skin:keywords>
+	<skin:description><ao:message key="addCreditCardCompleted.description" /></skin:description>
 	<%@include file="add-parents.inc.jsp" %>
 	<skin:parent><%@include file="credit-card-manager.meta.inc.jsp" %></skin:parent>
 	<skin:skin>
 		<skin:content width="600">
-			<skin:contentTitle><fmt:message key="addCreditCardCompleted.title" /></skin:contentTitle>
+			<skin:contentTitle><ao:message key="addCreditCardCompleted.title" /></skin:contentTitle>
 			<skin:contentHorizontalDivider />
 			<skin:contentLine>
 				<logic:present scope="request" name="permissionDenied">
@@ -42,17 +42,15 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 				</logic:present>
 				<logic:notPresent scope="request" name="permissionDenied">
 					<skin:lightArea>
-						<b><fmt:message key="addCreditCardCompleted.successMessage.title" /></b>
+						<b><ao:message key="addCreditCardCompleted.successMessage.title" /></b>
 						<ao:hr />
-						<fmt:message key="addCreditCardCompleted.successMessage.text">
-							<fmt:param value="${aoweb:getCardNumberDisplay(cardNumber)}" />
-						</fmt:message><ao:br />
+						<ao:message key="addCreditCardCompleted.successMessage.text" arg0="${aoweb:getCardNumberDisplay(cardNumber)}" /><ao:br />
 						<ao:br />
 						<%-- TODO: Link to make payment here --%>
-						<html:link action="/credit-card-manager"><fmt:message key="addCreditCardCompleted.creditCardManager.link" /></html:link>
+						<ao:a href="credit-card-manager.do"><ao:message key="addCreditCardCompleted.creditCardManager.link" /></ao:a>
 					</skin:lightArea>
 				</logic:notPresent>
 			</skin:contentLine>
 		</skin:content>
 	</skin:skin>
-</fmt:bundle>
+</ao:bundle>

@@ -24,40 +24,34 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 <%@include file="/_taglibs.inc.jsp" %>
 
 <skin:lightArea>
-	<fmt:bundle basename="com.aoindustries.website.signup.ApplicationResources">
+	<ao:bundle basename="com.aoindustries.website.signup.ApplicationResources">
 		<table class="packed">
 			<tbody>
 				<tr><td style="white-space:nowrap" colspan="3">
-					<fmt:message key="${statusKey}">
-						<fmt:param><c:out value="${pkey}" /></fmt:param>
-					</fmt:message><ao:br />
+					<ao:message type="xhtml" key="${statusKey}" arg0="${fn:escapeXml(pkey)}" /><ao:br />
 					<ao:br />
 					<logic:iterate scope="request" name="successAddresses" id="successAddress">
-						<fmt:message key="serverConfirmationCompleted.successAddress">
-							<fmt:param><c:out value="${successAddress}" /></fmt:param>
-						</fmt:message><ao:br />
+						<ao:message key="serverConfirmationCompleted.successAddress" arg0="${successAddress}" /><ao:br />
 					</logic:iterate>
 					<logic:iterate scope="request" name="failureAddresses" id="failureAddress">
-						<fmt:message key="serverConfirmationCompleted.failureAddress">
-							<fmt:param><c:out value="${failureAddress}" /></fmt:param>
-						</fmt:message><ao:br />
+						<span style="color:red"><ao:message key="serverConfirmationCompleted.failureAddress" arg0="${failureAddress}" /></span><ao:br />
 					</logic:iterate>
 					<ao:br />
-					<fmt:message key="serverConfirmationCompleted.belowIsSummary" /><ao:br />
+					<ao:message key="serverConfirmationCompleted.belowIsSummary" type="xhtml" /><ao:br />
 					<ao:hr />
 				</td></tr>
-				<tr><th colspan="3"><fmt:message key="steps.selectPackage.label" /></th></tr>
+				<tr><th colspan="3"><ao:message key="steps.selectPackage.label" /></th></tr>
 				<%@include file="signup-select-package-confirmation.inc.jsp" %>
 				<tr><td colspan="3">&#160;</td></tr>
-				<tr><th colspan="3"><fmt:message key="steps.organizationInfo.label" /></th></tr>
+				<tr><th colspan="3"><ao:message key="steps.organizationInfo.label" /></th></tr>
 				<%@include file="signup-organization-confirmation.inc.jsp" %>
 				<tr><td colspan="3">&#160;</td></tr>
-				<tr><th colspan="3"><fmt:message key="steps.technicalInfo.label" /></th></tr>
+				<tr><th colspan="3"><ao:message key="steps.technicalInfo.label" /></th></tr>
 				<%@include file="signup-technical-confirmation.inc.jsp" %>
 				<tr><td colspan="3">&#160;</td></tr>
-				<tr><th colspan="3"><fmt:message key="steps.billingInformation.label" /></th></tr>
+				<tr><th colspan="3"><ao:message key="steps.billingInformation.label" /></th></tr>
 				<%@include file="signup-billing-information-confirmation.inc.jsp" %>
 			</tbody>
 		</table>
-	</fmt:bundle>
+	</ao:bundle>
 </skin:lightArea>

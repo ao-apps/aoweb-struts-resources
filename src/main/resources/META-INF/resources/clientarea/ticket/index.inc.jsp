@@ -29,31 +29,31 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 <%@include file="index.children.inc.jsp" %>
 <skin:skin>
 	<skin:content width="600">
-		<fmt:bundle basename="com.aoindustries.website.clientarea.ticket.ApplicationResources">
-			<skin:contentTitle><fmt:message key="index.title" /></skin:contentTitle>
+		<ao:bundle basename="com.aoindustries.website.clientarea.ticket.ApplicationResources">
+			<skin:contentTitle><ao:message key="index.title" /></skin:contentTitle>
 			<skin:contentHorizontalDivider />
 			<skin:contentLine>
 				<div style="text-align:left; padding-top:10px; padding-bottom:10px">
-					<html:link action="/create"><fmt:message key="index.link.create" /></html:link>
+					<ao:a href="create.do"><ao:message key="index.link.create" /></ao:a>
 				</div>
 				<skin:lightArea>
 					<table class="spread">
 						<thead>
 							<tr>
-								<th><fmt:message key="index.header.pkey" /></th>
-								<th><fmt:message key="index.header.clientPriority" /></th>
-								<th><fmt:message key="index.header.status" /></th>
-								<th><fmt:message key="index.header.openDate" /></th>
-								<th><fmt:message key="index.header.createdBy" /></th>
+								<th><ao:message key="index.header.pkey" /></th>
+								<th><ao:message key="index.header.clientPriority" /></th>
+								<th><ao:message key="index.header.status" /></th>
+								<th><ao:message key="index.header.openDate" /></th>
+								<th><ao:message key="index.header.createdBy" /></th>
 								<logic:notEqual name="aoConn" property="account.Account.size" value="1">
-									<th><fmt:message key="index.header.account" /></th>
+									<th><ao:message key="index.header.account" /></th>
 								</logic:notEqual>
-								<th><fmt:message key="index.header.summary" /></th>
+								<th><ao:message key="index.header.summary" /></th>
 							</tr>
 							<logic:empty name="tickets">
 								<tr>
 									<td colspan="7" style="text-align:center">
-										<fmt:message key="index.noTickets" />
+										<ao:message key="index.noTickets" />
 									</td>
 								</tr>
 							</logic:empty>
@@ -62,7 +62,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 							<tbody>
 								<logic:iterate name="tickets" id="ticket" type="com.aoindustries.aoserv.client.ticket.Ticket">
 									<skin:lightDarkTableRow pageAttributeId="isDark">
-										<td style="white-space:nowrap"><html:link action="/edit" paramId="pkey" paramName="ticket" paramProperty="pkey"><ao:write name="ticket" property="pkey" /></html:link></td>
+										<td style="white-space:nowrap"><ao:a href="edit.do" param.pkey="${ticket.pkey}"><ao:write name="ticket" property="pkey" /></ao:a></td>
 										<td style="white-space:nowrap">
 											<logic:equal name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.ticket.Status.CLOSED %>">
 												<logic:equal name="isDark" value="true">
@@ -133,9 +133,9 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					</table>
 				</skin:lightArea>
 				<div style="text-align:left; padding-top:10px; padding-bottom:10px">
-					<html:link action="/create"><fmt:message key="index.link.create" /></html:link>
+					<ao:a href="create.do"><ao:message key="index.link.create" /></ao:a>
 				</div>
 			</skin:contentLine>
-		</fmt:bundle>
+		</ao:bundle>
 	</skin:content>
 </skin:skin>

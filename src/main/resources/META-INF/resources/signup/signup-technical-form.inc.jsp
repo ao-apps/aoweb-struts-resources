@@ -33,83 +33,83 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 		}
 	</ao:script>
 	<skin:lightArea>
-		<fmt:bundle basename="com.aoindustries.website.signup.ApplicationResources">
+		<ao:bundle basename="com.aoindustries.website.signup.ApplicationResources">
 			<table class="packed">
 				<thead>
-					<tr><td colspan="4"><b><fmt:message key="signupTechnicalForm.stepLabel" /></b><ao:br /><ao:hr /></td></tr>
-					<tr><td colspan="4"><fmt:message key="signupTechnicalForm.stepHelp" /><ao:br /><ao:br /></td></tr>
+					<tr><td colspan="4"><b><ao:message key="signupTechnicalForm.stepLabel" /></b><ao:br /><ao:hr /></td></tr>
+					<tr><td colspan="4"><i><ao:message key="signupTechnicalForm.stepHelp" /></i><ao:br /><ao:br /></td></tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td style="white-space:nowrap"><fmt:message key="signup.required" /></td>
-						<td style="white-space:nowrap"><fmt:message key="signupTechnicalForm.baName.prompt" /></td>
+						<td style="white-space:nowrap"><ao:message key="signup.required" /></td>
+						<td style="white-space:nowrap"><ao:message key="signupTechnicalForm.baName.prompt" /></td>
 						<td style="white-space:nowrap"><html:text size="32" property="baName" maxlength="255" /></td>
 						<td style="white-space:nowrap"><html:errors bundle="/signup/ApplicationResources" property="baName" /></td>
 					</tr>
 					<tr>
-						<td style="white-space:nowrap"><fmt:message key="signup.notRequired" /></td>
-						<td style="white-space:nowrap"><fmt:message key="signupTechnicalForm.baTitle.prompt" /></td>
+						<td style="white-space:nowrap"><ao:message key="signup.notRequired" /></td>
+						<td style="white-space:nowrap"><ao:message key="signupTechnicalForm.baTitle.prompt" /></td>
 						<td style="white-space:nowrap"><html:text size="32" property="baTitle" maxlength="255" /></td>
 						<td style="white-space:nowrap"><html:errors bundle="/signup/ApplicationResources" property="baTitle" /></td>
 					</tr>
 					<tr>
-						<td style="white-space:nowrap"><fmt:message key="signup.required" /></td>
-						<td style="white-space:nowrap"><fmt:message key="signupTechnicalForm.baWorkPhone.prompt" /></td>
+						<td style="white-space:nowrap"><ao:message key="signup.required" /></td>
+						<td style="white-space:nowrap"><ao:message key="signupTechnicalForm.baWorkPhone.prompt" /></td>
 						<td style="white-space:nowrap"><html:text size="18" property="baWorkPhone" maxlength="255" /></td>
 						<td style="white-space:nowrap"><html:errors bundle="/signup/ApplicationResources" property="baWorkPhone" /></td>
 					</tr>
 					<tr>
-						<td style="white-space:nowrap"><fmt:message key="signup.notRequired" /></td>
-						<td style="white-space:nowrap"><fmt:message key="signupTechnicalForm.baCellPhone.prompt" /></td>
+						<td style="white-space:nowrap"><ao:message key="signup.notRequired" /></td>
+						<td style="white-space:nowrap"><ao:message key="signupTechnicalForm.baCellPhone.prompt" /></td>
 						<td style="white-space:nowrap"><html:text size="18" property="baCellPhone" maxlength="255" /></td>
 						<td style="white-space:nowrap"><html:errors bundle="/signup/ApplicationResources" property="baCellPhone" /></td>
 					</tr>
 					<tr>
-						<td style="white-space:nowrap"><fmt:message key="signup.notRequired" /></td>
-						<td style="white-space:nowrap"><fmt:message key="signupTechnicalForm.baHomePhone.prompt" /></td>
+						<td style="white-space:nowrap"><ao:message key="signup.notRequired" /></td>
+						<td style="white-space:nowrap"><ao:message key="signupTechnicalForm.baHomePhone.prompt" /></td>
 						<td style="white-space:nowrap"><html:text size="18" property="baHomePhone" maxlength="255" /></td>
 						<td style="white-space:nowrap"><html:errors bundle="/signup/ApplicationResources" property="baHomePhone" /></td>
 					</tr>
 					<tr>
-						<td style="white-space:nowrap"><fmt:message key="signup.notRequired" /></td>
-						<td style="white-space:nowrap"><fmt:message key="signupTechnicalForm.baFax.prompt" /></td>
+						<td style="white-space:nowrap"><ao:message key="signup.notRequired" /></td>
+						<td style="white-space:nowrap"><ao:message key="signupTechnicalForm.baFax.prompt" /></td>
 						<td style="white-space:nowrap"><html:text size="18" property="baFax" maxlength="255" /></td>
 						<td style="white-space:nowrap"><html:errors bundle="/signup/ApplicationResources" property="baFax" /></td>
 					</tr>
 					<tr>
-						<td style="white-space:nowrap"><fmt:message key="signup.required" /></td>
-						<td style="white-space:nowrap"><fmt:message key="signupTechnicalForm.baEmail.prompt" /></td>
+						<td style="white-space:nowrap"><ao:message key="signup.required" /></td>
+						<td style="white-space:nowrap"><ao:message key="signupTechnicalForm.baEmail.prompt" /></td>
 						<td style="white-space:nowrap"><html:text size="20" property="baEmail" maxlength="255" /></td>
 						<td style="white-space:nowrap"><html:errors bundle="/signup/ApplicationResources" property="baEmail" /></td>
 					</tr>
-					<tr><td colspan="4"><ao:br /><fmt:message key="signupTechnicalForm.addressHelp" /><ao:br /><ao:br /></td></tr>
+					<tr><td colspan="4"><ao:br /><i><ao:message key="signupTechnicalForm.addressHelp" /></i><ao:br /><ao:br /></td></tr>
 					<tr>
-						<td style="white-space:nowrap"><fmt:message key="signup.notRequired" /></td>
-						<td style="white-space:nowrap"><fmt:message key="signupTechnicalForm.baAddress1.prompt" /></td>
+						<td style="white-space:nowrap"><ao:message key="signup.notRequired" /></td>
+						<td style="white-space:nowrap"><ao:message key="signupTechnicalForm.baAddress1.prompt" /></td>
 						<td style="white-space:nowrap"><html:text size="32" property="baAddress1" maxlength="255" /></td>
 						<td style="white-space:nowrap"><html:errors bundle="/signup/ApplicationResources" property="baAddress1" /></td>
 					</tr>
 					<tr>
-						<td style="white-space:nowrap"><fmt:message key="signup.notRequired" /></td>
-						<td style="white-space:nowrap"><fmt:message key="signupTechnicalForm.baAddress2.prompt" /></td>
+						<td style="white-space:nowrap"><ao:message key="signup.notRequired" /></td>
+						<td style="white-space:nowrap"><ao:message key="signupTechnicalForm.baAddress2.prompt" /></td>
 						<td style="white-space:nowrap"><html:text size="32" property="baAddress2" maxlength="255" /></td>
 						<td style="white-space:nowrap"><html:errors bundle="/signup/ApplicationResources" property="baAddress2" /></td>
 					</tr>
 					<tr>
-						<td style="white-space:nowrap"><fmt:message key="signup.notRequired" /></td>
-						<td style="white-space:nowrap"><fmt:message key="signupTechnicalForm.baCity.prompt" /></td>
+						<td style="white-space:nowrap"><ao:message key="signup.notRequired" /></td>
+						<td style="white-space:nowrap"><ao:message key="signupTechnicalForm.baCity.prompt" /></td>
 						<td style="white-space:nowrap"><html:text size="16" property="baCity" maxlength="255" /></td>
 						<td style="white-space:nowrap"><html:errors bundle="/signup/ApplicationResources" property="baCity" /></td>
 					</tr>
 					<tr>
-						<td style="white-space:nowrap"><fmt:message key="signup.notRequired" /></td>
-						<td style="white-space:nowrap"><fmt:message key="signupTechnicalForm.baState.prompt" /></td>
+						<td style="white-space:nowrap"><ao:message key="signup.notRequired" /></td>
+						<td style="white-space:nowrap"><ao:message key="signupTechnicalForm.baState.prompt" /></td>
 						<td style="white-space:nowrap"><html:text size="5" property="baState" maxlength="255" /></td>
 						<td style="white-space:nowrap"><html:errors bundle="/signup/ApplicationResources" property="baState" /></td>
 					</tr>
 					<tr>
-						<td style="white-space:nowrap"><fmt:message key="signup.notRequired" /></td>
-						<td style="white-space:nowrap"><fmt:message key="signupTechnicalForm.baCountry.prompt" /></td>
+						<td style="white-space:nowrap"><ao:message key="signup.notRequired" /></td>
+						<td style="white-space:nowrap"><ao:message key="signupTechnicalForm.baCountry.prompt" /></td>
 						<td style="white-space:nowrap">
 							<html:select property="baCountry">
 								<c:set var="selectedOne" value="false" />
@@ -130,21 +130,21 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 						<td style="white-space:nowrap"><html:errors bundle="/signup/ApplicationResources" property="baCountry" /></td>
 					</tr>
 					<tr>
-						<td style="white-space:nowrap"><fmt:message key="signup.notRequired" /></td>
-						<td style="white-space:nowrap"><fmt:message key="signupTechnicalForm.baZip.prompt" /></td>
+						<td style="white-space:nowrap"><ao:message key="signup.notRequired" /></td>
+						<td style="white-space:nowrap"><ao:message key="signupTechnicalForm.baZip.prompt" /></td>
 						<td style="white-space:nowrap"><html:text size="10" property="baZip" maxlength="255" /></td>
 						<td style="white-space:nowrap"><html:errors bundle="/signup/ApplicationResources" property="baZip" /></td>
 					</tr>
 					<tr><td colspan="4">&#160;</td><td></td></tr>
 					<tr>
-						<td style="white-space:nowrap"><fmt:message key="signup.required" /></td>
-						<td style="white-space:nowrap"><fmt:message key="signupTechnicalForm.baUsername.prompt" /></td>
+						<td style="white-space:nowrap"><ao:message key="signup.required" /></td>
+						<td style="white-space:nowrap"><ao:message key="signupTechnicalForm.baUsername.prompt" /></td>
 						<td style="white-space:nowrap"><html:text size="14" property="baUsername" maxlength="255" /></td>
 						<td style="white-space:nowrap"><html:errors bundle="/signup/ApplicationResources" property="baUsername" /></td>
 					</tr>
 					<tr>
-						<td style="white-space:nowrap"><fmt:message key="signup.notRequired" /></td>
-						<td style="white-space:nowrap"><fmt:message key="signupTechnicalForm.baPassword.prompt" /></td>
+						<td style="white-space:nowrap"><ao:message key="signup.notRequired" /></td>
+						<td style="white-space:nowrap"><ao:message key="signupTechnicalForm.baPassword.prompt" /></td>
 						<td style="white-space:nowrap">
 							<html:select property="baPassword">
 								<html:options name="passwords" />
@@ -154,9 +154,9 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					</tr>
 				</tbody>
 				<tfoot>
-					<tr><td colspan="4" style="text-align:center"><ao:br /><ao:input type="submit"><fmt:message key="signupTechnicalForm.submit.label" /></ao:input><ao:br /><ao:br /></td></tr>
+					<tr><td colspan="4" style="text-align:center"><ao:br /><ao:input type="submit" value="${ao:message('signupTechnicalForm.submit.label')}" /><ao:br /><ao:br /></td></tr>
 				</tfoot>
 			</table>
-		</fmt:bundle>
+		</ao:bundle>
 	</skin:lightArea>
 </div>

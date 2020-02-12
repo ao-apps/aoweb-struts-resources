@@ -27,8 +27,8 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 <%@include file="create.meta.inc.jsp" %>
 <skin:skin onload="document.forms['ticketForm'].summary.select(); document.forms['ticketForm'].summary.focus();">
 	<skin:content>
-		<fmt:bundle basename="com.aoindustries.website.clientarea.ticket.ApplicationResources">
-			<skin:contentTitle><fmt:message key="create.title" /></skin:contentTitle>
+		<ao:bundle basename="com.aoindustries.website.clientarea.ticket.ApplicationResources">
+			<skin:contentTitle><ao:message key="create.title" /></skin:contentTitle>
 			<skin:contentHorizontalDivider />
 			<skin:contentLine>
 				<logic:present scope="request" name="permissionDenied">
@@ -41,7 +41,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 							<table class="spread">
 								<tbody>
 									<tr>
-										<td style="white-space:nowrap"><fmt:message key="TicketForm.field.account.prompt" /></td>
+										<td style="white-space:nowrap"><ao:message key="TicketForm.field.account.prompt" /></td>
 										<td>
 											<logic:notEqual name="aoConn" property="account.Account.size" value="1">
 												<html:select property="account">
@@ -58,17 +58,17 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 										<td><html:errors bundle="/clientarea/ticket/ApplicationResources" property="account" /></td>
 									</tr>
 									<tr>
-										<td style="white-space:nowrap"><fmt:message key="TicketForm.field.contactEmails.prompt" /></td>
+										<td style="white-space:nowrap"><ao:message key="TicketForm.field.contactEmails.prompt" /></td>
 										<td><html:textarea property="contactEmails" cols="40" rows="3" /></td>
 										<td><html:errors bundle="/clientarea/ticket/ApplicationResources" property="contactEmails" /></td>
 									</tr>
 									<tr>
-										<td style="white-space:nowrap"><fmt:message key="TicketForm.field.contactPhoneNumbers.prompt" /></td>
+										<td style="white-space:nowrap"><ao:message key="TicketForm.field.contactPhoneNumbers.prompt" /></td>
 										<td><html:textarea property="contactPhoneNumbers" cols="40" rows="3" /></td>
 										<td><html:errors bundle="/clientarea/ticket/ApplicationResources" property="contactPhoneNumbers" /></td>
 									</tr>
 									<tr>
-										<td style="white-space:nowrap"><fmt:message key="TicketForm.field.clientPriority.prompt" /></td>
+										<td style="white-space:nowrap"><ao:message key="TicketForm.field.clientPriority.prompt" /></td>
 										<td>
 											<html:select property="clientPriority">
 												<html:optionsCollection name="aoConn" property="ticket.Priority.rows" label="priority" value="priority" />
@@ -77,14 +77,14 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 										<td><html:errors bundle="/clientarea/ticket/ApplicationResources" property="clientPriority" /></td>
 									</tr>
 									<tr>
-										<td style="white-space:nowrap"><fmt:message key="TicketForm.field.summary.prompt" /></td>
+										<td style="white-space:nowrap"><ao:message key="TicketForm.field.summary.prompt" /></td>
 										<td><html:text property="summary" size="60" /></td>
 										<td><html:errors bundle="/clientarea/ticket/ApplicationResources" property="summary" /></td>
 									</tr>
 									<tr>
 										<td style='white-space:nowrap' colspan="3">
 											<ao:br />
-											<fmt:message key="TicketForm.field.details.prompt" /><ao:br />
+											<ao:message key="TicketForm.field.details.prompt" /><ao:br />
 											<html:textarea property="details" cols="80" rows="20" /><ao:br />
 											<%--<textarea name="details" cols="80" rows="20" wrap="hard"><bean:write scope="request" name="ticketForm" property="details"/></textarea><ao:br />--%>
 											<html:errors bundle="/clientarea/ticket/ApplicationResources" property="details" />
@@ -95,7 +95,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 									<tr>
 										<td colspan="3" style="text-align:center">
 											<ao:br />
-											<ao:input type="submit"><fmt:message key="create.field.submit.label" /></ao:input>
+											<ao:input type="submit" value="${ao:message('create.field.submit.label')}" />
 										</td>
 									</tr>
 								</tfoot>
@@ -104,6 +104,6 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					</html:form>
 				</logic:notPresent>
 			</skin:contentLine>
-		</fmt:bundle>
+		</ao:bundle>
 	</skin:content>
 </skin:skin>

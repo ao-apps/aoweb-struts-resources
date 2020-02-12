@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2007-2009, 2016, 2019  AO Industries, Inc.
+Copyright (C) 2007-2009, 2016, 2019, 2020  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -29,11 +29,11 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 <aoweb:notExists path="/clientarea/accounting/security-policy.override.inc.jsp">
 	<ao:br />
 	<skin:lightArea width="500">
-		<fmt:bundle basename="com.aoindustries.website.clientarea.accounting.ApplicationResources">
-			<b><fmt:message key="securityPolicy.securityNotice.title" /></b>
+		<ao:bundle basename="com.aoindustries.website.clientarea.accounting.ApplicationResources">
+			<b><ao:message key="securityPolicy.securityNotice.title" /></b>
 			<ao:hr />
 			<%-- TODO: Should make a per-provider notice based on root-level account --%>
-			<fmt:message key="securityPolicy.securityNotice.body" />
-		</fmt:bundle>
+			<ao:message type="xhtml" key="securityPolicy.securityNotice.body" />
+		</ao:bundle>
 	</skin:lightArea>
 </aoweb:notExists>

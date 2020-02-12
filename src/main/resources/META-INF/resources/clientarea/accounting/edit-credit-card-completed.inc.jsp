@@ -23,37 +23,37 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@include file="/_taglibs.inc.jsp" %>
 
-<fmt:bundle basename="com.aoindustries.website.clientarea.accounting.ApplicationResources">
+<ao:bundle basename="com.aoindustries.website.clientarea.accounting.ApplicationResources">
 	<skin:path>/clientarea/accounting/edit-credit-card-completed.do</skin:path>
 	<logic:equal name="siteSettings" property="brand.aowebStrutsNoindex" value="true"><skin:meta name="robots">noindex</skin:meta></logic:equal>
 	<skin:title>
 		<logic:notEqual name="editCreditCardForm" property="isActive" value="false">
-			<fmt:message key="editCreditCardCompleted.title.edit" />
+			<ao:message key="editCreditCardCompleted.title.edit" />
 		</logic:notEqual>
 		<logic:equal name="editCreditCardForm" property="isActive" value="false">
-			<fmt:message key="editCreditCardCompleted.title.reactivate" />
+			<ao:message key="editCreditCardCompleted.title.reactivate" />
 		</logic:equal>
 	</skin:title>
 	<skin:navImageAlt>
 		<logic:notEqual name="editCreditCardForm" property="isActive" value="false">
-			<fmt:message key="editCreditCardCompleted.navImageAlt.edit" />
+			<ao:message key="editCreditCardCompleted.navImageAlt.edit" />
 		</logic:notEqual>
 		<logic:equal name="editCreditCardForm" property="isActive" value="false">
-			<fmt:message key="editCreditCardCompleted.navImageAlt.reactivate" />
+			<ao:message key="editCreditCardCompleted.navImageAlt.reactivate" />
 		</logic:equal>
 	</skin:navImageAlt>
-	<skin:keywords><fmt:message key="editCreditCardCompleted.keywords" /></skin:keywords>
-	<skin:description><fmt:message key="editCreditCardCompleted.description" /></skin:description>
+	<skin:keywords><ao:message key="editCreditCardCompleted.keywords" /></skin:keywords>
+	<skin:description><ao:message key="editCreditCardCompleted.description" /></skin:description>
 	<%@include file="add-parents.inc.jsp" %>
 	<skin:parent><%@include file="credit-card-manager.meta.inc.jsp" %></skin:parent>
 	<skin:skin>
 		<skin:content width="600">
 			<skin:contentTitle>
 				<logic:notEqual name="editCreditCardForm" property="isActive" value="false">
-					<fmt:message key="editCreditCardCompleted.title.edit" />
+					<ao:message key="editCreditCardCompleted.title.edit" />
 				</logic:notEqual>
 				<logic:equal name="editCreditCardForm" property="isActive" value="false">
-					<fmt:message key="editCreditCardCompleted.title.reactivate" />
+					<ao:message key="editCreditCardCompleted.title.reactivate" />
 				</logic:equal>
 			</skin:contentTitle>
 			<skin:contentHorizontalDivider />
@@ -65,48 +65,44 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					<skin:lightArea>
 						<b>
 							<logic:notEqual name="editCreditCardForm" property="isActive" value="false">
-								<fmt:message key="editCreditCardCompleted.successMessage.title.edit" />
+								<ao:message key="editCreditCardCompleted.successMessage.title.edit" />
 							</logic:notEqual>
 							<logic:equal name="editCreditCardForm" property="isActive" value="false">
-								<fmt:message key="editCreditCardCompleted.successMessage.title.reactivate" />
+								<ao:message key="editCreditCardCompleted.successMessage.title.reactivate" />
 							</logic:equal>
 						</b>
 						<ao:hr />
 						<logic:notEqual name="editCreditCardForm" property="isActive" value="false">
-							<fmt:message key="editCreditCardCompleted.successMessage.text.edit">
-								<fmt:param value="${aoweb:getCardNumberDisplay(cardNumber)}" />
-							</fmt:message><ao:br />
+							<ao:message key="editCreditCardCompleted.successMessage.text.edit" arg0="${aoweb:getCardNumberDisplay(cardNumber)}" /><ao:br />
 						</logic:notEqual>
 						<logic:equal name="editCreditCardForm" property="isActive" value="false">
-							<fmt:message key="editCreditCardCompleted.successMessage.text.reactivate">
-								<fmt:param value="${aoweb:getCardNumberDisplay(cardNumber)}" />
-							</fmt:message><ao:br />
+							<ao:message key="editCreditCardCompleted.successMessage.text.reactivate" arg0="${aoweb:getCardNumberDisplay(cardNumber)}" /><ao:br />
 						</logic:equal>
 						<ul>
 							<logic:equal scope="request" name="updatedCardDetails" value="true">
 								<bean:define id="somethingChanged" value="true"/>
-								<li><fmt:message key="editCreditCardCompleted.successMessage.updatedCardDetails" /></li>
+								<li><ao:message key="editCreditCardCompleted.successMessage.updatedCardDetails" /></li>
 							</logic:equal>
 							<logic:equal scope="request" name="updatedCardNumber" value="true">
 								<bean:define id="somethingChanged" value="true"/>
-								<li><fmt:message key="editCreditCardCompleted.successMessage.updatedCardNumber" /></li>
+								<li><ao:message key="editCreditCardCompleted.successMessage.updatedCardNumber" /></li>
 							</logic:equal>
 							<logic:equal scope="request" name="updatedExpirationDate" value="true">
 								<bean:define id="somethingChanged" value="true"/>
-								<li><fmt:message key="editCreditCardCompleted.successMessage.updatedExpirationDate" /></li>
+								<li><ao:message key="editCreditCardCompleted.successMessage.updatedExpirationDate" /></li>
 							</logic:equal>
 							<logic:equal scope="request" name="reactivatedCard" value="true">
 								<bean:define id="somethingChanged" value="true"/>
-								<li><fmt:message key="editCreditCardCompleted.successMessage.reactivatedCard" /></li>
+								<li><ao:message key="editCreditCardCompleted.successMessage.reactivatedCard" /></li>
 							</logic:equal>
 							<logic:notPresent name="somethingChanged">
-								<li><fmt:message key="editCreditCardCompleted.successMessage.nothingChanged" /></li>
+								<li><ao:message key="editCreditCardCompleted.successMessage.nothingChanged" /></li>
 							</logic:notPresent>
 						</ul>
-						<html:link action="/credit-card-manager"><fmt:message key="editCreditCardCompleted.creditCardManager.link" /></html:link>
+						<ao:a href="credit-card-manager.do"><ao:message key="editCreditCardCompleted.creditCardManager.link" /></ao:a>
 					</skin:lightArea>
 				</logic:notPresent>
 			</skin:contentLine>
 		</skin:content>
 	</skin:skin>
-</fmt:bundle>
+</ao:bundle>

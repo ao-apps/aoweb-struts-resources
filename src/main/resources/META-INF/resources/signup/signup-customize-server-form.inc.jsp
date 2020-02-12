@@ -328,7 +328,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					</tr>
 				</tbody>
 				<tfoot>
-					<tr><td colspan="2" style="text-align:center"><ao:br /><ao:input type="submit"><ao:message key="signupCustomizeServerForm.submit.label" /></ao:input><ao:br /><ao:br /></td></tr>
+					<tr><td colspan="2" style="text-align:center"><ao:br /><ao:input type="submit" value="${ao:message('signupCustomizeServerForm.submit.label')}" /><ao:br /><ao:br /></td></tr>
 				</tfoot>
 			</table>
 		</ao:bundle>

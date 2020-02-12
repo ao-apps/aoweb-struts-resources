@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2000-2009, 2015, 2016  AO Industries, Inc.
+Copyright (C) 2000-2009, 2015, 2016, 2020  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -23,10 +23,10 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@include file="/_taglibs.inc.jsp" %>
 
-<fmt:bundle basename="com.aoindustries.website.ApplicationResources">
+<ao:bundle basename="com.aoindustries.website.ApplicationResources">
 	<skin:path>/contact.do</skin:path>
-	<skin:title><fmt:message key="contact.title" /></skin:title>
-	<skin:navImageAlt><fmt:message key="contact.navImageAlt" /></skin:navImageAlt>
-	<skin:keywords><fmt:message key="contact.keywords" /></skin:keywords>
-	<skin:description><fmt:message key="contact.description" /></skin:description>
-</fmt:bundle>
+	<skin:title><ao:message key="contact.title" /></skin:title>
+	<skin:navImageAlt><ao:message key="contact.navImageAlt" /></skin:navImageAlt>
+	<skin:keywords><ao:message key="contact.keywords" /></skin:keywords>
+	<skin:description><ao:message key="contact.description" /></skin:description>
+</ao:bundle>

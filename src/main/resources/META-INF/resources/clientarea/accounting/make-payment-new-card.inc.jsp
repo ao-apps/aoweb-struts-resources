@@ -49,11 +49,11 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 							<b><ao:message key="makePaymentNewCard.form.title" /></b>
 							<ao:hr />
 							<logic:present scope="request" name="errorReason">
-								<ao:message key="makePaymentStoredCardError.error.description" arg0="${errorReason}" />
+								<ao:message key="makePaymentStoredCardError.error.description" arg0="${fn:escapeXml(errorReason)}" />
 								<ao:hr />
 							</logic:present>
 							<logic:present scope="request" name="declineReason">
-								<ao:message key="makePaymentStoredCardDeclined.declined.description" arg0="${declineReason}" />
+								<ao:message key="makePaymentStoredCardDeclined.declined.description" arg0="${fn:escapeXml(declineReason)}" />
 								<ao:hr />
 							</logic:present>
 							<table class="noborder">

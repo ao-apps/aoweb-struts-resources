@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2009, 2015, 2016  AO Industries, Inc.
+Copyright (C) 2009, 2015, 2016, 2020  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -23,9 +23,10 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@include file="/_taglibs.inc.jsp" %>
 
-<fmt:bundle basename="com.aoindustries.website.signup.ApplicationResources">
+<ao:bundle basename="com.aoindustries.website.signup.ApplicationResources">
 	<skin:path>/signup/backup.do</skin:path>
-	<skin:title><fmt:message key="backup.title" /></skin:title>
-	<skin:navImageAlt><fmt:message key="backup.navImageAlt" /></skin:navImageAlt>
-	<skin:description><fmt:message key="backup.description" /></skin:description>
-</fmt:bundle>
+	<skin:title><ao:message key="backup.title" /></skin:title>
+	<skin:navImageAlt><ao:message key="backup.navImageAlt" /></skin:navImageAlt>
+	<skin:keywords><ao:message key="backup.keywords" /></skin:keywords>
+	<skin:description><ao:message key="backup.description" /></skin:description>
+</ao:bundle>

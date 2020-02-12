@@ -23,21 +23,21 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@include file="/_taglibs.inc.jsp" %>
 
-<fmt:bundle basename="com.aoindustries.website.clientarea.accounting.ApplicationResources">
+<ao:bundle basename="com.aoindustries.website.clientarea.accounting.ApplicationResources">
 	<skin:path>
 		/clientarea/accounting/delete-credit-card.do
 		<ao:param name="id" value="${param.id}"/>
 	</skin:path>
 	<logic:equal name="siteSettings" property="brand.aowebStrutsNoindex" value="true"><skin:meta name="robots">noindex</skin:meta></logic:equal>
-	<skin:title><fmt:message key="deleteCreditCard.title" /></skin:title>
-	<skin:navImageAlt><fmt:message key="deleteCreditCard.navImageAlt" /></skin:navImageAlt>
-	<skin:keywords><fmt:message key="deleteCreditCard.keywords" /></skin:keywords>
-	<skin:description><fmt:message key="deleteCreditCard.description" /></skin:description>
+	<skin:title><ao:message key="deleteCreditCard.title" /></skin:title>
+	<skin:navImageAlt><ao:message key="deleteCreditCard.navImageAlt" /></skin:navImageAlt>
+	<skin:keywords><ao:message key="deleteCreditCard.keywords" /></skin:keywords>
+	<skin:description><ao:message key="deleteCreditCard.description" /></skin:description>
 	<%@include file="add-parents.inc.jsp" %>
 	<skin:parent><%@include file="credit-card-manager.meta.inc.jsp" %></skin:parent>
 	<skin:skin>
 		<skin:content width="600">
-			<skin:contentTitle><fmt:message key="deleteCreditCard.title" /></skin:contentTitle>
+			<skin:contentTitle><ao:message key="deleteCreditCard.title" /></skin:contentTitle>
 			<skin:contentHorizontalDivider />
 			<skin:contentLine>
 				<logic:present scope="request" name="permissionDenied">
@@ -48,52 +48,52 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					<form method="post" action="<ao:url>delete-credit-card-completed.do</ao:url>"><div>
 						<ao:input type="hidden" name="id" value="${creditCard.id}" />
 						<skin:lightArea>
-							<b><fmt:message key="deleteCreditCard.confirmation.title" /></b>
+							<b><ao:message key="deleteCreditCard.confirmation.title" /></b>
 							<ao:hr />
 							<table class="spread">
 								<thead>
 									<tr>
-										<td colspan="2"><fmt:message key="deleteCreditCard.confirmation.prompt" /></td>
+										<td colspan="2"><ao:message key="deleteCreditCard.confirmation.prompt" /><ao:br /><ao:br /></td>
 									</tr>
 								</thead>
 								<tbody>
 									<tr>
-										<th style="white-space:nowrap;text-align:left" class="aoLightRow"><fmt:message key="deleteCreditCard.account.header" /></th>
+										<th style="white-space:nowrap;text-align:left" class="aoLightRow"><ao:message key="deleteCreditCard.account.header" /></th>
 										<td style="white-space:nowrap"><ao:write name="creditCard" property="account.name" /></td>
 									</tr>
 									<tr>
-										<th style="white-space:nowrap;text-align:left" class="aoLightRow"><fmt:message key="deleteCreditCard.firstName.header" /></th>
+										<th style="white-space:nowrap;text-align:left" class="aoLightRow"><ao:message key="deleteCreditCard.firstName.header" /></th>
 										<td style="white-space:nowrap"><ao:write name="creditCard" property="firstName" /></td>
 									</tr>
 									<tr>
-										<th style="white-space:nowrap;text-align:left" class="aoLightRow"><fmt:message key="deleteCreditCard.lastName.header" /></th>
+										<th style="white-space:nowrap;text-align:left" class="aoLightRow"><ao:message key="deleteCreditCard.lastName.header" /></th>
 										<td style="white-space:nowrap"><ao:write name="creditCard" property="lastName" /></td>
 									</tr>
 									<c:if test="${!empty creditCard.companyName}">
 										<tr>
-											<th style="white-space:nowrap;text-align:left" class="aoLightRow"><fmt:message key="deleteCreditCard.companyName.header" /></th>
+											<th style="white-space:nowrap;text-align:left" class="aoLightRow"><ao:message key="deleteCreditCard.companyName.header" /></th>
 											<td style="white-space:nowrap"><ao:write name="creditCard" property="companyName" /></td>
 										</tr>
 									</c:if>
 									<c:set var="cardNumber" value="${creditCard.cardInfo}"/>
 									<tr>
-										<th style="white-space:nowrap;text-align:left" class="aoLightRow"><fmt:message key="deleteCreditCard.cardType.header" /></th>
+										<th style="white-space:nowrap;text-align:left" class="aoLightRow"><ao:message key="deleteCreditCard.cardType.header" /></th>
 										<td style="white-space:nowrap"><%@include file="_credit-card-image.inc.jsp" %></td>
 									</tr>
 									<tr>
-										<th style="white-space:nowrap;text-align:left" class="aoLightRow"><fmt:message key="deleteCreditCard.cardNumber.header" /></th>
+										<th style="white-space:nowrap;text-align:left" class="aoLightRow"><ao:message key="deleteCreditCard.cardNumber.header" /></th>
 										<td style="white-space:nowrap; font-family: monospace"><c:out value="${aoweb:getCardNumberDisplay(cardNumber)}"/></td>
 									</tr>
 									<c:set var="expirationDisplay" value="${aoweb:getExpirationDisplay(creditCard.expirationMonth, creditCard.expirationYear)}"/>
 									<c:if test="${!empty expirationDisplay}">
 										<tr>
-											<th style="white-space:nowrap;text-align:left" class="aoLightRow"><fmt:message key="deleteCreditCard.expirationDate.header" /></th>
+											<th style="white-space:nowrap;text-align:left" class="aoLightRow"><ao:message key="deleteCreditCard.expirationDate.header" /></th>
 											<td style="white-space:nowrap; font-family: monospace"><c:out value="${expirationDisplay}"/></td>
 										</tr>
 									</c:if>
 									<c:if test="${!empty creditCard.description}">
 										<tr>
-											<th style="white-space:nowrap;text-align:left" class="aoLightRow"><fmt:message key="deleteCreditCard.description.header" /></th>
+											<th style="white-space:nowrap;text-align:left" class="aoLightRow"><ao:message key="deleteCreditCard.description.header" /></th>
 											<td style="white-space:nowrap"><ao:write name="creditCard" property="description" /></td>
 										</tr>
 									</c:if>
@@ -102,10 +102,9 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 									<tr>
 										<td style="white-space:nowrap;text-align:center" colspan="2">
 											<ao:br />
-											<ao:input type="submit"><fmt:message key="deleteCreditCard.field.submit.label" /></ao:input>
+											<ao:input type="submit" value="${ao:message('deleteCreditCard.field.submit.label')}" />
 											&#160;&#160;&#160;
-											<ao:input type="button">
-												<ao:value><fmt:message key="deleteCreditCard.field.cancel.label" /></ao:value>
+											<ao:input type="button" value="${ao:message('deleteCreditCard.field.cancel.label')}">
 												<ao:onclick>window.location.href=<ao:url>credit-card-manager.do</ao:url>;</ao:onclick>
 											</ao:input>
 										</td>
@@ -118,4 +117,4 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 			</skin:contentLine>
 		</skin:content>
 	</skin:skin>
-</fmt:bundle>
+</ao:bundle>

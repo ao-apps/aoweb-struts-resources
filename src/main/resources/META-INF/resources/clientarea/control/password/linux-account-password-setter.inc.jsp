@@ -27,8 +27,8 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 <%@include file="linux-account-password-setter.meta.inc.jsp" %>
 <skin:skin>
 	<skin:content width="600">
-		<fmt:bundle basename="com.aoindustries.website.clientarea.control.ApplicationResources">
-			<skin:contentTitle><fmt:message key="password.linuxAccountPasswordSetter.title" /></skin:contentTitle>
+		<ao:bundle basename="com.aoindustries.website.clientarea.control.ApplicationResources">
+			<skin:contentTitle><ao:message key="password.linuxAccountPasswordSetter.title" /></skin:contentTitle>
 			<skin:contentHorizontalDivider />
 			<skin:contentLine>
 				<logic:present scope="request" name="permissionDenied">
@@ -36,7 +36,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 				</logic:present>
 				<logic:notPresent scope="request" name="permissionDenied">
 					<logic:empty scope="request" name="linuxAccountPasswordSetterForm" property="packages">
-						<b><fmt:message key="password.linuxAccountPasswordSetter.noAccounts" /></b>
+						<b><ao:message key="password.linuxAccountPasswordSetter.noAccounts" /></b>
 					</logic:empty>
 					<logic:notEmpty scope="request" name="linuxAccountPasswordSetterForm" property="packages">
 						<html:form action="/password/linux-account-password-setter-completed">
@@ -46,15 +46,15 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 										<tr>
 											<bean:size scope="request" name="aoConn" property="billing.Package.map" id="packagesSize" />
 											<logic:greaterThan name="packagesSize" value="1">
-												<th><fmt:message key="password.linuxAccountPasswordSetter.header.package" /></th>
+												<th><ao:message key="password.linuxAccountPasswordSetter.header.package" /></th>
 											</logic:greaterThan>
-											<th><fmt:message key="password.linuxAccountPasswordSetter.header.username" /></th>
+											<th><ao:message key="password.linuxAccountPasswordSetter.header.username" /></th>
 											<bean:size scope="request" name="aoConn" property="linux.Server.map" id="serversSize" />
 											<logic:greaterThan name="serversSize" value="1">
-												<th><fmt:message key="password.linuxAccountPasswordSetter.header.server" /></th>
+												<th><ao:message key="password.linuxAccountPasswordSetter.header.server" /></th>
 											</logic:greaterThan>
-											<th colspan='2'><fmt:message key="password.linuxAccountPasswordSetter.header.newPassword" /></th>
-											<th><fmt:message key="password.linuxAccountPasswordSetter.header.confirmPassword" /></th>
+											<th colspan='2'><ao:message key="password.linuxAccountPasswordSetter.header.newPassword" /></th>
+											<th><ao:message key="password.linuxAccountPasswordSetter.header.confirmPassword" /></th>
 											<th>&#160;</th>
 										</tr>
 									</thead>
@@ -90,7 +90,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 										</logic:iterate>
 									</tbody>
 									<tfoot>
-										<tr><td colspan="7" style="text-align:center"><ao:input type="submit"><fmt:message key="password.linuxAccountPasswordSetter.field.submit.label" /></ao:input></td></tr>
+										<tr><td colspan="7" style="text-align:center"><ao:input type="submit" value="${ao:message('password.linuxAccountPasswordSetter.field.submit.label')}" /></td></tr>
 									</tfoot>
 								</table>
 							</skin:lightArea>
@@ -98,6 +98,6 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					</logic:notEmpty>
 				</logic:notPresent>
 			</skin:contentLine>
-		</fmt:bundle>
+		</ao:bundle>
 	</skin:content>
 </skin:skin>

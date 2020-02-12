@@ -24,8 +24,8 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 <%@include file="/_taglibs.inc.jsp" %>
 
 <skin:lightArea>
-	<fmt:bundle basename="com.aoindustries.website.signup.ApplicationResources">
-		<b><fmt:message key="steps.title" /></b>
+	<ao:bundle basename="com.aoindustries.website.signup.ApplicationResources">
+		<b><ao:message key="steps.title" /></b>
 		<ao:hr />
 		<bean:define scope="request" name="signupSelectPackageFormComplete" id="signupSelectPackageFormComplete" type="java.lang.String" />
 		<bean:define scope="request" name="signupCustomizeServerFormComplete" id="signupCustomizeServerFormComplete" type="java.lang.String" />
@@ -38,80 +38,80 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 			<tbody>
 				<tr>
 					<td>
-						<logic:equal name="myStepNumber" value="1"><fmt:message key="steps.arrow" /></logic:equal>
+						<logic:equal name="myStepNumber" value="1"><ao:message key="steps.arrow" /></logic:equal>
 						<logic:notEqual name="myStepNumber" value="1">&#160;</logic:notEqual>
 					</td>
-					<td><fmt:message key="steps.1" /></td>
+					<td><ao:message key="steps.1" /></td>
 					<td>
 						<% if(myStepNumber.equals("8")) { %>
-							<fmt:message key="steps.selectServer.label" />
+							<ao:message key="steps.selectServer.label" />
 						<% } else { %>
-							<a class="aoDarkLink" href="javascript:selectStep('<ao:write scope="request" name="actionPrefix" />');"><fmt:message key="steps.selectServer.label" /></a>
+							<a class="aoDarkLink" href="javascript:selectStep('<ao:write scope="request" name="actionPrefix" />');"><ao:message key="steps.selectServer.label" /></a>
 						<% } %>
 					</td>
 					<td>
 						<logic:equal scope="request" name="signupSelectPackageFormComplete" value="true">
-							<fmt:message key="steps.completed" />
+							<ao:message key="steps.completed" />
 						</logic:equal>
 						<logic:notEqual scope="request" name="signupSelectPackageFormComplete" value="true">
-							<fmt:message key="steps.incomplete" />
+							<b><ao:message key="steps.incomplete" /></b>
 						</logic:notEqual>
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<logic:equal name="myStepNumber" value="2"><fmt:message key="steps.arrow" /></logic:equal>
+						<logic:equal name="myStepNumber" value="2"><ao:message key="steps.arrow" /></logic:equal>
 						<logic:notEqual name="myStepNumber" value="2">&#160;</logic:notEqual>
 					</td>
-					<td><fmt:message key="steps.2" /></td>
+					<td><ao:message key="steps.2" /></td>
 					<td>
 						<% if(myStepNumber.equals("8") || !signupSelectPackageFormComplete.equals("true")) { %>
-							<fmt:message key="steps.customizeServer.label" />
+							<ao:message key="steps.customizeServer.label" />
 						<% } else { %>
-							<a class="aoDarkLink" href="javascript:selectStep('<ao:write scope="request" name="actionPrefix" />-2');"><fmt:message key="steps.customizeServer.label" /></a>
+							<a class="aoDarkLink" href="javascript:selectStep('<ao:write scope="request" name="actionPrefix" />-2');"><ao:message key="steps.customizeServer.label" /></a>
 						<% } %>
 					</td>
 					<td>
 						<logic:equal scope="request" name="signupCustomizeServerFormComplete" value="true">
-							<fmt:message key="steps.completed" />
+							<ao:message key="steps.completed" />
 						</logic:equal>
 						<logic:notEqual scope="request" name="signupCustomizeServerFormComplete" value="true">
-							<fmt:message key="steps.incomplete" />
+							<b><ao:message key="steps.incomplete" /></b>
 						</logic:notEqual>
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<logic:equal name="myStepNumber" value="3"><fmt:message key="steps.arrow" /></logic:equal>
+						<logic:equal name="myStepNumber" value="3"><ao:message key="steps.arrow" /></logic:equal>
 						<logic:notEqual name="myStepNumber" value="3">&#160;</logic:notEqual>
 					</td>
-					<td><fmt:message key="steps.3" /></td>
+					<td><ao:message key="steps.3" /></td>
 					<td>
 						<% if(
 								myStepNumber.equals("8")
 								|| !signupSelectPackageFormComplete.equals("true")
 								|| !signupCustomizeServerFormComplete.equals("true")
 						   ) { %>
-							<fmt:message key="steps.customizeManagement.label" />
+							<ao:message key="steps.customizeManagement.label" />
 						<% } else { %>
-							<a class="aoDarkLink" href="javascript:selectStep('<ao:write scope="request" name="actionPrefix" />-3');"><fmt:message key="steps.customizeManagement.label" /></a>
+							<a class="aoDarkLink" href="javascript:selectStep('<ao:write scope="request" name="actionPrefix" />-3');"><ao:message key="steps.customizeManagement.label" /></a>
 						<% } %>
 					</td>
 					<td>
 						<logic:equal scope="request" name="signupCustomizeManagementFormComplete" value="true">
-							<fmt:message key="steps.completed" />
+							<ao:message key="steps.completed" />
 						</logic:equal>
 						<logic:notEqual scope="request" name="signupCustomizeManagementFormComplete" value="true">
-							<fmt:message key="steps.incomplete" />
+							<b><ao:message key="steps.incomplete" /></b>
 						</logic:notEqual>
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<logic:equal name="myStepNumber" value="4"><fmt:message key="steps.arrow" /></logic:equal>
+						<logic:equal name="myStepNumber" value="4"><ao:message key="steps.arrow" /></logic:equal>
 						<logic:notEqual name="myStepNumber" value="4">&#160;</logic:notEqual>
 					</td>
-					<td><fmt:message key="steps.4" /></td>
+					<td><ao:message key="steps.4" /></td>
 					<td>
 						<% if(
 								myStepNumber.equals("8")
@@ -119,26 +119,26 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 								|| !signupCustomizeServerFormComplete.equals("true")
 								|| !signupCustomizeManagementFormComplete.equals("true")
 						   ) { %>
-							<fmt:message key="steps.organizationInfo.label" />
+							<ao:message key="steps.organizationInfo.label" />
 						<% } else { %>
-							<a class="aoDarkLink" href="javascript:selectStep('<ao:write scope="request" name="actionPrefix" />-4');"><fmt:message key="steps.organizationInfo.label" /></a>
+							<a class="aoDarkLink" href="javascript:selectStep('<ao:write scope="request" name="actionPrefix" />-4');"><ao:message key="steps.organizationInfo.label" /></a>
 						<% } %>
 					</td>
 					<td>
 						<logic:equal scope="request" name="signupOrganizationFormComplete" value="true">
-							<fmt:message key="steps.completed" />
+							<ao:message key="steps.completed" />
 						</logic:equal>
 						<logic:notEqual scope="request" name="signupOrganizationFormComplete" value="true">
-							<fmt:message key="steps.incomplete" />
+							<b><ao:message key="steps.incomplete" /></b>
 						</logic:notEqual>
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<logic:equal name="myStepNumber" value="5"><fmt:message key="steps.arrow" /></logic:equal>
+						<logic:equal name="myStepNumber" value="5"><ao:message key="steps.arrow" /></logic:equal>
 						<logic:notEqual name="myStepNumber" value="5">&#160;</logic:notEqual>
 					</td>
-					<td><fmt:message key="steps.5" /></td>
+					<td><ao:message key="steps.5" /></td>
 					<td>
 						<% if(
 								myStepNumber.equals("8")
@@ -147,26 +147,26 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 								|| !signupCustomizeManagementFormComplete.equals("true")
 								|| !signupOrganizationFormComplete.equals("true")
 						   ) { %>
-							<fmt:message key="steps.technicalInfo.label" />
+							<ao:message key="steps.technicalInfo.label" />
 						<% } else { %>
-							<a class="aoDarkLink" href="javascript:selectStep('<ao:write scope="request" name="actionPrefix" />-5');"><fmt:message key="steps.technicalInfo.label" /></a>
+							<a class="aoDarkLink" href="javascript:selectStep('<ao:write scope="request" name="actionPrefix" />-5');"><ao:message key="steps.technicalInfo.label" /></a>
 						<% } %>
 					</td>
 					<td>
 						<logic:equal scope="request" name="signupTechnicalFormComplete" value="true">
-							<fmt:message key="steps.completed" />
+							<ao:message key="steps.completed" />
 						</logic:equal>
 						<logic:notEqual scope="request" name="signupTechnicalFormComplete" value="true">
-							<fmt:message key="steps.incomplete" />
+							<b><ao:message key="steps.incomplete" /></b>
 						</logic:notEqual>
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<logic:equal name="myStepNumber" value="6"><fmt:message key="steps.arrow" /></logic:equal>
+						<logic:equal name="myStepNumber" value="6"><ao:message key="steps.arrow" /></logic:equal>
 						<logic:notEqual name="myStepNumber" value="6">&#160;</logic:notEqual>
 					</td>
-					<td><fmt:message key="steps.6" /></td>
+					<td><ao:message key="steps.6" /></td>
 					<td>
 						<% if(
 								myStepNumber.equals("8")
@@ -176,26 +176,26 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 								|| !signupOrganizationFormComplete.equals("true")
 								|| !signupTechnicalFormComplete.equals("true")
 						   ) { %>
-							<fmt:message key="steps.billingInformation.label" />
+							<ao:message key="steps.billingInformation.label" />
 						<% } else { %>
-							<a class="aoDarkLink" href="javascript:selectStep('<ao:write scope="request" name="actionPrefix" />-6');"><fmt:message key="steps.billingInformation.label" /></a>
+							<a class="aoDarkLink" href="javascript:selectStep('<ao:write scope="request" name="actionPrefix" />-6');"><ao:message key="steps.billingInformation.label" /></a>
 						<% } %>
 					</td>
 					<td>
 						<logic:equal scope="request" name="signupBillingInformationFormComplete" value="true">
-							<fmt:message key="steps.completed" />
+							<ao:message key="steps.completed" />
 						</logic:equal>
 						<logic:notEqual scope="request" name="signupBillingInformationFormComplete" value="true">
-							<fmt:message key="steps.incomplete" />
+							<b><ao:message key="steps.incomplete" /></b>
 						</logic:notEqual>
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<logic:equal name="myStepNumber" value="7"><fmt:message key="steps.arrow" /></logic:equal>
+						<logic:equal name="myStepNumber" value="7"><ao:message key="steps.arrow" /></logic:equal>
 						<logic:notEqual name="myStepNumber" value="7">&#160;</logic:notEqual>
 					</td>
-					<td><fmt:message key="steps.7" /></td>
+					<td><ao:message key="steps.7" /></td>
 					<td>
 						<% if(
 								myStepNumber.equals("8")
@@ -206,30 +206,30 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 								|| !signupTechnicalFormComplete.equals("true")
 								|| !signupBillingInformationFormComplete.equals("true")
 						   ) { %>
-							<fmt:message key="steps.confirmation.label" />
+							<ao:message key="steps.confirmation.label" />
 						<% } else { %>
-							<a class="aoDarkLink" href="javascript:selectStep('<ao:write scope="request" name="actionPrefix" />-7');"><fmt:message key="steps.confirmation.label" /></a>
+							<a class="aoDarkLink" href="javascript:selectStep('<ao:write scope="request" name="actionPrefix" />-7');"><ao:message key="steps.confirmation.label" /></a>
 						<% } %>
 					</td>
 					<td>
 						<logic:equal name="myStepNumber" value="8">
-							<fmt:message key="steps.completed" />
+							<ao:message key="steps.completed" />
 						</logic:equal>
 						<logic:notEqual name="myStepNumber" value="8">
-							<fmt:message key="steps.incomplete" />
+							<b><ao:message key="steps.incomplete" /></b>
 						</logic:notEqual>
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<logic:equal name="myStepNumber" value="8"><fmt:message key="steps.arrow" /></logic:equal>
+						<logic:equal name="myStepNumber" value="8"><ao:message key="steps.arrow" /></logic:equal>
 						<logic:notEqual name="myStepNumber" value="8">&#160;</logic:notEqual>
 					</td>
-					<td><fmt:message key="steps.8" /></td>
-					<td><fmt:message key="steps.finished.label" /></td>
+					<td><ao:message key="steps.8" /></td>
+					<td><ao:message key="steps.finished.label" /></td>
 					<td>&#160;</td>
 				</tr>
 			</tbody>
 		</table>
-	</fmt:bundle>
+	</ao:bundle>
 </skin:lightArea>

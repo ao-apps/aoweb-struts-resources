@@ -25,16 +25,16 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 
 <skin:lightArea>
 	<skin:popupGroup>
-		<fmt:bundle basename="com.aoindustries.website.signup.ApplicationResources">
+		<ao:bundle basename="com.aoindustries.website.signup.ApplicationResources">
 			<table class="noborder">
 				<thead>
-					<tr><td colspan="5"><b><fmt:message key="signupSelectPackageForm.stepLabel" /></b><ao:br /><ao:hr /></td></tr>
-					<tr><td colspan="5"><fmt:message key="signupSelectPackageForm.stepHelp" /><ao:br /><ao:br /></td></tr>
+					<tr><td colspan="5"><b><ao:message key="signupSelectPackageForm.stepLabel" /></b><ao:br /><ao:hr /></td></tr>
+					<tr><td colspan="5"><i><ao:message key="signupSelectPackageForm.stepHelp" /></i><ao:br /><ao:br /></td></tr>
 					<tr>
-						<th style='white-space:nowrap'><fmt:message key="signupSelectPackageForm.select.header" /></th>
-						<th style='white-space:nowrap'><fmt:message key="signupSelectPackageForm.packageDefinition.header" /></th>
-						<th style='white-space:nowrap'><fmt:message key="signupSelectPackageForm.setup.header" /></th>
-						<th style='white-space:nowrap'><fmt:message key="signupSelectPackageForm.monthlyRate.header" /></th>
+						<th style='white-space:pre'><ao:message key="signupSelectPackageForm.select.header" /></th>
+						<th style='white-space:pre'><ao:message key="signupSelectPackageForm.packageDefinition.header" /></th>
+						<th style='white-space:pre'><ao:message key="signupSelectPackageForm.setup.header" /></th>
+						<th style='white-space:pre'><ao:message key="signupSelectPackageForm.monthlyRate.header" /></th>
 						<th style='white-space:nowrap'>&#160;</th>
 					</tr>
 				</thead>
@@ -60,10 +60,10 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 												</td>
 											</tr>
 											<tr>
-												<th class='aoPopupDarkRow'><fmt:message key="signupSelectPackageForm.resource.header" /></th>
-												<th class='aoPopupDarkRow'><fmt:message key="signupSelectPackageForm.included.header" /></th>
-												<th class='aoPopupDarkRow'><fmt:message key="signupSelectPackageForm.maximum.header" /></th>
-												<th class='aoPopupDarkRow'><fmt:message key="signupSelectPackageForm.additionalRate.header" /></th>
+												<th class='aoPopupDarkRow'><ao:message key="signupSelectPackageForm.resource.header" /></th>
+												<th class='aoPopupDarkRow'><ao:message key="signupSelectPackageForm.included.header" /></th>
+												<th class='aoPopupDarkRow'><ao:message key="signupSelectPackageForm.maximum.header" /></th>
+												<th class='aoPopupDarkRow'><ao:message key="signupSelectPackageForm.additionalRate.header" /></th>
 											</tr>
 										</thead>
 										<tbody>
@@ -73,13 +73,13 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 													<td style="white-space:nowrap"><b><ao:write name="limit" property="resource"/></b></td>
 													<td style="white-space:nowrap">
 														<c:choose>
-															<c:when test="${limit.softLimit==-1}"><fmt:message key="signupSelectPackageForm.unlimited" /></c:when>
+															<c:when test="${limit.softLimit==-1}"><ao:message key="signupSelectPackageForm.unlimited" /></c:when>
 															<c:otherwise><ao:write name="limit" method="getSoftLimitDisplayUnit"/></c:otherwise>
 														</c:choose>
 													</td>
 													<td style="white-space:nowrap">
 														<c:choose>
-															<c:when test="${limit.hardLimit==-1}"><fmt:message key="signupSelectPackageForm.unlimited" /></c:when>
+															<c:when test="${limit.hardLimit==-1}"><ao:message key="signupSelectPackageForm.unlimited" /></c:when>
 															<c:otherwise><ao:write name="limit" method="getHardLimitDisplayUnit"/></c:otherwise>
 														</c:choose>
 													</td>
@@ -93,7 +93,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 								</skin:popup>
 							</td>
 							<td style="white-space:nowrap; text-align:center">
-								<logic:empty name="packageDefinition" property="setupFee"><fmt:message key="signupSelectPackageForm.setup.none" /></logic:empty>
+								<logic:empty name="packageDefinition" property="setupFee"><ao:message key="signupSelectPackageForm.setup.none" /></logic:empty>
 								<logic:notEmpty name="packageDefinition" property="setupFee"><ao:write name="packageDefinition" property="setupFee" /></logic:notEmpty>
 							</td>
 							<td style="white-space:nowrap; text-align:center"><ao:write name="packageDefinition" property="monthlyRate" /></td>
@@ -107,9 +107,9 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					</logic:iterate>
 				</tbody>
 				<tfoot>
-					<tr><td colspan="5" style="text-align:center"><ao:br /><ao:input type="submit"><fmt:message key="signupSelectPackageForm.submit.label" /></ao:input><ao:br /><ao:br /></td></tr>
+					<tr><td colspan="5" style="text-align:center"><ao:br /><ao:input type="submit" value="${ao:message('signupSelectPackageForm.submit.label')}" /><ao:br /><ao:br /></td></tr>
 				</tfoot>
 			</table>
-		</fmt:bundle>
+		</ao:bundle>
 	</skin:popupGroup>
 </skin:lightArea>

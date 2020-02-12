@@ -27,8 +27,8 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 <%@include file="managed-server.meta.inc.jsp" %>
 <skin:skin>
 	<skin:content width="600">
-		<fmt:bundle basename="com.aoindustries.website.signup.ApplicationResources">
-			<skin:contentTitle><fmt:message key="managed.title" /></skin:contentTitle>
+		<ao:bundle basename="com.aoindustries.website.signup.ApplicationResources">
+			<skin:contentTitle><ao:message key="managed.title" /></skin:contentTitle>
 			<skin:contentHorizontalDivider />
 			<skin:contentLine>
 				<ao:script>
@@ -49,6 +49,6 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					</div>
 				</html:form>
 			</skin:contentLine>
-		</fmt:bundle>
+		</ao:bundle>
 	</skin:content>
 </skin:skin>

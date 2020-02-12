@@ -25,17 +25,17 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 
 <skin:lightArea>
 	<skin:popupGroup>
-		<fmt:bundle basename="com.aoindustries.website.signup.ApplicationResources">
+		<ao:bundle basename="com.aoindustries.website.signup.ApplicationResources">
 			<table class="noborder">
 				<thead>
-					<tr><td colspan="6"><b><fmt:message key="signupSelectServerForm.stepLabel" /></b><ao:br /><ao:hr /></td></tr>
-					<tr><td colspan="6"><fmt:message key="signupSelectServerForm.stepHelp" /><ao:br /><ao:br /></td></tr>
+					<tr><td colspan="6"><b><ao:message key="signupSelectServerForm.stepLabel" /></b><ao:br /><ao:hr /></td></tr>
+					<tr><td colspan="6"><i><ao:message key="signupSelectServerForm.stepHelp" /></i><ao:br /><ao:br /></td></tr>
 					<tr>
-						<th style='white-space:nowrap'><fmt:message key="signupSelectPackageForm.select.header" /></th>
-						<th style='white-space:nowrap'><fmt:message key="signupSelectServerForm.packageDefinition.header" /></th>
-						<th style='white-space:nowrap'><fmt:message key="signupSelectPackageForm.setup.header" /></th>
-						<th style='white-space:nowrap'><fmt:message key="signupSelectPackageForm.minimumMonthlyRate.header" /></th>
-						<th style='white-space:nowrap'><fmt:message key="signupSelectPackageForm.maximumMonthlyRate.header" /></th>
+						<th style='white-space:pre'><ao:message key="signupSelectPackageForm.select.header" /></th>
+						<th style='white-space:pre'><ao:message key="signupSelectServerForm.packageDefinition.header" /></th>
+						<th style='white-space:pre'><ao:message key="signupSelectPackageForm.setup.header" /></th>
+						<th style='white-space:pre'><ao:message key="signupSelectPackageForm.minimumMonthlyRate.header" /></th>
+						<th style='white-space:pre'><ao:message key="signupSelectPackageForm.maximumMonthlyRate.header" /></th>
 						<th style='white-space:nowrap'>&#160;</th>
 					</tr>
 				</thead>
@@ -62,26 +62,26 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 												</td>
 											</tr>
 											<tr>
-												<th class='aoPopupDarkRow'><fmt:message key="signupSelectPackageForm.resource.header" /></th>
-												<th class='aoPopupDarkRow'><fmt:message key="signupSelectPackageForm.minimum.header" /></th>
-												<th class='aoPopupDarkRow'><fmt:message key="signupSelectPackageForm.maximum.header" /></th>
+												<th class='aoPopupDarkRow'><ao:message key="signupSelectPackageForm.resource.header" /></th>
+												<th class='aoPopupDarkRow'><ao:message key="signupSelectPackageForm.minimum.header" /></th>
+												<th class='aoPopupDarkRow'><ao:message key="signupSelectPackageForm.maximum.header" /></th>
 											</tr>
 										</thead>
 										<tbody>
 											<% int row2 = 0; %>
 											<tr class='<%= ((row2++)&1)==0 ? "aoPopupLightRow" : "aoPopupDarkRow" %>'>
-												<td style="white-space:nowrap"><b><fmt:message key="signupSelectPackageForm.cpu.header" /></b></td>
+												<td style="white-space:nowrap"><b><ao:message key="signupSelectPackageForm.cpu.header" /></b></td>
 												<td style="white-space:nowrap"><ao:write name="server" property="minimumConfiguration.cpu" type="application/xhtml+xml" /></td>
 												<td style="white-space:nowrap"><ao:write name="server" property="maximumConfiguration.cpu" type="application/xhtml+xml" /></td>
 											</tr>
 											<tr class='<%= ((row2++)&1)==0 ? "aoPopupLightRow" : "aoPopupDarkRow" %>'>
-												<td style="white-space:nowrap"><b><fmt:message key="signupSelectPackageForm.ram.header" /></b></td>
+												<td style="white-space:nowrap"><b><ao:message key="signupSelectPackageForm.ram.header" /></b></td>
 												<td style="white-space:nowrap"><ao:write name="server" property="minimumConfiguration.ram" /></td>
 												<td style="white-space:nowrap"><ao:write name="server" property="maximumConfiguration.ram" /></td>
 											</tr>
 											<logic:notEmpty name="server" property="maximumConfiguration.disk">
 												<tr class='<%= ((row2++)&1)==0 ? "aoPopupLightRow" : "aoPopupDarkRow" %>'>
-													<td style="white-space:nowrap"><b><fmt:message key="signupSelectPackageForm.disk.header" /></b></td>
+													<td style="white-space:nowrap"><b><ao:message key="signupSelectPackageForm.disk.header" /></b></td>
 													<td style="white-space:nowrap">
 														<logic:empty name="server" property="minimumConfiguration.disk">&#160;</logic:empty>
 														<logic:notEmpty name="server" property="minimumConfiguration.disk"><ao:write name="server" property="minimumConfiguration.disk" /></logic:notEmpty>
@@ -94,7 +94,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 								</skin:popup>
 							</td>
 							<td style="white-space:nowrap; text-align:center">
-								<logic:empty name="server" property="minimumConfiguration.setup"><fmt:message key="signupSelectPackageForm.setup.none" /></logic:empty>
+								<logic:empty name="server" property="minimumConfiguration.setup"><ao:message key="signupSelectPackageForm.setup.none" /></logic:empty>
 								<logic:notEmpty name="server" property="minimumConfiguration.setup"><ao:write name="server" property="minimumConfiguration.setup" /></logic:notEmpty>
 							</td>
 							<td style="white-space:nowrap; text-align:center"><ao:write name="server" property="minimumConfiguration.monthly" /></td>
@@ -109,9 +109,9 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					</logic:iterate>
 				</tbody>
 				<tfoot>
-					<tr><td colspan="6" style="text-align:center"><ao:br /><ao:input type="submit"><fmt:message key="signupSelectServerForm.submit.label" /></ao:input><ao:br /><ao:br /></td></tr>
+					<tr><td colspan="6" style="text-align:center"><ao:br /><ao:input type="submit" value="${ao:message('signupSelectServerForm.submit.label')}" /><ao:br /><ao:br /></td></tr>
 				</tfoot>
 			</table>
-		</fmt:bundle>
+		</ao:bundle>
 	</skin:popupGroup>
 </skin:lightArea>

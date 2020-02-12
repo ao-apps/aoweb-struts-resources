@@ -23,24 +23,24 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@include file="/_taglibs.inc.jsp" %>
 
-<fmt:bundle basename="com.aoindustries.website.ApplicationResources">
+<ao:bundle basename="com.aoindustries.website.ApplicationResources">
 	<skin:path>/login.do</skin:path>
 	<skin:meta name="robots">noindex</skin:meta>
-	<skin:title><fmt:message key="login.title" /></skin:title>
-	<skin:navImageAlt><fmt:message key="login.navImageAlt" /></skin:navImageAlt>
-	<skin:keywords><fmt:message key="login.keywords" /></skin:keywords>
-	<skin:description><fmt:message key="login.description" /></skin:description>
+	<skin:title><ao:message key="login.title" /></skin:title>
+	<skin:navImageAlt><ao:message key="login.navImageAlt" /></skin:navImageAlt>
+	<skin:keywords><ao:message key="login.keywords" /></skin:keywords>
+	<skin:description><ao:message key="login.description" /></skin:description>
 	<aoweb:exists path="/add-parents.inc.jsp"><jsp:include page="/add-parents.inc.jsp" /></aoweb:exists>
 	<skin:skin onload="document.forms['loginForm'].username.focus(); document.forms['loginForm'].username.select();">
 		<skin:content width="600">
-			<skin:contentTitle><fmt:message key="login.title" /></skin:contentTitle>
+			<skin:contentTitle><ao:message key="login.title" /></skin:contentTitle>
 			<skin:contentHorizontalDivider />
 			<skin:contentLine>
 				<html:javascript staticJavascript='false' bundle="/ApplicationResources" formName="loginForm" />
 				<skin:lightArea>
 					<b>
 						<logic:present scope="request" name="authenticationMessage"><ao:write scope="request" name="authenticationMessage" type="application/xhtml+xml" /></logic:present>
-						<logic:notPresent scope="request" name="authenticationMessage"><fmt:message key="login.pleaseLogin" /></logic:notPresent>
+						<logic:notPresent scope="request" name="authenticationMessage"><ao:message key="login.pleaseLogin" /></logic:notPresent>
 					</b>
 					<ao:hr />
 					<html:form action="/login-completed" onsubmit="return validateLoginForm(this);" style="display:inline;"><div><%-- display:inline for IE6 only --%>
@@ -51,19 +51,19 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 						<table class="noborder">
 							<tbody>
 								<tr>
-									<td><fmt:message key="login.field.username.prompt" /></td>
+									<td><ao:message key="login.field.username.prompt" /></td>
 									<td><html:text size="16" property="username" /></td>
 									<td><html:errors bundle="/ApplicationResources" property="username" /></td>
 								</tr>
 								<tr>
-									<td><fmt:message key="login.field.password.prompt" /></td>
+									<td><ao:message key="login.field.password.prompt" /></td>
 									<td><html:password size="16" property="password" /></td>
 									<td><html:errors bundle="/ApplicationResources" property="password" /></td>
 								</tr>
 							</tbody>
 							<tfoot>
 								<tr>
-									<td colspan="3" style="text-align:center"><ao:input type="submit"><fmt:message key="login.field.submit.label" /></ao:input></td>
+									<td colspan="3" style="text-align:center"><ao:input type="submit" value="${ao:message('login.field.submit.label')}" /></td>
 								</tr>
 							</tfoot>
 						</table>
@@ -72,4 +72,4 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 			</skin:contentLine>
 		</skin:content>
 	</skin:skin>
-</fmt:bundle>
+</ao:bundle>

@@ -33,59 +33,59 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 		}
 	</ao:script>
 	<skin:lightArea>
-		<fmt:bundle basename="com.aoindustries.website.signup.ApplicationResources">
+		<ao:bundle basename="com.aoindustries.website.signup.ApplicationResources">
 			<table class="packed">
 				<thead>
-					<tr><td colspan="4"><b><fmt:message key="signupOrganizationForm.stepLabel" /></b><ao:br /><ao:hr /></td></tr>
-					<tr><td colspan="4"><fmt:message key="signupOrganizationForm.stepHelp" /><ao:br /><ao:br /></td></tr>
+					<tr><td colspan="4"><b><ao:message key="signupOrganizationForm.stepLabel" /></b><ao:br /><ao:hr /></td></tr>
+					<tr><td colspan="4"><i><ao:message key="signupOrganizationForm.stepHelp" /></i><ao:br /><ao:br /></td></tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td style="white-space:nowrap"><fmt:message key="signup.required" /></td>
-						<td style="white-space:nowrap"><fmt:message key="signupOrganizationForm.organizationName.prompt" /></td>
+						<td style="white-space:nowrap"><ao:message key="signup.required" /></td>
+						<td style="white-space:nowrap"><ao:message key="signupOrganizationForm.organizationName.prompt" /></td>
 						<td style="white-space:nowrap"><html:text size="32" property="organizationName" maxlength="255" /></td>
 						<td style="white-space:nowrap"><html:errors bundle="/signup/ApplicationResources" property="organizationName" /></td>
 					</tr>
 					<tr>
-						<td style="white-space:nowrap"><fmt:message key="signup.required" /></td>
-						<td style="white-space:nowrap"><fmt:message key="signupOrganizationForm.organizationPhone.prompt" /></td>
+						<td style="white-space:nowrap"><ao:message key="signup.required" /></td>
+						<td style="white-space:nowrap"><ao:message key="signupOrganizationForm.organizationPhone.prompt" /></td>
 						<td style="white-space:nowrap"><html:text size="18" property="organizationPhone" maxlength="255" /></td>
 						<td style="white-space:nowrap"><html:errors bundle="/signup/ApplicationResources" property="organizationPhone" /></td>
 					</tr>
 					<tr>
-						<td style="white-space:nowrap"><fmt:message key="signup.notRequired" /></td>
-						<td style="white-space:nowrap"><fmt:message key="signupOrganizationForm.organizationFax.prompt" /></td>
+						<td style="white-space:nowrap"><ao:message key="signup.notRequired" /></td>
+						<td style="white-space:nowrap"><ao:message key="signupOrganizationForm.organizationFax.prompt" /></td>
 						<td style="white-space:nowrap"><html:text size="18" property="organizationFax" maxlength="255" /></td>
 						<td style="white-space:nowrap"><html:errors bundle="/signup/ApplicationResources" property="organizationFax" /></td>
 					</tr>
 					<tr><td colspan="4">&#160;</td></tr>
 					<tr>
-						<td style="white-space:nowrap"><fmt:message key="signup.required" /></td>
-						<td style="white-space:nowrap"><fmt:message key="signupOrganizationForm.organizationAddress1.prompt" /></td>
+						<td style="white-space:nowrap"><ao:message key="signup.required" /></td>
+						<td style="white-space:nowrap"><ao:message key="signupOrganizationForm.organizationAddress1.prompt" /></td>
 						<td style="white-space:nowrap"><html:text size="32" property="organizationAddress1" maxlength="255" /></td>
 						<td style="white-space:nowrap"><html:errors bundle="/signup/ApplicationResources" property="organizationAddress1" /></td>
 					</tr>
 					<tr>
-						<td style="white-space:nowrap"><fmt:message key="signup.notRequired" /></td>
-						<td style="white-space:nowrap"><fmt:message key="signupOrganizationForm.organizationAddress2.prompt" /></td>
+						<td style="white-space:nowrap"><ao:message key="signup.notRequired" /></td>
+						<td style="white-space:nowrap"><ao:message key="signupOrganizationForm.organizationAddress2.prompt" /></td>
 						<td style="white-space:nowrap"><html:text size="32" property="organizationAddress2" maxlength="255" /></td>
 						<td style="white-space:nowrap"><html:errors bundle="/signup/ApplicationResources" property="organizationAddress2" /></td>
 					</tr>
 					<tr>
-						<td style="white-space:nowrap"><fmt:message key="signup.required" /></td>
-						<td style="white-space:nowrap"><fmt:message key="signupOrganizationForm.organizationCity.prompt" /></td>
+						<td style="white-space:nowrap"><ao:message key="signup.required" /></td>
+						<td style="white-space:nowrap"><ao:message key="signupOrganizationForm.organizationCity.prompt" /></td>
 						<td style="white-space:nowrap"><html:text size="16" property="organizationCity" maxlength="255" /></td>
 						<td style="white-space:nowrap"><html:errors bundle="/signup/ApplicationResources" property="organizationCity" /></td>
 					</tr>
 					<tr>
-						<td style="white-space:nowrap"><fmt:message key="signup.notRequired" /></td>
-						<td style="white-space:nowrap"><fmt:message key="signupOrganizationForm.organizationState.prompt" /></td>
+						<td style="white-space:nowrap"><ao:message key="signup.notRequired" /></td>
+						<td style="white-space:nowrap"><ao:message key="signupOrganizationForm.organizationState.prompt" /></td>
 						<td style="white-space:nowrap"><html:text size="5" property="organizationState" maxlength="255" /></td>
 						<td style="white-space:nowrap"><html:errors bundle="/signup/ApplicationResources" property="organizationState" /></td>
 					</tr>
 					<tr>
-						<td style="white-space:nowrap"><fmt:message key="signup.required" /></td>
-						<td style="white-space:nowrap"><fmt:message key="signupOrganizationForm.organizationCountry.prompt" /></td>
+						<td style="white-space:nowrap"><ao:message key="signup.required" /></td>
+						<td style="white-space:nowrap"><ao:message key="signupOrganizationForm.organizationCountry.prompt" /></td>
 						<td style="white-space:nowrap">
 							<html:select property="organizationCountry">
 								<c:set var="selectedOne" value="false" />
@@ -106,16 +106,16 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 						<td style="white-space:nowrap"><html:errors bundle="/signup/ApplicationResources" property="organizationCountry" /></td>
 					</tr>
 					<tr>
-						<td style="white-space:nowrap"><fmt:message key="signup.notRequired" /></td>
-						<td style="white-space:nowrap"><fmt:message key="signupOrganizationForm.organizationZip.prompt" /></td>
+						<td style="white-space:nowrap"><ao:message key="signup.notRequired" /></td>
+						<td style="white-space:nowrap"><ao:message key="signupOrganizationForm.organizationZip.prompt" /></td>
 						<td style="white-space:nowrap"><html:text size="10" property="organizationZip" maxlength="255" /></td>
 						<td style="white-space:nowrap"><html:errors bundle="/signup/ApplicationResources" property="organizationZip" /></td>
 					</tr>
 				</tbody>
 				<tfoot>
-					<tr><td colspan="4" style="text-align:center"><ao:br /><ao:input type="submit"><fmt:message key="signupOrganizationForm.submit.label" /></ao:input><ao:br /><ao:br /></td></tr>
+					<tr><td colspan="4" style="text-align:center"><ao:br /><ao:input type="submit" value="${ao:message('signupOrganizationForm.submit.label')}" /><ao:br /><ao:br /></td></tr>
 				</tfoot>
 			</table>
-		 </fmt:bundle>
+		 </ao:bundle>
 	</skin:lightArea>
 </div>

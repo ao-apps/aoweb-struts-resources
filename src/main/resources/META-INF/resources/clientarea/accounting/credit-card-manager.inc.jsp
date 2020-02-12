@@ -158,19 +158,19 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 														</ao:choose>
 													</td>
 													<td style="white-space:nowrap">
-														<html:link action="/edit-credit-card" paramId="persistenceId" paramName="creditCard" paramProperty="pkey">
+														<ao:a href="edit-credit-card.do" param.persistenceId="${creditCard.pkey}">
 															<logic:equal name="creditCard" property="isActive" value="true">
 																<ao:message key="creditCardManager.edit.link" />
 															</logic:equal>
 															<logic:notEqual name="creditCard" property="isActive" value="true">
 																<ao:message key="creditCardManager.reactivate.link" />
 															</logic:notEqual>
-														</html:link>
+														</ao:a>
 													</td>
 													<td style="white-space:nowrap">
-														<html:link action="/delete-credit-card" paramId="id" paramName="creditCard" paramProperty="id">
+														<ao:a href="delete-credit-card.do" param.id="${creditCard.id}">
 															<ao:message key="creditCardManager.delete.link" />
-														</html:link>
+														</ao:a>
 													</td>
 													<c:if test="${hasDescription}">
 														<td style="white-space:nowrap">
@@ -189,14 +189,14 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 												</logic:equal>
 											</logic:equal>
 											<td style='white-space:nowrap' colspan="${fn:escapeXml(8 + (hasDescription ? 1 : 0))}">
-												<html:link action="/add-credit-card" paramId="account" paramName="accountAndCreditCards" paramProperty="account.name">
+												<ao:a href="add-credit-card.do" param.account="${accountAndCreditCards.account.name}">
 													<ao:message key="creditCardManager.addCreditCard.link" />
-												</html:link>
+												</ao:a>
 												<logic:equal name="accountAndCreditCards" property="hasActiveCard" value="true">
 													|
-													<html:link action="/configure-automatic-billing" paramId="account" paramName="accountAndCreditCards" paramProperty="account.name">
+													<ao:a href="configure-automatic-billing.do" param.account="${accountAndCreditCards.account.name}">
 														<ao:message key="creditCardManager.configureAutomaticBilling.link" />
-													</html:link>
+													</ao:a>
 												</logic:equal>
 											</td>
 										</tr>

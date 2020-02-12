@@ -24,12 +24,11 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 <%@include file="/_taglibs.inc.jsp" %>
 
 <skin:lightArea>
-	<fmt:bundle basename="com.aoindustries.website.signup.ApplicationResources">
-		<bean:define name="actionPrefix" id="myActionPrefix" type="java.lang.String" />
+	<ao:bundle basename="com.aoindustries.website.signup.ApplicationResources">
 		<table class="packed">
 			<thead>
-				<tr><td colspan="3"><b><fmt:message key="serverConfirmation.stepLabel" /></b><ao:br /><ao:hr /></td></tr>
-				<tr><td colspan="3"><fmt:message key="serverConfirmation.stepHelp" /></td></tr>
+				<tr><td colspan="3"><b><ao:message key="serverConfirmation.stepLabel" /></b><ao:br /><ao:hr /></td></tr>
+				<tr><td colspan="3"><i><ao:message key="serverConfirmation.stepHelp" /></i></td></tr>
 			</thead>
 			<tbody>
 				<tr><td colspan="3">&#160;</td></tr>
@@ -38,8 +37,8 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 						<table class="packed" style="width:100%">
 							<tbody>
 								<tr>
-									<th><fmt:message key="steps.selectServer.label" /></th>
-									<td style="text-align:right"><html:link styleClass="aoLightLink" action='<%= "/" + myActionPrefix %>'><fmt:message key="serverConfirmation.edit.link" /></html:link></td>
+									<th><ao:message key="steps.selectServer.label" /></th>
+									<td style="text-align:right"><ao:a class="aoLightLink" href='${actionPrefix}.do'><ao:message key="serverConfirmation.edit.link" /></ao:a></td>
 								</tr>
 							</tbody>
 						</table>
@@ -52,8 +51,8 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 						<table class="packed" style="width:100%">
 							<tbody>
 								<tr>
-									<th><fmt:message key="steps.customizeServer.label" /></th>
-									<td style="text-align:right"><html:link styleClass="aoLightLink" action='<%= "/" + myActionPrefix +"-2" %>'><fmt:message key="serverConfirmation.edit.link" /></html:link></td>
+									<th><ao:message key="steps.customizeServer.label" /></th>
+									<td style="text-align:right"><ao:a class="aoLightLink" href='${actionPrefix}-2.do'><ao:message key="serverConfirmation.edit.link" /></ao:a></td>
 								</tr>
 							</tbody>
 						</table>
@@ -66,8 +65,8 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 						<table class="packed" style="width:100%">
 							<tbody>
 								<tr>
-									<th><fmt:message key="steps.organizationInfo.label" /></th>
-									<td style="text-align:right"><html:link styleClass="aoLightLink" action='<%= "/" + myActionPrefix +"-3" %>'><fmt:message key="serverConfirmation.edit.link" /></html:link></td>
+									<th><ao:message key="steps.organizationInfo.label" /></th>
+									<td style="text-align:right"><ao:a class="aoLightLink" href='${actionPrefix}-3.do'><ao:message key="serverConfirmation.edit.link" /></ao:a></td>
 								</tr>
 							</tbody>
 						</table>
@@ -80,8 +79,8 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 						<table class="packed" style="width:100%">
 							<tbody>
 								<tr>
-									<th><fmt:message key="steps.technicalInfo.label" /></th>
-									<td style="text-align:right"><html:link styleClass="aoLightLink" action='<%= "/" + myActionPrefix +"-4" %>'><fmt:message key="serverConfirmation.edit.link" /></html:link></td>
+									<th><ao:message key="steps.technicalInfo.label" /></th>
+									<td style="text-align:right"><ao:a class="aoLightLink" href='${actionPrefix}-4.do'><ao:message key="serverConfirmation.edit.link" /></ao:a></td>
 								</tr>
 							</tbody>
 						</table>
@@ -94,8 +93,8 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 						<table class="packed" style="width:100%">
 							<tbody>
 								<tr>
-									<th><fmt:message key="steps.billingInformation.label" /></th>
-									<td style="text-align:right"><html:link styleClass="aoLightLink" action='<%= "/" + myActionPrefix +"-5" %>'><fmt:message key="serverConfirmation.edit.link" /></html:link></td>
+									<th><ao:message key="steps.billingInformation.label" /></th>
+									<td style="text-align:right"><ao:a class="aoLightLink" href='${actionPrefix}-5.do'><ao:message key="serverConfirmation.edit.link" /></ao:a></td>
 								</tr>
 							</tbody>
 						</table>
@@ -104,8 +103,8 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 				<%@include file="signup-billing-information-confirmation.inc.jsp" %>
 			</tbody>
 			<tfoot>
-				<tr><td colspan="3" style="text-align:center"><ao:br /><ao:input type="submit"><fmt:message key="serverConfirmation.submit.label" /></ao:input><ao:br /><ao:br /></td></tr>
+				<tr><td colspan="3" style="text-align:center"><ao:br /><ao:input type="submit" value="${ao:message('serverConfirmation.submit.label')}" /><ao:br /><ao:br /></td></tr>
 			</tfoot>
 		</table>
-	</fmt:bundle>
+	</ao:bundle>
 </skin:lightArea>
