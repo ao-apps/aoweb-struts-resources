@@ -39,7 +39,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 						<c:set var="hasDescription" value="true" />
 					</c:if>
 				</c:forEach>
-				<table class="spread">
+				<table class="ao-spread">
 					<thead>
 						<tr>
 							<th style='white-space:nowrap'><ao:message key="makePaymentSelectCard.select.header" /></th>

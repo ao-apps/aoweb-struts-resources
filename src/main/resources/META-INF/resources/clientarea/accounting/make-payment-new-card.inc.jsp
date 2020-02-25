@@ -56,7 +56,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 								<ao:message key="makePaymentStoredCardDeclined.declined.description" arg0="${fn:escapeXml(declineReason)}" />
 								<ao:hr />
 							</logic:present>
-							<table class="noborder">
+							<table class="ao-no-border">
 								<thead>
 									<c:set scope="request" var="creditCardForm" value="${makePaymentNewCardForm}" />
 									<%@include file="credit-card-form.inc.jsp" %>

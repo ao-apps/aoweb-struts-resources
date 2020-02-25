@@ -38,7 +38,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					<skin:lightArea>
 						<b><ao:message key="monitor.mysqlReplicationMonitor.main.label" /></b>
 						<ao:hr />
-						<table class="noborder">
+						<table class="ao-no-border">
 							<thead>
 								<tr>
 									<th style="white-space:pre"><ao:message key="monitor.mysqlReplicationMonitor.header.version" /></th>

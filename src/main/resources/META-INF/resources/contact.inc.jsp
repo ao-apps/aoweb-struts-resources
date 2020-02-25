@@ -34,7 +34,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 				<ao:message key="contact.text.mainDescription" />
 				<skin:contentVerticalDivider />
 				<skin:lightArea>
-					<table class="noborder">
+					<table class="ao-no-border">
 						<tbody>
 							<tr>
 								<th style='white-space:nowrap' colspan='2'><ao:message key="contact.header.dayPhone" /></th>
@@ -118,7 +118,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 				<skin:lightArea>
 					<html:javascript staticJavascript='false' bundle="/ApplicationResources" formName="contactForm" />
 					<html:form action="/contact-completed" onsubmit="return validateContactForm(this);">
-						<table class="packed">
+						<table class="ao-packed">
 							<tbody>
 								<tr>
 									<td style="white-space:nowrap"><ao:message key="contact.field.from.prompt" /></td>

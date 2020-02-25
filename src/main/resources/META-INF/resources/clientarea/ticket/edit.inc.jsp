@@ -61,7 +61,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 						<bean:define scope="request" name="ticket" type="com.aoindustries.aoserv.client.ticket.Ticket" id="ticket" />
 						<div>
 							<skin:lightArea>
-								<table class="spread">
+								<table class="ao-spread">
 									<tbody>
 										<tr>
 											<td style="white-space:nowrap"><ao:message key="edit.label.pkey" /></td>
@@ -212,7 +212,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 								<skin:lightArea>
 									<b><ao:message key="edit.actions.header" /></b>
 									<ao:hr />
-									<table class="spread">
+									<table class="ao-spread">
 										<thead>
 											<tr>
 												<th><ao:message key="edit.header.time" /></th>
@@ -275,7 +275,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 									</logic:notEqual>
 								</logic:notEqual>
 								<ao:hr />
-								<table class="spread">
+								<table class="ao-spread">
 									<tbody>
 										<tr>
 											<td style="white-space:nowrap"><ao:message key="TicketForm.field.annotationSummary.prompt" /></td>

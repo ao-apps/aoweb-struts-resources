@@ -26,7 +26,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 <skin:lightArea>
 	<skin:popupGroup>
 		<ao:bundle basename="com.aoindustries.website.signup.ApplicationResources">
-			<table class="noborder">
+			<table class="ao-no-border">
 				<thead>
 					<tr><td colspan="5"><b><ao:message key="signupSelectPackageForm.stepLabel" /></b><ao:br /><ao:hr /></td></tr>
 					<tr><td colspan="5"><i><ao:message key="signupSelectPackageForm.stepHelp" /></i><ao:br /><ao:br /></td></tr>
@@ -45,11 +45,11 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 							<td style="white-space:nowrap">
 								<label for="packageDefinition_${fn:escapeXml(packageDefinition.pkey)}"><b><ao:write name="packageDefinition" /></b></label>
 								<skin:popup>
-									<table class="noborder" style='font-size:80%;'>
+									<table class="ao-no-border" style='font-size:80%;'>
 										<thead>
 											<tr>
 												<td colspan="4" class='aoPopupLightRow' style='font-size:100%;'>
-													<table class="packed" style="width:100%">
+													<table class="ao-packed" style="width:100%">
 														<tbody>
 															<tr>
 																<th class='aoPopupLightRow'><ao:write name="packageDefinition" /></th>

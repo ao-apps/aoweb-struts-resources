@@ -50,7 +50,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 						<skin:lightArea>
 							<b><ao:message key="makePaymentStoredCard.amount.title" /></b>
 							<ao:hr />
-							<table class="spread">
+							<table class="ao-spread">
 								<tbody>
 									<tr>
 										<th style="text-align:left; white-space:nowrap"><ao:message key="makePaymentStoredCard.account.prompt" /></th>

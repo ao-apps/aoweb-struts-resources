@@ -40,7 +40,7 @@ It only provides the content of the page.
 					<ao:message key="permissionDenied.theFollowingPermissionRequired" />
 					<logic:iterate scope="request" name="permissionDenied" id="andPermission">
 						<p>
-							<table class="noborder">
+							<table class="ao-no-border">
 								<tbody>
 									<tr>
 										<td style="white-space:nowrap"><b><ao:message key="permissionDenied.permission.display" /></b></td>
@@ -58,7 +58,7 @@ It only provides the content of the page.
 				<logic:notEqual name="permissionDeniedSize" value="1">
 					<ao:message key="permissionDenied.allOfTheFollowingPermissionsRequired" />
 					<p>
-						<table class="noborder">
+						<table class="ao-no-border">
 							<thead>
 								<tr>
 									<th style='white-space:nowrap'><ao:message key="permissionDenied.andPermissions.header.display" /></th>

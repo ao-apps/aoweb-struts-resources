@@ -47,7 +47,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 									</c:forEach>
 								</c:if>
 							</c:forEach>
-							<table class="spread">
+							<table class="ao-spread">
 								<thead>
 									<tr>
 										<logic:equal scope="request" name="showAccount" value="true">

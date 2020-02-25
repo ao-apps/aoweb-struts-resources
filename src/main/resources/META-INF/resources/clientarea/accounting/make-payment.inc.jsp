@@ -34,7 +34,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 				<skin:lightArea>
 					<b><ao:message key="makePayment.selectAccount.list.title" /></b>
 					<ao:hr />
-					<table class="noborder">
+					<table class="ao-no-border">
 						<thead>
 							<tr>
 								<th style='white-space:nowrap'><ao:message key="makePayment.account.header" /></th>

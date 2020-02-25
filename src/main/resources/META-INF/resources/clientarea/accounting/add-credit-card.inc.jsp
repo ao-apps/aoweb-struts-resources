@@ -50,7 +50,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 							<skin:lightArea>
 								<b><ao:message key="addCreditCard.form.title" /></b>
 								<ao:hr />
-								<table class="noborder">
+								<table class="ao-no-border">
 									<tbody>
 										<c:set scope="request" var="creditCardForm" value="${addCreditCardForm}" />
 										<%@include file="credit-card-form.inc.jsp" %>

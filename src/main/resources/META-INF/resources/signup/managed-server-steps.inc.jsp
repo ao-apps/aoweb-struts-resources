@@ -34,7 +34,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 		<bean:define scope="request" name="signupTechnicalFormComplete" id="signupTechnicalFormComplete" type="java.lang.String" />
 		<bean:define scope="request" name="signupBillingInformationFormComplete" id="signupBillingInformationFormComplete" type="java.lang.String" />
 		<bean:define name="stepNumber" id="myStepNumber" type="java.lang.String" />
-		<table class="noborder">
+		<table class="ao-no-border">
 			<tbody>
 				<tr>
 					<td>

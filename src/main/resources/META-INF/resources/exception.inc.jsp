@@ -65,7 +65,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 						<skin:lightArea>
 							<b><ao:message key="exception.jspException.title" /></b>
 							<ao:hr />
-							<table class="thinTable">
+							<table class="ao-grid">
 								<tbody>
 									<tr>
 										<th style='white-space:nowrap; text-align:left'><ao:message key="exception.servletName.header" /></th>

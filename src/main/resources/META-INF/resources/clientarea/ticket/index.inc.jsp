@@ -37,7 +37,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					<ao:a href="create.do"><ao:message key="index.link.create" /></ao:a>
 				</div>
 				<skin:lightArea>
-					<table class="spread">
+					<table class="ao-spread">
 						<thead>
 							<tr>
 								<th><ao:message key="index.header.pkey" /></th>

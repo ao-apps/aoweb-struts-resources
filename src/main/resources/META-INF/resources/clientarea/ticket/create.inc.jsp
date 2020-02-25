@@ -38,7 +38,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					<html:javascript staticJavascript='false' bundle="/clientarea/ticket/ApplicationResources" formName="ticketForm" />
 					<html:form action="/create-completed" onsubmit="return validateTicketForm(this);">
 						<skin:lightArea>
-							<table class="spread">
+							<table class="ao-spread">
 								<tbody>
 									<tr>
 										<td style="white-space:nowrap"><ao:message key="TicketForm.field.account.prompt" /></td>

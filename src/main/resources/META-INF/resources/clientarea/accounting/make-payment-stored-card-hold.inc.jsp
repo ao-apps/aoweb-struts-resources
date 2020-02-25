@@ -42,7 +42,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					<ao:message type="xhtml" key="makePaymentStoredCardHold.hold.followingProcessed" arg0="${fn:escapeXml(reviewReason)}" />
 					<ao:message key="makePaymentStoredCardHold.hold.detailsFollow" />
 					<bean:define scope="request" name="creditCard" id="creditCard" type="com.aoindustries.aoserv.client.payment.CreditCard" />
-					<table class="spread">
+					<table class="ao-spread">
 						<tbody>
 							<tr>
 								<th style="text-align:left; white-space:nowrap;"><ao:message key="makePaymentStoredCard.account.prompt" /></th>

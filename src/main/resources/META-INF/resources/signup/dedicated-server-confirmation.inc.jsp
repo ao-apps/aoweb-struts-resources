@@ -25,7 +25,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 
 <skin:lightArea>
 	<ao:bundle basename="com.aoindustries.website.signup.ApplicationResources">
-		<table class="packed">
+		<table class="ao-packed">
 			<thead>
 				<tr><td colspan="3"><b><ao:message key="serverConfirmation.stepLabel" /></b><ao:br /><ao:hr /></td></tr>
 				<tr><td colspan="3"><i><ao:message key="serverConfirmation.stepHelp" /></i></td></tr>
@@ -34,7 +34,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 				<tr><td colspan="3">&#160;</td></tr>
 				<tr>
 					<th colspan="3">
-						<table class="packed" style="width:100%">
+						<table class="ao-packed" style="width:100%">
 							<tbody>
 								<tr>
 									<th><ao:message key="steps.selectServer.label" /></th>
@@ -48,7 +48,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 				<tr><td colspan="3">&#160;</td></tr>
 				<tr>
 					<th colspan="3">
-						<table class="packed" style="width:100%">
+						<table class="ao-packed" style="width:100%">
 							<tbody>
 								<tr>
 									<th><ao:message key="steps.customizeServer.label" /></th>
@@ -62,7 +62,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 				<tr><td colspan="3">&#160;</td></tr>
 				<tr>
 					<th colspan="3">
-						<table class="packed" style="width:100%">
+						<table class="ao-packed" style="width:100%">
 							<tbody>
 								<tr>
 									<th><ao:message key="steps.organizationInfo.label" /></th>
@@ -76,7 +76,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 				<tr><td colspan="3">&#160;</td></tr>
 				<tr>
 					<th colspan="3">
-						<table class="packed" style="width:100%">
+						<table class="ao-packed" style="width:100%">
 							<tbody>
 								<tr>
 									<th><ao:message key="steps.technicalInfo.label" /></th>
@@ -90,7 +90,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 				<tr><td colspan="3">&#160;</td></tr>
 				<tr>
 					<th colspan="3">
-						<table class="packed" style="width:100%">
+						<table class="ao-packed" style="width:100%">
 							<tbody>
 								<tr>
 									<th><ao:message key="steps.billingInformation.label" /></th>

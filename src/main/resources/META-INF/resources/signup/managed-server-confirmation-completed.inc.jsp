@@ -25,7 +25,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 
 <skin:lightArea>
 	<ao:bundle basename="com.aoindustries.website.signup.ApplicationResources">
-		<table class="packed">
+		<table class="ao-packed">
 			<tbody>
 				<tr><td style='white-space:nowrap' colspan="3">
 					<ao:message type="xhtml" key="${statusKey}" arg0="${fn:escapeXml(pkey)}" /><ao:br />

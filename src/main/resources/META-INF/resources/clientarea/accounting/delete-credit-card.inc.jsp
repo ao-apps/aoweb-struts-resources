@@ -50,7 +50,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 						<skin:lightArea>
 							<b><ao:message key="deleteCreditCard.confirmation.title" /></b>
 							<ao:hr />
-							<table class="spread">
+							<table class="ao-spread">
 								<thead>
 									<tr>
 										<td colspan="2"><ao:message key="deleteCreditCard.confirmation.prompt" /><ao:br /><ao:br /></td>

@@ -34,7 +34,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 	</ao:script>
 	<skin:lightArea>
 		<ao:bundle basename="com.aoindustries.website.signup.ApplicationResources">
-			<table class="packed">
+			<table class="ao-packed">
 				<thead>
 					<tr><td colspan="4"><b><ao:message key="signupTechnicalForm.stepLabel" /></b><ao:br /><ao:hr /></td></tr>
 					<tr><td colspan="4"><i><ao:message key="signupTechnicalForm.stepHelp" /></i><ao:br /><ao:br /></td></tr>

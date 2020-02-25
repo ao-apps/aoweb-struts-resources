@@ -41,7 +41,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					<logic:notEmpty scope="request" name="globalPasswordSetterForm" property="packages">
 						<html:form action="/password/global-password-setter-completed">
 							<skin:lightArea>
-								<table class="noborder">
+								<table class="ao-no-border">
 									<thead>
 										<tr>
 											<bean:size scope="request" name="aoConn" property="billing.Package.map" id="packagesSize" />

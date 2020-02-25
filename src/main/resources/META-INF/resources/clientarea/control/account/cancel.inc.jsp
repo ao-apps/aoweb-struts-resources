@@ -39,7 +39,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 				</logic:present>
 				<logic:notPresent scope="request" name="permissionDenied">
 					<aoweb:scriptGroup>
-						<table class="packed">
+						<table class="ao-packed">
 							<tbody>
 								<tr>
 									<%-- TODO: cancel screen "Customer Support line (800) 519-9541 or email support@aoindustries.com" instead link to contact form --%>
@@ -60,7 +60,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 											</c:otherwise>
 										</c:choose>
 										<skin:lightArea>
-											<table class="noborder">
+											<table class="ao-no-border">
 												<thead>
 													<tr>
 														<th rowspan="2"><ao:message key="account.cancel.header.accountName" /></th>

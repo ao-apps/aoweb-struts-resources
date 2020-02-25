@@ -41,7 +41,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					<logic:notEmpty scope="request" name="linuxAccountPasswordSetterForm" property="packages">
 						<html:form action="/password/linux-account-password-setter-completed">
 							<skin:lightArea>
-								<table class="noborder">
+								<table class="ao-no-border">
 									<thead>
 										<tr>
 											<bean:size scope="request" name="aoConn" property="billing.Package.map" id="packagesSize" />

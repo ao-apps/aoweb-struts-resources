@@ -48,7 +48,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 						<logic:present scope="session" name="authenticationTarget">
 							<ao:input type="hidden" name="authenticationTarget"><ao:write type="text/url" scope="session" name="authenticationTarget" /></ao:input>
 						</logic:present>
-						<table class="noborder">
+						<table class="ao-no-border">
 							<tbody>
 								<tr>
 									<td><ao:message key="login.field.username.prompt" /></td>

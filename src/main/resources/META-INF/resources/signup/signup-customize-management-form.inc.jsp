@@ -146,7 +146,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 	<ao:input type="hidden" name="selectedStep" />
 	<skin:lightArea>
 		<ao:bundle basename="com.aoindustries.website.signup.ApplicationResources">
-			<table class="noborder">
+			<table class="ao-no-border">
 				<thead>
 					<tr><th colspan="2" class='aoLightRow'>
 						<span style="font-size:large;"><ao:write scope="request" name="packageDefinition" property="display" /></span>
