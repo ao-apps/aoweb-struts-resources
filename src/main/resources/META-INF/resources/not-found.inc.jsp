@@ -20,7 +20,8 @@ GNU Lesser General Public License for more details.
 You should have received a copy of the GNU Lesser General Public License
 along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 --%>
-<%@ page language="java" pageEncoding="UTF-8" isErrorPage="true" %>
+<%@ page language="java" pageEncoding="UTF-8" %>
+<%@ page isErrorPage="true" %>
 <% request.setAttribute(com.aoindustries.website.Constants.HTTP_SERVLET_RESPONSE_STATUS, Integer.valueOf(HttpServletResponse.SC_NOT_FOUND)); %>
 <% response.setStatus(HttpServletResponse.SC_NOT_FOUND); %>
 <%@include file="/_taglibs.inc.jsp" %>
