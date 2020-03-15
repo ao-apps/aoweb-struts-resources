@@ -21,7 +21,6 @@ You should have received a copy of the GNU Lesser General Public License
 along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 --%>
 <%@ page language="java" pageEncoding="UTF-8" %>
-<%@ page import="com.aoindustries.util.StringUtility" %>
 <%@include file="/_taglibs.inc.jsp" %>
 
 <ao:bundle basename="com.aoindustries.website.signup.ApplicationResources">

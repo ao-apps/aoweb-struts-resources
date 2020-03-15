@@ -121,7 +121,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 											<td>
 												<logic:notEqual name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.ticket.Status.CLOSED %>">
 													<bean:define scope="request" name="ticketForm" property="contactEmails" type="java.lang.String" id="contactEmails" />
-													<% int numContactEmails = com.aoindustries.util.StringUtility.splitLines(contactEmails).size(); %>
+													<% int numContactEmails = com.aoindustries.lang.Strings.splitLines(contactEmails).size(); %>
 													<html:textarea property="contactEmails" cols="40" rows="<%= Integer.toString(Math.max(numContactEmails, 1)) %>" />
 												</logic:notEqual>
 												<logic:equal name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.ticket.Status.CLOSED %>">
@@ -140,7 +140,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 											<td>
 												<logic:notEqual name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.ticket.Status.CLOSED %>">
 													<bean:define scope="request" name="ticketForm" property="contactPhoneNumbers" type="java.lang.String" id="contactPhoneNumbers" />
-													<% int numContactPhoneNumbers = com.aoindustries.util.StringUtility.splitLines(contactPhoneNumbers).size(); %>
+													<% int numContactPhoneNumbers = com.aoindustries.lang.Strings.splitLines(contactPhoneNumbers).size(); %>
 													<html:textarea property="contactPhoneNumbers" cols="40" rows="<%= Integer.toString(Math.max(numContactPhoneNumbers, 1)) %>" />
 												</logic:notEqual>
 												<logic:equal name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.ticket.Status.CLOSED %>">
