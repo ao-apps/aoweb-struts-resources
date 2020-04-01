@@ -90,7 +90,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 										<ao:choose>
 											<ao:when test="#{balance.unscaledValue < 0}">
 												<div>
-													<ao:message key="makePaymentStoredCardCompleted.newBalance.value.credit" arg="${balance.negate()}" />
+													<ao:message key="makePaymentStoredCardCompleted.newBalance.value.credit" arg0="${balance.negate()}" />
 												</div>
 											</ao:when>
 											<ao:when test="#{balance.unscaledValue > 0}">

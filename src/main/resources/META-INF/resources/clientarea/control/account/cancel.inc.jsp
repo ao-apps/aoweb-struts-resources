@@ -83,7 +83,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 																<td>
 																	<logic:notEmpty name="account" property="profile">
 																		<bean:define name="account" property="profile" id="bp" type="com.aoindustries.aoserv.client.account.Profile" />
-																		<ao:message key="account.cancel.field.organizationNameAndAccountName" arg0="${account.profile.name}" arg="${account.name}" />
+																		<ao:message key="account.cancel.field.organizationNameAndAccountName" arg0="${account.profile.name}" arg1="${account.name}" />
 																	</logic:notEmpty>
 																	<logic:empty name="account" property="profile">
 																		<ao:message key="account.cancel.field.accountName" arg0="${account.name}" />
