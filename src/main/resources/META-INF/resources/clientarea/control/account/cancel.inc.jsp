@@ -149,7 +149,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 																</td>
 																<td>
 																	<% if(account.canCancel()) { %>
-																		<ao:a href="/account/cancel-feedback.do" param.account="${account.name}">
+																		<ao:a href="/clientarea/control/account/cancel-feedback.do" param.account="${account.name}">
 																			<ao:message key="account.cancel.field.link.cancel" />
 																		</ao:a>
 																	<% } %>
