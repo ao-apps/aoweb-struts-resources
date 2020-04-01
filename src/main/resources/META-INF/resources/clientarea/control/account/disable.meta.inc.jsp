@@ -27,6 +27,6 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 	<skin:path>/clientarea/control/account/Disable.ao</skin:path>
 	<skin:title><ao:message key="account.disable.title" /></skin:title>
 	<skin:navImageAlt><ao:message key="account.disable.navImageAlt" /></skin:navImageAlt>
-	<skin:keywords><ao:message key="account.disable.keywords" /></skin:navImageAlt>
+	<skin:keywords><ao:message key="account.disable.keywords" /></skin:keywords>
 	<skin:description><ao:message key="account.disable.description" /></skin:description>
 </ao:bundle>

@@ -27,6 +27,6 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 	<skin:path>/clientarea/control/account/Profiles.ao</skin:path>
 	<skin:title><ao:message key="account.profiles.title" /></skin:title>
 	<skin:navImageAlt><ao:message key="account.profiles.navImageAlt" /></skin:navImageAlt>
-	<skin:keywords><ao:message key="account.profiles.keywords" /></skin:navImageAlt>
+	<skin:keywords><ao:message key="account.profiles.keywords" /></skin:keywords>
 	<skin:description><ao:message key="account.profiles.description" /></skin:description>
 </ao:bundle>
