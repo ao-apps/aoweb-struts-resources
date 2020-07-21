@@ -37,7 +37,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses />.
 		shortTitle="Changelog"
 		tocLevels="1"
 		datePublished="2016-10-29T22:33:10-0500"
-		dateModified="2020-03-07T06:01:29-0600"
+		dateModified="2020-07-20T20:58:54-05:00"
 	>
 		<!-- The current snapshot, unreleased version -->
 		<c:set var="version" value="@{com.aoindustries:aoweb-struts-resources:pom.version}" />
@@ -62,6 +62,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses />.
 						Now outputting HTML or XHTML based on the current response content type.
 						This should eliminate validator warnings when used as HTML.
 					</li>
+					<li>Removed support or IE 6, 7, 8, and 9 since all are end-of-life.</li>
 				</ul>
 			</changelog:release>
 		</c:if>
