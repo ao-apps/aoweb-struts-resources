@@ -184,7 +184,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses />.
 				<groupId>commons-logging</groupId><artifactId>commons-logging</artifactId><version>1.2</version>
 			</dependency>
 			<dependency>
-				<groupId>commons-validator</groupId><artifactId>commons-validator</artifactId><version>1.6</version>
+				<groupId>commons-validator</groupId><artifactId>commons-validator</artifactId><version>1.7</version>
 			</dependency>
 			<dependency>
 				<groupId>com.sun.mail</groupId><artifactId>javax.mail</artifactId><version>1.6.2</version>
