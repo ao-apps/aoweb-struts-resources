@@ -121,10 +121,10 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 									<skin:lightDarkTableRow>
 										<td style="white-space:nowrap">
 											<logic:notPresent scope="request" name="automaticCard">
-												<ao:input type="radio" id="pkey_" name="pkey" checked="true" onchange="this.form.submitButton.disabled=true;" />
+												<ao:input type="radio" id="pkey_" name="pkey" value="" checked="true" onchange="this.form.submitButton.disabled=true;" />
 											</logic:notPresent>
 											<logic:present scope="request" name="automaticCard">
-												<ao:input type="radio" id="pkey_" name="pkey" onchange="this.form.submitButton.disabled=false;" />
+												<ao:input type="radio" id="pkey_" name="pkey" value="" onchange="this.form.submitButton.disabled=false;" />
 											</logic:present>
 										</td>
 										<td style='white-space:nowrap' colspan="${fn:escapeXml(3 + (hasDescription ? 1 : 0))}"><label for="pkey_"><ao:message key="configureAutomaticBilling.noAutomaticBilling" /></label></td>
