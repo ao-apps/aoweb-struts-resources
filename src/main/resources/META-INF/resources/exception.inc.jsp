@@ -83,7 +83,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 										<th style='white-space:nowrap; text-align:left'><ao:message key="exception.throwable.header" /></th>
 										<td style="white-space:nowrap">
 											<logic:notEmpty name="javax.servlet.jsp.jspPageContext" property="errorData.throwable">
-												<pre><ao:text><ao:getStackTraces name="javax.servlet.jsp.jspPageContext" property="errorData.throwable" /></ao:text></pre>
+												<pre><ao:getStackTraces name="javax.servlet.jsp.jspPageContext" property="errorData.throwable" /></pre>
 											</logic:notEmpty>
 											<logic:empty name="javax.servlet.jsp.jspPageContext" property="errorData.throwable">
 												&#160;
@@ -100,7 +100,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 						<skin:lightArea>
 							<b><ao:message key="exception.strutsException.title" /></b>
 							<ao:hr />
-							<pre><ao:text><ao:getStackTraces scope="request" name="exception" /></ao:text></pre>
+							<pre><ao:getStackTraces scope="request" name="exception" /></pre>
 						</skin:lightArea><ao:br />
 						<ao:br />
 					</logic:present>
@@ -108,7 +108,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 						<skin:lightArea>
 							<b><ao:message key="exception.strutsException.title" /></b>
 							<ao:hr />
-							<pre><ao:text><ao:getStackTraces scope="request" name="org.apache.struts.action.EXCEPTION" /></ao:text></pre>
+							<pre><ao:getStackTraces scope="request" name="org.apache.struts.action.EXCEPTION" /></pre>
 						</skin:lightArea><ao:br />
 						<ao:br />
 					</logic:present>
@@ -117,7 +117,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 						<skin:lightArea>
 							<b><ao:message key="exception.servletException.title" /></b>
 							<ao:hr />
-							<pre><ao:text><ao:getStackTraces name="javax.servlet.jsp.jspPageContext" property="exception" /></ao:text></pre>
+							<pre><ao:getStackTraces name="javax.servlet.jsp.jspPageContext" property="exception" /></pre>
 						</skin:lightArea>
 					</logic:notEmpty>
 				</logic:equal>

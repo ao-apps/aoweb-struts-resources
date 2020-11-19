@@ -56,6 +56,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses />.
 				<configuration>
 					<usedDependencies>
 						<!-- JSP Only -->
+						<dependency>com.aoindustries:ao-encoding-taglib</dependency>
 						<dependency>com.aoindustries:ao-taglib</dependency>
 						<dependency>com.aoindustries:aoweb-struts-core</dependency>
 						<dependency>javax.servlet:jstl</dependency>
@@ -73,6 +74,9 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses />.
 	<dependencyManagement>
 		<dependencies>
 			<!-- Direct -->
+			<dependency>
+				<groupId>com.aoindustries</groupId><artifactId>ao-encoding-taglib</artifactId><version>1.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
 			<dependency>
 				<groupId>com.aoindustries</groupId><artifactId>ao-taglib</artifactId><version>6.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 			</dependency>
@@ -202,7 +206,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses />.
 				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-model</artifactId><version>1.12.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 			</dependency>
 			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-servlet</artifactId><version>1.15.1${POST-SNAPSHOT}</version>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-servlet</artifactId><version>1.16.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.struts</groupId><artifactId>struts-core</artifactId><version>1.3.10</version>
@@ -223,6 +227,9 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses />.
 
 	<dependencies>
 		<!-- Direct -->
+		<dependency>
+			<groupId>com.aoindustries</groupId><artifactId>ao-encoding-taglib</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>com.aoindustries</groupId><artifactId>ao-taglib</artifactId>
 		</dependency>
