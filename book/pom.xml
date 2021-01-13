@@ -38,6 +38,9 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses />.
 		<documented.name>AOWeb Struts Resources</documented.name>
 		<documented.shortTitle>Resources</documented.shortTitle>
 		<documented.description>Web resources for legacy Struts-based site framework with AOServ Platform control panels.</documented.description>
+		<!-- Java EE 7 required for websockets -->
+		<documented.javaee.version>7</documented.javaee.version>
+		<documented.javadoc.link.javaee>${javadoc.link.javaee.7}</documented.javadoc.link.javaee>
 
 		<description.html><![CDATA[Documentation for <a target="${javadoc.target}" href="${project.url}">${documented.name}</a> in <a target="${javadoc.target}" href="https://semanticcms.com/">SemanticCMS</a> format.]]></description.html>
 	</properties>

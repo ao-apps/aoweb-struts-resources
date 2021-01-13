@@ -32,6 +32,12 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses />.
 	<groupId>com.aoindustries</groupId><artifactId>aoweb-struts-resources</artifactId><version>3.0.0-SNAPSHOT</version>
 	<packaging>bundle</packaging>
 
+	<properties>
+		<!-- Java EE 7 required for websockets -->
+		<javaee.version>7</javaee.version>
+		<javadoc.link.javaee>${javadoc.link.javaee.7}</javadoc.link.javaee>
+	</properties>
+
 	<name>AOWeb Struts Resources</name>
 	<url>https://aoindustries.com/aoweb-struts/resources/</url>
 	<description>Web resources for legacy Struts-based site framework with AOServ Platform control panels.</description>
