@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2007-2009, 2015, 2016, 2019, 2020  AO Industries, Inc.
+Copyright (C) 2007-2009, 2015, 2016, 2019, 2020, 2021  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -45,9 +45,10 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 					<ao:hr />
 					<html:form action="/login-completed" onsubmit="return validateLoginForm(this);" style="display:inline;"><div><%-- display:inline for IE6 only --%>
 						<%-- Add the authenticationTarget to the form because the new session could expire before they login and lost their target --%>
-						<logic:present scope="session" name="authenticationTarget">
-							<ao:input type="hidden" name="authenticationTarget"><ao:write type="text/url" scope="session" name="authenticationTarget" /></ao:input>
-						</logic:present>
+						<c:set var="authenticationTarget" value="${sessionScope.authenticationTarget}" />
+						<c:if test="${!empty authenticationTarget}">
+							<ao:input type="hidden" name="authenticationTarget" value="${authenticationTarget}" />
+						</c:if>
 						<table class="ao-no-border">
 							<tbody>
 								<tr>
