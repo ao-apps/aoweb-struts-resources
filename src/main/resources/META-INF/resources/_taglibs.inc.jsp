@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2009, 2015, 2016, 2019, 2020  AO Industries, Inc.
+Copyright (C) 2009, 2015, 2016, 2019, 2020, 2021  AO Industries, Inc.
     support@aoindustries.com
     7262 Bull Pen Cir
     Mobile, AL 36695
@@ -27,9 +27,9 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 %><%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"
 %><%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"
 %><%-- AO Encoding Taglib
---%><%@ taglib prefix="encoding" uri="https://aoindustries.com/ao-encoding/taglib/"
+--%><%@ taglib prefix="encoding" uri="https://oss.aoapps.com/encoding/taglib/"
 %><%-- AO Taglib
---%><%@ taglib prefix="ao" uri="https://aoindustries.com/ao-taglib/"
+--%><%@ taglib prefix="ao" uri="https://oss.aoapps.com/taglib/"
 %><%-- AOWeb Struts Core
 --%><%@ taglib prefix="aoweb" uri="https://aoindustries.com/aoweb-struts/core/aoweb-taglib/"
 %><%@ taglib prefix="skin" uri="https://aoindustries.com/aoweb-struts/core/skin-taglib/"

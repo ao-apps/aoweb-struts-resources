@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2007-2009, 2016, 2019  AO Industries, Inc.
+Copyright (C) 2007-2009, 2016, 2019, 2021  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -25,9 +25,9 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 
 <%-- The card number string should be provided in an attribute named "cardNumber" --%>
 <ao:bundle basename="com.aoindustries.website.clientarea.accounting.ApplicationResources">
-	<%-- TODO: Move to a card-type microproject API and shared with ao-credit-cards/ao-payments implementation --%>
+	<%-- TODO: Move to a card-type microproject API and shared with ao-payments implementation --%>
 	<c:choose>
-		<%-- TODO: 3? will be unnecessary on ao-credit-cards/ao-payments 2.0 that will store card type directly --%>
+		<%-- TODO: 3? will be unnecessary on ao-payments 2.0 that will store card type directly --%>
 		<c:when test="${
 			fn:startsWith(cardNumber, '34')
 			|| fn:startsWith(cardNumber, '37')
@@ -38,7 +38,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 		<c:when test="${fn:startsWith(cardNumber, '60')}">
 			<ao:img src="discv.gif" style="border:1px solid; vertical-align:middle" width="63" height="40" alt="${ao:message('creditCardManager.image.discv.alt')}" />
 		</c:when>
-		<%-- TODO: 5? will be unnecessary on ao-credit-cards/ao-payments 2.0 that will store card type directly --%>
+		<%-- TODO: 5? will be unnecessary on ao-payments 2.0 that will store card type directly --%>
 		<c:when test="${
 			fn:startsWith(cardNumber, '51')
 			|| fn:startsWith(cardNumber, '52')
