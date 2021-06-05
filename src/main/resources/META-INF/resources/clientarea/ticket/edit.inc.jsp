@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2000-2009, 2015, 2016, 2018, 2019, 2020  AO Industries, Inc.
+Copyright (C) 2000-2009, 2015, 2016, 2018, 2019, 2020, 2021  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -121,7 +121,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 											<td>
 												<logic:notEqual name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.ticket.Status.CLOSED %>">
 													<bean:define scope="request" name="ticketForm" property="contactEmails" type="java.lang.String" id="contactEmails" />
-													<% int numContactEmails = com.aoindustries.lang.Strings.splitLines(contactEmails).size(); %>
+													<% int numContactEmails = com.aoapps.lang.Strings.splitLines(contactEmails).size(); %>
 													<html:textarea property="contactEmails" cols="40" rows="<%= Integer.toString(Math.max(numContactEmails, 1)) %>" />
 												</logic:notEqual>
 												<logic:equal name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.ticket.Status.CLOSED %>">
@@ -140,7 +140,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 											<td>
 												<logic:notEqual name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.ticket.Status.CLOSED %>">
 													<bean:define scope="request" name="ticketForm" property="contactPhoneNumbers" type="java.lang.String" id="contactPhoneNumbers" />
-													<% int numContactPhoneNumbers = com.aoindustries.lang.Strings.splitLines(contactPhoneNumbers).size(); %>
+													<% int numContactPhoneNumbers = com.aoapps.lang.Strings.splitLines(contactPhoneNumbers).size(); %>
 													<html:textarea property="contactPhoneNumbers" cols="40" rows="<%= Integer.toString(Math.max(numContactPhoneNumbers, 1)) %>" />
 												</logic:notEqual>
 												<logic:equal name="ticket" property="status.status" value="<%= com.aoindustries.aoserv.client.ticket.Status.CLOSED %>">

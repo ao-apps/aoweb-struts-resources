@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2003-2013, 2015, 2016, 2018, 2019, 2020  AO Industries, Inc.
+Copyright (C) 2003-2013, 2015, 2016, 2018, 2019, 2020, 2021  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -22,8 +22,8 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 --%>
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@ page import="com.aoindustries.aoserv.client.account.Account" %>
-<%@ page import="com.aoindustries.util.i18n.Monies" %>
-<%@ page import="com.aoindustries.util.i18n.Money" %>
+<%@ page import="com.aoapps.lang.i18n.Monies" %>
+<%@ page import="com.aoapps.lang.i18n.Money" %>
 <%@include file="/_taglibs.inc.jsp" %>
 
 <%@include file="add-parents.inc.jsp" %>
