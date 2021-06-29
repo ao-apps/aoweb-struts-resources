@@ -24,7 +24,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 <%@include file="/_taglibs.inc.jsp" %>
 
 <%-- The card number string should be provided in an attribute named "cardNumber" --%>
-<ao:bundle basename="com.aoindustries.website.clientarea.accounting.ApplicationResources">
+<ao:bundle basename="com.aoindustries.web.struts.clientarea.accounting.i18n.ApplicationResources">
 	<%-- TODO: Move to a card-type microproject API and shared with ao-payments implementation --%>
 	<c:choose>
 		<%-- TODO: 3? will be unnecessary on ao-payments 2.0 that will store card type directly --%>

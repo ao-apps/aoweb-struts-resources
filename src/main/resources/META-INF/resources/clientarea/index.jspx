@@ -30,7 +30,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 >
 	<jsp:directive.page language="java" pageEncoding="UTF-8" />
 	<jsp:directive.page session="false" />
-	<ao:bundle basename="com.aoindustries.website.clientarea.ApplicationResources">
+	<ao:bundle basename="com.aoindustries.web.struts.clientarea.i18n.ApplicationResources">
 		<!-- TODO: allowRobots based on brand.aowebStrutsNoindex settings -->
 		<core:page
 			title="${ao:message('index.title')}"

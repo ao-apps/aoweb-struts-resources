@@ -30,7 +30,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 <%@include file="cancel.meta.inc.jsp" %>
 <skin:skin>
 	<skin:content width="600">
-		<ao:bundle basename="com.aoindustries.website.clientarea.control.ApplicationResources">
+		<ao:bundle basename="com.aoindustries.web.struts.clientarea.control.i18n.ApplicationResources">
 			<skin:contentTitle><ao:message key="account.cancel.title" /></skin:contentTitle>
 			<skin:contentHorizontalDivider />
 			<skin:contentLine>

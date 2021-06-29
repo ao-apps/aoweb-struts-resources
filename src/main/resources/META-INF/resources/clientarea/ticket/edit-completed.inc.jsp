@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2000-2009, 2015, 2016, 2019, 2020  AO Industries, Inc.
+Copyright (C) 2000-2009, 2015, 2016, 2019, 2020, 2021  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -24,7 +24,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 <%@include file="/_taglibs.inc.jsp" %>
 
 <%@include file="add-parents.inc.jsp" %>
-<ao:bundle basename="com.aoindustries.website.clientarea.ticket.ApplicationResources">
+<ao:bundle basename="com.aoindustries.web.struts.clientarea.ticket.i18n.ApplicationResources">
 	<skin:path>
 		/clientarea/ticket/edit.do
 		<ao:param name="pkey" value="${ticket.pkey}" />

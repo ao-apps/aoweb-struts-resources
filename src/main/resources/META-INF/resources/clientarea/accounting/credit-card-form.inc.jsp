@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2007-2009, 2015, 2016, 2019, 2020  AO Industries, Inc.
+Copyright (C) 2007-2009, 2015, 2016, 2019, 2020, 2021  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -23,7 +23,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@include file="/_taglibs.inc.jsp" %>
 
-<ao:bundle basename="com.aoindustries.website.clientarea.accounting.ApplicationResources">
+<ao:bundle basename="com.aoindustries.web.struts.clientarea.accounting.i18n.ApplicationResources">
 	<tr>
 		<td style="white-space:nowrap;text-align:center" colspan="4"><%@include file="_credit-card-images.inc.jsp" %></td>
 	</tr>
@@ -61,7 +61,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 		<td style="white-space:nowrap"><ao:message key="creditCardForm.required.yes" /></td>
 		<th style="white-space:nowrap;text-align:left"><ao:message key="creditCardForm.expirationDate.prompt" /></th>
 		<td style="white-space:nowrap">
-			<ao:bundle basename="com.aoindustries.website.signup.ApplicationResources">
+			<ao:bundle basename="com.aoindustries.web.struts.signup.i18n.ApplicationResources">
 				<html:select property="expirationMonth">
 					<html:option value=""><ao:message key="signupBillingInformationForm.billingExpirationMonth.none.display" /></html:option>
 					<html:option value="01"><ao:message key="signupBillingInformationForm.billingExpirationMonth.jan.display" /></html:option>

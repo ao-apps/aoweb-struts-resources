@@ -23,7 +23,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@include file="/_taglibs.inc.jsp" %>
 
-<ao:bundle basename="com.aoindustries.website.ApplicationResources">
+<ao:bundle basename="com.aoindustries.web.struts.i18n.ApplicationResources">
 	<skin:path>/login.do</skin:path>
 	<skin:meta name="robots">noindex</skin:meta>
 	<skin:title><ao:message key="login.title" /></skin:title>

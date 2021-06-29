@@ -26,25 +26,25 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 <%@include file="/_taglibs.inc.jsp" %>
 <%
 	// Set siteSettings request attribute if not yet done
-	com.aoindustries.website.SiteSettings siteSettings = (com.aoindustries.website.SiteSettings)request.getAttribute(com.aoindustries.website.Constants.SITE_SETTINGS);
+	com.aoindustries.web.struts.SiteSettings siteSettings = (com.aoindustries.web.struts.SiteSettings)request.getAttribute(com.aoindustries.web.struts.Constants.SITE_SETTINGS);
 	if(siteSettings==null) {
-		siteSettings = com.aoindustries.website.SiteSettings.getInstance(getServletContext());
-		request.setAttribute(com.aoindustries.website.Constants.SITE_SETTINGS, siteSettings);
+		siteSettings = com.aoindustries.web.struts.SiteSettings.getInstance(getServletContext());
+		request.setAttribute(com.aoindustries.web.struts.Constants.SITE_SETTINGS, siteSettings);
 	}
 
 	// Set locale request attribute if not yet done
-	if(request.getAttribute(com.aoindustries.website.Constants.LOCALE)==null) {
-		java.util.Locale locale = com.aoindustries.website.LocaleAction.getEffectiveLocale(siteSettings, request, response);
-		request.setAttribute(com.aoindustries.website.Constants.LOCALE, locale);
+	if(request.getAttribute(com.aoindustries.web.struts.Constants.LOCALE)==null) {
+		java.util.Locale locale = com.aoindustries.web.struts.LocaleAction.getEffectiveLocale(siteSettings, request, response);
+		request.setAttribute(com.aoindustries.web.struts.Constants.LOCALE, locale);
 	}
 
 	// Set the skin request attribute if not yet done
-	if(request.getAttribute(com.aoindustries.website.Constants.SKIN)==null) {
-		com.aoindustries.website.Skin skin = com.aoindustries.website.SkinAction.getSkin(siteSettings, request, response);
-		request.setAttribute(com.aoindustries.website.Constants.SKIN, skin);
+	if(request.getAttribute(com.aoindustries.web.struts.Constants.SKIN)==null) {
+		com.aoindustries.web.struts.Skin skin = com.aoindustries.web.struts.SkinAction.getSkin(siteSettings, request, response);
+		request.setAttribute(com.aoindustries.web.struts.Constants.SKIN, skin);
 	}
 %>
-<ao:bundle basename="com.aoindustries.website.ApplicationResources">
+<ao:bundle basename="com.aoindustries.web.struts.i18n.ApplicationResources">
 	<skin:path>/exception.do</skin:path>
 	<skin:title><ao:message key="exception.title" /></skin:title>
 	<skin:navImageAlt><ao:message key="exception.navImageAlt" /></skin:navImageAlt>

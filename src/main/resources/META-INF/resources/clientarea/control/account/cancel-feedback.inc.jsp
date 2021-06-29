@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2003-2009, 2015, 2016, 2018, 2019, 2020  AO Industries, Inc.
+Copyright (C) 2003-2009, 2015, 2016, 2018, 2019, 2020, 2021  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -24,7 +24,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 <%@include file="/_taglibs.inc.jsp" %>
 
 <%@include file="add-parents.inc.jsp" %>
-<ao:bundle basename="com.aoindustries.website.clientarea.control.ApplicationResources">
+<ao:bundle basename="com.aoindustries.web.struts.clientarea.control.i18n.ApplicationResources">
 	<skin:path>/clientarea/control/account/cancel-feedback.do?account=${ao:encodeURIComponent(account.name)}</skin:path>
 	<logic:equal name="siteSettings" property="brand.aowebStrutsNoindex" value="true"><skin:meta name="robots">noindex</skin:meta></logic:equal>
 	<skin:title><ao:message key="account.cancel.title" /></skin:title>

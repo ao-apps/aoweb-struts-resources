@@ -1,6 +1,6 @@
 <%--
 aoweb-struts-resources - Web resources for legacy Struts-based site framework with AOServ Platform control panels.
-Copyright (C) 2007-2009, 2016, 2019  AO Industries, Inc.
+Copyright (C) 2007-2009, 2016, 2019, 2021  AO Industries, Inc.
 	support@aoindustries.com
 	7262 Bull Pen Cir
 	Mobile, AL 36695
@@ -23,7 +23,7 @@ along with aoweb-struts-resources.  If not, see <http://www.gnu.org/licenses/>.
 <%@ page language="java" pageEncoding="UTF-8" %>
 <%@include file="/_taglibs.inc.jsp" %>
 
-<ao:bundle basename="com.aoindustries.website.clientarea.accounting.ApplicationResources">
+<ao:bundle basename="com.aoindustries.web.struts.clientarea.accounting.i18n.ApplicationResources">
 	<ao:img src="/clientarea/accounting/amex.gif" style="border:1px solid" width="64" height="40" alt="${ao:message('creditCardManager.image.amex.alt')}" />
 	&#160;&#160;<ao:img src="/clientarea/accounting/discv.gif" style="border:1px solid" width="63" height="40" alt="${ao:message('creditCardManager.image.discv.alt')}" />
 	&#160;&#160;<ao:img src="/clientarea/accounting/mcard.gif" style="border:1px solid" width="64" height="40" alt="${ao:message('creditCardManager.image.mcard.alt')}" />
