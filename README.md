@@ -9,6 +9,7 @@
 [![license: LGPL v3](https://aoindustries.com/ao-badges/license-lgpl-3.0.svg)](https://www.gnu.org/licenses/lgpl-3.0)
 
 [![Build](https://github.com/aoindustries/aoweb-struts-resources/workflows/Build/badge.svg?branch=master)](https://github.com/aoindustries/aoweb-struts-resources/actions?query=workflow%3ABuild)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.aoindustries/aoweb-struts-resources/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.aoindustries/aoweb-struts-resources)
 
 Web resources for legacy Struts-based site framework with [AOServ Platform](https://aoindustries.com/aoserv/) control panels.
 
